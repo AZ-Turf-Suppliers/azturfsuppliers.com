@@ -1,0 +1,645 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contractor Wholesale Portal | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+/* ─── PAGE HERO ─── */
+/* h1 em colour override for this page */
+.page-hero h1 em { color: var(--orange); }
+
+/* ─── ADVANTAGE ─── */
+.advantage {
+  padding: 88px 0;
+  background: var(--white);
+}
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.adv-card {
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.adv-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--green-700);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+.adv-card:hover { background: var(--white); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.adv-card:hover::after { transform: scaleX(1); }
+.adv-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.adv-icon svg { width: 28px; height: 28px; color: var(--green-700); }
+.adv-card h4 {
+  font-size: 0.95rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.adv-card p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── MATERIALS ─── */
+.materials {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.mat-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s;
+}
+.mat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.mat-card-header {
+  background: var(--green-700);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.mat-card-header-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mat-card-header-icon svg { width: 24px; height: 24px; color: var(--white); }
+.mat-card-header h3 { font-size: 1rem; color: var(--white); letter-spacing: 0.04em; }
+.mat-card-body { padding: 28px; }
+.mat-card-body p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.mat-list { display: flex; flex-direction: column; gap: 8px; position: relative; }
+.mat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--dark);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+  padding-left: 28px;
+  position: relative;
+}
+.mat-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--green-700);
+  border-radius: 50%;
+}
+.mat-list li::after {
+  content: '✓';
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  font-size: 0.6rem;
+  color: var(--green-700);
+  font-weight: 700;
+}
+
+/* ─── SERVICE ZONES ─── */
+.zones {
+  padding: 88px 0;
+  position: relative;
+  overflow: hidden;
+}
+.zones::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg') center / cover no-repeat;
+  z-index: 0;
+}
+.zones::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1;
+}
+.zones-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.zones-content h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); color: var(--white); margin-bottom: 16px; }
+.zones-content > p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.zones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.zone-pill {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.zone-pill:hover { background: var(--green-700); border-color: var(--green-700); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .advantage-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .advantage-grid { grid-template-columns: 1fr; }
+  .materials-grid { grid-template-columns: 1fr; }
+  .zones-inner { grid-template-columns: 1fr; gap: 40px; }
+  .zones-grid { grid-template-columns: repeat(3, 1fr); }
+  .inline-cta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .zones-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+@media (max-width: 768px) {
+  /* ── .adv-card grouped list (mobile) ── */
+  .advantage-grid .adv-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 12px;
+    padding: 14px 18px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: none;
+    transform: none;
+    background: var(--white);
+    transition: none;
+  }
+  .advantage-grid .adv-card:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .advantage-grid .adv-card:last-child  { border-radius: 0 0 var(--radius-lg) var(--radius-lg); border-bottom: none; }
+  .advantage-grid .adv-card:hover { transform: none; box-shadow: none; }
+  .advantage-grid .adv-card::after { display: none; }
+  .advantage-grid .adv-icon { width: 36px; height: 36px; min-width: 36px; margin-bottom: 0; flex-shrink: 0; border-radius: 8px; }
+  .advantage-grid .adv-card h4 { flex: 1; margin-bottom: 0; font-size: 0.85rem; }
+  .advantage-grid .adv-card p  { width: 100%; padding-top: 5px; padding-left: 48px; font-size: 0.78rem; }
+}
+
+@media (max-width: 768px) {
+  .advantage-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    overflow: visible;
+  }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Contractor Wholesale Portal</div>
+      <h1>Your Materials. <em>On Time.</em> Every Time.</h1>
+      <p>We know that as a professional landscape contractor or pool builder, time is money. You need a reliable supplier with top-tier materials, unbeatable wholesale pricing, and blazing-fast logistics to keep your crews moving and your clients happy.</p>
+      <div class="page-hero-btns">
+        <a href="tel:6025207511" class="btn btn-primary">Call or Text to Set Up Your Account <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="/artificial-turf" class="btn btn-outline">Browse Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAT BAR ═══ -->
+<div class="stat-bar">
+  <div class="container stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">75<span>%</span></div>
+      <div class="stat-label">Of Daily Business from Contractors</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15<span>min</span></div>
+      <div class="stat-label">In-Store Pickup</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Next<span>-Day</span></div>
+      <div class="stat-label">Guaranteed Job Site Delivery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15<span>yr</span></div>
+      <div class="stat-label">Manufacturer Warranty</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ THE AZ TURF ADVANTAGE ═══ -->
+<section class="advantage">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">Why Contractors Choose Us</div>
+      <h2>The AZ Turf Advantage</h2>
+      <p>Over 75% of our daily business comes from professional contractors. We do away with the corporate red tape and long wait times of big-box suppliers — when you partner with us, you deal directly with the owners.</p>
+    </div>
+    <div class="advantage-grid">
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>15-Minute In-Store Pickup</h4>
+        <p>Don't waste time sitting at the yard. Send your guys to our Queen Creek location and we'll get your trailer loaded with turf and accessories in 15 minutes or less.</p>
+      </div>
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h4>Guaranteed Next-Day Delivery</h4>
+        <p>Need materials on-site fast? We offer guaranteed next-day delivery directly to your job site for turf, pavers, and stone. No delays, no excuses.</p>
+      </div>
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h4>Direct Text-to-Order</h4>
+        <p>Skip the phone queues. Text us the job address and your material list — we'll have the order prepped, invoiced, and ready to go immediately.</p>
+      </div>
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h4>Exclusive Wholesale Pricing</h4>
+        <p>We protect your profit margins with aggressive wholesale pricing for our contractor network. Find a better price locally? Bring the invoice — we'll match it.</p>
+      </div>
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h4>Fully Stocked Inventory</h4>
+        <p>We keep our yard heavily stocked with our core turf lines and essential accessories so you're never left waiting on backorders mid-job.</p>
+      </div>
+      <div class="adv-card" data-reveal>
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h4>HOA Spec Sheets on Demand</h4>
+        <p>Need to submit materials to an HOA? Downloadable PDF spec sheets are available for every turf line — ready to drop into any bid package.</p>
+      </div>
+    </div>
+    <div class="inline-cta">
+      <div>
+        <strong>Ready to Set Up Your Wholesale Account?</strong>
+        <p>Call or text (602) 520-7511 — we'll get you set up and ordering same day.</p>
+      </div>
+      <a href="tel:6025207511" class="btn btn-primary" style="white-space:nowrap;">Call (602) 520-7511</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATERIALS ═══ -->
+<section class="materials">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <div class="section-label centered">Pro-Grade Materials</div>
+      <h2>Everything You Need for Any Hardscape Job</h2>
+      <p>We carry everything required to complete a full backyard transformation. Pricing shown on the website is standard retail — contractors, call or text for exclusive wholesale rates.</p>
+    </div>
+    <div class="materials-grid">
+
+      <div class="mat-card" data-reveal>
+        <div class="mat-card-header">
+          <div class="mat-card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Premium Artificial Turf</h3>
+        </div>
+        <div class="mat-card-body">
+          <p>8 specialized products across 4 color profiles — Natural, Winter, Spring, and Bermuda — plus professional-grade putting greens. All sold in 15-foot wide rolls, designed for Arizona heat with UV stabilization and CoolYarn technology.</p>
+          <ul class="mat-list">
+            <li>Face weights up to 107 oz</li>
+            <li>Guaranteed lead-free &amp; pet-friendly</li>
+            <li>15-year manufacturer warranty on all products</li>
+            <li>HOA-ready PDF spec sheets available for every line</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mat-card" data-reveal>
+        <div class="mat-card-header">
+          <div class="mat-card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+          </div>
+          <h3>Pavers &amp; Natural Stone</h3>
+        </div>
+        <div class="mat-card-body">
+          <p>Authorized dealer for Phoenix Paver, Ackerstone, and Belgard — the top paver brands in the Southwest. We also supply premium Travertine and Limestone via MSI, perfect for luxury pool decks and patios.</p>
+          <ul class="mat-list">
+            <li>Semi-truck drop-ship available on 75% of paver orders</li>
+            <li>Direct to job site from manufacturer</li>
+            <li>Travertine &amp; Limestone in multiple colors and sizes</li>
+            <li>Ideal for pool decks, patios, and driveways</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mat-card" data-reveal>
+        <div class="mat-card-header">
+          <div class="mat-card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Luminex Landscape Lighting</h3>
+        </div>
+        <div class="mat-card-body">
+          <p>Boost job profitability by adding high-margin, professional-grade Luminex lighting to your bids. A fast upsell that clients love — and one that differentiates your installs from the competition.</p>
+          <ul class="mat-list">
+            <li>Path lights, spotlights, and heavy-duty transformers</li>
+            <li>Professional wire lighting solutions</li>
+            <li>High-margin addition to any hardscape bid</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mat-card" data-reveal>
+        <div class="mat-card-header">
+          <div class="mat-card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Installation Accessories</h3>
+        </div>
+        <div class="mat-card-body">
+          <p>Never leave the yard short-handed. We stock every hardware item needed for a flawless professional turf installation — all in one stop.</p>
+          <ul class="mat-list">
+            <li>Standard &amp; Putting Green silica sand (50 lb bags) / Camo Fill</li>
+            <li>8-Year &amp; 15-Year weed barrier fabric rolls</li>
+            <li>Seam tape (100' rolls) &amp; premium turf glue (gallons &amp; tubes)</li>
+            <li>3.5" and 5" nails plus finishing nails</li>
+            <li>Aluminum golf cups and flag sticks</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE ZONES ═══ -->
+<section class="zones">
+  <div class="container">
+    <div class="zones-inner">
+      <div class="zones-content">
+        <div class="section-label inverted">Service Area</div>
+        <h2>Serving Contractors Across the Phoenix Metro</h2>
+        <p>Conveniently located in Queen Creek, we serve landscape professionals, pool builders, and general contractors throughout the entire Phoenix Metropolitan area. Our primary delivery and service zones include:</p>
+        <div class="zones-grid">
+          <div class="zone-pill">Queen Creek</div>
+          <div class="zone-pill">San Tan Valley</div>
+          <div class="zone-pill">Gilbert</div>
+          <div class="zone-pill">Mesa</div>
+          <div class="zone-pill">Chandler</div>
+          <div class="zone-pill">Apache Junction</div>
+          <div class="zone-pill">Scottsdale</div>
+          <div class="zone-pill">Tempe</div>
+          <div class="zone-pill">Phoenix</div>
+        </div>
+      </div>
+      <div class="showroom-card">
+        <h3>Visit Our Showroom</h3>
+        <div class="showroom-detail">
+          <div class="showroom-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="showroom-detail-text">
+            <strong>Address</strong>
+            <span>18607 E San Tan Blvd, Queen Creek, AZ 85142</span>
+          </div>
+        </div>
+        <div class="showroom-detail">
+          <div class="showroom-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="showroom-detail-text">
+            <strong>Contractor Line</strong>
+            <span>(602) 520-7511</span>
+          </div>
+        </div>
+        <a href="tel:6025207511" class="btn btn-primary" style="width:100%; justify-content:center;">Call or Text to Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label centered">Words From Our Clients</div>
+      <h2>What Contractors Say</h2>
+    </div>
+    <div class="reviews-summary">
+      <div class="reviews-summary-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="reviews-summary-text">5.0 <span>· Google Reviews</span></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">I&#39;ve worked with both Kyle and Pistol and they are quick and priced well! The turf is also high quality and our customers have loved it!</p>
+        <div class="review-meta">
+          <div class="review-avatar">KJ</div>
+          <div>
+            <div class="review-name">Kevin J.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Great selection to choose from and ability to get what we need when it comes to hardscape. Customer service is superior.</p>
+        <div class="review-meta">
+          <div class="review-avatar">TK</div>
+          <div>
+            <div class="review-name">Tanner K.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">AZ Turf Suppliers is great to work with. They are fast and responsive all while providing high quality material.</p>
+        <div class="review-meta">
+          <div class="review-avatar">PE</div>
+          <div>
+            <div class="review-name">Peyton E.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Az turf suppliers is most definitely the number one resource for everything pavers and turf. Always a pleasure doing business!</p>
+        <div class="review-meta">
+          <div class="review-avatar">DJ</div>
+          <div>
+            <div class="review-name">David J.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Fast delivery, great prices and customer service. Have been a repeat customer and have never been disappointed!</p>
+        <div class="review-meta">
+          <div class="review-avatar">NL</div>
+          <div>
+            <div class="review-name">Nick L.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">BEST company to work with — SO helpful, very knowledgeable and such high quality turf! Don&#39;t waste your time looking anywhere else.</p>
+        <div class="review-meta">
+          <div class="review-avatar">HN</div>
+          <div>
+            <div class="review-name">Heidi N.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a href="https://g.page/r/azturfsuppliers/review" target="_blank" rel="noopener">
+        See All Reviews on Google
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Get Started Today</div>
+    <h2>Set Up Your Wholesale Account Today</h2>
+    <p>Stop by our Queen Creek showroom to grab a free contractor sample box, check out our paver displays, and meet the AZ Turf team. Let us prove why we're the fastest-growing landscape supplier in the East Valley.</p>
+    <div class="cta-btns">
+      <a href="tel:6025207511" class="btn btn-primary">Call or Text (602) 520-7511 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="/artificial-turf" class="btn btn-outline">Browse Products</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// scroll reveal handled by Layout.astro
+
+// ─── REVIEW CAROUSEL DOTS (mobile) ───
+(function() {
+  function initCarousels() {
+    document.querySelectorAll('.reviews-grid').forEach(function(grid) {
+      var cards = grid.querySelectorAll('.review-card');
+      if (cards.length < 2) return;
+
+      // Only show dots on mobile
+      if (window.innerWidth > 768) return;
+
+      // Build dots container
+      var dotsWrap = document.createElement('div');
+      dotsWrap.className = 'reviews-dots';
+      cards.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Review ' + (i + 1));
+        dot.addEventListener('click', function() {
+          cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsWrap.appendChild(dot);
+      });
+      grid.parentNode.insertBefore(dotsWrap, grid.nextSibling);
+
+      // Update active dot on scroll
+      var dots = dotsWrap.querySelectorAll('.reviews-dot');
+      var ticking = false;
+      grid.addEventListener('scroll', function() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+          var scrollLeft = grid.scrollLeft;
+          var cardWidth = cards[0].offsetWidth + 16; // gap
+          var idx = Math.round(scrollLeft / cardWidth);
+          idx = Math.max(0, Math.min(idx, dots.length - 1));
+          dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === idx);
+          });
+          ticking = false;
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousels);
+  } else {
+    initCarousels();
+  }
+})();
+
+</script>
+</Layout>

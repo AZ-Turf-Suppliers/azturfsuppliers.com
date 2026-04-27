@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════
+   AZ Turf Suppliers — Shared Footer Styles
+   Import on every page via:
+   <link rel="stylesheet" href="footer.css">
+═══════════════════════════════════════════ */
+
+footer#footer {
+  background: var(--dark);
+  padding: 64px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 260px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.footer-brand .logo img {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.footer-brand .logo:hover img {
+  opacity: 1;
+}
+
+.footer-col h5 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  padding: 4px 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: color 0.2s, padding-left 0.25s var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1));
+}
+
+.footer-col a:hover {
+  color: var(--green-700);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── VISIT US COLUMN ─── */
+.footer-col-visit p {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+
+.footer-address {
+  margin-top: 4px;
+}
+
+.footer-hours {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 10px;
+}
+
+.footer-phone {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white) !important;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  padding: 10px 0 6px !important;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 4px;
+  transition: color 0.2s !important;
+}
+
+.footer-phone:hover { color: var(--green-700) !important; }
+
+.footer-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--green-700) !important;
+  padding: 0 !important;
+  transition: gap 0.2s, color 0.2s !important;
+}
+
+.footer-directions:hover { color: var(--white) !important; gap: 8px; }
+
+@media (max-width: 1200px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-col-visit { grid-column: span 1; }
+}

@@ -1,0 +1,120 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/') return pathname === '/';
+  return pathname === path || pathname.startsWith(path + '/');
+};
+---
+
+<header id="header">
+  <div class="container nav-inner">
+    <a href="/" class="logo">
+      <img src="https://static.showit.co/400/hjy1B6_ZAfPslKNpZKFkyA/184713/ats_logo.png" alt="AZ Turf Suppliers">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
+        <li><a href="/about" class={isActive('/about') ? 'active' : ''}>About</a></li>
+        <li class="has-dropdown">
+          <a href="/products" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
+          <div class="dropdown dropdown-wide">
+            <div class="dropdown-inner">
+              <div class="dropdown-col">
+                <span class="dropdown-label">Products</span>
+                <a href="/artificial-turf">Artificial Turf</a>
+                <a href="/pavers">Pavers</a>
+                <a href="/natural-stone">Natural Stone</a>
+                <a href="/landscape-lighting">Landscape Lighting</a>
+                <a href="/accessories">Accessories</a>
+              </div>
+              <div class="dropdown-col">
+                <span class="dropdown-label">Who We Serve</span>
+                <a href="/contractors">Contractors</a>
+                <a href="/homeowners">DIY Homeowners</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/resources" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/installation-guide') || isActive('/blog') || isActive('/project-spotlights') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
+          <div class="dropdown">
+            <div class="dropdown-inner">
+              <a href="/turf-calculator">Turf Calculator</a>
+              <a href="/installation-guide">DIY Installation Guides</a>
+              <a href="/blog">Blog</a>
+              <a href="/project-spotlights">Project Spotlights</a>
+              <hr>
+              <a href="/warranty">Warranty</a>
+              <a href="/lead-free">Lead Free Guarantee</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="/locations" class={isActive('/locations') ? 'active' : ''}>Locations</a>
+          <div class="dropdown">
+            <div class="dropdown-inner">
+              <a href="/queen-creek">Queen Creek</a>
+              <a href="/san-tan-valley">San Tan Valley</a>
+              <a href="/gilbert">Gilbert</a>
+              <a href="/mesa">Mesa</a>
+              <a href="/chandler">Chandler</a>
+              <a href="/apache-junction">Apache Junction</a>
+              <a href="/scottsdale">Scottsdale</a>
+              <a href="/tempe">Tempe</a>
+              <a href="/phoenix">Phoenix</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/gallery" class={isActive('/gallery') ? 'active' : ''}>Gallery</a></li>
+        <li><a href="/contact" class={isActive('/contact') ? 'active' : ''}>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:4807393854" class="nav-phone">480-739-3854</a>
+      <a href="/contact" class="btn btn-primary" style="padding:10px 24px;font-size:0.85rem;">Get A Quote</a>
+    </div>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <div class="mobile-section-label">Products</div>
+    <a href="/artificial-turf">Artificial Turf</a>
+    <a href="/pavers">Pavers</a>
+    <a href="/natural-stone">Natural Stone</a>
+    <a href="/landscape-lighting">Landscape Lighting</a>
+    <a href="/accessories">Accessories</a>
+    <div class="mobile-section-label">Who We Serve</div>
+    <a href="/contractors">Contractors</a>
+    <a href="/homeowners">DIY Homeowners</a>
+    <div class="mobile-section-label">Resources</div>
+    <a href="/turf-calculator">Turf Calculator</a>
+    <a href="/installation-guide">DIY Installation Guides</a>
+    <a href="/blog">Blog</a>
+    <div class="mobile-section-label">Company</div>
+    <a href="/about">About</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/locations">Service Area</a>
+    <a href="/contact">Contact</a>
+    <a href="/contact" class="mobile-cta">Get A Free Quote</a>
+  </div>
+</header>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  document.getElementById('mobile-toggle')?.addEventListener('click', function () {
+    const menu = document.getElementById('mobile-menu');
+    if (!menu) return;
+    const open = menu.classList.toggle('open');
+    this.setAttribute('aria-expanded', String(open));
+    this.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  });
+</script>

@@ -1,0 +1,567 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Landscape Lighting | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+/* ─── INTRO ─── */
+.lighting-intro {
+  padding: 88px 0;
+  background: var(--white);
+}
+.lighting-intro-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.lighting-intro-content h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.lighting-intro-content > p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.lighting-intro-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0,0,0,0.15);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lighting-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── WHY WIRE ─── */
+.why-wire {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.why-wire-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.why-wire-header h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  margin-bottom: 12px;
+}
+.why-wire-header p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.why-wire-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.why-wire-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.why-wire-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.why-wire-card svg {
+  width: 28px;
+  height: 28px;
+  color: var(--green-700);
+  margin-bottom: 18px;
+}
+.why-wire-card h4 {
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.why-wire-card p {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── PRODUCT CATEGORIES ─── */
+.lighting-products {
+  padding: 88px 0;
+  background: var(--white);
+}
+.lighting-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.lighting-cat {
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lighting-cat:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.lighting-cat-img {
+  aspect-ratio: 1;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0,0,0,0.15);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lighting-cat-img img { width: 100%; height: 100%; object-fit: cover; }
+.lighting-cat-content {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lighting-cat-content h3 {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.lighting-cat-content p {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 20px;
+}
+.lighting-cat-content .btn { align-self: flex-start; }
+
+/* Full-width category */
+.lighting-cat.full-width {
+  grid-template-columns: 1fr 2fr;
+}
+
+/* ─── SAMPLE PRODUCTS ─── */
+.sample-products { padding: 88px 0; background: var(--gray-100); }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.product-placeholder { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+.product-placeholder:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.product-placeholder-img { aspect-ratio: 1; background: var(--gray-100); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.12); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.product-placeholder-body { padding: 20px 24px; }
+.product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
+.product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 14px; }
+
+/* ─── DARK SECTION - TRANSFORMERS ─── */
+.lighting-transformers {
+  padding: 88px 0;
+  background: var(--dark);
+}
+.transformers-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.transformers-content h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.transformers-content > p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.transformers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.transformers-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.transformers-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--green-700);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.transformers-item p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.transformers-item p strong {
+  color: var(--white);
+  font-weight: 700;
+}
+.transformers-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.15);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.transformers-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── CONTRACTOR CALLOUT ─── */
+.contractor-callout {
+  padding: 56px 0;
+  background: var(--green-700);
+}
+.contractor-callout-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.contractor-callout-text h3 {
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 6px;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.contractor-callout-text p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .lighting-cat-grid { grid-template-columns: 1fr; }
+  .lighting-cat.full-width { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .lighting-intro-inner { grid-template-columns: 1fr; gap: 32px; }
+  .why-wire-grid { grid-template-columns: 1fr; }
+  .lighting-cat { grid-template-columns: 1fr; }
+  .lighting-cat.full-width { grid-template-columns: 1fr; }
+  .transformers-inner { grid-template-columns: 1fr; gap: 32px; }
+  .contractor-callout-inner { flex-direction: column; text-align: center; }
+  .lighting-intro { padding: 56px 0; }
+  .why-wire { padding: 56px 0; }
+  .lighting-products { padding: 56px 0; }
+  .lighting-transformers { padding: 56px 0; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .sample-products { padding: 56px 0; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Luminex Lighting</div>
+      <h1>Landscape <em>Lighting</em></h1>
+      <p>Professional-grade, low-voltage landscape lighting built for Arizona. In stock and ready for pickup or next-day delivery.</p>
+      <div class="page-hero-btns">
+        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAT BAR ═══ -->
+<div class="stat-bar">
+  <div class="container stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">Low<span>-V</span></div>
+      <div class="stat-label">Safe &amp; Energy Efficient</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">LED</div>
+      <div class="stat-label">Long-Life Technology</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">75<span>–600W</span></div>
+      <div class="stat-label">Transformer Range</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Next<span>-Day</span></div>
+      <div class="stat-label">Delivery Available</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INTRO ═══ -->
+<section class="lighting-intro">
+  <div class="container">
+    <div class="lighting-intro-inner">
+      <div class="lighting-intro-content" data-reveal>
+        <div class="section-label">Professional Landscape Lighting</div>
+        <h2>Illuminate Your Outdoor Space with Luminex</h2>
+        <p>Cheap solar fixtures fade, flicker, and fail. Luminex is a professional-grade, low-voltage lighting line trusted by Arizona landscape contractors and homeowners. We stock everything you need to light up pathways, hardscapes, trees, and architectural features.</p>
+        <p>Hardwired low-voltage systems deliver consistent illumination night after night — no batteries, no disappointments. Heavy-duty aluminum and brass construction holds up against Arizona's extreme heat and UV exposure.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+          <a href="/contact" class="btn btn-primary">Get a Lighting Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
+        </div>
+      </div>
+      <div class="lighting-intro-img" data-reveal>Lighting Product Photo</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY WIRE ═══ -->
+<section class="why-wire">
+  <div class="container">
+    <div class="why-wire-header">
+      <div class="section-label centered">Why Go Hardwired</div>
+      <h2>Why Wire Lighting — Not Solar</h2>
+      <p>Solar looks cheap because it is. Here's why professional landscape contractors always specify low-voltage hardwired systems.</p>
+    </div>
+    <div class="why-wire-grid">
+      <div class="why-wire-card" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        <h4>Built for Arizona</h4>
+        <p>Heavy-duty aluminum and brass construction engineered to handle extreme heat and relentless UV exposure without degradation.</p>
+      </div>
+      <div class="why-wire-card" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <h4>Energy-Efficient LED</h4>
+        <p>Brilliant light output at a fraction of the operating cost. LED technology means longer bulb life and lower energy bills.</p>
+      </div>
+      <div class="why-wire-card" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h4>Fully Controllable</h4>
+        <p>Pair with digital timers, mechanical timers, photocells, or magnetic dimmers for complete automation. Set it and forget it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT CATEGORIES ═══ -->
+<section class="lighting-products">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <div class="section-label centered">Our Collection</div>
+      <h2>Luminex Lighting Products</h2>
+    </div>
+    <div class="lighting-cat-grid">
+
+      <div class="lighting-cat" data-reveal>
+        <div class="lighting-cat-img">Path Light Photo</div>
+        <div class="lighting-cat-content">
+          <h3>Path &amp; Area Lights</h3>
+          <p>Illuminate walkways, garden beds, and turf borders with clean, ground-level light. Available in aluminum and brass with multiple finish options.</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="lighting-cat" data-reveal>
+        <div class="lighting-cat-img">Spotlight Photo</div>
+        <div class="lighting-cat-content">
+          <h3>Spotlights &amp; Flood Lights</h3>
+          <p>Highlight trees, walls, and architectural features. Choose from aluminum and brass spotlights, or go big with high-output flood lights for large areas.</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="lighting-cat" data-reveal>
+        <div class="lighting-cat-img">Hardscape Light Photo</div>
+        <div class="lighting-cat-content">
+          <h3>Hardscape &amp; Well Lights</h3>
+          <p>Integrate lighting directly into paver walls, steps, fire pits, and pool decks. Available in multiple sizes with rotatable and replaceable module options.</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="lighting-cat" data-reveal>
+        <div class="lighting-cat-img">Accessories Photo</div>
+        <div class="lighting-cat-content">
+          <h3>Connectors, Cable &amp; Accessories</h3>
+          <p>Direct burial cable, waterproof connectors, splice kits, and mounting hardware. Everything you need for a clean, reliable installation.</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SAMPLE PRODUCTS ═══ -->
+<section class="sample-products">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <div class="section-label centered">Our Inventory</div>
+      <h2>Sample Products</h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 1</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 2</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 3</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 4</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 5</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+      <div class="product-placeholder" data-reveal>
+        <div class="product-placeholder-img">Product Photo</div>
+        <div class="product-placeholder-body">
+          <h4>Product 6</h4>
+          <p>Details coming soon</p>
+          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRANSFORMERS ─── -->
+<section class="lighting-transformers">
+  <div class="container">
+    <div class="transformers-inner">
+      <div data-reveal>
+        <div class="section-label inverted">Power &amp; Control</div>
+        <div class="transformers-content">
+          <h2>Transformers &amp; Installation</h2>
+          <p>Power your entire lighting system with confidence. We carry Luminex transformers from 75W to 600W — enough to run anything from a simple path layout to a full commercial installation.</p>
+          <div class="transformers-list">
+            <div class="transformers-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <p><strong>Built-in timers</strong> — Mechanical and digital options for hands-free scheduling</p>
+            </div>
+            <div class="transformers-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <p><strong>Photocell compatible</strong> — Auto on at dusk, off at dawn</p>
+            </div>
+            <div class="transformers-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <p><strong>Magnetic dimmers</strong> — Dial in the exact brightness for any zone</p>
+            </div>
+            <div class="transformers-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <p><strong>Multi-tap outputs</strong> — Run balanced voltage across long wire runs</p>
+            </div>
+          </div>
+          <p>Not sure what size transformer you need? Our team will help you calculate your wattage and build your exact material list — no guesswork.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+            <a href="/contact" class="btn btn-primary">Get Help Planning <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="transformers-img" data-reveal>Transformer Product Photo</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTRACTOR CALLOUT ═══ -->
+<section class="contractor-callout">
+  <div class="container">
+    <div class="contractor-callout-inner">
+      <div class="contractor-callout-text">
+        <h3>Contractor Pricing Available</h3>
+        <p>We offer exclusive wholesale pricing tiers for landscape contractors. Call or text to set up your account.</p>
+      </div>
+      <a href="/contractors" class="btn btn-dark">Learn About Contractor Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">Visit Our Showroom</div>
+    <h2>See Our Full Lighting Collection In Person</h2>
+    <p>Stop by our Queen Creek showroom to see every fixture, test light output, and get expert help planning your installation.</p>
+    <div class="cta-btns">
+      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/locations" class="btn btn-outline">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+</script>
+</Layout>

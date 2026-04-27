@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/header.css';
+import '../styles/footer.css';
+import '../styles/shared.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Premium artificial turf and landscaping supplies serving Queen Creek and the East Valley.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="icon" type="image/png" href="https://static.showit.co/400/hjy1B6_ZAfPslKNpZKFkyA/184713/ats_logo.png">
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }),
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

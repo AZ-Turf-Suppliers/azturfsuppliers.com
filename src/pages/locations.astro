@@ -1,0 +1,444 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Service Area | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+/* ─── SHOWROOM SECTION ─── */
+.loc-showroom {
+  padding: 88px 0;
+  background: var(--white);
+}
+.loc-showroom-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.loc-showroom-content h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.loc-showroom-content > p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.loc-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.loc-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.loc-detail-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.loc-detail-icon svg { width: 26px; height: 26px; color: var(--green-700); }
+.loc-detail-text strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+.loc-detail-text span {
+  font-size: 0.9rem;
+  color: var(--dark);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.loc-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--gray-200);
+  box-shadow: var(--shadow-md);
+}
+.loc-map iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* ─── SERVICE ZONES ─── */
+.loc-zones {
+  padding: 88px 0;
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.loc-zones::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.loc-zones-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+.loc-zones-header h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.loc-zones-header p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.loc-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+}
+.loc-zone-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.loc-zone-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.2);
+}
+.loc-zone-icon {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.loc-zone-icon svg { width: 28px; height: 28px; color: var(--green-700); }
+.loc-zone-card h4 {
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+.loc-zone-card p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+/* ─── DELIVERY INFO ─── */
+.loc-delivery {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.loc-delivery-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.loc-delivery-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.04);
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.loc-delivery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.loc-delivery-icon {
+  width: 56px;
+  height: 56px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.loc-delivery-icon svg { width: 30px; height: 30px; color: var(--green-700); }
+.loc-delivery-card h4 {
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.loc-delivery-card p {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .loc-showroom-inner { grid-template-columns: 1fr; gap: 32px; }
+  .loc-map { aspect-ratio: 16/9; }
+  .loc-zones-grid { grid-template-columns: 1fr 1fr; }
+  .loc-delivery-inner { grid-template-columns: 1fr; }
+  .loc-showroom { padding: 56px 0; }
+  .loc-zones { padding: 56px 0; }
+  .loc-delivery { padding: 56px 0; }
+}
+@media (max-width: 480px) {
+  .loc-zones-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Where We Deliver</div>
+      <h1>Serving the <em>East Valley</em> & Beyond</h1>
+      <p>Based in Queen Creek with next-day delivery throughout the Phoenix Metro. Stop by our showroom or let us bring it to you.</p>
+      <div class="page-hero-btns">
+        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAT BAR ═══ -->
+<div class="stat-bar">
+  <div class="container stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">Queen Creek</div>
+      <div class="stat-label">Showroom Location</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Next-Day</div>
+      <div class="stat-label">Delivery Guarantee</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15 Min</div>
+      <div class="stat-label">In-Store Pickup</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Nationwide</div>
+      <div class="stat-label">Shipping Available</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SHOWROOM ═══ -->
+<section class="loc-showroom">
+  <div class="container">
+    <div class="loc-showroom-inner">
+      <div class="loc-showroom-content" data-reveal>
+        <div class="section-label">Our Showroom</div>
+        <h2>Visit Us in Queen Creek</h2>
+        <p>Whether you need a quick restock or you're planning a full backyard overhaul, our showroom has the inventory and expertise to help. Stop by to feel our turf quality in person, grab free samples, and get an immediate quote.</p>
+        <div class="loc-details">
+          <div class="loc-detail">
+            <div class="loc-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="loc-detail-text">
+              <strong>Address</strong>
+              <span>18607 E San Tan Blvd, Queen Creek, AZ 85142</span>
+            </div>
+          </div>
+          <div class="loc-detail">
+            <div class="loc-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.14.9.35 1.87.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45c.94.35 1.91.56 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="loc-detail-text">
+              <strong>Phone / Text</strong>
+              <span>480-739-3854</span>
+            </div>
+          </div>
+          <div class="loc-detail">
+            <div class="loc-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="loc-detail-text">
+              <strong>Hours</strong>
+              <span>Mon–Fri: 7 AM – 3 PM · Sat–Sun: Closed</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="tel:4807393854" class="btn btn-primary">Call or Text Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://maps.google.com/?q=18607+E+San+Tan+Blvd+Queen+Creek+AZ" target="_blank" rel="noopener" class="btn btn-dark">Get Directions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+        </div>
+      </div>
+      <div class="loc-map" data-reveal>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.5!2d-111.6200!3d33.2050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s18607+E+San+Tan+Blvd%2C+Queen+Creek%2C+AZ!5e0!3m2!1sen!2sus!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="AZ Turf Suppliers Showroom Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE ZONES ═══ -->
+<section class="loc-zones">
+  <div class="container">
+    <div class="loc-zones-header">
+      <div class="section-label centered inverted">Delivery & Service</div>
+      <h2>We Serve the Entire Phoenix Metro</h2>
+      <p>Next-day delivery available throughout the Valley. Nationwide shipping for orders outside our local delivery zone.</p>
+    </div>
+    <div class="loc-zones-grid">
+      <a href="/queen-creek" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Queen Creek</h4>
+          <p>Showroom location — same-day pickup</p>
+        </div>
+      </a>
+      <a href="/san-tan-valley" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>San Tan Valley</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/gilbert" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Gilbert</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/mesa" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Mesa</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/chandler" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Chandler</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/apache-junction" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Apache Junction</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/scottsdale" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Scottsdale</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/tempe" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Tempe</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+      <a href="/phoenix" class="loc-zone-card" data-reveal>
+        <div class="loc-zone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Phoenix</h4>
+          <p>Next-day delivery available</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DELIVERY OPTIONS ═══ -->
+<section class="loc-delivery">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <div class="section-label centered">How It Works</div>
+      <h2>Getting Your Materials Is Easy</h2>
+    </div>
+    <div class="loc-delivery-inner">
+      <div class="loc-delivery-card" data-reveal>
+        <div class="loc-delivery-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>In-Store Pickup</h4>
+        <p>Visit our Queen Creek showroom. We'll have your order pulled and ready to load in 15 minutes.</p>
+      </div>
+      <div class="loc-delivery-card" data-reveal>
+        <div class="loc-delivery-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h4>Next-Day Delivery</h4>
+        <p>Guaranteed next-day delivery directly to your home or job site anywhere in the Phoenix Metro.</p>
+      </div>
+      <div class="loc-delivery-card" data-reveal>
+        <div class="loc-delivery-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h4>Nationwide Shipping</h4>
+        <p>Outside Arizona? We ship nationwide. Contact us for a freight quote on your order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">Get Started</div>
+    <h2>Ready to Build Your Dream Yard?</h2>
+    <p>Call or text us at 480-739-3854 to get started. Same-day response, next-day delivery, and a price match guarantee — every time.</p>
+    <div class="cta-btns">
+      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/artificial-turf" class="btn btn-outline">Browse Products</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+</script>
+</Layout>

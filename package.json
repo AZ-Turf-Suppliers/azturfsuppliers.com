@@ -1,0 +1,14 @@
+{
+  "name": "az-turf-suppliers",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^11.2.0",
+    "astro": "^4.16.0"
+  }
+}

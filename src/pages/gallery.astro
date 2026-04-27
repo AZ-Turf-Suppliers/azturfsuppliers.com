@@ -1,0 +1,401 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Project Gallery | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+/* ─── GALLERY SECTION ─── */
+.gallery-section {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+
+/* Filter tabs */
+.gallery-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.gallery-filter {
+  padding: 10px 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--gray-200);
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-filter:hover {
+  border-color: var(--gray-400);
+  color: var(--dark);
+}
+.gallery-filter.active {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+}
+
+/* Masonry grid */
+.gallery-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+.gallery-item-overlay h4 {
+  font-size: 0.9rem;
+  color: var(--white);
+  margin-bottom: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.gallery-item-overlay span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Placeholder images (gradient bg until real photos added) */
+.gallery-placeholder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.25);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.gallery-placeholder.tall { height: 380px; }
+.gallery-placeholder.med { height: 280px; }
+.gallery-placeholder.short { height: 220px; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.lightbox-close svg { width: 20px; height: 20px; color: var(--white); }
+.lightbox-caption {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.lightbox-caption h4 {
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+.lightbox-caption span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Empty state */
+.gallery-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--gray-400);
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-grid { columns: 2; column-gap: 10px; }
+  .gallery-item { margin-bottom: 10px; }
+  .gallery-section { padding: 56px 0; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { columns: 1; }
+  .gallery-filters { gap: 6px; }
+  .gallery-filter { padding: 8px 16px; font-size: 0.72rem; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Our Work</div>
+      <h1>Project <em>Gallery</em></h1>
+      <p>Real projects, real results. See how AZ Turf Suppliers products transform outdoor spaces across the East Valley.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAT BAR ═══ -->
+<div class="stat-bar">
+  <div class="container stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">500<span>+</span></div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5.0</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15<span>yr</span></div>
+      <div class="stat-label">Warranty</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery-section">
+  <div class="container">
+
+    <!-- Filters -->
+    <div class="gallery-filters">
+      <button class="gallery-filter active" data-filter="all">All Projects</button>
+      <button class="gallery-filter" data-filter="backyard">Backyards</button>
+      <button class="gallery-filter" data-filter="frontyard">Front Yards</button>
+      <button class="gallery-filter" data-filter="pool">Pool Areas</button>
+      <button class="gallery-filter" data-filter="pet">Pet Areas</button>
+      <button class="gallery-filter" data-filter="putting">Putting Greens</button>
+      <button class="gallery-filter" data-filter="commercial">Commercial</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- ROW 1 -->
+      <div class="gallery-item" data-category="backyard" data-reveal>
+        <div class="gallery-placeholder tall" style="background:#239B2B;">Backyard Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Full Backyard Transformation</h4>
+          <span>Backyard · Queen Creek</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pool" data-reveal>
+        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #2a5a6a, #4a8a9a);">Pool Area Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Pool Deck & Turf Install</h4>
+          <span>Pool Area · Gilbert</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="frontyard" data-reveal>
+        <div class="gallery-placeholder short" style="background:#239B2B;">Front Yard Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Front Yard Curb Appeal</h4>
+          <span>Front Yard · Mesa</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pet" data-reveal>
+        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #5a4a2a, #8a7a5a);">Pet Area Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Pet-Friendly Dog Run</h4>
+          <span>Pet Area · Chandler</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="putting" data-reveal>
+        <div class="gallery-placeholder tall" style="background:#239B2B;">Putting Green Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Custom Putting Green</h4>
+          <span>Putting Green · Scottsdale</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="backyard" data-reveal>
+        <div class="gallery-placeholder short" style="background:#239B2B;">Backyard Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Backyard Turf & Pavers</h4>
+          <span>Backyard · San Tan Valley</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="commercial" data-reveal>
+        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #3a3a4a, #5a5a6a);">Commercial Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Commercial Courtyard</h4>
+          <span>Commercial · Phoenix</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pool" data-reveal>
+        <div class="gallery-placeholder tall" style="background:linear-gradient(135deg, #2a6a7a, #4a9aaa);">Pool Area Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Resort-Style Pool Surround</h4>
+          <span>Pool Area · Queen Creek</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="backyard" data-reveal>
+        <div class="gallery-placeholder med" style="background:#239B2B;">Backyard Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Complete Outdoor Living Space</h4>
+          <span>Backyard · Gilbert</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="frontyard" data-reveal>
+        <div class="gallery-placeholder tall" style="background:#239B2B;">Front Yard Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Drought-Proof Front Lawn</h4>
+          <span>Front Yard · Tempe</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pet" data-reveal>
+        <div class="gallery-placeholder short" style="background:linear-gradient(135deg, #6a5a3a, #9a8a5a);">Pet Area Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>K9 Play Yard</h4>
+          <span>Pet Area · Apache Junction</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="putting" data-reveal>
+        <div class="gallery-placeholder med" style="background:#239B2B;">Putting Green Photo</div>
+        <div class="gallery-item-overlay">
+          <h4>Backyard Putting & Chipping Area</h4>
+          <span>Putting Green · Mesa</span>
+        </div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">Start Your Project</div>
+    <h2>Ready to Transform Your Outdoor Space?</h2>
+    <p>Whether you're a contractor or a homeowner, we'll help you plan, source, and deliver everything you need. Let's make it happen.</p>
+    <div class="cta-btns">
+      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/artificial-turf" class="btn btn-outline">Browse Products</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+// ─── FILTER ───
+const filters = document.querySelectorAll('.gallery-filter');
+const items = document.querySelectorAll('.gallery-item');
+
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filters.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.getAttribute('data-filter');
+
+    items.forEach(item => {
+      if (cat === 'all' || item.getAttribute('data-category') === cat) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ─── LIGHTBOX ───
+// When real images are added, swap the gallery-placeholder divs for <img> tags
+// and this lightbox will work automatically:
+//
+// document.querySelectorAll('.gallery-item').forEach(item => {
+//   item.addEventListener('click', () => {
+//     const img = item.querySelector('img');
+//     if (!img) return;
+//     const lb = document.createElement('div');
+//     lb.className = 'lightbox open';
+//     lb.innerHTML = `
+//       <button class="lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+//       <img src="${img.src}" alt="${img.alt || ''}">
+//     `;
+//     lb.addEventListener('click', () => lb.remove());
+//     document.body.appendChild(lb);
+//   });
+// });
+</script>
+</Layout>

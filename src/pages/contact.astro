@@ -1,0 +1,910 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+/* ─── PAGE HERO ─── */
+
+
+/* ─── MAIN CONTACT GRID ─── */
+.contact-main {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ─── LEFT COLUMN: INFO ─── */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Contact details card */
+.contact-details-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.contact-details-header {
+  background: var(--green-700);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-details-header svg { width: 18px; height: 18px; color: var(--green-700); flex-shrink: 0; }
+.contact-details-header h3 { font-size: 0.82rem; color: var(--white); letter-spacing: 0.1em; }
+.contact-details-body { padding: 0; }
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-row:hover { background: var(--gray-100); }
+.contact-row-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-row-icon svg { width: 26px; height: 26px; color: var(--green-700); }
+.contact-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.contact-row-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.contact-row-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+.contact-row-value span {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--gray-600);
+  margin-top: 1px;
+}
+
+/* Shopping options card */
+.shopping-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.shopping-card-header {
+  background: var(--dark-800);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shopping-card-header svg { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; }
+.shopping-card-header h3 { font-size: 0.82rem; color: var(--white); letter-spacing: 0.1em; }
+.shopping-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.shopping-opt {
+  padding: 20px 24px;
+  border-right: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.shopping-opt:nth-child(2n) { border-right: none; }
+.shopping-opt:nth-last-child(-n+2) { border-bottom: none; }
+.shopping-opt-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--orange-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shopping-opt-icon svg { width: 30px; height: 30px; color: var(--orange); }
+.shopping-opt h4 { font-size: 0.82rem; color: var(--dark); letter-spacing: 0.04em; }
+.shopping-opt p { font-size: 0.75rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.4; }
+
+/* Payments card */
+.payments-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 20px 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.payments-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+.payment-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.payment-chip {
+  background: var(--gray-100);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+}
+
+/* ─── RIGHT COLUMN: FORM ─── */
+.contact-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+  position: sticky;
+  top: 96px;
+}
+.form-card-header {
+  background: var(--green-700);
+  padding: 28px 36px;
+}
+.form-card-header h2 {
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.form-card-header p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.form-card-body { padding: 32px 36px; }
+
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 7px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--gray-100);
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green-700);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(35,155,43,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 16px 32px;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+.submit-btn:hover::after { transform: translateX(100%); }
+
+.form-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  margin-top: 12px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── TRUST & SOCIAL PROOF ─── */
+
+/* Review prompt */
+.review-stars { display: flex; gap: 4px; margin-bottom: 6px; }
+
+/* ─── DARK TESTIMONIALS OVERRIDE (contact only) ─── */
+.testimonials {
+  background: var(--dark);
+}
+.testimonials .testimonials-header h2 { color: var(--white); }
+.testimonials .section-label { color: var(--green-700); }
+.testimonials .section-label::before { background: var(--green-700); }
+.testimonials .reviews-summary-text { color: var(--white); }
+.testimonials .reviews-summary-text span { color: rgba(255,255,255,0.5); }
+.testimonials .review-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.testimonials .review-card:hover {
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.testimonials .review-text { color: rgba(255,255,255,0.7); }
+.testimonials .review-text::before { color: var(--green-700); }
+.testimonials .review-name { color: var(--white); }
+.testimonials .review-source { color: rgba(255,255,255,0.4); }
+.testimonials .review-meta { border-top-color: rgba(255,255,255,0.08); }
+.testimonials .review-avatar { background: var(--orange); }
+.testimonials .reviews-cta a { color: var(--green-700); }
+
+/* ─── LOCATION-SPECIFIC CONTENT ─── */
+.location-section {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Team card */
+.team-intro {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.team-img {
+  height: 220px;
+  background: var(--green-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+.team-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-body { padding: 28px 32px; }
+.team-body h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 10px; }
+.team-body p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* Service area + guarantees */
+.local-cards { display: flex; flex-direction: column; gap: 20px; }
+.guarantee-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.guarantee-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.guarantee-icon.green {  }
+.guarantee-icon.orange {  }
+.guarantee-icon.green svg { width: 28px; height: 28px; color: var(--green-700); }
+.guarantee-icon.orange svg { width: 28px; height: 28px; color: var(--green-700); }
+.guarantee-card h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; letter-spacing: 0.02em; }
+.guarantee-card p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.55; }
+
+/* Service zones */
+.zone-pills-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.zone-tag {
+  background: var(--gray-100);
+  color: var(--green-700);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.map-detail-row:last-of-type { margin-bottom: 28px; }
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  padding: 88px 0;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-800) 50%, var(--green-900) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.cta-inner { position: relative; z-index: 2; }
+.cta-section h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); color: var(--white); margin-bottom: 14px; }
+.cta-section p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.75;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-pulse {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,102,0,0); }
+  50% { box-shadow: 0 0 0 10px rgba(255,102,0,0.18); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-form-card { position: static; }
+      }
+@media (max-width: 768px) {
+    .location-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  .form-card-body { padding: 24px 20px; }
+  .form-card-header { padding: 22px 20px; }
+    .shopping-options { grid-template-columns: 1fr; }
+  .shopping-opt:nth-child(2n) { border-right: none; }
+  .shopping-opt { border-right: none; }
+}
+@media (max-width: 480px) {
+    }
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Queen Creek, Arizona</div>
+      <h1>Let's Build Your <em>Dream Yard</em></h1>
+      <p>Stop by our showroom, call or text us, or fill out the form below. We respond same day and deliver next day — no runaround, no wait music.</p>
+      <div class="page-hero-btns">
+        <a href="tel:4807393854" class="btn btn-primary">Call or Text Us Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="#contact-form" class="btn btn-outline">Send Us a Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 2. CONTACT INFORMATION + FORM ═══ -->
+<section class="contact-main" id="contact-form">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">Get In Touch</div>
+      <h2>Contact Information</h2>
+      <p>Multiple ways to reach us — use whatever's easiest for you.</p>
+    </div>
+    <div class="contact-grid">
+
+      <!-- Left: All contact details -->
+      <div class="contact-info-col">
+
+        <!-- Core contact details -->
+        <div class="contact-details-card">
+          <div class="contact-details-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <h3>Contact Details</h3>
+          </div>
+          <div class="contact-details-body">
+            <a href="tel:4807393854" class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-row-text">
+                <span class="contact-row-label">Call or Text</span>
+                <span class="contact-row-value">480-739-3854<span>Same-day response guaranteed</span></span>
+              </div>
+            </a>
+            <a href="mailto:contact@azturfsuppliers.com" class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-row-text">
+                <span class="contact-row-label">Email</span>
+                <span class="contact-row-value">contact@azturfsuppliers.com</span>
+              </div>
+            </a>
+            <div class="contact-row" data-reveal>
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-row-text">
+                <span class="contact-row-label">Showroom Address</span>
+                <span class="contact-row-value">18607 E San Tan Blvd<span>Queen Creek, AZ 85142</span></span>
+              </div>
+            </div>
+            <div class="contact-row" data-reveal>
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="contact-row-text">
+                <span class="contact-row-label">Hours</span>
+                <span class="contact-row-value">Mon–Fri: 7:00 AM – 3:00 PM<span>Sat–Sun: Closed</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shopping options -->
+        <div class="shopping-card">
+          <div class="shopping-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <h3>Shopping Options</h3>
+          </div>
+          <div class="shopping-options">
+            <div class="shopping-opt" data-reveal>
+              <div class="shopping-opt-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h4>15-Min In-Store Pickup</h4>
+              <p>Drive up, we load your trailer in 15 minutes or less.</p>
+            </div>
+            <div class="shopping-opt" data-reveal>
+              <div class="shopping-opt-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <h4>Next-Day Delivery</h4>
+              <p>Guaranteed delivery to your home or job site.</p>
+            </div>
+            <div class="shopping-opt" data-reveal>
+              <div class="shopping-opt-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h4>Nationwide Shipping</h4>
+              <p>We ship turf and accessories across the country.</p>
+            </div>
+            <div class="shopping-opt" data-reveal>
+              <div class="shopping-opt-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <h4>Appointment Available</h4>
+              <p>Book a one-on-one showroom consultation anytime.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accepted payments -->
+        <div class="payments-card">
+          <span class="payments-label">Accepted Payments</span>
+          <div class="payment-chips">
+            <span class="payment-chip">Cash</span>
+            <span class="payment-chip">Check</span>
+            <span class="payment-chip">Visa</span>
+            <span class="payment-chip">Mastercard</span>
+            <span class="payment-chip">Amex</span>
+            <span class="payment-chip">Zelle</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-card">
+        <div class="form-card-header">
+          <h2>Send Us a Message</h2>
+          <p>We'll get back to you same day. For a faster response, call or text 480-739-3854.</p>
+        </div>
+        <div class="form-card-body">
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" placeholder="John" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="lastName" type="text" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="(480) 739-3854">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="role">I Am A...</label>
+              <select id="role" name="role">
+                <option value="">Select one</option>
+                <option>Homeowner</option>
+                <option>Contractor / Landscaper</option>
+                <option>Pool Builder</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">How Can We Help?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project — approximate square footage, product interest, timeline, etc."></textarea>
+            </div>
+            <div id="form-status" style="display:none;margin-bottom:12px;padding:12px 16px;border-radius:8px;font-size:0.875rem;font-weight:600;"></div>
+            <button type="submit" class="btn btn-primary submit-btn cta-pulse" id="submit-btn">
+              Send Message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form-note">We respect your privacy. No spam, ever.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label centered">Words From Our Clients</div>
+      <h2>Don&#39;t Just Take Our Word For It</h2>
+    </div>
+    <div class="reviews-summary">
+      <div class="reviews-summary-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="reviews-summary-text">5.0 <span>· Google Reviews</span></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Fast, responsive, and reliable service. Easy to work with. Would recommend again and again.</p>
+        <div class="review-meta">
+          <div class="review-avatar">HW</div>
+          <div>
+            <div class="review-name">Heather W.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Kyle has been fantastic to work with! Great pricing, excellent communication. Highly recommend!</p>
+        <div class="review-meta">
+          <div class="review-avatar">KB</div>
+          <div>
+            <div class="review-name">Katherine B.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Treated me like family. Very easy to work with and did a great job.</p>
+        <div class="review-meta">
+          <div class="review-avatar">MS</div>
+          <div>
+            <div class="review-name">Michael S.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">They come highly recommended and are very accommodating. Can&#39;t talk enough about them!</p>
+        <div class="review-meta">
+          <div class="review-avatar">MC</div>
+          <div>
+            <div class="review-name">Melanie C.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">These folks took super good care of me for a small turf area that I needed! I love when local businesses treat me so well!</p>
+        <div class="review-meta">
+          <div class="review-avatar">BR</div>
+          <div>
+            <div class="review-name">Bret R.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="review-text">Guys did a fantastic job, very professional, stayed late to finish. I&#39;d definitely recommend them.</p>
+        <div class="review-meta">
+          <div class="review-avatar">RH</div>
+          <div>
+            <div class="review-name">Russell H.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a href="https://g.page/r/azturfsuppliers/review" target="_blank" rel="noopener">
+        Leave Us a Review
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. LOCATION-SPECIFIC CONTENT ═══ -->
+<section class="location-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">Our Team &amp; Service Area</div>
+      <h2>Locally Owned. East Valley Experts.</h2>
+    </div>
+    <div class="location-grid">
+
+      <div class="team-intro">
+        <div class="team-img">Team / Showroom Photo</div>
+        <div class="team-body">
+          <h3>Meet the AZ Turf Team</h3>
+          <p>We're a locally owned, relationship-driven company. When you call or text us, you talk directly to the owners — not a call center. We specialize in artificial turf, pavers, natural stone, and landscape lighting for homeowners and contractors across the East Valley.</p>
+          <p style="margin-top:12px; font-size:0.875rem; color:var(--gray-600); font-weight:400; text-transform:none; letter-spacing:0; line-height:1.65;">Whether you're a first-time DIYer or a contractor running 20+ jobs a month, we have the inventory, expertise, and turnaround speed to keep you moving.</p>
+        </div>
+      </div>
+
+      <div class="local-cards">
+        <div class="guarantee-card" data-reveal>
+          <div class="guarantee-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Serving the Entire Phoenix Metro</h4>
+            <p>Based in Queen Creek with next-day delivery available throughout the Valley.</p>
+            <div class="zone-pills-wrap">
+              <span class="zone-tag">Queen Creek</span>
+              <span class="zone-tag">San Tan Valley</span>
+              <span class="zone-tag">Gilbert</span>
+              <span class="zone-tag">Mesa</span>
+              <span class="zone-tag">Chandler</span>
+              <span class="zone-tag">Scottsdale</span>
+              <span class="zone-tag">Phoenix</span>
+              <span class="zone-tag">Tempe</span>
+            </div>
+          </div>
+        </div>
+        <div class="guarantee-card" data-reveal>
+          <div class="guarantee-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>Customer Satisfaction Guarantee</h4>
+            <p>We stand behind every product we sell. Not satisfied? We'll make it right — that's our promise.</p>
+          </div>
+        </div>
+        <div class="guarantee-card" data-reveal>
+          <div class="guarantee-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h4>Price Match on All Products</h4>
+            <p>Wholesale pricing for contractors, competitive retail for homeowners. Find it cheaper locally? We'll beat it.</p>
+          </div>
+        </div>
+        <div class="guarantee-card" data-reveal>
+          <div class="guarantee-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <h4>Free Installer Referral Network</h4>
+            <p>Don't want to DIY? We'll connect you with our trusted network of preferred local installers — vetted pros we recommend by name.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAP ═══ -->
+<div class="map-section" style="line-height:0;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.5!2d-111.6200!3d33.2050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s18607+E+San+Tan+Blvd%2C+Queen+Creek%2C+AZ!5e0!3m2!1sen!2sus!4v1"
+    width="100%"
+    height="420"
+    style="border:0; display:block; filter:grayscale(0.15);"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="AZ Turf Suppliers — Queen Creek Showroom">
+  </iframe>
+</div>
+
+<!-- ═══ 5. CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">Ready to Get Started?</div>
+    <h2>Let's Build Something Beautiful</h2>
+    <p>Call or text us, stop by the showroom, or send a message below. We'll get back to you same day with everything you need to get started.</p>
+    <div class="cta-btns">
+      <a href="tel:4807393854" class="btn btn-primary cta-pulse">Call or Text 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="#contact-form" class="btn btn-outline">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll reveal (data-reveal system)
+// scroll reveal handled by Layout.astro
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ─── REVIEW CAROUSEL DOTS (mobile) ───
+(function() {
+  function initCarousels() {
+    document.querySelectorAll('.reviews-grid').forEach(function(grid) {
+      var cards = grid.querySelectorAll('.review-card');
+      if (cards.length < 2) return;
+
+      // Only show dots on mobile
+      if (window.innerWidth > 768) return;
+
+      // Build dots container
+      var dotsWrap = document.createElement('div');
+      dotsWrap.className = 'reviews-dots';
+      cards.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Review ' + (i + 1));
+        dot.addEventListener('click', function() {
+          cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsWrap.appendChild(dot);
+      });
+      grid.parentNode.insertBefore(dotsWrap, grid.nextSibling);
+
+      // Update active dot on scroll
+      var dots = dotsWrap.querySelectorAll('.reviews-dot');
+      var ticking = false;
+      grid.addEventListener('scroll', function() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+          var scrollLeft = grid.scrollLeft;
+          var cardWidth = cards[0].offsetWidth + 16; // gap
+          var idx = Math.round(scrollLeft / cardWidth);
+          idx = Math.max(0, Math.min(idx, dots.length - 1));
+          dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === idx);
+          });
+          ticking = false;
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousels);
+  } else {
+    initCarousels();
+  }
+})();
+
+</script>
+
+<script>
+document.getElementById('contact-form')?.addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const status = document.getElementById('form-status') as HTMLElement;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  status.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: new FormData(form),
+    });
+
+    const json = await res.json();
+
+    if (res.ok && json.ok) {
+      status.style.display = 'block';
+      status.style.background = '#e8f7e9';
+      status.style.color = '#186b1e';
+      status.textContent = "Message sent! We'll be in touch same day.";
+      form.reset();
+    } else {
+      throw new Error(json.error ?? 'Unknown error');
+    }
+  } catch (err) {
+    status.style.display = 'block';
+    status.style.background = '#fff0f0';
+    status.style.color = '#c0392b';
+    status.textContent = 'Something went wrong. Please call us at 480-739-3854.';
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  }
+});
+</script>
+</Layout>
