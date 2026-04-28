@@ -20,6 +20,9 @@ import Layout from '../layouts/Layout.astro';
 .stone-card-img { aspect-ratio: 4/3; background: var(--gray-200); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.12); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; overflow: hidden; }
 .stone-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .stone-card:hover .stone-card-img img { transform: scale(1.04); }
+.stone-card-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; background: var(--gray-200); }
+.stone-card-mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.stone-card:hover .stone-card-mosaic img { transform: scale(1.04); }
 .stone-card-body { padding: 24px; }
 .stone-card-body h3 { font-size: 1.05rem; color: var(--dark); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
 .stone-card-body p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 16px; }
@@ -88,23 +91,25 @@ import Layout from '../layouts/Layout.astro';
 .stone-variant { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--gray-200); }
 .stone-variant:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .stone-variant-title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dark);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
-.stone-variant-title::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--green-700);
+.stone-swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
   flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  background: var(--gray-100);
 }
 .stone-sub-label {
   font-size: 0.65rem;
@@ -211,7 +216,7 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="stone-intro-img" data-reveal>Natural Stone Display Photo</div>
+      <div class="stone-intro-img" data-reveal><img src="/media/stone.jpg" alt="Natural stone display"></div>
     </div>
   </div>
 </section>
@@ -225,27 +230,37 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="stone-grid">
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Travertine Photo</div>
+        <div class="stone-card-img stone-card-mosaic">
+          <img src="/media/Walnut.png" alt="Walnut Travertine">
+          <img src="/media/Beige.png" alt="Tuscany Beige Travertine">
+          <img src="/media/Silver.png" alt="Tuscany Silver Travertine">
+          <img src="/media/Porcini.png" alt="Porcini Travertine">
+        </div>
         <div class="stone-card-body">
           <h3>Travertine — Turkey</h3>
           <p>Six color families — Walnut (Noce), Tuscany Beige, Tuscany Ivory, Tuscany Silver, Porcini, and Scabas. All tumbled 3cm pavers with matching coping. A natural favorite for Arizona pool decks and patios.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Limestone Photo</div>
+        <div class="stone-card-img stone-card-mosaic">
+          <img src="/media/Greecian%20Silver.png" alt="Greecian Silver Limestone">
+          <img src="/media/Greecian%20Marbella.png" alt="Greecian Marbella Limestone">
+          <img src="/media/Greecian%20Antico.png" alt="Greecian Antico Limestone">
+          <img src="/media/Mayra%20White.png" alt="Mayra White Limestone">
+        </div>
         <div class="stone-card-body">
           <h3>Limestone — Egypt &amp; Turkey</h3>
           <p>Greecian series from Egypt (Silver, Antico, Cream, Marbella) and Mayra White from Turkey. Tumbled 3cm with coping options. Clean, light tones that pair beautifully with turf and modern hardscape.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Marble Photo</div>
+        <div class="stone-card-img"><img src="/media/Sierra%20White.png" alt="Sierra White Marble"></div>
         <div class="stone-card-body">
           <h3>Marble — Turkey</h3>
           <p>Sierra White marble in a sandblasted/straight finish — crisp, bright, and slip-resistant. Available in small and large format sizes with matching coping for a seamless high-end look.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
     </div>
@@ -296,175 +311,175 @@ import Layout from '../layouts/Layout.astro';
 <section class="stone-pricing" id="pricing">
   <div class="container">
     <div class="section-header" style="margin-bottom:48px;">
-      <div class="section-label">2025 Price List</div>
-      <h2>Natural Stone Pricing</h2>
-      <p>All prices are per square foot. Products are tumbled travertine, limestone, and marble sourced from Turkey and Egypt. Call or text for current availability.</p>
+      <div class="section-label">Our Collection</div>
+      <h2>Natural Stone Inventory</h2>
+      <p>Tumbled travertine, limestone, and marble sourced from Turkey and Egypt — available in pavers and matching coping across a range of sizes.</p>
     </div>
-    <div class="pricing-note">All prices per sqft. Call or text <a href="tel:6025207511" style="color:var(--green-700);font-weight:600;">(602) 520-7511</a> for availability and volume pricing.</div>
+    <div class="pricing-note">Call or text <a href="tel:6025207511" style="color:var(--green-700);font-weight:600;">(602) 520-7511</a> for current pricing and availability on any of our natural stone.</div>
 
     <!-- ─── TRAVERTINE: TURKEY ─── -->
     <div class="stone-cat">
       <div class="stone-cat-label">Travertine — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Walnut (Noce) Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Walnut.png" alt=""><span>Walnut (Noce) Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">159.6</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">$9.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">159.6</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$8.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>6x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">170</td><td><span class="stone-price">$8.75</span></td></tr>
-            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$12.75</span></td></tr>
-            <tr><td>Brushed Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$12.75</span></td></tr>
-            <tr><td>2-Side Bull Nose</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$12.99</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>6x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Brushed Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>2-Side Bull Nose</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Beige Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Beige.png" alt=""><span>Tuscany Beige Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">159.6</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">$9.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">159.6</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$12.99</span></td></tr>
-            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$12.99</span></td></tr>
-            <tr><td>Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$8.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$8.99</span></td></tr>
-            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Brushed Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$8.99</span></td></tr>
-            <tr><td>2-Side Bull Nose</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$15.75</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Brushed Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Brushed Eased Edge</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>2-Side Bull Nose</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Ivory Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Tuscany%20Ivory.png" alt=""><span>Tuscany Ivory Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">—</td><td class="hide-mobile">166</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">—</td><td class="hide-mobile">170</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">—</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$4.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">—</td><td class="hide-mobile">120</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">—</td><td class="hide-mobile">159.6</td><td><span class="stone-price">$7.25</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">—</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">—</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">—</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">—</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">—</td><td class="hide-mobile">159.6</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$10.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$16.99</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Silver Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Silver.png" alt=""><span>Tuscany Silver Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">$10.75</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>24x24</td><td class="hide-mobile">34 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$10.99</span></td></tr>
-            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$12.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>6x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">170</td><td><span class="stone-price">$13.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$14.99</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>6x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Porcini Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Porcini.png" alt=""><span>Porcini Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$6.25</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$6.25</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$6.25</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$6.25</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>24x24</td><td class="hide-mobile">36 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">$9.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>24x24</td><td class="hide-mobile">36 pcs</td><td class="hide-mobile">136</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$11.99</span></td></tr>
-            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$7.99</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Brushed</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Scabas Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Scabas.png" alt=""><span>Scabas Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$6.25</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">—</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$7.25</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">—</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">192</td><td><span class="stone-price">$7.99</span></td></tr>
+            <tr><td>Unfilled / Honed</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">192</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
@@ -475,101 +490,101 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Egypt</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Silver Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Silver.png" alt=""><span>Greecian Silver Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$6.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$8.99</span></td></tr>
+            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Antico Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Antico.png" alt=""><span>Greecian Antico Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$6.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$9.99</span></td></tr>
-            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$10.99</span></td></tr>
+            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Cream Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Cream.png" alt=""><span>Greecian Cream Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$6.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$10.99</span></td></tr>
-            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$10.99</span></td></tr>
+            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Marbella Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Marbella.png" alt=""><span>Greecian Marbella Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$6.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$6.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$10.99</span></td></tr>
-            <tr><td>Tumbled (Eased Edge)</td><td>12x24</td><td class="hide-mobile">5cm</td><td class="hide-mobile">80</td><td><span class="stone-price">$10.99</span></td></tr>
-            <tr><td>Tumbled (Bull Nose)</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$10.99</span></td></tr>
+            <tr><td>Tumbled (Eased Edge)</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled (Eased Edge)</td><td>12x24</td><td class="hide-mobile">5cm</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled (Bull Nose)</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
@@ -580,29 +595,29 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Mayra White Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Mayra%20White.png" alt=""><span>Mayra White Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$5.99</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>12x24</td><td class="hide-mobile">84 pcs</td><td class="hide-mobile">168</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$7.25</span></td></tr>
-            <tr><td>24x24</td><td class="hide-mobile">33 pcs</td><td class="hide-mobile">132</td><td><span class="stone-price">$7.25</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x24</td><td class="hide-mobile">84 pcs</td><td class="hide-mobile">168</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>24x24</td><td class="hide-mobile">33 pcs</td><td class="hide-mobile">132</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Honed / Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">$13.99</span></td></tr>
-            <tr><td>Honed / Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">$13.99</span></td></tr>
-            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$9.99</span></td></tr>
-            <tr><td>Tumbled</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">$8.99</span></td></tr>
+            <tr><td>Honed / Eased Edge</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.4</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Honed / Eased Edge</td><td>12x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">80</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Tumbled</td><td>12x12</td><td class="hide-mobile">3cm</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
@@ -613,25 +628,25 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Marble — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Sierra White Marble — Sandblasted/Straight, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Sierra%20White.png" alt=""><span>Sierra White Marble — Sandblasted/Straight, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">$6.49</span></td></tr>
-            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">$6.49</span></td></tr>
-            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">$6.49</span></td></tr>
-            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">$6.49</span></td></tr>
-            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">$7.99</span></td></tr>
-            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">$7.99</span></td></tr>
+            <tr><td>12x12, 6x12 &amp; 6x6 (kit)</td><td class="hide-mobile">20 Kit</td><td class="hide-mobile">150</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>12x12</td><td class="hide-mobile">166 pcs</td><td class="hide-mobile">166</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x12</td><td class="hide-mobile">340 pcs</td><td class="hide-mobile">170</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>6x6</td><td class="hide-mobile">490 pcs</td><td class="hide-mobile">122.5</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24, 16x16, 8x16, 8x8 (kit)</td><td class="hide-mobile">10 Kit</td><td class="hide-mobile">160</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>16x24</td><td class="hide-mobile">60 pcs</td><td class="hide-mobile">160.2</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
         <div class="stone-sub-label">Coping</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Finish</th><th>Size</th><th class="hide-mobile">Thickness</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
           <tbody>
-            <tr><td>Sandblasted/Straight</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">$8.99</span></td></tr>
-            <tr><td>Sandblasted/Straight</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.8</td><td><span class="stone-price">$13.99</span></td></tr>
+            <tr><td>Sandblasted/Straight</td><td>12x24</td><td class="hide-mobile">3cm</td><td class="hide-mobile">120</td><td><span class="stone-price">Call</span></td></tr>
+            <tr><td>Sandblasted/Straight</td><td>16x24</td><td class="hide-mobile">2 in</td><td class="hide-mobile">106.8</td><td><span class="stone-price">Call</span></td></tr>
           </tbody>
         </table></div>
       </div>
