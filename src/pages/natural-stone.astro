@@ -20,6 +20,9 @@ import Layout from '../layouts/Layout.astro';
 .stone-card-img { aspect-ratio: 4/3; background: var(--gray-200); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.12); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; overflow: hidden; }
 .stone-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .stone-card:hover .stone-card-img img { transform: scale(1.04); }
+.stone-card-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; background: var(--gray-200); }
+.stone-card-mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.stone-card:hover .stone-card-mosaic img { transform: scale(1.04); }
 .stone-card-body { padding: 24px; }
 .stone-card-body h3 { font-size: 1.05rem; color: var(--dark); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
 .stone-card-body p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 16px; }
@@ -88,23 +91,25 @@ import Layout from '../layouts/Layout.astro';
 .stone-variant { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--gray-200); }
 .stone-variant:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .stone-variant-title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dark);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
-.stone-variant-title::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--green-700);
+.stone-swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
   flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  background: var(--gray-100);
 }
 .stone-sub-label {
   font-size: 0.65rem;
@@ -211,7 +216,7 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="stone-intro-img" data-reveal>Natural Stone Display Photo</div>
+      <div class="stone-intro-img" data-reveal><img src="/media/stone.jpg" alt="Natural stone display"></div>
     </div>
   </div>
 </section>
@@ -225,27 +230,37 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="stone-grid">
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Travertine Photo</div>
+        <div class="stone-card-img stone-card-mosaic">
+          <img src="/media/Walnut.png" alt="Walnut Travertine">
+          <img src="/media/Beige.png" alt="Tuscany Beige Travertine">
+          <img src="/media/Silver.png" alt="Tuscany Silver Travertine">
+          <img src="/media/Porcini.png" alt="Porcini Travertine">
+        </div>
         <div class="stone-card-body">
           <h3>Travertine — Turkey</h3>
           <p>Six color families — Walnut (Noce), Tuscany Beige, Tuscany Ivory, Tuscany Silver, Porcini, and Scabas. All tumbled 3cm pavers with matching coping. A natural favorite for Arizona pool decks and patios.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Limestone Photo</div>
+        <div class="stone-card-img stone-card-mosaic">
+          <img src="/media/Greecian%20Silver.png" alt="Greecian Silver Limestone">
+          <img src="/media/Greecian%20Marbella.png" alt="Greecian Marbella Limestone">
+          <img src="/media/Greecian%20Antico.png" alt="Greecian Antico Limestone">
+          <img src="/media/Mayra%20White.png" alt="Mayra White Limestone">
+        </div>
         <div class="stone-card-body">
           <h3>Limestone — Egypt &amp; Turkey</h3>
           <p>Greecian series from Egypt (Silver, Antico, Cream, Marbella) and Mayra White from Turkey. Tumbled 3cm with coping options. Clean, light tones that pair beautifully with turf and modern hardscape.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img">Marble Photo</div>
+        <div class="stone-card-img"><img src="/media/Sierra%20White.png" alt="Sierra White Marble"></div>
         <div class="stone-card-body">
           <h3>Marble — Turkey</h3>
           <p>Sierra White marble in a sandblasted/straight finish — crisp, bright, and slip-resistant. Available in small and large format sizes with matching coping for a seamless high-end look.</p>
-          <a href="#pricing" class="btn btn-dark">See Pricing</a>
+          <a href="#pricing" class="btn btn-dark">View Inventory</a>
         </div>
       </div>
     </div>
@@ -307,7 +322,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Travertine — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Walnut (Noce) Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Walnut.png" alt=""><span>Walnut (Noce) Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -338,7 +353,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Beige Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Beige.png" alt=""><span>Tuscany Beige Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -370,7 +385,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Ivory Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Tuscany%20Ivory.png" alt=""><span>Tuscany Ivory Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -395,7 +410,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Tuscany Silver Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Silver.png" alt=""><span>Tuscany Silver Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -424,7 +439,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Porcini Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Porcini.png" alt=""><span>Porcini Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -450,7 +465,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Scabas Travertine — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Scabas.png" alt=""><span>Scabas Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -475,7 +490,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Egypt</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Silver Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Silver.png" alt=""><span>Greecian Silver Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -499,7 +514,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Antico Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Antico.png" alt=""><span>Greecian Antico Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -524,7 +539,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Cream Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Cream.png" alt=""><span>Greecian Cream Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -549,7 +564,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Greecian Marbella Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Marbella.png" alt=""><span>Greecian Marbella Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -580,7 +595,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Mayra White Limestone — Tumbled, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Mayra%20White.png" alt=""><span>Mayra White Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -613,7 +628,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Marble — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title">Sierra White Marble — Sandblasted/Straight, 3cm</div>
+        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Sierra%20White.png" alt=""><span>Sierra White Marble — Sandblasted/Straight, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
