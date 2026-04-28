@@ -33,6 +33,18 @@ import Layout from '../layouts/Layout.astro';
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
+.hero-video-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}
 
 /* Multi-layer dark gradient over video */
 .hero-overlay {
@@ -1026,9 +1038,11 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Background video -->
   <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline>
-      <source src="/media/homepage.mp4" type="video/mp4">
-    </video>
+    <iframe
+      src="https://www.youtube.com/embed/kQDQYFjJAgA?autoplay=1&mute=1&loop=1&playlist=kQDQYFjJAgA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
+      title="AZ Turf Suppliers"
+      allow="autoplay; encrypted-media"
+      allowfullscreen></iframe>
   </div>
 
   <!-- Dark gradient overlay -->
