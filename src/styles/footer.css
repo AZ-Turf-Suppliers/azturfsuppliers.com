@@ -36,6 +36,36 @@ footer#footer {
   opacity: 1;
 }
 
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--gray-400);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.footer-socials a:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--white);
+}
+
+.footer-socials a svg {
+  width: 18px;
+  height: 18px;
+}
+
 .footer-col h5 {
   font-size: 0.75rem;
   font-weight: 700;
