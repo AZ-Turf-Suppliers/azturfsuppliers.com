@@ -32,17 +32,26 @@ import Layout from '../layouts/Layout.astro';
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
-  background: var(--gray-200);
+  background: var(--dark);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgba(0,0,0,0.15);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  gap: 20px;
+  padding: 40px;
 }
 .lighting-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+.lt-brand-logo { width: 100%; max-width: 340px; display: block; }
+.lt-brand-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 16px;
+  border-radius: 100px;
+}
 
 /* ─── WHY WIRE ─── */
 .why-wire {
@@ -426,7 +435,10 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="lighting-intro-img" data-reveal>Lighting Product Photo</div>
+      <div class="lighting-intro-img" data-reveal>
+        <img class="lt-brand-logo" src="/media/lumenex-lighting.svg" alt="Lumenex Lighting">
+        <span class="lt-brand-badge">Authorized Dealer</span>
+      </div>
     </div>
   </div>
 </section>
