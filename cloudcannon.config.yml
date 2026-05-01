@@ -1,10 +1,20 @@
 collections_config:
+  homepage:
+    path: src/pages
+    name: Homepage
+    icon: home
+    glob:
+      - "index.astro"
+    url: "/"
+    _enabled_editors:
+      - visual
+    disable_add: true
+
   main_pages:
     path: src/pages
     name: Pages
     icon: wysiwyg
     glob:
-      - "index.astro"
       - "about.astro"
       - "contact.astro"
       - "gallery.astro"
@@ -74,6 +84,7 @@ collections_config:
 collection_groups:
   - heading: Site
     collections:
+      - homepage
       - main_pages
   - heading: Products
     collections:
