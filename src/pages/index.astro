@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import turfImg from '../assets/gallery/turf--16.jpg';
+import paversImg from '../assets/gallery/turf-pavers--04.jpg';
+import stoneImg from '../assets/gallery/turf-stone--01.jpg';
 ---
 
 <Layout title="AZ Turf Suppliers | Premium Artificial Turf & Landscaping in Queen Creek, AZ">
@@ -365,7 +369,7 @@ import Layout from '../layouts/Layout.astro';
 }
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 .product-card {
@@ -374,13 +378,21 @@ import Layout from '../layouts/Layout.astro';
   overflow: hidden;
   aspect-ratio: 4/5;
   cursor: pointer;
-  group: true;
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 .product-card-bg {
   position: absolute;
   inset: 0;
   background: var(--green-700);
   transition: transform 0.4s;
+}
+.product-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .product-card:hover .product-card-bg { transform: scale(1.05); }
 .product-card-overlay {
@@ -924,11 +936,7 @@ import Layout from '../layouts/Layout.astro';
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-  .products-grid { grid-template-columns: repeat(3, 1fr); }
-  .products-grid .product-card:nth-child(4),
-  .products-grid .product-card:nth-child(5) {
-    grid-column: span 1;
-  }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
   .confidence-grid { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -1109,34 +1117,34 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <p class="products-intro">At AZ Turf Suppliers, we offer more than just turf — we provide everything you need to complete your outdoor space from start to finish. Our full range of products includes:</p>
     <div class="products-grid">
-      <div class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:#239B2B;"></div>
+      <a href="/artificial-turf" class="product-card" data-reveal>
+        <div class="product-card-bg"><Image src={turfImg} alt="Artificial turf installation" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 25vw" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
           <h4>Artificial Turf</h4>
           <p>Premium turf built for AZ heat</p>
         </div>
-      </div>
-      <div class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:linear-gradient(135deg, #5a4a3a, #8a7a6a);"></div>
+      </a>
+      <a href="/pavers" class="product-card" data-reveal>
+        <div class="product-card-bg"><Image src={paversImg} alt="Paver installation" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 25vw" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
           <h4>Pavers</h4>
           <p>Patios, borders & driveways</p>
         </div>
-      </div>
-      <div class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:linear-gradient(135deg, #6a6a6a, #9a9a8a);"></div>
+      </a>
+      <a href="/natural-stone" class="product-card" data-reveal>
+        <div class="product-card-bg"><Image src={stoneImg} alt="Natural stone installation" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 25vw" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
           <h4>Natural Stone</h4>
           <p>Travertine & limestone options</p>
         </div>
-      </div>
-      <div class="product-card" data-reveal>
+      </a>
+      <a href="/landscape-lighting" class="product-card" data-reveal>
         <div class="product-card-bg" style="background:linear-gradient(135deg, #2a3a4a, #4a5a6a);"></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
@@ -1144,16 +1152,7 @@ import Layout from '../layouts/Layout.astro';
           <h4>Landscape Lighting</h4>
           <p>Luminex lighting solutions</p>
         </div>
-      </div>
-      <div class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:linear-gradient(135deg, #4a3a2a, #7a6a5a);"></div>
-        <div class="product-card-overlay"></div>
-        <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
-        <div class="product-card-content">
-          <h4>Accessories</h4>
-          <p>Nails, glue, infill & more</p>
-        </div>
-      </div>
+      </a>
     </div>
     <p class="products-closing">Whether you're a contractor managing multiple installs or a homeowner tackling a DIY project, we make it easy to source high-quality landscaping materials in Queen Creek and throughout the East Valley.</p>
   </div>
