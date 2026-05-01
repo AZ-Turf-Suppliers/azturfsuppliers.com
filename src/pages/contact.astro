@@ -880,8 +880,9 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
   status.style.display = 'none';
 
   try {
-    const res = await fetch('/api/contact', {
+    const res = await fetch('https://formspree.io/f/xnjwnvvp', {
       method: 'POST',
+      headers: { 'Accept': 'application/json' },
       body: new FormData(form),
     });
 

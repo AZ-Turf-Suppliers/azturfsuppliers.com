@@ -1695,7 +1695,11 @@ document.getElementById('home-contact-form')?.addEventListener('submit', async f
   status.style.display = 'none';
 
   try {
-    const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+    const res = await fetch('https://formspree.io/f/xnjwnvvp', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    });
     const json = await res.json();
     if (res.ok && json.ok) {
       status.style.display = 'block';
