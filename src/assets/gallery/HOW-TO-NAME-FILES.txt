@@ -9,28 +9,29 @@ NAMING CONVENTION
 [categories]--[anything you want].[ext]
 
 The part BEFORE the double-dash (--) sets the filter tabs.
-The part AFTER the double-dash is ignored — use it for your own organization.
+The part AFTER the double-dash is ignored — use it for your own organization
+(sequential numbers, project names, etc.).
 
 VALID CATEGORY TAGS
 -------------------
-  backyard
-  frontyard
-  pool
-  pet
-  putting
-  commercial
+  turf      → Artificial Turf
+  putting   → Putting Greens
+  stone     → Natural Stone
+  pavers    → Pavers
 
 EXAMPLES
 --------
 One category:
-  backyard--queen-creek-smith-residence.jpg
-  pool--gilbert-project-march.jpg
+  turf--01.jpg
   putting--scottsdale-custom-green.jpg
+  stone--gilbert-walkway.jpg
+  pavers--mesa-driveway.jpg
 
 Multiple categories (separate with a single dash):
-  backyard-pool--chandler-deck-and-turf.jpg
-  frontyard-commercial--phoenix-office.jpg
-  pet-backyard--mesa-dog-run.jpg
+  turf-pavers--chandler-deck.jpg
+  turf-stone--phoenix-yard.jpg
+  putting-turf--queen-creek-backyard.jpg
+  turf-pavers-stone--scottsdale-estate.jpg
 
 OPTIONAL: CUSTOM TITLE & LOCATION LABELS
 -----------------------------------------
@@ -38,7 +39,7 @@ By default no hover label appears. If you want a title and location
 to show on hover, open src/data/gallery.json and add an override:
 
   "overrides": {
-    "backyard-pool--chandler-deck-and-turf.jpg": {
+    "turf-pavers--chandler-deck.jpg": {
       "title": "Backyard with Pool Edge",
       "location": "Chandler"
     }
