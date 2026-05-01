@@ -32,17 +32,26 @@ import Layout from '../layouts/Layout.astro';
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
-  background: var(--gray-200);
+  background: var(--dark);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgba(0,0,0,0.15);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  gap: 20px;
+  padding: 40px;
 }
 .lighting-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+.lighting-intro-img img.lt-brand-logo { width: 100%; max-width: 340px; height: auto; object-fit: contain; display: block; }
+.lt-brand-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 16px;
+  border-radius: 100px;
+}
 
 /* ─── WHY WIRE ─── */
 .why-wire {
@@ -179,6 +188,83 @@ import Layout from '../layouts/Layout.astro';
 .product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
 .product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 14px; }
 
+/* ─── CATALOG ─── */
+.lt-catalog { padding: 88px 0; background: var(--gray-100); }
+.lt-note {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin-bottom: 40px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  border-left: 3px solid var(--green-700);
+}
+.lt-cat { margin-bottom: 40px; }
+.lt-cat:last-child { margin-bottom: 0; }
+.lt-cat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--green-700);
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.ltt-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+.ltt { width: 100%; border-collapse: collapse; background: var(--white); }
+.ltt thead { background: var(--green-700); }
+.ltt thead th {
+  padding: 10px 16px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  text-align: left;
+}
+.ltt tbody tr { border-bottom: 1px solid var(--gray-200); transition: background 0.15s; }
+.ltt tbody tr:last-child { border-bottom: none; }
+.ltt tbody tr:hover { background: var(--gray-100); }
+.ltt tbody td {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  vertical-align: middle;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.ltt-sku {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--green-700);
+  white-space: nowrap;
+}
+.ltt th.ltt-th-img, .ltt td.ltt-td-img { width: 72px; padding: 8px; }
+.ltt-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 6px;
+  border: 1px solid var(--gray-200);
+  display: block;
+  padding: 3px;
+}
+
 /* ─── DARK SECTION - TRANSFORMERS ─── */
 .lighting-transformers {
   padding: 88px 0;
@@ -293,8 +379,8 @@ import Layout from '../layouts/Layout.astro';
   .why-wire { padding: 56px 0; }
   .lighting-products { padding: 56px 0; }
   .lighting-transformers { padding: 56px 0; }
-  .products-grid { grid-template-columns: 1fr 1fr; }
-  .sample-products { padding: 56px 0; }
+  .lt-catalog { padding: 56px 0; }
+  .ltt thead th, .ltt tbody td { padding: 8px 10px; font-size: 0.78rem; }
 }
 </style>
 
@@ -302,7 +388,7 @@ import Layout from '../layouts/Layout.astro';
 <section class="page-hero">
   <div class="container">
     <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Luminex Lighting</div>
+      <div class="page-hero-eyebrow">Lumenex Lighting</div>
       <h1>Landscape <em>Lighting</em></h1>
       <p>Professional-grade, low-voltage landscape lighting built for Arizona. In stock and ready for pickup or next-day delivery.</p>
       <div class="page-hero-btns">
@@ -341,15 +427,18 @@ import Layout from '../layouts/Layout.astro';
     <div class="lighting-intro-inner">
       <div class="lighting-intro-content" data-reveal>
         <div class="section-label">Professional Landscape Lighting</div>
-        <h2>Illuminate Your Outdoor Space with Luminex</h2>
-        <p>Cheap solar fixtures fade, flicker, and fail. Luminex is a professional-grade, low-voltage lighting line trusted by Arizona landscape contractors and homeowners. We stock everything you need to light up pathways, hardscapes, trees, and architectural features.</p>
+        <h2>Illuminate Your Outdoor Space with Lumenex</h2>
+        <p>Cheap solar fixtures fade, flicker, and fail. Lumenex is a professional-grade, low-voltage lighting line trusted by Arizona landscape contractors and homeowners. We stock everything you need to light up pathways, hardscapes, trees, and architectural features.</p>
         <p>Hardwired low-voltage systems deliver consistent illumination night after night — no batteries, no disappointments. Heavy-duty aluminum and brass construction holds up against Arizona's extreme heat and UV exposure.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
           <a href="/contact" class="btn btn-primary">Get a Lighting Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="lighting-intro-img" data-reveal>Lighting Product Photo</div>
+      <div class="lighting-intro-img" data-reveal>
+        <img class="lt-brand-logo" src="/media/lumenex-lighting.svg" alt="Lumenex Lighting">
+        <span class="lt-brand-badge">Authorized Dealer</span>
+      </div>
     </div>
   </div>
 </section>
@@ -387,7 +476,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
       <div class="section-label centered">Our Collection</div>
-      <h2>Luminex Lighting Products</h2>
+      <h2>Lumenex Lighting Products</h2>
     </div>
     <div class="lighting-cat-grid">
 
@@ -431,63 +520,144 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- ═══ SAMPLE PRODUCTS ═══ -->
-<section class="sample-products">
+<!-- ═══ CATALOG ═══ -->
+<section class="lt-catalog" id="catalog">
   <div class="container">
-    <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Our Inventory</div>
-      <h2>Sample Products</h2>
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">Our Inventory</div>
+      <h2>Lumenex Product Catalog</h2>
+      <p>Full range of Lumenex landscape lighting fixtures, transformers, cable, and accessories — stocked at our Queen Creek showroom.</p>
     </div>
-    <div class="products-grid">
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 1</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 2</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 3</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 4</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 5</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 6</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
+    <div class="lt-note">Call or text <a href="tel:6025207511" style="color:var(--green-700);font-weight:600;">(602) 520-7511</a> for current pricing and stock availability on any item.</div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Lamps / Bulbs</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT1016A.jpg" alt=""></td><td><span class="ltt-sku">LT1016A</span></td><td>4W, 360lm, 2700K, 30°, Waterproof (MR16 Lamp)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT1016A.jpg" alt=""></td><td><span class="ltt-sku">LT1016A</span></td><td>4W, 360lm, 2700K, 60°, Waterproof (MR16 Lamp)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT1016A.jpg" alt=""></td><td><span class="ltt-sku">LT1016A</span></td><td>7W, 600lm, 2700K, 30°, Waterproof (MR16 Lamp)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT1016A.jpg" alt=""></td><td><span class="ltt-sku">LT1016A</span></td><td>7W, 600lm, 2700K, 60°, Waterproof (MR16 Lamp)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT1016CG-CT5.jpg" alt=""></td><td><span class="ltt-sku">LT1016CG-CT5</span></td><td>5W, 530lm, 2700/3000/4000/5000/6000K Adjustable, Replaceable lens 30/45/60° (MR16)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT108.jpg" alt=""></td><td><span class="ltt-sku">LT108</span></td><td>2.5W, 160lm, 2700K, 38° (MR8 Lamp)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT104A3.jpg" alt=""></td><td><span class="ltt-sku">LT104A3</span></td><td>2W, 180lm, 2700K (G4 Lamp)</td></tr>
+        </tbody>
+      </table></div>
     </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Path Lights</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2401A.png" alt=""></td><td><span class="ltt-sku">LT2401A</span></td><td>Aluminum Path Light, Black or Bronze (G4 Lamp included, 2W 2700K 180lm)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2405A.jpg" alt=""></td><td><span class="ltt-sku">LT2405A</span></td><td>Aluminum Path Light, Black or Bronze (G4 Lamp included, 2W 2700K 180lm)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2404A.png" alt=""></td><td><span class="ltt-sku">LT2404A</span></td><td>Aluminum Path Light, Black (G4 Lamp included, 2W 2700K 180lm)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/9409B.jpg" alt=""></td><td><span class="ltt-sku">9409B</span></td><td>Aluminum Path Light, Black (G4 Lamp included, 2W 2700K 180lm)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2401.png" alt=""></td><td><span class="ltt-sku">LT2401</span></td><td>Brass Path Light, Antique Bronze (G4 Lamp included, 2W 2700K 180lm)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Spot Lights</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2102A.jpg" alt=""></td><td><span class="ltt-sku">LT2102A</span></td><td>Aluminum Spot Light, Black or Bronze (MR16 Lamp not included)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2101A.png" alt=""></td><td><span class="ltt-sku">LT2101A</span></td><td>Aluminum Spot Light, Black or Bronze (MR16 Lamp not included)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2102.png" alt=""></td><td><span class="ltt-sku">LT2102</span></td><td>Brass Spot Light, Antique Bronze (MR16 Lamp not included)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Flood Lights</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2507A20W.jpg" alt=""></td><td><span class="ltt-sku">LT2507A20W</span></td><td>Aluminum Flood Light, Black, 20W, 2200lm, 2700K</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Well Lights</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2202A.jpg" alt=""></td><td><span class="ltt-sku">LT2202A</span></td><td>Brass, Black (MR16 Lamp not included)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2207A.jpg" alt=""></td><td><span class="ltt-sku">LT2207A</span></td><td>Brass Mini Well Light, Black (MR8 Lamp included, 2.5W 160lm 2700K 38°)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Hardscape Lights</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2702B.jpg" alt=""></td><td><span class="ltt-sku">LT2702B</span></td><td>Hardscape Light, 1.5W, 7", 2700K, 160lm</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2702A.jpg" alt=""></td><td><span class="ltt-sku">LT2702A</span></td><td>Hardscape Light, 0.5W, 3", 2700K, 50lm</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2702E.jpg" alt=""></td><td><span class="ltt-sku">LT2702E</span></td><td>Hardscape Light, 1.5W, 7", 2700K, 160lm (Rotatable Direction)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2702D.jpg" alt=""></td><td><span class="ltt-sku">LT2702D</span></td><td>Hardscape Light, 0.5W, 3", 2700K, 50lm (Rotatable Direction)</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT2701E1.jpg" alt=""></td><td><span class="ltt-sku">LT2701E1</span></td><td>Hardscape Light, 2W, 7", 2700K, 200lm (Replaceable LED Module)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Transformers</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3075_3150_3300_3600.jpg" alt=""></td><td><span class="ltt-sku">LT3075</span></td><td>75W, Built-in mechanical timer, 1 COM, input 120V AC, output 12 &amp; 15V AC</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3075_3150_3300_3600.jpg" alt=""></td><td><span class="ltt-sku">LT3150</span></td><td>150W, 1 COM, input 120V AC, output 12–15V AC</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3075_3150_3300_3600.jpg" alt=""></td><td><span class="ltt-sku">LT3300</span></td><td>300W, 1 COM, input 120V AC, output 12–15V AC</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3075_3150_3300_3600.jpg" alt=""></td><td><span class="ltt-sku">LT3600</span></td><td>600W, 2 COM, input 120V AC, output 12–18V, 22V AC</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3002.jpg" alt=""></td><td><span class="ltt-sku">LT3002</span></td><td>100W, Digital Screen, Built-in Timer &amp; Photocell, 2 COM, 120V, 12 &amp; 15V AC</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT3002.jpg" alt=""></td><td><span class="ltt-sku">LT3002</span></td><td>200W, Digital Screen, Built-in Timer &amp; Photocell, 2 COM, 120V, 12 &amp; 15V AC</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Cable</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LLC14100_12500.png" alt=""></td><td><span class="ltt-sku">LLC12500</span></td><td>500' 12AWG/2C direct burial cable</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LLC14100_12500.png" alt=""></td><td><span class="ltt-sku">LLC14100</span></td><td>100' 14AWG/2C direct burial cable</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Wire Connectors</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT405A_C_D.jpg" alt=""></td><td><span class="ltt-sku">LT405D</span></td><td>Large size, used for 6 to 22 AWG wire, 100 pk</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT405A_C_D.jpg" alt=""></td><td><span class="ltt-sku">LT405C</span></td><td>Medium size, used for 8 to 22 AWG wire, 100 pk</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT405A_C_D.jpg" alt=""></td><td><span class="ltt-sku">LT405A</span></td><td>Small size, used for 12 to 22 AWG wire, 100 pk</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="lt-cat" data-reveal>
+      <div class="lt-cat-label">Controls &amp; Accessories</div>
+      <div class="ltt-wrap"><table class="ltt">
+        <thead><tr><th class="ltt-th-img"></th><th style="width:140px;">Item #</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT407D.jpg" alt=""></td><td><span class="ltt-sku">LT407D</span></td><td>Digital Timer</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT407M.jpg" alt=""></td><td><span class="ltt-sku">LT407M</span></td><td>Mechanical Timer</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT408.jpg" alt=""></td><td><span class="ltt-sku">LT408</span></td><td>Photocell</td></tr>
+          <tr><td class="ltt-td-img"><img class="ltt-thumb" src="/media/LT411B.jpg" alt=""></td><td><span class="ltt-sku">LT411B</span></td><td>Low voltage Magnetic dimmer — 100 watt compatible</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
   </div>
 </section>
 
@@ -499,7 +669,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="section-label inverted">Power &amp; Control</div>
         <div class="transformers-content">
           <h2>Transformers &amp; Installation</h2>
-          <p>Power your entire lighting system with confidence. We carry Luminex transformers from 75W to 600W — enough to run anything from a simple path layout to a full commercial installation.</p>
+          <p>Power your entire lighting system with confidence. We carry Lumenex transformers from 75W to 600W — enough to run anything from a simple path layout to a full commercial installation.</p>
           <div class="transformers-list">
             <div class="transformers-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>

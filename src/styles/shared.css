@@ -291,7 +291,7 @@ h1, h2, h3 {
 }
 
 .card-icon.orange {
-  background: rgba(255, 102, 0, 0.1);
+  background: rgba(35, 155, 43, 0.1);
 }
 
 .card-icon.orange svg {
@@ -345,7 +345,7 @@ h1, h2, h3 {
   left: -80px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(255, 102, 0, 0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(35, 155, 43, 0.13) 0%, transparent 70%);
 }
 
 .cta-section::after {
