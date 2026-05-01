@@ -1,0 +1,45 @@
+HOW TO ADD PHOTOS TO THE GALLERY
+=================================
+
+DROP YOUR IMAGES IN THIS FOLDER (src/assets/gallery/)
+Then commit and push — that's it.
+
+NAMING CONVENTION
+-----------------
+[categories]--[anything you want].[ext]
+
+The part BEFORE the double-dash (--) sets the filter tabs.
+The part AFTER the double-dash is ignored — use it for your own organization.
+
+VALID CATEGORY TAGS
+-------------------
+  backyard
+  frontyard
+  pool
+  pet
+  putting
+  commercial
+
+EXAMPLES
+--------
+One category:
+  backyard--queen-creek-smith-residence.jpg
+  pool--gilbert-project-march.jpg
+  putting--scottsdale-custom-green.jpg
+
+Multiple categories (separate with a single dash):
+  backyard-pool--chandler-deck-and-turf.jpg
+  frontyard-commercial--phoenix-office.jpg
+  pet-backyard--mesa-dog-run.jpg
+
+OPTIONAL: CUSTOM TITLE & LOCATION LABELS
+-----------------------------------------
+By default no hover label appears. If you want a title and location
+to show on hover, open src/data/gallery.json and add an override:
+
+  "overrides": {
+    "backyard-pool--chandler-deck-and-turf.jpg": {
+      "title": "Backyard with Pool Edge",
+      "location": "Chandler"
+    }
+  }
