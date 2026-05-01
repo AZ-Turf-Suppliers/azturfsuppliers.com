@@ -297,10 +297,9 @@ import Layout from '../layouts/Layout.astro';
   border-radius: var(--radius-lg);
   object-fit: contain;
 }
-.pd-lightbox-close {
+.pd-lightbox-close,
+.pd-lightbox-nav {
   position: absolute;
-  top: 24px;
-  right: 24px;
   width: 44px;
   height: 44px;
   background: rgba(255,255,255,0.1);
@@ -312,8 +311,14 @@ import Layout from '../layouts/Layout.astro';
   justify-content: center;
   transition: background 0.2s;
 }
-.pd-lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.pd-lightbox-close { top: 24px; right: 24px; }
+.pd-lightbox-nav { top: 50%; transform: translateY(-50%); }
+.pd-lightbox-prev { left: 24px; }
+.pd-lightbox-next { right: 24px; }
+.pd-lightbox-close:hover,
+.pd-lightbox-nav:hover { background: rgba(255,255,255,0.2); }
 .pd-lightbox-close svg { width: 20px; height: 20px; color: var(--white); }
+.pd-lightbox-nav svg { width: 24px; height: 24px; color: var(--white); }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -593,15 +598,42 @@ document.querySelectorAll('.pd-thumb').forEach(function(thumb) {
 });
 
 // ─── PRODUCT IMAGE LIGHTBOX ───
+var thumbSrcs = Array.from(document.querySelectorAll('.pd-thumb')).map(function(t) { return t.getAttribute('data-src'); });
+var lbIndex = 0;
+var lb = document.createElement('div');
+lb.className = 'pd-lightbox';
+var navHTML = thumbSrcs.length > 1 ? '<button class="pd-lightbox-nav pd-lightbox-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button><button class="pd-lightbox-nav pd-lightbox-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>' : '';
+lb.innerHTML = '<button class="pd-lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' + navHTML + '<img src="" alt="">';
+document.body.appendChild(lb);
+var lbImg = lb.querySelector('img');
+function lbClose() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function lbStep(delta) {
+  if (!thumbSrcs.length) return;
+  lbIndex = (lbIndex + delta + thumbSrcs.length) % thumbSrcs.length;
+  lbImg.src = thumbSrcs[lbIndex];
+}
 document.querySelector('.pd-image').addEventListener('click', function() {
   var img = this.querySelector('img');
   if (!img) return;
-  var lb = document.createElement('div');
-  lb.className = 'pd-lightbox open';
-  lb.innerHTML = '<button class="pd-lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img src="' + img.src + '" alt="' + (img.alt || '') + '">';
-  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.closest('.pd-lightbox-close')) lb.remove(); });
-  document.body.appendChild(lb);
-  document.addEventListener('keydown', function handler(e) { if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', handler); } });
+  if (thumbSrcs.length) {
+    var idx = thumbSrcs.findIndex(function(s) { return img.src.endsWith(s); });
+    lbIndex = idx >= 0 ? idx : 0;
+    lbImg.src = thumbSrcs[lbIndex];
+  } else { lbImg.src = img.src; }
+  lbImg.alt = img.alt || '';
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
+});
+lb.querySelector('.pd-lightbox-close').addEventListener('click', lbClose);
+lb.addEventListener('click', function(e) { if (e.target === lb) lbClose(); });
+var prevEl = lb.querySelector('.pd-lightbox-prev');
+var nextEl = lb.querySelector('.pd-lightbox-next');
+if (prevEl) prevEl.addEventListener('click', function(e) { e.stopPropagation(); lbStep(-1); });
+if (nextEl) nextEl.addEventListener('click', function(e) { e.stopPropagation(); lbStep(1); });
+document.addEventListener('keydown', function(e) {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') lbClose();
+  else if (e.key === 'ArrowLeft') lbStep(-1);
+  else if (e.key === 'ArrowRight') lbStep(1);
 });
 
 </script>

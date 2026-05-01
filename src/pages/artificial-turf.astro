@@ -1074,6 +1074,7 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
   if (!wasOpen) item.classList.add('open');
 }
+(window as any).toggleFaq = toggleFaq;
 
 // scroll reveal handled by Layout.astro
 

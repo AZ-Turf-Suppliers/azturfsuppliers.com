@@ -1698,6 +1698,7 @@ function toggleBenefit(btn) {
   document.querySelectorAll('.benefit-item').forEach(i => i.classList.remove('active'));
   if (!wasActive) item.classList.add('active');
 }
+(window as any).toggleBenefit = toggleBenefit;
 </script>
 <script>
 // ─── REVIEW CAROUSEL DOTS (mobile) ───
