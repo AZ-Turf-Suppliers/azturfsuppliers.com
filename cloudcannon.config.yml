@@ -92,6 +92,8 @@ paths:
 data_config:
   gallery:
     path: src/data/gallery.json
+  homepage:
+    path: src/data/homepage.json
 
 _inputs:
   overrides:
@@ -105,3 +107,59 @@ _inputs:
   location:
     type: text
     comment: "City or area shown on hover (e.g. Queen Creek, Chandler)"
+
+  hero_fallback_image:
+    type: image
+    comment: "Fallback image shown behind the hero video while it loads"
+
+  contractors_card_image:
+    type: image
+    comment: "Photo for the Contractors & Landscapers card"
+
+  homeowners_card_image:
+    type: image
+    comment: "Photo for the DIY Homeowners card"
+
+  turf_card_image:
+    type: image
+    comment: "Background photo for the Artificial Turf product card"
+
+  pavers_card_image:
+    type: image
+    comment: "Background photo for the Pavers product card"
+
+  stone_card_image:
+    type: image
+    comment: "Background photo for the Natural Stone product card"
+
+  confidence_bg_image:
+    type: image
+    comment: "Background photo for the 'Shop With Confidence' section"
+
+  contractor_detail_image:
+    type: image
+    comment: "Photo in the contractor detail section"
+
+  homeowner_detail_image:
+    type: image
+    comment: "Photo in the homeowner detail section"
+
+  why_turf_image:
+    type: image
+    comment: "Photo in the 'Why Turf' benefits section"
+
+  pavers_other_image:
+    type: image
+    comment: "Photo for Pavers in the 'Other Products' section"
+
+  stone_other_image:
+    type: image
+    comment: "Photo for Natural Stone in the 'Other Products' section"
+
+  lighting_other_image:
+    type: image
+    comment: "Photo for Landscape Lighting in the 'Other Products' section"
+
+  accessories_other_image:
+    type: image
+    comment: "Photo for Accessories in the 'Other Products' section"
