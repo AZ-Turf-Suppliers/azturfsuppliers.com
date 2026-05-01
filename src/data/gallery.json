@@ -1,0 +1,77 @@
+{
+  "_note": "Valid categories: backyard | frontyard | pool | pet | putting | commercial. To add a photo: drop it in public/media/, then add an entry below. One image can belong to multiple categories.",
+  "items": [
+    {
+      "src": null,
+      "title": "Full Backyard Transformation",
+      "location": "Queen Creek",
+      "categories": ["backyard"]
+    },
+    {
+      "src": null,
+      "title": "Pool Deck & Turf Install",
+      "location": "Gilbert",
+      "categories": ["pool"]
+    },
+    {
+      "src": null,
+      "title": "Front Yard Curb Appeal",
+      "location": "Mesa",
+      "categories": ["frontyard"]
+    },
+    {
+      "src": null,
+      "title": "Pet-Friendly Dog Run",
+      "location": "Chandler",
+      "categories": ["pet"]
+    },
+    {
+      "src": null,
+      "title": "Custom Putting Green",
+      "location": "Scottsdale",
+      "categories": ["putting"]
+    },
+    {
+      "src": null,
+      "title": "Backyard Turf & Pavers",
+      "location": "San Tan Valley",
+      "categories": ["backyard"]
+    },
+    {
+      "src": null,
+      "title": "Commercial Courtyard",
+      "location": "Phoenix",
+      "categories": ["commercial"]
+    },
+    {
+      "src": null,
+      "title": "Resort-Style Pool Surround",
+      "location": "Queen Creek",
+      "categories": ["pool"]
+    },
+    {
+      "src": null,
+      "title": "Complete Outdoor Living Space",
+      "location": "Gilbert",
+      "categories": ["backyard"]
+    },
+    {
+      "src": null,
+      "title": "Drought-Proof Front Lawn",
+      "location": "Tempe",
+      "categories": ["frontyard"]
+    },
+    {
+      "src": null,
+      "title": "K9 Play Yard",
+      "location": "Apache Junction",
+      "categories": ["pet"]
+    },
+    {
+      "src": null,
+      "title": "Backyard Putting & Chipping Area",
+      "location": "Mesa",
+      "categories": ["putting"]
+    }
+  ]
+}

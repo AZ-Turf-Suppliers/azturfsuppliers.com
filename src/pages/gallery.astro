@@ -1,5 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import galleryData from '../data/gallery.json';
+
+interface GalleryItem {
+  src: string | null;
+  title: string;
+  location: string;
+  categories: string[];
+}
+
+const items = galleryData.items as GalleryItem[];
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 ---
 
 <Layout title="Project Gallery | AZ Turf Suppliers — Queen Creek, AZ">
@@ -93,21 +104,20 @@ import Layout from '../layouts/Layout.astro';
   letter-spacing: 0.06em;
 }
 
-/* Placeholder images (gradient bg until real photos added) */
+/* Placeholder shown until a real photo is uploaded */
 .gallery-placeholder {
   width: 100%;
+  height: 280px;
+  background: var(--gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.25);
+  color: var(--gray-400);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.gallery-placeholder.tall { height: 380px; }
-.gallery-placeholder.med { height: 280px; }
-.gallery-placeholder.short { height: 220px; }
 
 /* Lightbox */
 .lightbox {
@@ -234,105 +244,25 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Gallery Grid -->
     <div class="gallery-grid" id="gallery-grid">
-
-      <!-- ROW 1 -->
-      <div class="gallery-item" data-category="backyard" data-reveal>
-        <div class="gallery-placeholder tall" style="background:#239B2B;">Backyard Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Full Backyard Transformation</h4>
-          <span>Backyard · Queen Creek</span>
+      {items.map(item => (
+        <div
+          class="gallery-item"
+          data-categories={item.categories.join(' ')}
+          data-title={item.title}
+          data-location={item.location}
+          data-reveal
+        >
+          {item.src
+            ? <img src={item.src} alt={item.title} loading="lazy" />
+            : <div class="gallery-placeholder">Photo Coming Soon</div>
+          }
+          <div class="gallery-item-overlay">
+            <h4>{item.title}</h4>
+            <span>{item.categories.map(capitalize).join(' & ')} · {item.location}</span>
+          </div>
         </div>
-      </div>
-
-      <div class="gallery-item" data-category="pool" data-reveal>
-        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #2a5a6a, #4a8a9a);">Pool Area Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Pool Deck & Turf Install</h4>
-          <span>Pool Area · Gilbert</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="frontyard" data-reveal>
-        <div class="gallery-placeholder short" style="background:#239B2B;">Front Yard Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Front Yard Curb Appeal</h4>
-          <span>Front Yard · Mesa</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="pet" data-reveal>
-        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #5a4a2a, #8a7a5a);">Pet Area Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Pet-Friendly Dog Run</h4>
-          <span>Pet Area · Chandler</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="putting" data-reveal>
-        <div class="gallery-placeholder tall" style="background:#239B2B;">Putting Green Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Custom Putting Green</h4>
-          <span>Putting Green · Scottsdale</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="backyard" data-reveal>
-        <div class="gallery-placeholder short" style="background:#239B2B;">Backyard Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Backyard Turf & Pavers</h4>
-          <span>Backyard · San Tan Valley</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="commercial" data-reveal>
-        <div class="gallery-placeholder med" style="background:linear-gradient(135deg, #3a3a4a, #5a5a6a);">Commercial Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Commercial Courtyard</h4>
-          <span>Commercial · Phoenix</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="pool" data-reveal>
-        <div class="gallery-placeholder tall" style="background:linear-gradient(135deg, #2a6a7a, #4a9aaa);">Pool Area Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Resort-Style Pool Surround</h4>
-          <span>Pool Area · Queen Creek</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="backyard" data-reveal>
-        <div class="gallery-placeholder med" style="background:#239B2B;">Backyard Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Complete Outdoor Living Space</h4>
-          <span>Backyard · Gilbert</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="frontyard" data-reveal>
-        <div class="gallery-placeholder tall" style="background:#239B2B;">Front Yard Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Drought-Proof Front Lawn</h4>
-          <span>Front Yard · Tempe</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="pet" data-reveal>
-        <div class="gallery-placeholder short" style="background:linear-gradient(135deg, #6a5a3a, #9a8a5a);">Pet Area Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>K9 Play Yard</h4>
-          <span>Pet Area · Apache Junction</span>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="putting" data-reveal>
-        <div class="gallery-placeholder med" style="background:#239B2B;">Putting Green Photo</div>
-        <div class="gallery-item-overlay">
-          <h4>Backyard Putting & Chipping Area</h4>
-          <span>Putting Green · Mesa</span>
-        </div>
-      </div>
-
-    </div><!-- /gallery-grid -->
+      ))}
+    </div>
 
   </div>
 </section>
@@ -349,6 +279,18 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img src="" alt="" id="lightbox-img" />
+  <div class="lightbox-caption">
+    <h4 id="lightbox-title"></h4>
+    <span id="lightbox-location"></span>
+  </div>
+</div>
 
 <script>
 // ─── SCROLL REVEAL ───
@@ -370,32 +312,42 @@ filters.forEach(btn => {
     const cat = btn.getAttribute('data-filter');
 
     items.forEach(item => {
-      if (cat === 'all' || item.getAttribute('data-category') === cat) {
-        item.style.display = '';
+      const cats = (item.getAttribute('data-categories') || '').split(' ');
+      if (cat === 'all' || cats.includes(cat)) {
+        (item as HTMLElement).style.display = '';
       } else {
-        item.style.display = 'none';
+        (item as HTMLElement).style.display = 'none';
       }
     });
   });
 });
 
 // ─── LIGHTBOX ───
-// When real images are added, swap the gallery-placeholder divs for <img> tags
-// and this lightbox will work automatically:
-//
-// document.querySelectorAll('.gallery-item').forEach(item => {
-//   item.addEventListener('click', () => {
-//     const img = item.querySelector('img');
-//     if (!img) return;
-//     const lb = document.createElement('div');
-//     lb.className = 'lightbox open';
-//     lb.innerHTML = `
-//       <button class="lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-//       <img src="${img.src}" alt="${img.alt || ''}">
-//     `;
-//     lb.addEventListener('click', () => lb.remove());
-//     document.body.appendChild(lb);
-//   });
-// });
+const lightbox = document.getElementById('lightbox')!;
+const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+const lightboxTitle = document.getElementById('lightbox-title')!;
+const lightboxLocation = document.getElementById('lightbox-location')!;
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxTitle.textContent = item.getAttribute('data-title') || '';
+    lightboxLocation.textContent = item.getAttribute('data-location') || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.getElementById('lightbox-close')!.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 </Layout>
