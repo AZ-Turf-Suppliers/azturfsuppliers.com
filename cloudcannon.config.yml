@@ -1,0 +1,107 @@
+collections_config:
+  main_pages:
+    path: src/pages
+    name: Pages
+    icon: wysiwyg
+    glob:
+      - "index.astro"
+      - "about.astro"
+      - "contact.astro"
+      - "gallery.astro"
+      - "products.astro"
+      - "locations.astro"
+      - "contractors.astro"
+      - "homeowners.astro"
+      - "turf-calculator.astro"
+    url: "/[slug]/"
+    _enabled_editors:
+      - visual
+    disable_add: true
+
+  products:
+    path: src/pages
+    name: Product Pages
+    icon: store
+    glob:
+      - "artificial-turf.astro"
+      - "bermuda-blend-70.astro"
+      - "bermuda-blend-93.astro"
+      - "natural-blend-75.astro"
+      - "natural-blend-84.astro"
+      - "natural-stone.astro"
+      - "pavers.astro"
+      - "landscape-lighting.astro"
+      - "putting-green.astro"
+      - "spring-blend-87.astro"
+      - "spring-blend-107.astro"
+      - "winter-blend-84.astro"
+      - "winter-blend-103.astro"
+    url: "/[slug]/"
+    _enabled_editors:
+      - visual
+    disable_add: true
+
+  locations:
+    path: src/pages
+    name: Location Pages
+    icon: location_on
+    glob:
+      - "apache-junction.astro"
+      - "chandler.astro"
+      - "gilbert.astro"
+      - "mesa.astro"
+      - "phoenix.astro"
+      - "queen-creek.astro"
+      - "san-tan-valley.astro"
+      - "scottsdale.astro"
+      - "tempe.astro"
+    url: "/[slug]/"
+    _enabled_editors:
+      - visual
+    disable_add: true
+
+  data:
+    path: src/data
+    name: Data
+    icon: settings
+    glob:
+      - "**/*.json"
+    disable_url: true
+    _enabled_editors:
+      - data
+    disable_add: true
+
+collection_groups:
+  - heading: Site
+    collections:
+      - main_pages
+  - heading: Products
+    collections:
+      - products
+  - heading: Locations
+    collections:
+      - locations
+  - heading: Data
+    collections:
+      - data
+
+paths:
+  static: public
+  uploads: public/media
+
+data_config:
+  gallery:
+    path: src/data/gallery.json
+
+_inputs:
+  overrides:
+    type: object
+    comment: "Add hover labels for gallery images. Key = exact filename (e.g. turf--01.jpg). Each entry can have a title and/or location."
+
+  title:
+    type: text
+    comment: "Short label shown on hover in the gallery"
+
+  location:
+    type: text
+    comment: "City or area shown on hover (e.g. Queen Creek, Chandler)"
