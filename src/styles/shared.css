@@ -87,7 +87,7 @@ h1, h2, h3 {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg') center / cover;
+  background: url('/media/natural-series-turf-1.jpg') center / cover;
   z-index: 0;
 }
 
