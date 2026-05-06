@@ -889,11 +889,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
     const json = await res.json();
 
     if (res.ok && json.ok) {
-      status.style.display = 'block';
-      status.style.background = '#e8f7e9';
-      status.style.color = '#186b1e';
-      status.textContent = "Message sent! We'll be in touch same day.";
-      form.reset();
+      window.location.href = '/thank-you';
     } else {
       throw new Error(json.error ?? 'Unknown error');
     }
