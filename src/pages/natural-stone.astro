@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout title="Natural Stone | AZ Turf Suppliers — Queen Creek, AZ">
 <style is:global>
+.page-hero::before { background-image: url("/media/stone.jpg") !important; }
 /* ─── INTRO ─── */
 .stone-intro { padding: 88px 0; background: var(--white); }
 .stone-intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -216,7 +218,7 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="stone-intro-img" data-reveal><img src="/media/stone.jpg" alt="Natural stone display"></div>
+      <div class="stone-intro-img" data-reveal><Pic name="stone.jpg" alt="Natural stone display" /></div>
     </div>
   </div>
 </section>
@@ -231,10 +233,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="stone-grid">
       <div class="stone-card" data-reveal>
         <div class="stone-card-img stone-card-mosaic">
-          <img src="/media/Walnut.png" alt="Walnut Travertine">
-          <img src="/media/Beige.png" alt="Tuscany Beige Travertine">
-          <img src="/media/Silver.png" alt="Tuscany Silver Travertine">
-          <img src="/media/Porcini.png" alt="Porcini Travertine">
+          <Pic name="Walnut.png" alt="Walnut Travertine" />
+          <Pic name="Beige.png" alt="Tuscany Beige Travertine" />
+          <Pic name="Silver.png" alt="Tuscany Silver Travertine" />
+          <Pic name="Porcini.png" alt="Porcini Travertine" />
         </div>
         <div class="stone-card-body">
           <h3>Travertine — Turkey</h3>
@@ -244,10 +246,10 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="stone-card" data-reveal>
         <div class="stone-card-img stone-card-mosaic">
-          <img src="/media/Greecian%20Silver.png" alt="Greecian Silver Limestone">
-          <img src="/media/Greecian%20Marbella.png" alt="Greecian Marbella Limestone">
-          <img src="/media/Greecian%20Antico.png" alt="Greecian Antico Limestone">
-          <img src="/media/Mayra%20White.png" alt="Mayra White Limestone">
+          <Pic name="Greecian Silver.png" alt="Greecian Silver Limestone" />
+          <Pic name="Greecian Marbella.png" alt="Greecian Marbella Limestone" />
+          <Pic name="Greecian Antico.png" alt="Greecian Antico Limestone" />
+          <Pic name="Mayra White.png" alt="Mayra White Limestone" />
         </div>
         <div class="stone-card-body">
           <h3>Limestone — Egypt &amp; Turkey</h3>
@@ -256,7 +258,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="stone-card" data-reveal>
-        <div class="stone-card-img"><img src="/media/Sierra%20White.png" alt="Sierra White Marble"></div>
+        <div class="stone-card-img"><Pic name="Sierra White.png" alt="Sierra White Marble" /></div>
         <div class="stone-card-body">
           <h3>Marble — Turkey</h3>
           <p>Sierra White marble in a sandblasted/straight finish — crisp, bright, and slip-resistant. Available in small and large format sizes with matching coping for a seamless high-end look.</p>
@@ -322,7 +324,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Travertine — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Walnut.png" alt=""><span>Walnut (Noce) Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Walnut.png" class="stone-swatch"   alt="" /><span>Walnut (Noce) Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -353,7 +355,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Beige.png" alt=""><span>Tuscany Beige Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Beige.png" class="stone-swatch"   alt="" /><span>Tuscany Beige Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -385,7 +387,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Tuscany%20Ivory.png" alt=""><span>Tuscany Ivory Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Tuscany Ivory.png" class="stone-swatch"   alt="" /><span>Tuscany Ivory Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -410,7 +412,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Silver.png" alt=""><span>Tuscany Silver Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Silver.png" class="stone-swatch"   alt="" /><span>Tuscany Silver Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -439,7 +441,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Porcini.png" alt=""><span>Porcini Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Porcini.png" class="stone-swatch"   alt="" /><span>Porcini Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -465,7 +467,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Scabas.png" alt=""><span>Scabas Travertine — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Scabas.png" class="stone-swatch"   alt="" /><span>Scabas Travertine — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -490,7 +492,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Egypt</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Silver.png" alt=""><span>Greecian Silver Limestone — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Greecian Silver.png" class="stone-swatch"   alt="" /><span>Greecian Silver Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -514,7 +516,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Antico.png" alt=""><span>Greecian Antico Limestone — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Greecian Antico.png" class="stone-swatch"   alt="" /><span>Greecian Antico Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -539,7 +541,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Cream.png" alt=""><span>Greecian Cream Limestone — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Greecian Cream.png" class="stone-swatch"   alt="" /><span>Greecian Cream Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -564,7 +566,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Greecian%20Marbella.png" alt=""><span>Greecian Marbella Limestone — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Greecian Marbella.png" class="stone-swatch"   alt="" /><span>Greecian Marbella Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -595,7 +597,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Limestone — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Mayra%20White.png" alt=""><span>Mayra White Limestone — Tumbled, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Mayra White.png" class="stone-swatch"   alt="" /><span>Mayra White Limestone — Tumbled, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>
@@ -628,7 +630,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="stone-cat-label">Marble — Turkey</div>
 
       <div class="stone-variant">
-        <div class="stone-variant-title"><img class="stone-swatch" src="/media/Sierra%20White.png" alt=""><span>Sierra White Marble — Sandblasted/Straight, 3cm</span></div>
+        <div class="stone-variant-title"><Pic name="Sierra White.png" class="stone-swatch"   alt="" /><span>Sierra White Marble — Sandblasted/Straight, 3cm</span></div>
         <div class="stone-sub-label">Pavers</div>
         <div class="ptable-wrap"><table class="ptable">
           <thead><tr><th>Size</th><th class="hide-mobile">Packaging</th><th class="hide-mobile">Sqft / Pallet</th><th>Price / Sqft</th></tr></thead>

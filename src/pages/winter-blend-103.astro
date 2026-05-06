@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout title="Winter Blend 103 | AZ Turf Suppliers — Queen Creek, AZ">
 <style is:global>
+.page-hero::before { background-image: url("/media/winter-blend-103-side.png") !important; }
 /* ─── PRODUCT DETAIL ─── */
 .pd-section {
   padding: 88px 0;
@@ -429,19 +431,19 @@ import Layout from '../layouts/Layout.astro';
       <div class="pd-gallery" data-reveal>
         <div class="pd-image">
           <div class="pd-mag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-          <img src="/media/winter-blend-103-above.png" alt="Winter Blend 103">
+          <Pic name="winter-blend-103-above.png" alt="Winter Blend 103" />
         </div>
         <div class="pd-thumbs">
-          <button type="button" class="pd-thumb is-active" data-src="/media/winter-blend-103-above.png" aria-label="View 1"><img src="/media/winter-blend-103-above.png" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-103-side.png" aria-label="View 2"><img src="/media/winter-blend-103-side.png" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-above.png" aria-label="View 3"><img src="/media/winter-blend-above.png" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-1.jpg" aria-label="View 4"><img src="/media/winter-blend-1.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-2.jpg" aria-label="View 5"><img src="/media/winter-blend-2.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-3.jpg" aria-label="View 6"><img src="/media/winter-blend-3.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-4.jpg" aria-label="View 7"><img src="/media/winter-blend-4.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-5.jpg" aria-label="View 8"><img src="/media/winter-blend-5.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-6.jpg" aria-label="View 9"><img src="/media/winter-blend-6.jpg" alt=""></button>
-          <button type="button" class="pd-thumb" data-src="/media/winter-blend-7.jpg" aria-label="View 10"><img src="/media/winter-blend-7.jpg" alt=""></button>
+          <button type="button" class="pd-thumb is-active" data-src="/media/winter-blend-103-above.png" aria-label="View 1"><Pic name="winter-blend-103-above.png" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-103-side.png" aria-label="View 2"><Pic name="winter-blend-103-side.png" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-above.png" aria-label="View 3"><Pic name="winter-blend-above.png" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-1.jpg" aria-label="View 4"><img src="/media/winter-blend-1.jpg" alt="" loading="lazy" decoding="async"/></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-2.jpg" aria-label="View 5"><img src="/media/winter-blend-2.jpg" alt="" loading="lazy" decoding="async"/></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-3.jpg" aria-label="View 6"><Pic name="winter-blend-3.jpg" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-4.jpg" aria-label="View 7"><Pic name="winter-blend-4.jpg" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-5.jpg" aria-label="View 8"><Pic name="winter-blend-5.jpg" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-6.jpg" aria-label="View 9"><Pic name="winter-blend-6.jpg" alt="" /></button>
+          <button type="button" class="pd-thumb" data-src="/media/winter-blend-7.jpg" aria-label="View 10"><Pic name="winter-blend-7.jpg" alt="" /></button>
         </div>
       </div>
       <div class="pd-content">
@@ -538,25 +540,25 @@ import Layout from '../layouts/Layout.astro';
     <div class="why-love-grid">
       <div class="why-love-item" data-reveal>
         <div class="why-love-logo">
-          <img src="/media/coolyarn.jpg" alt="CoolYarn Technology">
+          <Pic name="coolyarn.jpg" alt="CoolYarn Technology" />
         </div>
         <p>Optimizes airflow to reduce surface temperature in extreme weather. UV-stabilized to resist fading from the sun.</p>
       </div>
       <div class="why-love-item" data-reveal>
         <div class="why-love-logo">
-          <img src="/media/pet-friendly.jpg" alt="Pet Friendly">
+          <Pic name="pet-friendly.jpg" alt="Pet Friendly" />
         </div>
         <p>Allergen-free, easy to clean, and comfortable to play on. A great choice for any pet owner.</p>
       </div>
       <div class="why-love-item" data-reveal>
         <div class="why-love-logo">
-          <img src="/media/save-water.jpg" alt="Save Water">
+          <Pic name="save-water.jpg" alt="Save Water" />
         </div>
         <p>No watering, mowing, or fertilizing needed. Even in a drought, your lawn stays lush and beautiful year-round.</p>
       </div>
       <div class="why-love-item" data-reveal>
         <div class="why-love-logo">
-          <img src="/media/lead-free.jpg" alt="Lead Free">
+          <Pic name="lead-free.jpg" alt="Lead Free" />
         </div>
         <p>100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family.</p>
       </div>
@@ -602,7 +604,7 @@ var lbIndex = 0;
 var lb = document.createElement('div');
 lb.className = 'pd-lightbox';
 var navHTML = thumbSrcs.length > 1 ? '<button class="pd-lightbox-nav pd-lightbox-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button><button class="pd-lightbox-nav pd-lightbox-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>' : '';
-lb.innerHTML = '<button class="pd-lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' + navHTML + '<img src="" alt="">';
+lb.innerHTML = '<button class="pd-lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' + navHTML + '<img src="" alt="" loading="lazy" decoding="async">';
 document.body.appendChild(lb);
 var lbImg = lb.querySelector('img');
 function lbClose() { lb.classList.remove('open'); document.body.style.overflow = ''; }

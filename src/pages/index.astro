@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 import pageData from '../data/homepage.json';
 const {
   hero_fallback_image,
@@ -8,6 +9,7 @@ const {
   turf_card_image,
   pavers_card_image,
   stone_card_image,
+  lighting_card_image,
   confidence_bg_image,
   contractor_detail_image,
   homeowner_detail_image,
@@ -17,6 +19,9 @@ const {
   lighting_other_image,
   accessories_other_image,
 } = pageData;
+
+// Strip "/media/" prefix to get filename for Pic component lookup
+const fname = (path: string) => path.replace(/^\/media\//, '');
 ---
 
 <Layout title="AZ Turf Suppliers | Premium Artificial Turf & Landscaping in Queen Creek, AZ">
@@ -1100,7 +1105,7 @@ const {
     <div class="serve-grid">
       <a href="/contractors" class="serve-card" data-reveal>
         <div class="serve-card-img">
-          <img src={contractors_card_image} alt="Contractors & Landscapers">
+          <Pic name={fname(contractors_card_image)} alt="Contractors & Landscapers" />
         </div>
         <div class="serve-card-body">
           <h3>Contractors & Landscapers</h3>
@@ -1110,7 +1115,7 @@ const {
       </a>
       <a href="/homeowners" class="serve-card" data-reveal>
         <div class="serve-card-img">
-          <img src={homeowners_card_image} alt="DIY Homeowners">
+          <Pic name={fname(homeowners_card_image)} alt="DIY Homeowners" />
         </div>
         <div class="serve-card-body">
           <h3>DIY Homeowners</h3>
@@ -1132,7 +1137,7 @@ const {
     <p class="products-intro">At AZ Turf Suppliers, we offer more than just turf — we provide everything you need to complete your outdoor space from start to finish. Our full range of products includes:</p>
     <div class="products-grid">
       <a href="/artificial-turf" class="product-card" data-reveal>
-        <div class="product-card-bg"><img src={turf_card_image} alt="Artificial turf installation"></div>
+        <div class="product-card-bg"><Pic name={fname(turf_card_image)} alt="Artificial turf installation" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
@@ -1141,7 +1146,7 @@ const {
         </div>
       </a>
       <a href="/pavers" class="product-card" data-reveal>
-        <div class="product-card-bg"><img src={pavers_card_image} alt="Paver installation"></div>
+        <div class="product-card-bg"><Pic name={fname(pavers_card_image)} alt="Paver installation" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
@@ -1150,7 +1155,7 @@ const {
         </div>
       </a>
       <a href="/natural-stone" class="product-card" data-reveal>
-        <div class="product-card-bg"><img src={stone_card_image} alt="Natural stone installation"></div>
+        <div class="product-card-bg"><Pic name={fname(stone_card_image)} alt="Natural stone installation" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
@@ -1159,7 +1164,7 @@ const {
         </div>
       </a>
       <a href="/landscape-lighting" class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:linear-gradient(135deg, #2a3a4a, #4a5a6a);"></div>
+        <div class="product-card-bg"><Pic name={fname(lighting_card_image)} alt="Landscape lighting at night" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">
@@ -1250,7 +1255,7 @@ const {
         <a href="/contractors" class="btn btn-primary">Visit Contractors Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
       <div class="serve-detail-img">
-        <img src={contractor_detail_image} alt="Contractor loading turf">
+        <Pic name={fname(contractor_detail_image)} alt="Contractor loading turf" />
       </div>
     </div>
   </div>
@@ -1285,7 +1290,7 @@ const {
         <a href="/homeowners" class="btn btn-primary">Visit Homeowners Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
       <div class="serve-detail-img">
-        <img src={homeowner_detail_image} alt="Beautiful backyard with turf">
+        <Pic name={fname(homeowner_detail_image)} alt="Beautiful backyard with turf" />
       </div>
     </div>
   </div>
@@ -1296,7 +1301,7 @@ const {
   <div class="container">
     <div class="why-turf-grid">
       <div class="why-turf-img">
-        <img src={why_turf_image} alt="Artificial Turf" style="width:100%;height:100%;object-fit:cover;">
+        <Pic name={fname(why_turf_image)} alt="Artificial Turf" />
       </div>
       <div class="why-turf-content">
         <div class="section-label inverted">We Love Artificial Turf</div>
@@ -1459,7 +1464,7 @@ const {
     <div class="other-grid">
       <div class="other-card" data-reveal>
         <div class="other-card-img">
-          <img src={pavers_other_image} alt="Pavers & Hardscaping">
+          <Pic name={fname(pavers_other_image)} alt="Pavers & Hardscaping" />
         </div>
         <div class="other-card-body">
           <h4>Pavers & Hardscaping</h4>
@@ -1469,7 +1474,7 @@ const {
       </div>
       <div class="other-card" data-reveal>
         <div class="other-card-img">
-          <img src={stone_other_image} alt="Natural Stone">
+          <Pic name={fname(stone_other_image)} alt="Natural Stone" />
         </div>
         <div class="other-card-body">
           <h4>Natural Stone</h4>
@@ -1479,7 +1484,7 @@ const {
       </div>
       <div class="other-card" data-reveal>
         <div class="other-card-img">
-          <img src={lighting_other_image} alt="Landscape Lighting">
+          <Pic name={fname(lighting_other_image)} alt="Landscape Lighting" />
         </div>
         <div class="other-card-body">
           <h4>Landscape Lighting</h4>
@@ -1489,7 +1494,7 @@ const {
       </div>
       <div class="other-card" data-reveal>
         <div class="other-card-img">
-          <img src={accessories_other_image} alt="Accessories">
+          <Pic name={fname(accessories_other_image)} alt="Accessories" />
         </div>
         <div class="other-card-body">
           <h4>Accessories</h4>

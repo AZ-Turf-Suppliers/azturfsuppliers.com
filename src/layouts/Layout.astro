@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/header.css';
 import '../styles/footer.css';
 import '../styles/shared.css';
@@ -21,6 +22,17 @@ const { title, description = 'Premium artificial turf and landscaping supplies s
     <title>{title}</title>
     <meta name="description" content={description}>
     <link rel="icon" type="image/png" href="/media/logo.png">
+    <!-- DNS prefetch for third-party origins -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload hero background used on all inner pages -->
+    <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg">
+
+    <ViewTransitions />
   </head>
   <body>
     <Header />
@@ -29,11 +41,15 @@ const { title, description = 'Premium artificial turf and landscaping supplies s
     </main>
     <Footer />
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }),
-        { threshold: 0.12 }
-      );
-      document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+      function initReveal() {
+        const observer = new IntersectionObserver(
+          (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }),
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll('[data-reveal]:not(.revealed)').forEach(el => observer.observe(el));
+      }
+      initReveal();
+      document.addEventListener('astro:page-load', initReveal);
     </script>
   </body>
 </html>
