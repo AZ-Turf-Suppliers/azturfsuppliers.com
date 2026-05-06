@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
+
+const products = [
+  { name: 'Silica Sand 50 Lbs.',            img: 'acc-silica-sand.png',        price: '$6.50',  desc: 'Standard silica sand infill for artificial turf. Adds weight and stability to the turf backing.' },
+  { name: 'Putting Green Silica Sand 50 Lb.',img: 'acc-putting-green-sand.jpg', price: '$7',     desc: 'Fine-grade silica sand sized for putting green turf. Keeps the surface firm and true-rolling.' },
+  { name: 'Camofill 50 Lbs.',               img: 'acc-camofill.png',           price: '$15.75', desc: 'Coated sand infill that resists odors and bacteria. Great for pet areas and high-traffic zones.' },
+  { name: '3.5" Install Nails 50 Lbs.',     img: 'acc-nails-3.5in.png',        price: '$65',    desc: 'Galvanized nails for securing turf edges along concrete, wood bender board, and paver borders.' },
+  { name: '5" Install Nails 50 Lbs.',       img: 'acc-nails-5in.png',          price: '$65',    desc: 'Longer galvanized nails for perimeter anchoring in decomposed granite and compacted base.' },
+  { name: '6×300 Weed Fabric',              img: 'acc-weed-fabric.png',        price: '$110',   desc: '6-foot-wide, 300-foot roll. Landscape-grade weed barrier installed under the turf base layer.' },
+  { name: 'EZ Pump 0.5-Gal. Hand Sprayer', img: 'acc-ez-pump.jpg',            price: '$60',    desc: 'Durable hand pump sprayer for applying Oxy Turf cleaner, enzyme deodorizers, and infill treatments.' },
+  { name: 'Oxy Turf 1-Gal. Jug',           img: 'acc-oxy-turf.jpg',           price: '$50',    desc: 'Concentrated oxidizing turf cleaner. Breaks down pet waste, odors, and organic debris at the source.' },
+  { name: 'Flag Stick',                     img: 'acc-flag-stick.png',         price: '$15',    desc: 'Standard cup-size flag stick for putting green installations. Fits 4" aluminum cups.' },
+  { name: 'White Flag',                     img: 'acc-flag-white.png',         price: '$15',    desc: 'Classic white putting green flag. Pairs with any flag stick and 4" cup.' },
+  { name: 'Black & White Checkered Flag',   img: 'acc-flag-checkered.png',     price: '$15',    desc: 'Checkered putting green flag. A fun finish detail for backyard and practice greens.' },
+  { name: '4" Aluminum Cup',               img: 'acc-aluminum-cup.png',       price: '$20',    desc: 'Standard-size aluminum putting cup. Installs flush into the green surface for a professional look.' },
+];
+---
+
+<Layout
+  title="Accessories & Maintenance | AZ Turf Suppliers — Queen Creek, AZ"
+  description="Turf installation supplies and maintenance products: silica sand, nails, weed fabric, infill, Oxy Turf cleaner, putting green accessories, and more. In stock at our Queen Creek showroom."
+>
+<style is:global>
+/* ─── GRID ─── */
+.acc-section {
+  padding: 88px 0;
+  background: var(--white);
+}
+.acc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.acc-card {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.acc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: var(--white);
+}
+.acc-img {
+  aspect-ratio: 1;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+.acc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.acc-body {
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+.acc-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+.acc-desc {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  flex: 1;
+}
+.acc-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--green-700);
+  margin-top: 4px;
+}
+
+/* ─── NOTE BAR ─── */
+.acc-note {
+  background: var(--gray-100);
+  border-left: 3px solid var(--green-700);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 48px;
+}
+.acc-note a { color: var(--green-700); font-weight: 600; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) { .acc-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .acc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } .acc-section { padding: 56px 0; } }
+@media (max-width: 480px)  { .acc-grid { grid-template-columns: 1fr; } }
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Supplies &amp; Maintenance</div>
+      <h1>Accessories &amp; <em>Maintenance Products</em></h1>
+      <p>Nails, infill, weed fabric, putting green accessories, and turf maintenance supplies — everything you need to install and maintain your turf the right way.</p>
+      <div class="page-hero-btns">
+        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="acc-section">
+  <div class="container">
+    <div class="section-header centered" data-reveal>
+      <div class="section-label centered">In Stock</div>
+      <h2>Shop Accessories &amp; Maintenance Products</h2>
+      <p>All items stocked at our Queen Creek showroom for same-day pickup. Call ahead to confirm quantity availability.</p>
+    </div>
+
+    <div class="acc-grid">
+      {products.map((p) => (
+        <div class="acc-card" data-reveal>
+          <div class="acc-img">
+            <Pic name={p.img} alt={p.name} loading="lazy" />
+          </div>
+          <div class="acc-body">
+            <div class="acc-name">{p.name}</div>
+            <div class="acc-desc">{p.desc}</div>
+            <div class="acc-price">{p.price}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="acc-note">
+      Prices are subject to change. Call or text <a href="tel:4807393854">480-739-3854</a> for current availability and bulk pricing on large orders.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">Visit Us</div>
+    <h2>Everything You Need, In One Place</h2>
+    <p>Stop by our Queen Creek showroom and grab what you need for your next install. Same-day pickup available on all stocked items.</p>
+    <div class="cta-btns">
+      <a href="tel:4807393854" class="btn btn-primary">Call 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="/contact" class="btn btn-outline">Send a Message</a>
+    </div>
+  </div>
+</section>
+</Layout>
