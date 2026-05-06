@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
+---
+
+<Layout title="Lead Free Guarantee | AZ Turf Suppliers — Queen Creek, AZ">
+<style is:global>
+.page-hero::before { background-image: url("/media/natural-series-turf-5.jpg") !important; }
+
+/* ─── CERT SECTION ─── */
+.leadfree-cert {
+  padding: 88px 0;
+  background: var(--white);
+}
+.leadfree-cert-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.leadfree-cert-content h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.leadfree-cert-content > p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.leadfree-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green-700);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+.leadfree-cert-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+.leadfree-cert-img img { width: 100%; height: auto; display: block; }
+
+/* ─── WHY IT MATTERS ─── */
+.leadfree-why {
+  padding: 88px 0;
+  background: var(--gray-100);
+}
+.leadfree-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.leadfree-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.leadfree-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--green-700);
+}
+.leadfree-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.leadfree-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(34, 139, 34, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.leadfree-card-icon svg { width: 24px; height: 24px; color: var(--green-700); }
+.leadfree-card h3 {
+  font-size: 0.95rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.leadfree-card p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .leadfree-cert-inner { grid-template-columns: 1fr; gap: 40px; }
+  .leadfree-why-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1024px) {
+  .leadfree-why-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Safety First</div>
+      <h1>100% Lead Free. <em>Guaranteed.</em></h1>
+      <p>Every turf product sold by AZ Turf Suppliers is certified free from lead and complies with the lead content limits established by applicable regulatory standards. Safe for families, children, and pets.</p>
+      <div class="page-hero-btns">
+        <a href="/artificial-turf" class="btn btn-primary">Browse Turf Products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/contact" class="btn btn-outline">Ask Us a Question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATE ═══ -->
+<section class="leadfree-cert">
+  <div class="container">
+    <div class="leadfree-cert-inner">
+      <div class="leadfree-cert-content" data-reveal>
+        <div class="section-label">Lead Free Certificate</div>
+        <h2>Certified. Compliant. Safe.</h2>
+        <div class="leadfree-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          100% Lead Free | Guaranteed
+        </div>
+        <p>This is to certify that the synthetic turf provided by AZ Turf Suppliers is free from lead and complies with the lead content limits established by applicable regulatory standards.</p>
+        <p>Our synthetic turf has been manufactured using materials that do not contain any lead-based compounds. We understand the importance of providing safe and high-quality products to our customers, especially when it comes to synthetic turf, which is used in a variety of applications such as sports fields, playgrounds, and landscaping. Therefore, we take great care in ensuring that our synthetic turf meets or exceeds all relevant safety standards and regulations.</p>
+        <p>By using our lead-free synthetic turf, you can rest assured that your facility or property is safe for people of all ages, including children and pets.</p>
+      </div>
+      <div data-reveal>
+        <div class="leadfree-cert-img">
+          <Pic name="lead_free_certificate.png" alt="AZ Turf Suppliers Lead Free Certificate" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY IT MATTERS ═══ -->
+<section class="leadfree-why">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label centered">Why It Matters</div>
+      <h2>Safe for Every Application</h2>
+      <p>Lead-free turf is especially critical where children, pets, and families spend time outdoors.</p>
+    </div>
+    <div class="leadfree-why-grid">
+      <div class="leadfree-card" data-reveal>
+        <div class="leadfree-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Safe for Children</h3>
+        <p>Playgrounds and backyards where children play demand the highest safety standards. Our lead-free certification means parents can let their kids play worry-free.</p>
+      </div>
+      <div class="leadfree-card" data-reveal>
+        <div class="leadfree-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444c0-1.061-.162-2.2-.493-3.309m-9.243-6.082A8.801 8.801 0 0 1 12 5c.78 0 1.5.108 2.161.306"/></svg>
+        </div>
+        <h3>Pet Friendly</h3>
+        <p>Dogs and cats that roll, dig, and chew on turf need a surface that won't expose them to toxic metals. Every product we sell is guaranteed free of lead compounds.</p>
+      </div>
+      <div class="leadfree-card" data-reveal>
+        <div class="leadfree-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Residential Yards</h3>
+        <p>HOA requirements and health-conscious homeowners alike benefit from knowing their landscaping materials meet and exceed applicable safety regulations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Questions?</div>
+    <h2>Ready to Install Safe, Lead-Free Turf?</h2>
+    <p>Browse our full lineup of certified lead-free artificial turf or give us a call — we're happy to answer any questions about our safety certifications.</p>
+    <div class="cta-btns">
+      <a href="/artificial-turf" class="btn btn-primary">View All Turf Products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="tel:6025207511" class="btn btn-outline">Call (602) 520-7511</a>
+    </div>
+  </div>
+</section>
+</Layout>
