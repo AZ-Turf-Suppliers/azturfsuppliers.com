@@ -56,6 +56,26 @@ import Layout from '../layouts/Layout.astro';
 .mission {
   padding: 88px 0;
   background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.mission::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/media/az-turf-sign.jpg') center / cover no-repeat;
+  z-index: 0;
+}
+.mission::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.74);
+  z-index: 1;
+}
+.mission .container {
+  position: relative;
+  z-index: 2;
 }
 .mission-inner {
   display: grid;

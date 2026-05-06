@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout title="Contractor Wholesale Portal | AZ Turf Suppliers — Queen Creek, AZ">
 <style is:global>
-.page-hero::before { background-image: url("/media/natural-series-turf-2.jpg") !important; }
+.page-hero::before { background-image: url("/media/forklift-carrying-turf.jpg") !important; }
 /* ─── PAGE HERO ─── */
 /* h1 em colour override for this page */
 .page-hero h1 em { color: var(--orange); }
@@ -143,6 +144,34 @@ import Layout from '../layouts/Layout.astro';
   font-size: 0.6rem;
   color: var(--green-700);
   font-weight: 700;
+}
+
+/* ─── YARD PHOTOS ─── */
+.yard-photos {
+  padding: 80px 0;
+  background: var(--white);
+}
+.yard-photos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+.yard-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+.yard-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.yard-photo:hover img { transform: scale(1.03); }
+@media (max-width: 600px) {
+  .yard-photos-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── SERVICE ZONES ─── */
@@ -436,6 +465,24 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ═══ YARD PHOTOS ═══ -->
+<section class="yard-photos">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:0;">
+      <div class="section-label centered">Our Operation</div>
+      <h2>Ready to Load, Ready to Go</h2>
+    </div>
+    <div class="yard-photos-grid">
+      <div class="yard-photo" data-reveal>
+        <Pic name="forklift-turf-square.jpg" alt="Forklift loading turf rolls at AZ Turf Suppliers yard" />
+      </div>
+      <div class="yard-photo" data-reveal>
+        <Pic name="forklift-square-pavers.jpg" alt="Forklift moving paver pallets at AZ Turf Suppliers yard" />
+      </div>
     </div>
   </div>
 </section>
