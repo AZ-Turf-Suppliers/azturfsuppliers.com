@@ -21,6 +21,16 @@ const { title, description = 'Premium artificial turf and landscaping supplies s
     <title>{title}</title>
     <meta name="description" content={description}>
     <link rel="icon" type="image/png" href="/media/logo.png">
+
+    <!-- DNS prefetch for third-party origins -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload hero background used on all inner pages -->
+    <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg">
   </head>
   <body>
     <Header />

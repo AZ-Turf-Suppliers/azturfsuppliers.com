@@ -1,0 +1,20 @@
+# Cloudflare Pages cache headers
+
+# HTML pages — always revalidate so updates go live immediately
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Astro build output — content-hashed filenames, safe to cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Media files — cache for 30 days (allows image swaps to propagate within a month)
+/media/*
+  Cache-Control: public, max-age=2592000
+
+# PDFs — same as media
+/media/*.pdf
+  Cache-Control: public, max-age=2592000

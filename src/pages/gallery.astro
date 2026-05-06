@@ -334,7 +334,7 @@ const labelFor = (cat: string) => CATEGORY_LABELS[cat] ?? cat;
   <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
   </button>
-  <img src="" alt="" id="lightbox-img" />
+  <img src="" alt="" id="lightbox-img"  loading="lazy" decoding="async"/>
   <div class="lightbox-caption" id="lightbox-caption">
     <h4 id="lightbox-title"></h4>
     <span id="lightbox-location"></span>
