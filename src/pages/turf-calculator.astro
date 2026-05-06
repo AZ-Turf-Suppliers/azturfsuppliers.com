@@ -321,13 +321,6 @@ import Layout from '../layouts/Layout.astro';
           <input type="number" id="projectLength" value="40" min="1" step="1">
         </div>
         <div class="form-group">
-          <label>Turf Roll Width</label>
-          <select id="turfType">
-            <option value="15FT">Standard 15ft Rolls</option>
-            <option value="12FT">Standard 12ft Rolls</option>
-          </select>
-        </div>
-        <div class="form-group">
           <label>Orientations</label>
           <div class="checkbox-group">
             <label class="checkbox-label">
@@ -386,8 +379,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(
 
 // Configuration mapping to match standard inputs
 const TURF_CONFIG = {
-  '12FT': { rollWidth: 12, infills: { 'Silica Sand (50lb)': 1.25, 'Camo Fill (50lb)': 1.5 } },
-  '15FT': { rollWidth: 15, infills: { 'Silica Sand (50lb)': 1.5,  'Camo Fill (50lb)': 1.7 } }
+  '15FT': { rollWidth: 15, infills: { 'Silica Sand (50lb)': 1.5, 'Camo Fill (50lb)': 1.7 } }
 };
 
 const MAX_ROLL_LENGTH = 100;
@@ -524,7 +516,7 @@ function computeInfill(purchasedArea, infills) {
 function calculate() {
   const projW = parseInt(document.getElementById('projectWidth').value) || 0;
   const projL = parseInt(document.getElementById('projectLength').value) || 0;
-  const turfKey = document.getElementById('turfType').value;
+  const turfKey = '15FT';
   const doVert = document.getElementById('chkVertical').checked;
   const doHoriz = document.getElementById('chkHorizontal').checked;
 
