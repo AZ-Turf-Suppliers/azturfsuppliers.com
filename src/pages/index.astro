@@ -9,6 +9,7 @@ const {
   turf_card_image,
   pavers_card_image,
   stone_card_image,
+  lighting_card_image,
   confidence_bg_image,
   contractor_detail_image,
   homeowner_detail_image,
@@ -1163,7 +1164,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         </div>
       </a>
       <a href="/landscape-lighting" class="product-card" data-reveal>
-        <div class="product-card-bg" style="background:linear-gradient(135deg, #2a3a4a, #4a5a6a);"></div>
+        <div class="product-card-bg"><Pic name={fname(lighting_card_image)} alt="Landscape lighting at night" /></div>
         <div class="product-card-overlay"></div>
         <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
         <div class="product-card-content">

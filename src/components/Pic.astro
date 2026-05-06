@@ -35,10 +35,7 @@ const imageModules = import.meta.glob<{ default: ImageMetadata }>(
 
 const isExternal = /^https?:\/\//.test(name);
 const mod = isExternal ? null : imageModules[`../assets/media/${name}`];
-
-if (!isExternal && !mod) {
-  throw new Error(`Pic: image "${name}" not found in src/assets/media/`);
-}
+const useFallback = !isExternal && !mod;
 
 const img = mod?.default;
 const inferredWidth = width ?? img?.width;
@@ -51,6 +48,18 @@ const inferredHeight = height ?? (img ? Math.round(img.height * (inferredWidth! 
     alt={alt}
     loading={loading}
     decoding={decoding}
+    class={className}
+    style={style}
+    id={id}
+  />
+) : useFallback ? (
+  <img
+    src={`/media/${name}`}
+    alt={alt}
+    loading={loading}
+    decoding={decoding}
+    width={width}
+    height={height}
     class={className}
     style={style}
     id={id}
