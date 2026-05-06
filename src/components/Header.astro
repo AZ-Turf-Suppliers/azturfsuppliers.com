@@ -36,13 +36,11 @@ const isActive = (path: string) => {
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="/resources" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/installation-guide') || isActive('/blog') || isActive('/project-spotlights') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
+          <a href="/resources" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/blog') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
           <div class="dropdown">
             <div class="dropdown-inner">
               <a href="/turf-calculator">Turf Calculator</a>
-              <a href="/installation-guide">DIY Installation Guides</a>
               <a href="/blog">Blog</a>
-              <a href="/project-spotlights">Project Spotlights</a>
               <hr>
               <a href="/warranty">Warranty</a>
               <a href="/lead-free">Lead Free Guarantee</a>
@@ -94,7 +92,6 @@ const isActive = (path: string) => {
     <a href="/homeowners">DIY Homeowners</a>
     <div class="mobile-section-label">Resources</div>
     <a href="/turf-calculator">Turf Calculator</a>
-    <a href="/installation-guide">DIY Installation Guides</a>
     <a href="/blog">Blog</a>
     <div class="mobile-section-label">Company</div>
     <a href="/about">About</a>
