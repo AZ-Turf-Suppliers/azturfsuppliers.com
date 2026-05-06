@@ -115,6 +115,31 @@ import Pic from '../components/Pic.astro';
   letter-spacing: 0;
 }
 
+/* ─── PHOTO GALLERY STRIP ─── */
+.lighting-gallery {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  height: 320px;
+  overflow: hidden;
+}
+.lighting-gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+.lighting-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+.lighting-gallery-item:hover img { transform: scale(1.05); }
+@media (max-width: 768px) {
+  .lighting-gallery { grid-template-columns: 1fr 1fr; height: 220px; }
+  .lighting-gallery-item:last-child { display: none; }
+}
+
 /* ─── PRODUCT CATEGORIES ─── */
 .lighting-products {
   padding: 88px 0;
@@ -437,8 +462,7 @@ import Pic from '../components/Pic.astro';
         </div>
       </div>
       <div class="lighting-intro-img" data-reveal>
-        <img class="lt-brand-logo" src="/media/lumenex-lighting.svg" alt="Lumenex Lighting" loading="lazy" decoding="async"/>
-        <span class="lt-brand-badge">Authorized Dealer</span>
+        <img src="/media/lighting-outdoor-1.webp" alt="Outdoor landscape lighting at night" loading="eager" decoding="async" style="border-radius:var(--radius-lg);"/>
       </div>
     </div>
   </div>
@@ -472,6 +496,19 @@ import Pic from '../components/Pic.astro';
   </div>
 </section>
 
+<!-- ═══ PHOTO GALLERY STRIP ═══ -->
+<div class="lighting-gallery">
+  <div class="lighting-gallery-item">
+    <img src="/media/lighting-flood-lights.webp" alt="Landscape flood lighting at night" loading="lazy" decoding="async"/>
+  </div>
+  <div class="lighting-gallery-item">
+    <img src="/media/lighting-deck-lights.webp" alt="Deck lighting on outdoor patio" loading="lazy" decoding="async"/>
+  </div>
+  <div class="lighting-gallery-item">
+    <img src="/media/lighting-well-lights.webp" alt="In-ground well lights in landscape" loading="lazy" decoding="async"/>
+  </div>
+</div>
+
 <!-- ═══ PRODUCT CATEGORIES ═══ -->
 <section class="lighting-products">
   <div class="container">
@@ -482,7 +519,9 @@ import Pic from '../components/Pic.astro';
     <div class="lighting-cat-grid">
 
       <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">Path Light Photo</div>
+        <div class="lighting-cat-img">
+          <img src="/media/lighting-path-lights.webp" alt="Lumenex path lights illuminating a walkway" loading="lazy" decoding="async"/>
+        </div>
         <div class="lighting-cat-content">
           <h3>Path &amp; Area Lights</h3>
           <p>Illuminate walkways, garden beds, and turf borders with clean, ground-level light. Available in aluminum and brass with multiple finish options.</p>
@@ -491,7 +530,9 @@ import Pic from '../components/Pic.astro';
       </div>
 
       <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">Spotlight Photo</div>
+        <div class="lighting-cat-img">
+          <img src="/media/lighting-spot-lights.webp" alt="Lumenex spotlights on a landscape" loading="lazy" decoding="async"/>
+        </div>
         <div class="lighting-cat-content">
           <h3>Spotlights &amp; Flood Lights</h3>
           <p>Highlight trees, walls, and architectural features. Choose from aluminum and brass spotlights, or go big with high-output flood lights for large areas.</p>
@@ -500,7 +541,9 @@ import Pic from '../components/Pic.astro';
       </div>
 
       <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">Hardscape Light Photo</div>
+        <div class="lighting-cat-img">
+          <img src="/media/lighting-hardscape-lights.webp" alt="Lumenex hardscape lights in a paver wall" loading="lazy" decoding="async"/>
+        </div>
         <div class="lighting-cat-content">
           <h3>Hardscape &amp; Well Lights</h3>
           <p>Integrate lighting directly into paver walls, steps, fire pits, and pool decks. Available in multiple sizes with rotatable and replaceable module options.</p>
@@ -509,10 +552,12 @@ import Pic from '../components/Pic.astro';
       </div>
 
       <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">Accessories Photo</div>
+        <div class="lighting-cat-img">
+          <img src="/media/lighting-wall-lights.webp" alt="Lumenex wall and deck lights" loading="lazy" decoding="async"/>
+        </div>
         <div class="lighting-cat-content">
-          <h3>Connectors, Cable &amp; Accessories</h3>
-          <p>Direct burial cable, waterproof connectors, splice kits, and mounting hardware. Everything you need for a clean, reliable installation.</p>
+          <h3>Wall, Deck &amp; Flood Lights</h3>
+          <p>Direct burial cable, waterproof connectors, wall-mount fixtures, deck lights, and mounting hardware. Everything you need for a clean, reliable installation.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
@@ -695,7 +740,9 @@ import Pic from '../components/Pic.astro';
           </div>
         </div>
       </div>
-      <div class="transformers-img" data-reveal>Transformer Product Photo</div>
+      <div class="transformers-img" data-reveal>
+        <img src="/media/lighting-outdoor-2.webp" alt="Professional landscape lighting installation" loading="lazy" decoding="async"/>
+      </div>
     </div>
   </div>
 </section>
