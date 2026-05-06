@@ -5,6 +5,7 @@ import Pic from '../components/Pic.astro';
 
 <Layout title="DIY Homeowners | AZ Turf Suppliers — Queen Creek, AZ">
 <style is:global>
+.page-hero::before { background-image: url("/media/natural-series-turf-3.jpg") !important; }
 /* ─── PAGE HERO ─── */
 
 /* ─── WHY TURF ─── */
@@ -322,8 +323,6 @@ import Pic from '../components/Pic.astro';
   .accessories-grid { grid-template-columns: 1fr; }
   .product-table thead th:nth-child(2),
   .product-table tbody td:nth-child(2) { display: none; }
-}
-
   .product-table thead th { padding: 10px 12px; font-size: 0.65rem; }
   /* Badge: stay inline, don't force new line, smaller */
   .product-badge {
