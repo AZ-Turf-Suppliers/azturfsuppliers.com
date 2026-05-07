@@ -44,6 +44,14 @@ import Pic from '../components/Pic.astro';
   letter-spacing: 0.04em;
   margin-bottom: 24px;
 }
+.warranty-doc-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 10px;
+}
 .warranty-doc-img {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -178,7 +186,7 @@ import Pic from '../components/Pic.astro';
       <h1>15-Year <em>Manufacturer</em> Warranty</h1>
       <p>Every turf product purchased from AZ Turf Suppliers is backed by a 15-year manufacturer warranty against defects in materials and workmanship. We stand behind the quality of every roll we sell.</p>
       <div class="page-hero-btns">
-        <a href="/media/15_year_warranty.pdf" download class="btn btn-primary">Download Warranty PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+        <a href="/media/15_year_warranty.pdf" download class="btn btn-primary">Download Warranty Information <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
         <a href="/contact" class="btn btn-outline">File a Claim</a>
       </div>
     </div>
@@ -201,12 +209,13 @@ import Pic from '../components/Pic.astro';
         <p>It is recognized that slight alterations to color over the lifetime of the turf is normal and recognizable as expected wear and tear and is not available as a basis of a claim. AZ Turf Suppliers reserves the right to inspect the turf prior to making any repairs or replacements.</p>
       </div>
       <div data-reveal>
+        <div class="warranty-doc-label">Example Warranty Certificate</div>
         <div class="warranty-doc-img">
-          <Pic name="turf_warranty.png" alt="AZ Turf Suppliers 15-Year Warranty Certificate" />
+          <Pic name="turf_warranty.png" alt="AZ Turf Suppliers 15-Year Warranty Certificate Example" />
         </div>
         <a href="/media/15_year_warranty.pdf" download class="warranty-download">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Warranty Certificate (PDF)
+          Download Warranty Information (PDF)
         </a>
       </div>
     </div>
