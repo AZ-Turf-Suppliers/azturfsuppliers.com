@@ -599,7 +599,7 @@ h1, h2, h3 {
 
 .testimonials {
   padding: 88px 0;
-  background: var(--gray-100);
+  background: var(--dark);
   overflow: hidden;
 }
 
@@ -610,7 +610,29 @@ h1, h2, h3 {
 
 .testimonials-header h2 {
   font-size: clamp(1.9rem, 3vw, 2.8rem);
+  color: var(--white);
 }
+
+.testimonials .section-label { color: var(--green-700); }
+.testimonials .section-label::before { background: var(--green-700); }
+.testimonials .reviews-summary-text { color: var(--white); }
+.testimonials .reviews-summary-text span { color: rgba(255,255,255,0.5); }
+.testimonials .review-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.testimonials .review-card:hover {
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.testimonials .review-text { color: rgba(255,255,255,0.7); }
+.testimonials .review-text::before { color: var(--green-700); }
+.testimonials .review-name { color: var(--white); }
+.testimonials .review-source { color: rgba(255,255,255,0.4); }
+.testimonials .review-meta { border-top-color: rgba(255,255,255,0.08); }
+.testimonials .review-avatar { background: var(--orange); }
+.testimonials .reviews-cta a { color: var(--green-700); }
 
 /* ─── CARD GRID + MOBILE CAROUSEL ─── */
 .reviews-grid {
