@@ -321,6 +321,13 @@ import Layout from '../layouts/Layout.astro';
           <input type="number" id="projectLength" value="40" min="1" step="1">
         </div>
         <div class="form-group">
+          <label>Turf Face Weight</label>
+          <select id="turfWeight">
+            <option value="2">70–80oz (2 lbs/sqft)</option>
+            <option value="2.5">90–100oz (2.5 lbs/sqft)</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Orientations</label>
           <div class="checkbox-group">
             <label class="checkbox-label">
@@ -379,7 +386,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(
 
 // Configuration mapping to match standard inputs
 const TURF_CONFIG = {
-  '15FT': { rollWidth: 15, infills: { 'Silica Sand (50lb)': 1.5, 'Camo Fill (50lb)': 1.7 } }
+  '15FT': { rollWidth: 15 }
 };
 
 const MAX_ROLL_LENGTH = 100;
@@ -505,18 +512,15 @@ function computeLayout(projW, projL, rollW, orientation) {
   };
 }
 
-function computeInfill(purchasedArea, infills) {
-  const results = {};
-  for (const [name, rate] of Object.entries(infills)) {
-    results[name] = Math.ceil((purchasedArea * rate) / BAG_WEIGHT);
-  }
-  return results;
+function computeInfill(installedArea, rate) {
+  return Math.ceil((installedArea * rate) / BAG_WEIGHT);
 }
 
 function calculate() {
   const projW = parseInt(document.getElementById('projectWidth').value) || 0;
   const projL = parseInt(document.getElementById('projectLength').value) || 0;
   const turfKey = '15FT';
+  const infillRate = parseFloat(document.getElementById('turfWeight').value) || 2;
   const doVert = document.getElementById('chkVertical').checked;
   const doHoriz = document.getElementById('chkHorizontal').checked;
 
@@ -547,7 +551,7 @@ function calculate() {
 
   layouts.forEach((layout, idx) => {
     const isBest = idx === bestIdx && layouts.length > 1;
-    const infill = computeInfill(layout.totalPurchased, config.infills);
+    const infill = computeInfill(layout.installedArea, infillRate);
     const card = buildOptionCard(layout, infill, idx + 1, isBest, config);
     // Add subtle fade up entry animation
     card.style.animation = `fadeUp 0.4s ease forwards ${idx * 0.1}s`;
@@ -607,12 +611,10 @@ function buildOptionCard(layout, infill, optNum, isBest, config) {
   addStat('Total Rolls Count', layout.totalRolls);
 
   addSection('Recommended Infill');
-  for (const [name, bags] of Object.entries(infill)) {
-    const row = document.createElement('div');
-    row.className = 'infill-row';
-    row.innerHTML = `<span class="infill-name">${name}</span><span class="infill-value">${bags.toLocaleString()} bags</span>`;
-    stats.appendChild(row);
-  }
+  const row = document.createElement('div');
+  row.className = 'infill-row';
+  row.innerHTML = `<span class="infill-name">Infill (50lb bags)</span><span class="infill-value">${infill.toLocaleString()} bags</span>`;
+  stats.appendChild(row);
 
   body.appendChild(stats);
 
