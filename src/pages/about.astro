@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout title="About Us | AZ Turf Suppliers — Queen Creek, AZ">
@@ -36,10 +37,11 @@ import Layout from '../layouts/Layout.astro';
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
-  background: var(--green-700);
+  background: var(--gray-200);
   position: relative;
+  box-shadow: var(--shadow-lg);
 }
-.about-img img { width: 100%; height: 100%; object-fit: cover; }
+.about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-img-placeholder {
   width: 100%; height: 100%;
   display: flex;
@@ -340,8 +342,8 @@ import Layout from '../layouts/Layout.astro';
         <p>For over five years, we have been serving the East Valley and the greater Phoenix area — growing from a dedicated synthetic grass supplier into a comprehensive one-stop shop for all your hardscaping needs, including pavers, natural stone, and landscape lighting.</p>
         <p>We know that you have choices when it comes to landscape suppliers, but we pride ourselves on a relationship-driven approach that big-box stores simply cannot match.</p>
       </div>
-      <div class="about-img">
-        <div class="about-img-placeholder">Showroom / Team Photo</div>
+      <div class="about-img" data-reveal>
+        <Pic name="team.jpg" alt="The AZ Turf Suppliers team in Queen Creek, Arizona" />
       </div>
     </div>
   </div>
