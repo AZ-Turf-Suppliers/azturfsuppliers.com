@@ -1,136 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import CityPage from '../components/CityPage.astro';
 ---
 
-<Layout
+<CityPage
   title="Artificial Turf & Pavers Delivered to Scottsdale, AZ | AZ Turf Suppliers"
   description="AZ Turf Suppliers delivers premium artificial turf, travertine pavers, natural stone, and landscape lighting to Scottsdale, AZ. Wholesale pricing, next-day delivery. Call 480-739-3854."
->
-<style is:global>
-.page-hero::before { background-image: url("/media/spring-blend-1.jpg") !important; }
-.city-products { padding: 88px 0; background: var(--white); }
-.city-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
-.city-product-card { background: var(--gray-100); border-radius: var(--radius-lg); padding: 28px 24px; border: 1px solid var(--gray-200); transition: all 0.3s; }
-.city-product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--white); }
-.city-product-card h3 { font-size: 1rem; margin-bottom: 8px; letter-spacing: 0.02em; }
-.city-product-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 16px; }
-.city-product-card a { font-size: 0.8rem; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; }
-.city-product-card a:hover { text-decoration: underline; }
-.city-why { padding: 88px 0; background: var(--dark); }
-.city-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-.city-why-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px 28px; }
-.city-why-card h3 { font-size: 1rem; color: var(--white); margin-bottom: 10px; letter-spacing: 0.02em; }
-.city-why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
-.city-cta { padding: 88px 0; background: var(--gray-100); text-align: center; }
-.city-cta h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 16px; }
-.city-cta p { font-size: 0.95rem; color: var(--gray-600); max-width: 560px; margin: 0 auto 32px; line-height: 1.75; font-weight: 400; text-transform: none; letter-spacing: 0; }
-.city-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.city-nearby { padding: 56px 0; background: var(--white); }
-.city-nearby p { font-size: 0.85rem; color: var(--gray-500); text-align: center; }
-.city-nearby a { color: var(--green-700); text-decoration: none; font-weight: 600; }
-.city-nearby a:hover { text-decoration: underline; }
-@media (max-width: 768px) {
-  .city-products-grid { grid-template-columns: 1fr 1fr; }
-  .city-why-grid { grid-template-columns: 1fr; }
-  .city-products, .city-why, .city-cta { padding: 56px 0; }
-}
-@media (max-width: 480px) { .city-products-grid { grid-template-columns: 1fr; } }
-</style>
-
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Scottsdale, AZ</div>
-      <h1>Premium Turf, Travertine & Stone <em>Delivered to Scottsdale</em></h1>
-      <p>Scottsdale demands the best in outdoor living — and we deliver it. AZ Turf Suppliers stocks the premium materials Scottsdale's luxury homes and commercial properties require, at wholesale prices.</p>
-      <div class="page-hero-btns">
-        <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="stat-bar">
-  <div class="container stat-bar-inner">
-    <div class="stat-item"><div class="stat-num">~35–40 Miles</div><div class="stat-label">From Our Showroom</div></div>
-    <div class="stat-item"><div class="stat-num">Next-Day</div><div class="stat-label">Delivery Available</div></div>
-    <div class="stat-item"><div class="stat-num">Same-Day</div><div class="stat-label">Showroom Pickup</div></div>
-    <div class="stat-item"><div class="stat-num">480-739-3854</div><div class="stat-label">Call or Text</div></div>
-  </div>
-</div>
-
-<section class="city-products">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <div class="section-label">Our Premium Selection</div>
-      <h2>High-End Landscaping Materials for Scottsdale's Market</h2>
-      <p>Scottsdale homeowners, luxury builders, and landscape architects trust AZ Turf Suppliers for materials that match the area's elevated standards. We carry the premium finishes and product lines Scottsdale projects demand.</p>
-    </div>
-    <div class="city-products-grid">
-      <div class="city-product-card" data-reveal>
-        <h3>Artificial Turf</h3>
-        <p>Ultra-realistic, UV-resistant turf in premium blade styles. Ideal for Scottsdale's luxury pools, putting greens, and entertaining areas.</p>
-        <a href="/artificial-turf">View Turf Options →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Travertine Pavers</h3>
-        <p>Natural travertine in Walnut, Scabas, Silver, and more — the material of choice for Scottsdale's upscale pool decks and resort-style patios.</p>
-        <a href="/pavers">View Pavers →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Natural Stone</h3>
-        <p>Limestone, marble, and travertine coping and field tiles in premium finishes — including Greecian marble and Mayra White selections.</p>
-        <a href="/natural-stone">View Natural Stone →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Landscape Lighting</h3>
-        <p>Professional Lumenex lighting systems for Scottsdale's luxury outdoor environments — hardscape lights, spotlights, and complete transformer setups.</p>
-        <a href="/landscape-lighting">View Lighting →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="city-why">
-  <div class="container">
-    <div class="section-header centered" data-reveal>
-      <div class="section-label inverted centered">The AZ Turf Advantage</div>
-      <h2 style="color:var(--white);">Scottsdale Quality at Wholesale Prices</h2>
-    </div>
-    <div class="city-why-grid">
-      <div class="city-why-card" data-reveal>
-        <h3>Premium Product Lines</h3>
-        <p>We carry the premium turf varieties, natural travertine finishes, and stone selections that Scottsdale's high-end market requires — not just standard grade materials.</p>
-      </div>
-      <div class="city-why-card" data-reveal>
-        <h3>Direct Wholesale Pricing</h3>
-        <p>Skip the big-box markup. Scottsdale landscape contractors get wholesale pricing direct from AZ Turf Suppliers — better margins on every project.</p>
-      </div>
-      <div class="city-why-card" data-reveal>
-        <h3>Reliable Valley-Wide Delivery</h3>
-        <p>We run regular delivery routes to Scottsdale. Large orders, pallet deliveries, and contractor supply runs handled with care and on schedule.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="city-cta">
-  <div class="container" data-reveal>
-    <div class="section-label centered">Work With Us</div>
-    <h2>Delivering Premium Materials to Scottsdale</h2>
-    <p>Call for a quote, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Scottsdale contractors welcome — open Mon–Fri, 7 AM–3 PM.</p>
-    <div class="city-cta-btns">
-      <a href="/contact" class="btn btn-primary">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
-    </div>
-  </div>
-</section>
-
-<section class="city-nearby">
-  <div class="container">
-    <p>Also serving: <a href="/queen-creek">Queen Creek</a> · <a href="/san-tan-valley">San Tan Valley</a> · <a href="/gilbert">Gilbert</a> · <a href="/mesa">Mesa</a> · <a href="/chandler">Chandler</a> · <a href="/apache-junction">Apache Junction</a> · <a href="/tempe">Tempe</a> · <a href="/phoenix">Phoenix</a> · <a href="/locations">View All Areas Served</a></p>
-  </div>
-</section>
-
-</Layout>
+  cityName="Scottsdale"
+  slug="scottsdale"
+  heroImage="/media/spring-blend-1.jpg"
+  heroEyebrow="Scottsdale, AZ"
+  heroH1Pre="Premium Turf, Travertine & Stone"
+  heroH1Em="Delivered to Scottsdale"
+  heroPara="Scottsdale demands the best in outdoor living — and we deliver it. AZ Turf Suppliers stocks the premium materials Scottsdale's luxury homes and commercial properties require, at wholesale prices."
+  stats={[
+    { num: '~35–40 Miles', label: 'From Our Showroom' },
+    { num: 'Next-Day', label: 'Delivery Available' },
+    { num: 'Same-Day', label: 'Showroom Pickup' },
+    { num: '480-739-3854', label: 'Call or Text' },
+  ]}
+  productsLabel="Our Premium Selection"
+  productsHeadline="High-End Landscaping Materials for Scottsdale's Market"
+  productsIntro="Scottsdale homeowners, luxury builders, and landscape architects trust AZ Turf Suppliers for materials that match the area's elevated standards. We carry the premium finishes and product lines Scottsdale projects demand."
+  productCards={[
+    { title: 'Artificial Turf', href: '/artificial-turf', description: "Ultra-realistic, UV-resistant turf in premium blade styles. Ideal for Scottsdale's luxury pools, putting greens, and entertaining areas." },
+    { title: 'Travertine Pavers', href: '/pavers', description: "Natural travertine in Walnut, Scabas, Silver, and more — the material of choice for Scottsdale's upscale pool decks and resort-style patios." },
+    { title: 'Natural Stone', href: '/natural-stone', description: 'Limestone, marble, and travertine coping and field tiles in premium finishes — including Greecian marble and Mayra White selections.' },
+    { title: 'Landscape Lighting', href: '/landscape-lighting', description: "Professional Lumenex lighting systems for Scottsdale's luxury outdoor environments — hardscape lights, spotlights, and complete transformer setups." },
+  ]}
+  whyLabel="The AZ Turf Advantage"
+  whyHeadline="Scottsdale Quality at Wholesale Prices"
+  whyCards={[
+    { title: 'Premium Product Lines', description: "We carry the premium turf varieties, natural travertine finishes, and stone selections that Scottsdale's high-end market requires — not just standard grade materials." },
+    { title: 'Direct Wholesale Pricing', description: 'Skip the big-box markup. Scottsdale landscape contractors get wholesale pricing direct from AZ Turf Suppliers — better margins on every project.' },
+    { title: 'Reliable Valley-Wide Delivery', description: 'We run regular delivery routes to Scottsdale. Large orders, pallet deliveries, and contractor supply runs handled with care and on schedule.' },
+  ]}
+  ctaLabel="Work With Us"
+  ctaHeadline="Delivering Premium Materials to Scottsdale"
+  ctaPara="Call for a quote, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Scottsdale contractors welcome — open Mon–Fri, 7 AM–3 PM."
+/>

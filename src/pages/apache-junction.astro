@@ -1,136 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import CityPage from '../components/CityPage.astro';
 ---
 
-<Layout
+<CityPage
   title="Artificial Turf & Landscaping Supplies in Apache Junction, AZ | AZ Turf Suppliers"
   description="AZ Turf Suppliers serves Apache Junction, AZ with artificial turf, pavers, natural stone, and landscape lighting. Fast delivery from our nearby Queen Creek location. Call 480-739-3854."
->
-<style is:global>
-.page-hero::before { background-image: url("/media/winter-blend-3.jpg") !important; }
-.city-products { padding: 88px 0; background: var(--white); }
-.city-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
-.city-product-card { background: var(--gray-100); border-radius: var(--radius-lg); padding: 28px 24px; border: 1px solid var(--gray-200); transition: all 0.3s; }
-.city-product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--white); }
-.city-product-card h3 { font-size: 1rem; margin-bottom: 8px; letter-spacing: 0.02em; }
-.city-product-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 16px; }
-.city-product-card a { font-size: 0.8rem; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; }
-.city-product-card a:hover { text-decoration: underline; }
-.city-why { padding: 88px 0; background: var(--dark); }
-.city-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-.city-why-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px 28px; }
-.city-why-card h3 { font-size: 1rem; color: var(--white); margin-bottom: 10px; letter-spacing: 0.02em; }
-.city-why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
-.city-cta { padding: 88px 0; background: var(--gray-100); text-align: center; }
-.city-cta h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 16px; }
-.city-cta p { font-size: 0.95rem; color: var(--gray-600); max-width: 560px; margin: 0 auto 32px; line-height: 1.75; font-weight: 400; text-transform: none; letter-spacing: 0; }
-.city-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.city-nearby { padding: 56px 0; background: var(--white); }
-.city-nearby p { font-size: 0.85rem; color: var(--gray-500); text-align: center; }
-.city-nearby a { color: var(--green-700); text-decoration: none; font-weight: 600; }
-.city-nearby a:hover { text-decoration: underline; }
-@media (max-width: 768px) {
-  .city-products-grid { grid-template-columns: 1fr 1fr; }
-  .city-why-grid { grid-template-columns: 1fr; }
-  .city-products, .city-why, .city-cta { padding: 56px 0; }
-}
-@media (max-width: 480px) { .city-products-grid { grid-template-columns: 1fr; } }
-</style>
-
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Apache Junction, AZ</div>
-      <h1>Turf & Landscaping Materials <em>Near Apache Junction</em></h1>
-      <p>AZ Turf Suppliers is your closest source for professional landscaping materials in the Apache Junction area. Stop by our Queen Creek showroom or let us deliver directly to your property.</p>
-      <div class="page-hero-btns">
-        <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="stat-bar">
-  <div class="container stat-bar-inner">
-    <div class="stat-item"><div class="stat-num">~12–18 Miles</div><div class="stat-label">From Our Showroom</div></div>
-    <div class="stat-item"><div class="stat-num">Next-Day</div><div class="stat-label">Delivery Available</div></div>
-    <div class="stat-item"><div class="stat-num">Same-Day</div><div class="stat-label">Showroom Pickup</div></div>
-    <div class="stat-item"><div class="stat-num">480-739-3854</div><div class="stat-label">Call or Text</div></div>
-  </div>
-</div>
-
-<section class="city-products">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <div class="section-label">What We Offer</div>
-      <h2>Landscaping Supplies for Apache Junction Properties</h2>
-      <p>Apache Junction's desert landscape is beautiful — and we help property owners and contractors make the most of it with durable, low-maintenance materials suited to the Sonoran Desert environment.</p>
-    </div>
-    <div class="city-products-grid">
-      <div class="city-product-card" data-reveal>
-        <h3>Artificial Turf</h3>
-        <p>Durable, heat-resistant synthetic turf that holds up in Apache Junction's extreme summer temperatures. Virtually zero maintenance.</p>
-        <a href="/artificial-turf">View Turf Options →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Pavers</h3>
-        <p>Concrete and travertine pavers for driveways, patios, and walkways — tough enough for desert conditions, beautiful enough for any home.</p>
-        <a href="/pavers">View Pavers →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Natural Stone</h3>
-        <p>Natural travertine and limestone that complements the desert setting. Coping, pavers, and wall stone available in multiple finishes.</p>
-        <a href="/natural-stone">View Natural Stone →</a>
-      </div>
-      <div class="city-product-card" data-reveal>
-        <h3>Landscape Lighting</h3>
-        <p>Low-voltage Lumenex lighting systems to highlight Apache Junction's stunning desert backdrop after sundown.</p>
-        <a href="/landscape-lighting">View Lighting →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="city-why">
-  <div class="container">
-    <div class="section-header centered" data-reveal>
-      <div class="section-label inverted centered">Why AZ Turf Suppliers</div>
-      <h2 style="color:var(--white);">Your Nearest Professional Landscape Supplier</h2>
-    </div>
-    <div class="city-why-grid">
-      <div class="city-why-card" data-reveal>
-        <h3>Close to Apache Junction</h3>
-        <p>Our Queen Creek showroom is just 12–18 miles from Apache Junction. Quick drive for pickup, or we deliver directly to your site.</p>
-      </div>
-      <div class="city-why-card" data-reveal>
-        <h3>Desert-Tested Products</h3>
-        <p>Everything we stock is suited for Arizona's intense heat and sun. We won't sell you materials that won't hold up in the Superstition Mountains' desert climate.</p>
-      </div>
-      <div class="city-why-card" data-reveal>
-        <h3>Competitive Pricing</h3>
-        <p>No big-box premiums. Direct wholesale pricing means Apache Junction homeowners and contractors get more for their budget on every project.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="city-cta">
-  <div class="container" data-reveal>
-    <div class="section-label centered">Order Today</div>
-    <h2>Serving Apache Junction from Queen Creek</h2>
-    <p>Stop by our showroom at 18607 E San Tan Blvd, call ahead for an order, or request a free quote online. Open Mon–Fri, 7 AM–3 PM.</p>
-    <div class="city-cta-btns">
-      <a href="/contact" class="btn btn-primary">Request a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
-    </div>
-  </div>
-</section>
-
-<section class="city-nearby">
-  <div class="container">
-    <p>Also serving: <a href="/queen-creek">Queen Creek</a> · <a href="/san-tan-valley">San Tan Valley</a> · <a href="/gilbert">Gilbert</a> · <a href="/mesa">Mesa</a> · <a href="/chandler">Chandler</a> · <a href="/scottsdale">Scottsdale</a> · <a href="/tempe">Tempe</a> · <a href="/phoenix">Phoenix</a> · <a href="/locations">View All Areas Served</a></p>
-  </div>
-</section>
-
-</Layout>
+  cityName="Apache Junction"
+  slug="apache-junction"
+  heroImage="/media/winter-blend-3.jpg"
+  heroEyebrow="Apache Junction, AZ"
+  heroH1Pre="Turf & Landscaping Materials"
+  heroH1Em="Near Apache Junction"
+  heroPara="AZ Turf Suppliers is your closest source for professional landscaping materials in the Apache Junction area. Stop by our Queen Creek showroom or let us deliver directly to your property."
+  stats={[
+    { num: '~12–18 Miles', label: 'From Our Showroom' },
+    { num: 'Next-Day', label: 'Delivery Available' },
+    { num: 'Same-Day', label: 'Showroom Pickup' },
+    { num: '480-739-3854', label: 'Call or Text' },
+  ]}
+  productsLabel="What We Offer"
+  productsHeadline="Landscaping Supplies for Apache Junction Properties"
+  productsIntro="Apache Junction's desert landscape is beautiful — and we help property owners and contractors make the most of it with durable, low-maintenance materials suited to the Sonoran Desert environment."
+  productCards={[
+    { title: 'Artificial Turf', href: '/artificial-turf', description: "Durable, heat-resistant synthetic turf that holds up in Apache Junction's extreme summer temperatures. Virtually zero maintenance." },
+    { title: 'Pavers', href: '/pavers', description: 'Concrete and travertine pavers for driveways, patios, and walkways — tough enough for desert conditions, beautiful enough for any home.' },
+    { title: 'Natural Stone', href: '/natural-stone', description: 'Natural travertine and limestone that complements the desert setting. Coping, pavers, and wall stone available in multiple finishes.' },
+    { title: 'Landscape Lighting', href: '/landscape-lighting', description: "Low-voltage Lumenex lighting systems to highlight Apache Junction's stunning desert backdrop after sundown." },
+  ]}
+  whyLabel="Why AZ Turf Suppliers"
+  whyHeadline="Your Nearest Professional Landscape Supplier"
+  whyCards={[
+    { title: 'Close to Apache Junction', description: 'Our Queen Creek showroom is just 12–18 miles from Apache Junction. Quick drive for pickup, or we deliver directly to your site.' },
+    { title: 'Desert-Tested Products', description: "Everything we stock is suited for Arizona's intense heat and sun. We won't sell you materials that won't hold up in the Superstition Mountains' desert climate." },
+    { title: 'Competitive Pricing', description: 'No big-box premiums. Direct wholesale pricing means Apache Junction homeowners and contractors get more for their budget on every project.' },
+  ]}
+  ctaLabel="Order Today"
+  ctaHeadline="Serving Apache Junction from Queen Creek"
+  ctaPara="Stop by our showroom at 18607 E San Tan Blvd, call ahead for an order, or request a free quote online. Open Mon–Fri, 7 AM–3 PM."
+/>
