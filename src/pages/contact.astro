@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout title="Contact Us | AZ Turf Suppliers — Queen Creek, AZ">
@@ -295,20 +296,11 @@ import Layout from '../layouts/Layout.astro';
   border: 1px solid rgba(0,0,0,0.04);
 }
 .team-img {
-  height: 220px;
-  background: var(--green-700);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background: var(--gray-100);
   position: relative;
   overflow: hidden;
 }
-.team-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-img img { width: 100%; height: auto; display: block; }
 .team-body { padding: 28px 32px; }
 .team-body h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 10px; }
 .team-body p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
@@ -613,7 +605,9 @@ import Layout from '../layouts/Layout.astro';
     <div class="location-grid">
 
       <div class="team-intro">
-        <div class="team-img">Team / Showroom Photo</div>
+        <div class="team-img">
+          <Pic name="team.jpg" alt="The AZ Turf Suppliers team in Queen Creek, Arizona" />
+        </div>
         <div class="team-body">
           <h3>Meet the AZ Turf Team</h3>
           <p>We're a locally owned, relationship-driven company. When you call or text us, you talk directly to the owners — not a call center. We specialize in artificial turf, pavers, natural stone, and landscape lighting for homeowners and contractors across the East Valley.</p>
