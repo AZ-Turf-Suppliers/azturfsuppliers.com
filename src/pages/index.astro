@@ -1616,7 +1616,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 
 <script>
 // ─── HOME CONTACT FORM ───
-document.getElementById('home-contact-form')?.addEventListener('submit', async function (e) {
+async function handleHomeFormSubmit(e: Event) {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
   const btn = document.getElementById('home-submit-btn') as HTMLButtonElement;
@@ -1651,41 +1651,44 @@ document.getElementById('home-contact-form')?.addEventListener('submit', async f
     btn.disabled = false;
     btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
   }
-});
+}
+
+function initHomeForm() {
+  const form = document.getElementById('home-contact-form');
+  if (!form) return;
+  form.removeEventListener('submit', handleHomeFormSubmit);
+  form.addEventListener('submit', handleHomeFormSubmit);
+}
+initHomeForm();
+document.addEventListener('astro:page-load', initHomeForm);
 </script>
 
 <script>
 // ─── TICKER ───
-(function() {
-  const items = [
-    { icon: '✦', text: 'Price Match Guarantee' },
-    { icon: '✦', text: 'Next Day Delivery Guarantee' },
-    { icon: '✦', text: '15-Minute In-Store Pickup' },
-    { icon: '✦', text: 'Nationwide Shipping Available' },
-    { icon: '✦', text: '15-Year Manufacturer Warranty' },
-    { icon: '✦', text: '100% Pet Friendly & Lead-Free' },
-  ];
+const TICKER_ITEMS = [
+  'Price Match Guarantee',
+  'Next Day Delivery Guarantee',
+  '15-Minute In-Store Pickup',
+  'Nationwide Shipping Available',
+  '15-Year Manufacturer Warranty',
+  '100% Pet Friendly & Lead-Free',
+];
 
+function initHomeTicker() {
   const track = document.getElementById('ticker-track');
   if (!track) return;
+  const set = TICKER_ITEMS.map(t => `<span class="ticker-item">${t}</span><span class="ticker-sep">✦</span>`).join('');
+  track.innerHTML = set + set + set;
+}
+initHomeTicker();
+document.addEventListener('astro:page-load', initHomeTicker);
 
-  // Build three sets for seamless loop
-  const set = items.map(item =>
-    `<span class="ticker-item">${item.text}</span><span class="ticker-sep">✦</span>`
-  ).join('');
-  const html = set + set + set;
-
-  track.innerHTML = html;
-})();
-
-// scroll reveal handled by Layout.astro;
-
-// Accordion toggle
-function toggleBenefit(btn) {
+// Accordion toggle — set once at module scope, survives navigations
+function toggleBenefit(btn: HTMLElement) {
   const item = btn.parentElement;
-  const wasActive = item.classList.contains('active');
+  const wasActive = item?.classList.contains('active');
   document.querySelectorAll('.benefit-item').forEach(i => i.classList.remove('active'));
-  if (!wasActive) item.classList.add('active');
+  if (!wasActive) item?.classList.add('active');
 }
 (window as any).toggleBenefit = toggleBenefit;
 </script>

@@ -103,15 +103,27 @@ const isActive = (path: string) => {
 </header>
 
 <script>
-  window.addEventListener('scroll', () => {
-    document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
+  // Window-level scroll listener: bind once per session so we don't
+  // accumulate duplicates across ViewTransitions navigations.
+  if (!(window as any).__azHeaderScrollInit) {
+    (window as any).__azHeaderScrollInit = true;
+    window.addEventListener('scroll', () => {
+      document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  }
 
-  document.getElementById('mobile-toggle')?.addEventListener('click', function () {
-    const menu = document.getElementById('mobile-menu');
-    if (!menu) return;
-    const open = menu.classList.toggle('open');
-    this.setAttribute('aria-expanded', String(open));
-    this.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-  });
+  // Mobile toggle binds to a fresh DOM element on every page; safe to
+  // re-run on every navigation because the old element (and listener)
+  // is gone with the previous DOM.
+  function initMobileToggle() {
+    document.getElementById('mobile-toggle')?.addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      if (!menu) return;
+      const open = menu.classList.toggle('open');
+      this.setAttribute('aria-expanded', String(open));
+      this.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+  }
+  initMobileToggle();
+  document.addEventListener('astro:page-load', initMobileToggle);
 </script>
