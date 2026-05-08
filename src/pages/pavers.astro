@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <Layout
@@ -35,20 +36,20 @@ import Layout from '../layouts/Layout.astro';
 .app-card h4 { font-size: 0.9rem; color: var(--white); text-transform: none; letter-spacing: 0; }
 .app-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-/* ─── SAMPLE PRODUCTS ─── */
+/* ─── PRODUCT CATEGORIES ─── */
 .sample-products { padding: 88px 0; background: var(--gray-100); }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .product-placeholder { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 .product-placeholder:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.product-placeholder-img { aspect-ratio: 1; background: var(--gray-100); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.12); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.product-placeholder-img img { width: 100%; height: 100%; object-fit: cover; }
-.product-placeholder-body { padding: 20px 24px; }
-.product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
-.product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 14px; }
+.product-placeholder-body { padding: 28px 24px; }
+.product-placeholder-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(35,155,43,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.product-placeholder-icon svg { width: 22px; height: 22px; color: var(--green-700); }
+.product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 8px; text-transform: none; letter-spacing: 0; }
+.product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.65; margin-bottom: 14px; }
 
 /* ─── DARK SECTION ─── */
 .why-us { padding: 88px 0; position: relative; overflow: hidden; }
-.why-us::before { content: ''; position: absolute; inset: 0; background: url('https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg') center / cover no-repeat; z-index: 0; }
+.why-us::before { content: ''; position: absolute; inset: 0; background: url('/media/pavers-hero.jpg') center / cover no-repeat; z-index: 0; }
 .why-us::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 1; }
 .why-us-inner { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .why-us-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px 28px; text-align: center; }
@@ -122,7 +123,9 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
         </div>
       </div>
-      <div class="pavers-intro-img" data-reveal>Paver Display Photo</div>
+      <div class="pavers-intro-img" data-reveal>
+        <Pic name="pavers-other.jpg" alt="Paver display at AZ Turf Suppliers showroom" />
+      </div>
     </div>
   </div>
 </section>
@@ -181,59 +184,60 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- ═══ SAMPLE PRODUCTS ═══ -->
+<!-- ═══ PRODUCT CATEGORIES ═══ -->
 <section class="sample-products">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Our Inventory</div>
-      <h2>Sample Products</h2>
+      <div class="section-label centered">What We Carry</div>
+      <h2>Popular Product Categories</h2>
+      <p style="font-size:0.95rem;color:var(--gray-600);max-width:600px;margin:12px auto 0;line-height:1.7;font-weight:400;text-transform:none;letter-spacing:0;">Visit our showroom to see current stock and compare styles in person. Call or text for same-day pricing.</p>
     </div>
     <div class="products-grid">
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 1</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h4>Standard Interlocking Pavers</h4>
+          <p>Classic concrete pavers in 4×8, 6×6, and 6×9 sizes. Available in a wide range of colors and textures — our most popular choice for patios and driveways.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 2</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+          <h4>Large-Format Slabs</h4>
+          <p>Modern 12×24, 24×24, and larger-format pavers for clean, contemporary designs. Available through Acker-Stone — ideal for pool decks and outdoor living spaces.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 3</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Tumbled &amp; Travertine-Look</h4>
+          <p>Rustic, aged character through tumbling process. One of the most popular choices for Arizona pool decks — the textured surface stays cooler underfoot.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 4</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12L4 7M12 12l8-5"/><path d="M4 7V17l8 5 8-5V7L12 2 4 7z"/></svg></div>
+          <h4>Permeable Pavers</h4>
+          <p>Drainage-friendly design lets water pass through joints to the base. Smart choice for Arizona monsoon season and areas where runoff management is required.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 5</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h4>Pool Coping &amp; Bullnose</h4>
+          <p>Specialty edge pieces designed to finish pool surrounds cleanly and safely. Matched to our standard paver lines so your deck and coping flow together.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
       <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
         <div class="product-placeholder-body">
-          <h4>Product 6</h4>
-          <p>Details coming soon</p>
+          <div class="product-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+          <h4>Specialty &amp; Custom Finishes</h4>
+          <p>Brushed, exposed aggregate, and designer finishes available through Acker-Stone and Belgard. Great for high-end residential and commercial projects.</p>
           <a href="/contact" class="btn btn-dark">Get a Quote</a>
         </div>
       </div>
@@ -280,12 +284,4 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </section>
-<script>
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
-</script>
 </Layout>
