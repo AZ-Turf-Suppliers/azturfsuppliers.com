@@ -3,7 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 ---
 
-<Layout title="Spring Blend 87 | AZ Turf Suppliers — Queen Creek, AZ">
+<Layout
+  title="Spring Blend 87 | AZ Turf Suppliers — Queen Creek, AZ"
+  description="Spring Blend 87 artificial turf — $1.65/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ."
+>
 <style is:global>
 .page-hero::before { background-image: url("/media/spring-blend-87-side.png") !important; }
 /* ─── PRODUCT DETAIL ─── */
@@ -63,7 +66,7 @@ import Pic from '../components/Pic.astro';
   height: auto;
   object-fit: contain;
 }
-.pd-content h1 {
+.pd-content h2 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin-bottom: 8px;
 }
@@ -442,7 +445,7 @@ import Pic from '../components/Pic.astro';
       </div>
       <div class="pd-content">
         <div class="section-label">Premium Artificial Turf</div>
-        <h1>Spring Blend 87</h1>
+        <h2>Spring Blend 87</h2>
         <div class="pd-price">$1.65 <span>/ sq ft</span></div>
         <p class="pd-desc">A versatile turf that brings the fresh, lively look of spring to any outdoor space. Its blend of green and lime tones, paired with a natural-looking thatch layer, creates a bright and realistic appearance — a great choice for residential and landscape applications.</p>
         <div class="pd-best-for"><strong>Best For:</strong> Backyards, play areas, general residential landscaping</div>
