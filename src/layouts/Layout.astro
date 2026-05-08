@@ -33,6 +33,9 @@ const { title, description = 'Premium artificial turf and landscaping supplies b
     <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg">
 
     <ViewTransitions />
+    <!-- Elfsight reviews widget — loaded once in head so its mutation
+         observer persists across Astro ViewTransitions navigations -->
+    <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
   </head>
   <body>
     <Header />

@@ -636,9 +636,12 @@ h1, h2, h3 {
 
 /* Reserve height for the lazy-loaded Elfsight widget so the dark
    section paints at full size before the script mounts (avoids
-   layout shift / "missing dark band" flash during scroll). */
+   layout shift / "missing dark band" flash during scroll).
+   Background matches the section so there's no white flash while
+   the widget initialises (widget itself is set to transparent). */
 .testimonials [class*="elfsight-app-"] {
   min-height: 600px;
+  background: var(--dark);
 }
 @media (max-width: 768px) {
   .testimonials [class*="elfsight-app-"] { min-height: 900px; }
