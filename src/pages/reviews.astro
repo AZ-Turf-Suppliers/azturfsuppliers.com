@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Customer Reviews | AZ Turf Suppliers — Queen Creek, AZ" description="See what Arizona homeowners and contractors are saying about AZ Turf Suppliers. Real Google reviews from real customers.">
+<style is:global>
+.page-hero::before { background-image: url("/media/natural-series-turf-6.jpg") !important; }
+
+/* ─── REVIEWS PAGE ─── */
+.reviews-page {
+  padding: 88px 0;
+  background: var(--dark);
+  min-height: 80vh;
+}
+.reviews-page .section-label { color: var(--green-700); }
+.reviews-page .section-label::before { background: var(--green-700); }
+.reviews-page-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.reviews-page-header h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.reviews-page-header p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reviews-page [class*="elfsight-app-"] {
+  min-height: 600px;
+}
+@media (max-width: 768px) {
+  .reviews-page [class*="elfsight-app-"] { min-height: 900px; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">What Our Customers Say</div>
+      <h1>Real Reviews from <em>Real Customers</em></h1>
+      <p>Hundreds of Arizona homeowners and contractors trust AZ Turf Suppliers for premium turf, pavers, and hardscaping supplies. Here's what they have to say.</p>
+      <div class="page-hero-btns">
+        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://g.page/r/azturfsuppliers/review" target="_blank" rel="noopener" class="btn btn-outline">Leave a Review</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS GRID ═══ -->
+<section class="reviews-page">
+  <div class="container">
+    <div class="reviews-page-header" data-reveal>
+      <div class="section-label centered">Google Reviews</div>
+      <h2>Trusted by Arizona Homeowners &amp; Contractors</h2>
+      <p>All reviews are pulled directly from Google. We don't filter or curate — you see everything.</p>
+    </div>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-d7e9f73a-f74f-401c-a869-1b4c87bfb267" data-elfsight-app-lazy></div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Ready to Get Started?</div>
+    <h2>Join Hundreds of Happy Customers</h2>
+    <p>Call or text us to get pricing, check inventory, or schedule a delivery. Same-day response guaranteed.</p>
+    <div class="cta-btns">
+      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="/contact" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
