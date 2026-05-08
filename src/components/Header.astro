@@ -16,7 +16,7 @@ const isActive = (path: string) => {
         <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
         <li><a href="/about" class={isActive('/about') ? 'active' : ''}>About</a></li>
         <li class="has-dropdown">
-          <a href="/products" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
+          <a href="/products" aria-haspopup="true" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
           <div class="dropdown dropdown-wide">
             <div class="dropdown-inner">
               <div class="dropdown-col">
@@ -36,7 +36,7 @@ const isActive = (path: string) => {
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="/resources" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/blog') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
+          <a href="/resources" aria-haspopup="true" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/blog') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
           <div class="dropdown">
             <div class="dropdown-inner">
               <a href="/turf-calculator">Turf Calculator</a>
@@ -48,7 +48,7 @@ const isActive = (path: string) => {
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="/locations" class={isActive('/locations') ? 'active' : ''}>Areas Served</a>
+          <a href="/locations" aria-haspopup="true" class={isActive('/locations') ? 'active' : ''}>Areas Served</a>
           <div class="dropdown">
             <div class="dropdown-inner">
               <a href="/queen-creek">Queen Creek</a>

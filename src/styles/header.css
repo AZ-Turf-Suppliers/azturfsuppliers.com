@@ -256,7 +256,8 @@ nav .has-dropdown > a::after {
   vertical-align: middle;
   transition: transform var(--duration-fast);
 }
-nav .has-dropdown:hover > a::after { transform: rotate(180deg); }
+nav .has-dropdown:hover > a::after,
+nav .has-dropdown:focus-within > a::after { transform: rotate(180deg); }
 
 /* Dropdown panel */
 nav .dropdown {
@@ -268,7 +269,8 @@ nav .dropdown {
   transition: opacity 0.25s, visibility 0.25s, transform 0.25s var(--ease-out-expo);
   z-index: 50;
 }
-nav .has-dropdown:hover .dropdown {
+nav .has-dropdown:hover .dropdown,
+nav .has-dropdown:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);

@@ -25,6 +25,30 @@
    ══════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════
+   SKIP-TO-CONTENT LINK (a11y)
+   ═══════════════════════════════════════════ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: var(--green-700, #239B2B);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+main:focus { outline: none; }
+
+/* ═══════════════════════════════════════════
    SCROLL REVEAL SYSTEM
    Add  data-reveal  to any element.
    Optional: data-reveal-dir="left|right"  (default: up)
