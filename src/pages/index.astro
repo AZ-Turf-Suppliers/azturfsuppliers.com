@@ -24,7 +24,10 @@ const {
 const fname = (path: string) => path.replace(/^\/media\//, '');
 ---
 
-<Layout title="AZ Turf Suppliers | Premium Artificial Turf & Landscaping in Queen Creek, AZ">
+<Layout
+  title="AZ Turf Suppliers | Premium Artificial Turf & Landscaping in Queen Creek, AZ"
+  description="Premium artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. 15-year warranty, lead-free, next-day delivery, contractor wholesale pricing."
+>
 <style is:global>
 /* ─── HERO ─── */
 .hero {
@@ -1063,13 +1066,12 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 <!-- ═══ HERO ═══ -->
 <section class="hero">
 
-  <!-- Background video -->
-  <div class="hero-video-wrap" style={`background-image: url('${hero_fallback_image}')`}>
-    <iframe
-      src="https://www.youtube.com/embed/kQDQYFjJAgA?autoplay=1&mute=1&loop=1&playlist=kQDQYFjJAgA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
-      title="AZ Turf Suppliers"
-      allow="autoplay; encrypted-media"
-      allowfullscreen></iframe>
+  <!-- Background video — facade pattern: iframe is injected after page is idle so
+       it doesn't block initial paint or compete with critical resources -->
+  <div
+    class="hero-video-wrap"
+    data-youtube-id="kQDQYFjJAgA"
+    style={`background-image: url('${hero_fallback_image}')`}>
   </div>
 
   <!-- Dark gradient overlay -->
@@ -1576,35 +1578,35 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <form id="home-contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label>First Name</label>
-              <input type="text" name="firstName" placeholder="John">
+              <label for="home-firstName">First Name</label>
+              <input id="home-firstName" type="text" name="firstName" placeholder="John">
             </div>
             <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" name="lastName" placeholder="Smith">
+              <label for="home-lastName">Last Name</label>
+              <input id="home-lastName" type="text" name="lastName" placeholder="Smith">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="john@example.com">
+              <label for="home-email">Email</label>
+              <input id="home-email" type="email" name="email" placeholder="john@example.com">
             </div>
             <div class="form-group">
-              <label>Phone</label>
-              <input type="tel" name="phone" placeholder="(480) 739-3854">
+              <label for="home-phone">Phone</label>
+              <input id="home-phone" type="tel" name="phone" placeholder="(480) 739-3854">
             </div>
           </div>
           <div class="form-group">
-            <label>I am a...</label>
-            <select name="role">
+            <label for="home-role">I am a...</label>
+            <select id="home-role" name="role">
               <option>Homeowner</option>
               <option>Contractor / Landscaper</option>
               <option>Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" placeholder="Tell us about your project..."></textarea>
+            <label for="home-message">Message</label>
+            <textarea id="home-message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
           <div id="home-form-status" style="display:none;padding:12px 16px;border-radius:8px;font-size:0.9rem;margin-bottom:12px;"></div>
           <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1616,7 +1618,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 
 <script>
 // ─── HOME CONTACT FORM ───
-document.getElementById('home-contact-form')?.addEventListener('submit', async function (e) {
+async function handleHomeFormSubmit(e: Event) {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
   const btn = document.getElementById('home-submit-btn') as HTMLButtonElement;
@@ -1651,41 +1653,73 @@ document.getElementById('home-contact-form')?.addEventListener('submit', async f
     btn.disabled = false;
     btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
   }
-});
+}
+
+function initHomeForm() {
+  const form = document.getElementById('home-contact-form');
+  if (!form) return;
+  form.removeEventListener('submit', handleHomeFormSubmit);
+  form.addEventListener('submit', handleHomeFormSubmit);
+}
+initHomeForm();
+document.addEventListener('astro:page-load', initHomeForm);
 </script>
 
 <script>
 // ─── TICKER ───
-(function() {
-  const items = [
-    { icon: '✦', text: 'Price Match Guarantee' },
-    { icon: '✦', text: 'Next Day Delivery Guarantee' },
-    { icon: '✦', text: '15-Minute In-Store Pickup' },
-    { icon: '✦', text: 'Nationwide Shipping Available' },
-    { icon: '✦', text: '15-Year Manufacturer Warranty' },
-    { icon: '✦', text: '100% Pet Friendly & Lead-Free' },
-  ];
+const TICKER_ITEMS = [
+  'Price Match Guarantee',
+  'Next Day Delivery Guarantee',
+  '15-Minute In-Store Pickup',
+  'Nationwide Shipping Available',
+  '15-Year Manufacturer Warranty',
+  '100% Pet Friendly & Lead-Free',
+];
 
+function initHomeTicker() {
   const track = document.getElementById('ticker-track');
   if (!track) return;
+  const set = TICKER_ITEMS.map(t => `<span class="ticker-item">${t}</span><span class="ticker-sep">✦</span>`).join('');
+  track.innerHTML = set + set + set;
+}
+initHomeTicker();
+document.addEventListener('astro:page-load', initHomeTicker);
 
-  // Build three sets for seamless loop
-  const set = items.map(item =>
-    `<span class="ticker-item">${item.text}</span><span class="ticker-sep">✦</span>`
-  ).join('');
-  const html = set + set + set;
+// ─── YOUTUBE HERO FACADE ───
+// The hero shows a fallback image immediately. The iframe is injected after the
+// page is idle so it doesn't block LCP / compete with critical resources.
+function initHeroVideoFacade() {
+  const wrap = document.querySelector<HTMLElement>('.hero-video-wrap[data-youtube-id]');
+  if (!wrap || wrap.querySelector('iframe')) return;
+  const id = wrap.dataset.youtubeId;
+  if (!id) return;
 
-  track.innerHTML = html;
-})();
+  const inject = () => {
+    if (wrap.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1`;
+    iframe.title = 'AZ Turf Suppliers';
+    iframe.setAttribute('allow', 'autoplay; encrypted-media');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('loading', 'lazy');
+    wrap.appendChild(iframe);
+  };
 
-// scroll reveal handled by Layout.astro;
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(inject, { timeout: 2500 });
+  } else {
+    setTimeout(inject, 1500);
+  }
+}
+initHeroVideoFacade();
+document.addEventListener('astro:page-load', initHeroVideoFacade);
 
-// Accordion toggle
-function toggleBenefit(btn) {
+// Accordion toggle — set once at module scope, survives navigations
+function toggleBenefit(btn: HTMLElement) {
   const item = btn.parentElement;
-  const wasActive = item.classList.contains('active');
+  const wasActive = item?.classList.contains('active');
   document.querySelectorAll('.benefit-item').forEach(i => i.classList.remove('active'));
-  if (!wasActive) item.classList.add('active');
+  if (!wasActive) item?.classList.add('active');
 }
 (window as any).toggleBenefit = toggleBenefit;
 </script>

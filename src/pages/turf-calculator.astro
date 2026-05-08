@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Turf Layout Calculator | AZ Turf Suppliers — Queen Creek, AZ">
+<Layout
+  title="Turf Layout Calculator | AZ Turf Suppliers — Queen Creek, AZ"
+  description="Free artificial turf calculator: enter your project dimensions and get optimal roll layout, seam count, infill bags, and waste estimate — accurate to within 5%."
+>
 <style is:global>
 /* ─── CALCULATOR SPECIFIC STYLES ─── */
   
@@ -373,17 +376,6 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- ─── CALCULATOR LOGIC ─── -->
 <script>
-// Scroll reveal logic
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('revealed');
-      revealObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
-
 // Configuration mapping to match standard inputs
 const TURF_CONFIG = {
   '15FT': { rollWidth: 15 }
@@ -868,13 +860,14 @@ function drawDiagram(canvas, layout) {
   }
 }
 
-// Event Listeners for auto calculation
-document.querySelectorAll('.input-panel input, .input-panel select').forEach(el => {
-  el.addEventListener('input', () => calculate());
-  el.addEventListener('change', () => calculate());
-});
-
-// Run initially
-calculate();
+function initCalculator() {
+  document.querySelectorAll('.input-panel input, .input-panel select').forEach(el => {
+    el.addEventListener('input', () => calculate());
+    el.addEventListener('change', () => calculate());
+  });
+  calculate();
+}
+initCalculator();
+document.addEventListener('astro:page-load', initCalculator);
 </script>
 </Layout>

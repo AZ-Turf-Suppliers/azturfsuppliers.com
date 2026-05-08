@@ -25,6 +25,30 @@
    ══════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════
+   SKIP-TO-CONTENT LINK (a11y)
+   ═══════════════════════════════════════════ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: var(--green-700, #239B2B);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+main:focus { outline: none; }
+
+/* ═══════════════════════════════════════════
    SCROLL REVEAL SYSTEM
    Add  data-reveal  to any element.
    Optional: data-reveal-dir="left|right"  (default: up)
@@ -674,10 +698,13 @@ h1, h2, h3 {
 }
 .testimonials-cta svg { width: 16px; height: 16px; }
 
-/* Hide the SVG icon sprite that Elfsight platform.js injects at the
-   body level — without this, every <symbol> in the sprite renders
-   visibly at native size (huge icons stacked under the widget). */
-body > svg {
+/* Hide the SVG icon sprite that Elfsight platform.js injects.
+   Catches both body-level injection and any svg containing <symbol>
+   children (a sprite sheet) regardless of parent — without this, every
+   <symbol> renders at native size (huge facebook/twitter/G+ icons
+   stacked under the widget). */
+body > svg,
+svg:has(> symbol) {
   position: absolute !important;
   width: 0 !important;
   height: 0 !important;

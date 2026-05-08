@@ -3,7 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 ---
 
-<Layout title="Winter Blend 84 | AZ Turf Suppliers — Queen Creek, AZ">
+<Layout
+  title="Winter Blend 84 | AZ Turf Suppliers — Queen Creek, AZ"
+  description="Winter Blend 84 artificial turf — $1.50/sqft. Year-round green for residential lawns and backyards. Mid-weight, soft underfoot. In stock in Queen Creek, AZ."
+>
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-84-side.png") !important; }
 /* ─── PRODUCT DETAIL ─── */
@@ -63,7 +66,7 @@ import Pic from '../components/Pic.astro';
   height: auto;
   object-fit: contain;
 }
-.pd-content h1 {
+.pd-content h2 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin-bottom: 8px;
 }
@@ -448,7 +451,7 @@ import Pic from '../components/Pic.astro';
       </div>
       <div class="pd-content">
         <div class="section-label">Premium Artificial Turf</div>
-        <h1>Winter Blend 84</h1>
+        <h2>Winter Blend 84</h2>
         <div class="pd-price">$1.50 <span>/ sq ft</span></div>
         <p class="pd-desc">A versatile turf that delivers a fresh, natural look throughout the year. Featuring emerald and lime tones with a realistic thatch layer, it captures the appearance of healthy, well-kept grass — great for a wide range of residential and landscape applications.</p>
         <div class="pd-best-for"><strong>Best For:</strong> Year-round landscapes, backyards, residential lawns</div>

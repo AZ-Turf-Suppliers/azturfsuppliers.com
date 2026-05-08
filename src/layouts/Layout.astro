@@ -9,9 +9,52 @@ import '../styles/shared.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description = 'Premium artificial turf and landscaping supplies based in Queen Creek and serving all of Arizona.' } = Astro.props;
+const {
+  title,
+  description = 'Premium artificial turf and landscaping supplies based in Queen Creek and serving all of Arizona.',
+  ogImage = '/media/logo.png',
+  ogType = 'website',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageAbsolute = new URL(ogImage, siteUrl).toString();
+const isHome = Astro.url.pathname === '/';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'AZ Turf Suppliers',
+  image: new URL('/media/logo.png', siteUrl).toString(),
+  url: siteUrl,
+  telephone: '+1-480-739-3854',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '18607 E San Tan Blvd',
+    addressLocality: 'Queen Creek',
+    addressRegion: 'AZ',
+    postalCode: '85142',
+    addressCountry: 'US',
+  },
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '07:00',
+    closes: '15:00',
+  }],
+  sameAs: [
+    'https://www.facebook.com/AZturfsuppliers/',
+    'https://www.instagram.com/az.turf.suppliers/',
+  ],
+  areaServed: {
+    '@type': 'State',
+    name: 'Arizona',
+  },
+};
 ---
 
 <!doctype html>
@@ -21,7 +64,24 @@ const { title, description = 'Premium artificial turf and landscaping supplies b
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content={description}>
+    <link rel="canonical" href={canonical}>
     <link rel="icon" type="image/png" href="/media/logo.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType}>
+    <meta property="og:site_name" content="AZ Turf Suppliers">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonical}>
+    <meta property="og:image" content={ogImageAbsolute}>
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImageAbsolute}>
+
     <!-- DNS prefetch for third-party origins -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -29,14 +89,20 @@ const { title, description = 'Premium artificial turf and landscaping supplies b
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload hero background used on all inner pages -->
-    <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg">
+    {!isHome && (
+      <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg" />
+    )}
+
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    )}
 
     <ViewTransitions />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
