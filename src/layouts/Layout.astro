@@ -89,8 +89,9 @@ const localBusinessSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload hero background used on all inner pages -->
-    <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg">
+    {!isHome && (
+      <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg" />
+    )}
 
     {isHome && (
       <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />

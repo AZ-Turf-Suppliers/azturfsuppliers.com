@@ -1066,13 +1066,12 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 <!-- ═══ HERO ═══ -->
 <section class="hero">
 
-  <!-- Background video -->
-  <div class="hero-video-wrap" style={`background-image: url('${hero_fallback_image}')`}>
-    <iframe
-      src="https://www.youtube.com/embed/kQDQYFjJAgA?autoplay=1&mute=1&loop=1&playlist=kQDQYFjJAgA&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
-      title="AZ Turf Suppliers"
-      allow="autoplay; encrypted-media"
-      allowfullscreen></iframe>
+  <!-- Background video — facade pattern: iframe is injected after page is idle so
+       it doesn't block initial paint or compete with critical resources -->
+  <div
+    class="hero-video-wrap"
+    data-youtube-id="kQDQYFjJAgA"
+    style={`background-image: url('${hero_fallback_image}')`}>
   </div>
 
   <!-- Dark gradient overlay -->
@@ -1685,6 +1684,35 @@ function initHomeTicker() {
 }
 initHomeTicker();
 document.addEventListener('astro:page-load', initHomeTicker);
+
+// ─── YOUTUBE HERO FACADE ───
+// The hero shows a fallback image immediately. The iframe is injected after the
+// page is idle so it doesn't block LCP / compete with critical resources.
+function initHeroVideoFacade() {
+  const wrap = document.querySelector<HTMLElement>('.hero-video-wrap[data-youtube-id]');
+  if (!wrap || wrap.querySelector('iframe')) return;
+  const id = wrap.dataset.youtubeId;
+  if (!id) return;
+
+  const inject = () => {
+    if (wrap.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1`;
+    iframe.title = 'AZ Turf Suppliers';
+    iframe.setAttribute('allow', 'autoplay; encrypted-media');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('loading', 'lazy');
+    wrap.appendChild(iframe);
+  };
+
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(inject, { timeout: 2500 });
+  } else {
+    setTimeout(inject, 1500);
+  }
+}
+initHeroVideoFacade();
+document.addEventListener('astro:page-load', initHeroVideoFacade);
 
 // Accordion toggle — set once at module scope, survives navigations
 function toggleBenefit(btn: HTMLElement) {
