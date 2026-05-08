@@ -343,44 +343,15 @@ const labelFor = (cat: string) => CATEGORY_LABELS[cat] ?? cat;
 </div>
 
 <script>
-// ─── SCROLL REVEAL ───
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
-
-// ─── FILTER ───
-const filters = document.querySelectorAll('.gallery-filter');
-const items = document.querySelectorAll('.gallery-item');
-
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.getAttribute('data-filter');
-
-    items.forEach(item => {
-      const cats = (item.getAttribute('data-categories') || '').split(' ').filter(Boolean);
-      (item as HTMLElement).style.display =
-        (cat === 'all' || cats.includes(cat!)) ? '' : 'none';
-    });
-  });
-});
-
-// ─── LIGHTBOX ───
-const lightbox = document.getElementById('lightbox')!;
-const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-const lightboxTitle = document.getElementById('lightbox-title')!;
-const lightboxLocation = document.getElementById('lightbox-location')!;
-const lightboxCaption = document.getElementById('lightbox-caption')!;
-const lightboxPrev = document.getElementById('lightbox-prev')!;
-const lightboxNext = document.getElementById('lightbox-next')!;
-
-const allItems = Array.from(document.querySelectorAll<HTMLElement>('.gallery-item'));
+// ─── MODULE-LEVEL STATE (persists across navigations) ───
+let allItems: HTMLElement[] = [];
 let currentList: HTMLElement[] = [];
 let currentIndex = 0;
+let _lightbox: HTMLElement | null = null;
+let _lightboxImg: HTMLImageElement | null = null;
+let _lightboxTitle: HTMLElement | null = null;
+let _lightboxLocation: HTMLElement | null = null;
+let _lightboxCaption: HTMLElement | null = null;
 
 function visibleItems(): HTMLElement[] {
   return allItems.filter(el => el.style.display !== 'none');
@@ -388,14 +359,14 @@ function visibleItems(): HTMLElement[] {
 
 function showItem(item: HTMLElement) {
   const img = item.querySelector('img');
-  if (!img) return;
-  lightboxImg.src = img.src;
-  lightboxImg.alt = img.alt;
+  if (!img || !_lightboxImg || !_lightboxTitle || !_lightboxLocation || !_lightboxCaption) return;
+  _lightboxImg.src = img.src;
+  _lightboxImg.alt = img.alt;
   const title = item.getAttribute('data-title') || '';
   const location = item.getAttribute('data-location') || '';
-  lightboxTitle.textContent = title;
-  lightboxLocation.textContent = location;
-  lightboxCaption.style.display = (title || location) ? '' : 'none';
+  _lightboxTitle.textContent = title;
+  _lightboxLocation.textContent = location;
+  _lightboxCaption.style.display = (title || location) ? '' : 'none';
 }
 
 function step(delta: number) {
@@ -404,32 +375,62 @@ function step(delta: number) {
   showItem(currentList[currentIndex]);
 }
 
-allItems.forEach(item => {
-  item.addEventListener('click', () => {
-    currentList = visibleItems();
-    currentIndex = currentList.indexOf(item);
-    if (currentIndex === -1) return;
-    showItem(item);
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+function closeLightbox() {
+  _lightbox?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function initGallery() {
+  _lightbox = document.getElementById('lightbox');
+  _lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  _lightboxTitle = document.getElementById('lightbox-title');
+  _lightboxLocation = document.getElementById('lightbox-location');
+  _lightboxCaption = document.getElementById('lightbox-caption');
+
+  if (!_lightbox) return; // not on gallery page
+
+  const filters = document.querySelectorAll('.gallery-filter');
+  const filterItems = document.querySelectorAll<HTMLElement>('.gallery-item');
+  allItems = Array.from(filterItems);
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-filter');
+      filterItems.forEach(item => {
+        const cats = (item.getAttribute('data-categories') || '').split(' ').filter(Boolean);
+        item.style.display = (cat === 'all' || cats.includes(cat!)) ? '' : 'none';
+      });
+    });
   });
-});
 
-lightboxPrev.addEventListener('click', e => { e.stopPropagation(); step(-1); });
-lightboxNext.addEventListener('click', e => { e.stopPropagation(); step(1); });
+  allItems.forEach(item => {
+    item.addEventListener('click', () => {
+      currentList = visibleItems();
+      currentIndex = currentList.indexOf(item);
+      if (currentIndex === -1) return;
+      showItem(item);
+      _lightbox!.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
 
-document.getElementById('lightbox-close')!.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.getElementById('lightbox-prev')?.addEventListener('click', e => { e.stopPropagation(); step(-1); });
+  document.getElementById('lightbox-next')?.addEventListener('click', e => { e.stopPropagation(); step(1); });
+  document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+  _lightbox.addEventListener('click', e => { if (e.target === _lightbox) closeLightbox(); });
+}
+
+initGallery();
+document.addEventListener('astro:page-load', initGallery);
+
+// Document keydown registered once; uses module-level _lightbox reference
 document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('open')) return;
+  if (!_lightbox?.classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
   else if (e.key === 'ArrowLeft') step(-1);
   else if (e.key === 'ArrowRight') step(1);
 });
-
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-}
 </script>
 </Layout>
