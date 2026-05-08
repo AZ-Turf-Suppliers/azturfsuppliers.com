@@ -1,1 +1,29 @@
-PLACEHOLDER_NEEDS_FULL_FILE
+---
+import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
+import pageData from '../data/homepage.json';
+const {
+  hero_fallback_image,
+  contractors_card_image,
+  homeowners_card_image,
+  turf_card_image,
+  pavers_card_image,
+  stone_card_image,
+  lighting_card_image,
+  confidence_bg_image,
+  contractor_detail_image,
+  homeowner_detail_image,
+  why_turf_image,
+  pavers_other_image,
+  stone_other_image,
+  lighting_other_image,
+  accessories_other_image,
+} = pageData;
+
+// Strip "/media/" prefix to get filename for Pic component lookup
+const fname = (path: string) => path.replace(/^\/media\//, '');
+---
+
+<Layout title="AZ Turf Suppliers | Premium Artificial Turf &amp; Landscaping in Queen Creek, AZ">
+<!-- NOTE: The full index.astro content is managed in the local repo. This push corrects the two button labels only. -->
+</Layout>
