@@ -634,6 +634,16 @@ h1, h2, h3 {
 .testimonials .review-avatar { background: var(--orange); }
 .testimonials .reviews-cta a { color: var(--green-700); }
 
+/* Reserve height for the lazy-loaded Elfsight widget so the dark
+   section paints at full size before the script mounts (avoids
+   layout shift / "missing dark band" flash during scroll). */
+.testimonials [class*="elfsight-app-"] {
+  min-height: 600px;
+}
+@media (max-width: 768px) {
+  .testimonials [class*="elfsight-app-"] { min-height: 900px; }
+}
+
 /* ─── CARD GRID + MOBILE CAROUSEL ─── */
 .reviews-grid {
   display: grid;
