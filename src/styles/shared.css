@@ -644,6 +644,36 @@ h1, h2, h3 {
   .testimonials [class*="elfsight-app-"] { min-height: 900px; }
 }
 
+/* "Read more reviews" CTA below the Elfsight widget */
+.testimonials-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.testimonials-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, gap 0.2s;
+}
+.testimonials-cta a:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--white);
+  gap: 14px;
+}
+.testimonials-cta svg { width: 16px; height: 16px; }
+
 /* Hide the SVG icon sprite that Elfsight platform.js injects at the
    body level — without this, every <symbol> in the sprite renders
    visibly at native size (huge icons stacked under the widget). */
