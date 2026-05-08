@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'artificial-turf-installation-guide-arizona',
+    title: 'The Complete Guide to Installing Artificial Turf in Arizona',
+    excerpt: 'A step-by-step walkthrough — base prep, drainage, infill, and the desert-specific tricks that separate a 5-year install from a 15-year install.',
+    date: 'May 2026',
+    readTime: '14 min read',
+    category: 'Installation',
+    image: '/media/forklift-carrying-turf.jpg',
+  },
+];
+---
+
+<Layout title="Blog | AZ Turf Suppliers — Queen Creek, AZ" description="Practical, no-fluff guides on artificial turf, pavers, and landscaping in Arizona's climate.">
+<style is:global>
+.page-hero::before { background-image: url("/media/natural-series-turf-6.jpg") !important; }
+
+.blog-list {
+  padding: 88px 0;
+  background: var(--white);
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.blog-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  border-color: var(--green-700);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.blog-card-img {
+  aspect-ratio: 16/10;
+  background: var(--gray-100);
+  overflow: hidden;
+}
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.blog-card:hover .blog-card-img img { transform: scale(1.04); }
+.blog-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+.blog-card-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green-700);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.blog-card-meta .dot { color: var(--gray-400); }
+.blog-card-meta .read { color: var(--gray-600); font-weight: 500; letter-spacing: 0.04em; }
+.blog-card h3 {
+  font-size: 1.15rem;
+  color: var(--dark);
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+.blog-card p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.blog-card-cta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--green-700);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.blog-card-cta svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.blog-card:hover .blog-card-cta svg { transform: translateX(3px); }
+
+.blog-empty-state {
+  grid-column: 1 / -1;
+  padding: 64px 32px;
+  text-align: center;
+  border: 2px dashed var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--gray-100);
+}
+.blog-empty-state h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--dark); }
+.blog-empty-state p { font-size: 0.875rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+@media (max-width: 1024px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .blog-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">From the AZ Turf Suppliers Team</div>
+      <h1>Practical Guides for <em>Arizona Yards</em></h1>
+      <p>No fluff, no filler — just real-world advice on artificial turf, pavers, and hardscaping in Arizona's heat. Written by people who load trucks every morning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSTS ═══ -->
+<section class="blog-list">
+  <div class="container">
+    <div class="blog-grid">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`} class="blog-card" data-reveal>
+          <div class="blog-card-img">
+            <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>{post.category}</span>
+              <span class="dot">·</span>
+              <span class="read">{post.date} · {post.readTime}</span>
+            </div>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+            <span class="blog-card-cta">
+              Read Article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Have a Question We Haven't Covered?</div>
+    <h2>Text Us — We'll Answer</h2>
+    <p>Real questions about your project get real answers from the owner. No call center, no canned replies.</p>
+    <div class="cta-btns">
+      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/contact" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
