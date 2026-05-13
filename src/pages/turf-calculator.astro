@@ -196,19 +196,22 @@ import Layout from '../layouts/Layout.astro';
 
   /* Diagram Column */
   .diagram-col {
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 340px;
     background: var(--white);
   }
 
   .diagram-col canvas {
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .diagram-col { padding: 16px 12px; }
   }
 
   .diagram-legend {
@@ -603,15 +606,40 @@ function buildOptionCard(layout, infill, optNum, isBest, config) {
 
   requestAnimationFrame(() => drawDiagram(canvas, layout));
 
+  // Redraw whenever the diagram column resizes (window resize, layout shift, etc.)
+  if ('ResizeObserver' in window) {
+    let prevW = 0;
+    const ro = new ResizeObserver(entries => {
+      const w = entries[0].contentRect.width;
+      if (Math.abs(w - prevW) < 2) return;
+      prevW = w;
+      drawDiagram(canvas, layout);
+    });
+    ro.observe(diagCol);
+  }
+
   return card;
 }
 
 function drawDiagram(canvas, layout) {
   const dpr = window.devicePixelRatio || 1;
-  const maxW = canvas.parentElement.clientWidth - 40;
-  const maxH = 400;
-  const padding = 40;
-  const labelSpace = 24;
+  const parent = canvas.parentElement;
+  const parentStyle = getComputedStyle(parent);
+  const parentPadX = parseFloat(parentStyle.paddingLeft) + parseFloat(parentStyle.paddingRight);
+
+  // Available width = parent content box minus a small buffer
+  const maxW = Math.max(220, parent.clientWidth - parentPadX);
+
+  // Responsive max height: more room on tall viewports / desktop, less on mobile
+  const isMobile = window.innerWidth < 600;
+  const maxH = Math.min(
+    isMobile ? 360 : 520,
+    Math.max(260, window.innerHeight * 0.6),
+  );
+
+  // Padding: tighter on mobile so canvas fills more of the column
+  const padding = isMobile ? 24 : 36;
+  const labelSpace = isMobile ? 18 : 24;
 
   const projW = layout.projW;
   const projL = layout.projL;
