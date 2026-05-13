@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'Gilbert', url: '/gilbert' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Landscaping Supplies in Gilbert, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers delivers artificial turf, pavers, natural stone, and landscape lighting to Gilbert, AZ. Next-day delivery from our Queen Creek location. Call 480-739-3854."
+  title="Artificial Turf in Gilbert, AZ | AZ Turf Suppliers"
+  description="Artificial turf, pavers, natural stone, and landscape lighting delivered to Gilbert, AZ. Next-day delivery from Queen Creek. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-6.jpg") !important; }

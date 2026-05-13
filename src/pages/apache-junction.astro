@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'Apache Junction', url: '/apache-junction' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Landscaping Supplies in Apache Junction, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers serves Apache Junction, AZ with artificial turf, pavers, natural stone, and landscape lighting. Fast delivery from our nearby Queen Creek location. Call 480-739-3854."
+  title="Artificial Turf in Apache Junction, AZ | AZ Turf Suppliers"
+  description="Artificial turf, pavers, natural stone, and landscape lighting delivered to Apache Junction, AZ from our Queen Creek showroom. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-3.jpg") !important; }

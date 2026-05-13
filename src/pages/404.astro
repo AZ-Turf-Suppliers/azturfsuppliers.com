@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Page Not Found | AZ Turf Suppliers"
+  description="The page you're looking for doesn't exist. Browse our artificial turf, pavers, natural stone, and landscape lighting, or call us at 480-739-3854."
+  noindex
+>
+<style is:global>
+.not-found {
+  padding: 96px 0 120px;
+  background: var(--gray-100);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.not-found-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+  text-align: center;
+  overflow: hidden;
+}
+.not-found-head {
+  background: var(--dark);
+  color: var(--white);
+  padding: 48px 32px 36px;
+}
+.not-found-code {
+  font-size: 4.2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--green-700);
+  letter-spacing: -0.04em;
+}
+.not-found-head h1 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--white);
+  margin: 12px 0 8px;
+}
+.not-found-head p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.not-found-body {
+  padding: 36px 32px 40px;
+}
+.not-found-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto 28px;
+}
+.not-found-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.not-found-link:hover {
+  background: var(--green-700);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.not-found-link svg { flex-shrink: 0; color: inherit; }
+.not-found-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.not-found-actions .btn { min-width: 160px; justify-content: center; }
+@media (max-width: 600px) {
+  .not-found-links { grid-template-columns: 1fr; }
+  .not-found-head { padding: 36px 24px 28px; }
+  .not-found-body { padding: 28px 24px 32px; }
+}
+</style>
+
+<section class="not-found">
+  <div class="container">
+    <div class="not-found-card">
+      <div class="not-found-head">
+        <div class="not-found-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>The page you're looking for has moved or never existed. Try one of the links below — or call us and we'll point you in the right direction.</p>
+      </div>
+      <div class="not-found-body">
+        <div class="not-found-links">
+          <a href="/artificial-turf" class="not-found-link"><Icon name="leaf" size={18} /> Artificial Turf</a>
+          <a href="/pavers" class="not-found-link"><Icon name="squares" size={18} /> Pavers</a>
+          <a href="/natural-stone" class="not-found-link"><Icon name="mountain" size={18} /> Natural Stone</a>
+          <a href="/landscape-lighting" class="not-found-link"><Icon name="lightbulb" size={18} /> Landscape Lighting</a>
+        </div>
+        <div class="not-found-actions">
+          <a href="/" class="btn btn-primary">Back to Home <Icon name="arrow-right" size={16} /></a>
+          <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>

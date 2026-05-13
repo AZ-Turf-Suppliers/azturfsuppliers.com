@@ -1,10 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+];
 ---
 
 <Layout
   title="Areas Served | AZ Turf Suppliers — Phoenix Metro Delivery"
-  description="AZ Turf Suppliers delivers artificial turf, pavers, natural stone, and landscape lighting throughout the Phoenix Metro. Serving Queen Creek, Gilbert, Mesa, Chandler, Scottsdale, Tempe, Phoenix, and more."
+  description="Artificial turf, pavers, natural stone, and landscape lighting delivered across the Phoenix Metro — Queen Creek, Gilbert, Mesa, Chandler, Scottsdale, Tempe, Phoenix and more."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/natural-series-turf-7.jpg") !important; }

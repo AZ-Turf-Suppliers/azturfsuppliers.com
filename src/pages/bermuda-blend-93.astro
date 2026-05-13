@@ -2,11 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import TurfPriceCalculator from '../components/TurfPriceCalculator.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Bermuda Blend 93 Artificial Turf',
+  image: 'https://www.azturfsuppliers.com/media/bermuda-side.png',
+  description: 'Bermuda Blend 93 artificial turf. 93oz face weight, heavy-duty, pet- and traffic-rated for backyards and commercial use.',
+  brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.azturfsuppliers.com/bermuda-blend-93',
+    priceCurrency: 'USD',
+    price: '1.85',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+  { name: 'Bermuda Blend 93', url: '/bermuda-blend-93' },
+];
 ---
 
 <Layout
   title="Bermuda Blend 93 | AZ Turf Suppliers — Queen Creek, AZ"
   description="Bermuda Blend 93 artificial turf — $1.85/sqft. Heavy-duty, pet- and traffic-rated for backyards and commercial use. Stocked in Queen Creek with next-day delivery."
+  ogImage="/media/bermuda-side.png"
+  schema={productSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/bermuda-side.png") !important; }

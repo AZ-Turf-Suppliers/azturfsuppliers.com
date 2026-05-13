@@ -2,11 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import TurfPriceCalculator from '../components/TurfPriceCalculator.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Winter Blend 84 Artificial Turf',
+  image: 'https://www.azturfsuppliers.com/media/winter-blend-84-side.png',
+  description: 'Winter Blend 84 artificial turf. 84oz face weight, mid-weight, soft underfoot. Year-round green for residential lawns and backyards.',
+  brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.azturfsuppliers.com/winter-blend-84',
+    priceCurrency: 'USD',
+    price: '1.50',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+  { name: 'Winter Blend 84', url: '/winter-blend-84' },
+];
 ---
 
 <Layout
   title="Winter Blend 84 | AZ Turf Suppliers — Queen Creek, AZ"
   description="Winter Blend 84 artificial turf — $1.50/sqft. Year-round green for residential lawns and backyards. Mid-weight, soft underfoot. In stock in Queen Creek, AZ."
+  ogImage="/media/winter-blend-84-side.png"
+  schema={productSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-84-side.png") !important; }

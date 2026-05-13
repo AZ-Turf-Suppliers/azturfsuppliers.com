@@ -2,11 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import TurfPriceCalculator from '../components/TurfPriceCalculator.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Spring Blend 87 Artificial Turf',
+  image: 'https://www.azturfsuppliers.com/media/spring-blend-87-side.png',
+  description: 'Spring Blend 87 artificial turf. 87oz face weight. Bright, fresh green turf for backyards, play areas, and general residential landscaping.',
+  brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.azturfsuppliers.com/spring-blend-87',
+    priceCurrency: 'USD',
+    price: '1.65',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+  { name: 'Spring Blend 87', url: '/spring-blend-87' },
+];
 ---
 
 <Layout
   title="Spring Blend 87 | AZ Turf Suppliers — Queen Creek, AZ"
   description="Spring Blend 87 artificial turf — $1.65/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ."
+  ogImage="/media/spring-blend-87-side.png"
+  schema={productSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/spring-blend-87-side.png") !important; }

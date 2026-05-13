@@ -6,12 +6,23 @@ import '../styles/header.css';
 import '../styles/footer.css';
 import '../styles/shared.css';
 
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
+  // Optional extra JSON-LD blocks (Product, Article, FAQPage, etc.) the
+  // page wants to emit. Each will be serialized into its own script tag.
+  schema?: object | object[];
+  // Trail used to build a BreadcrumbList. Leave undefined on the home page
+  // and any page where breadcrumbs are not appropriate (404, thank-you).
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
@@ -20,6 +31,8 @@ const {
   ogImage = '/media/logo.png',
   ogType = 'website',
   noindex = false,
+  schema,
+  breadcrumbs,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
@@ -30,10 +43,14 @@ const isHome = Astro.url.pathname === '/';
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': `${siteUrl}/#localbusiness`,
   name: 'AZ Turf Suppliers',
   image: new URL('/media/logo.png', siteUrl).toString(),
+  logo: new URL('/media/logo.png', siteUrl).toString(),
   url: siteUrl,
   telephone: '+1-480-739-3854',
+  email: 'contact@azturfsuppliers.com',
+  priceRange: '$',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '18607 E San Tan Blvd',
@@ -57,6 +74,30 @@ const localBusinessSchema = {
     name: 'Arizona',
   },
 };
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'AZ Turf Suppliers',
+  publisher: { '@id': `${siteUrl}/#localbusiness` },
+};
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    item: new URL(b.url, siteUrl).toString(),
+  })),
+} : null;
+
+const extraSchemas: object[] = schema
+  ? (Array.isArray(schema) ? schema : [schema])
+  : [];
 ---
 
 <!doctype html>
@@ -67,8 +108,10 @@ const localBusinessSchema = {
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'}>
+    <meta name="theme-color" content="#239B2B">
     <link rel="canonical" href={canonical}>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType}>
@@ -77,6 +120,7 @@ const localBusinessSchema = {
     <meta property="og:description" content={description}>
     <meta property="og:url" content={canonical}>
     <meta property="og:image" content={ogImageAbsolute}>
+    <meta property="og:image:alt" content={title}>
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
@@ -84,6 +128,7 @@ const localBusinessSchema = {
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
     <meta name="twitter:image" content={ogImageAbsolute}>
+    <meta name="twitter:image:alt" content={title}>
 
     <!-- DNS prefetch for third-party origins -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -97,8 +142,19 @@ const localBusinessSchema = {
     )}
 
     {isHome && (
-      <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+      <>
+        <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+        <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+      </>
     )}
+
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+
+    {extraSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
 
     <ViewTransitions />
   </head>
