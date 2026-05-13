@@ -599,10 +599,10 @@ h1, h2, h3 {
   .section-gray,
   .section-dark,
   .section-green,
-  .section-green-md { padding: 56px 0; }
-  .section-tight { padding: 48px 0; }
-  .cta-section { padding: 56px 0; }
-  .page-hero { padding: 56px 0 64px; }
+  .section-green-md { padding: 30px 0; }
+  .section-tight { padding: 30px 0; }
+  .cta-section { padding: 30px 0; }
+  .page-hero { padding: 30px 0; }
   .page-hero h1 { font-size: 1.85rem; }
   .page-hero p { font-size: 0.9rem; }
   .section-header { margin-bottom: 36px; }
@@ -610,6 +610,16 @@ h1, h2, h3 {
   .split-grid { grid-template-columns: 1fr; gap: 36px; }
   .inline-cta { flex-direction: column; align-items: flex-start; }
   .stat-item { flex: 1 1 100%; }
+
+  /* Catch-all for sections (incl. ones styled only for desktop, like
+     .city-nearby and .contractor-callout): force 30px top/bottom on
+     mobile for site-wide consistency. !important is intentional here
+     so per-class desktop rules don't leak through on small screens. */
+  main > section,
+  main > div > section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -924,9 +934,9 @@ h1, h2, h3 {
   .section-gray,
   .section-dark,
   .section-green,
-  .section-green-md { padding: 48px 0; }
+  .section-green-md { padding: 30px 0; }
 
-  .section-tight { padding: 36px 0; }
+  .section-tight { padding: 30px 0; }
 
   .section-header,
   .section-header.centered { margin-bottom: 24px; }
@@ -959,7 +969,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
 
   /* ── Choose Turf grid: 6 big cards → icon-left row list ── */
-  .choose-turf { padding: 48px 0; }
+  .choose-turf { padding: 30px 0; }
   .choose-turf-grid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -995,7 +1005,7 @@ h1, h2, h3 {
   .choose-turf .choose-turf-card p { font-size: 0.78rem; line-height: 1.5; width: 100%; padding-top: 5px; padding-left: 48px; }
 
   /* ── Confidence grid: 6 items → tight 2-col ── */
-  .confidence { padding: 48px 0; }
+  .confidence { padding: 30px 0; }
   .confidence-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -1008,7 +1018,7 @@ h1, h2, h3 {
   .confidence-item h4 { font-size: 0.72rem; }
 
   /* ── Process steps: stacked, smaller number circle ── */
-  .process { padding: 48px 0; }
+  .process { padding: 30px 0; }
   .process-steps {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1026,7 +1036,7 @@ h1, h2, h3 {
   .step-card p { font-size: 0.875rem; }
 
   /* ── Other products: show image but shorter, tighten body ── */
-  .other-products { padding: 48px 0; }
+  .other-products { padding: 30px 0; }
   .other-grid { grid-template-columns: 1fr; gap: 16px; }
   .other-card-img { height: 160px; display: block; }
   .other-card-body { padding: 18px 20px; }
@@ -1034,22 +1044,22 @@ h1, h2, h3 {
   .other-card p { font-size: 0.82rem; }
 
   /* ── Serve cards: reduce image height ── */
-  .serve { padding: 48px 0; }
+  .serve { padding: 30px 0; }
 
   /* ── Why Turf section ── */
-  .why-turf { padding: 48px 0; }
+  .why-turf { padding: 30px 0; }
 
   /* ── Products grid ── */
-  .products { padding: 48px 0; }
+  .products { padding: 30px 0; }
 
   /* ── Wholesale CTA ── */
-  .wholesale-cta { padding: 48px 0; }
+  .wholesale-cta { padding: 30px 0; }
 
   /* ── No-brainer CTA ── */
-  .nobrainer { padding: 48px 0; }
+  .nobrainer { padding: 30px 0; }
 
   /* ── Contact ── */
-  .contact { padding: 48px 0; }
+  .contact { padding: 30px 0; }
 }
 
 /* ════════════════════════════════════════════════════════
@@ -1059,7 +1069,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
 
   /* ── Advantage grid: 6 big cards → compact icon+text rows ── */
-  .advantage { padding: 48px 0; }
+  .advantage { padding: 30px 0; }
   .advantage-grid {
     grid-template-columns: 1fr !important;
     gap: 0;
@@ -1096,12 +1106,12 @@ h1, h2, h3 {
   .advantage .adv-card p { font-size: 0.78rem; line-height: 1.5; width: 100%; padding-top: 5px; padding-left: 48px; }
 
   /* ── Materials grid: 2→1 col, reduce card padding ── */
-  .materials { padding: 48px 0; }
+  .materials { padding: 30px 0; }
   .materials-grid { gap: 14px; }
   .mat-card-body { padding: 20px; }
 
   /* ── Zones ── */
-  .zones { padding: 48px 0; }
+  .zones { padding: 30px 0; }
 
   /* ── Inline CTA banner ── */
   .inline-cta { padding: 20px; }
@@ -1122,15 +1132,15 @@ h1, h2, h3 {
   .why-item p { font-size: 0.78rem; }
 
   /* ── Accessories grid: 3→2 col ── */
-  .accessories { padding: 48px 0; }
+  .accessories { padding: 30px 0; }
   .accessories-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .acc-card { padding: 16px; }
 
   /* ── Choosing guide ── */
-  .choosing-guide { padding: 48px 0; }
+  .choosing-guide { padding: 30px 0; }
 
   /* ── Products section ── */
-  .products-section { padding: 48px 0; }
+  .products-section { padding: 30px 0; }
 }
 
 /* ════════════════════════════════════════════════════════
@@ -1140,10 +1150,10 @@ h1, h2, h3 {
 @media (max-width: 768px) {
 
   /* ── Series sections: tighten padding ── */
-  .series-section { padding: 48px 0; }
+  .series-section { padding: 30px 0; }
 
   /* ── AZ Difference grid: 6 big dark cards → compact rows ── */
-  .az-difference { padding: 48px 0; }
+  .az-difference { padding: 30px 0; }
   .az-diff-grid {
     grid-template-columns: 1fr !important;
     gap: 0;
@@ -1177,7 +1187,7 @@ h1, h2, h3 {
   .az-diff-grid .diff-card p { font-size: 0.78rem; line-height: 1.5; width: 100%; padding-top: 5px; padding-left: 48px; }
 
   /* ── FAQ grid: already 1-col, tighten ── */
-  .faq-section { padding: 48px 0; }
+  .faq-section { padding: 30px 0; }
   .faq-header { margin-bottom: 20px; }
   .faq-q { padding: 16px 18px; font-size: 0.78rem; }
 }
@@ -1189,7 +1199,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
 
   /* ── Difference grid: 4 bordered cards → compact rows ── */
-  .difference { padding: 48px 0; }
+  .difference { padding: 30px 0; }
   .difference-grid {
     grid-template-columns: 1fr !important;
     gap: 0;
@@ -1216,15 +1226,15 @@ h1, h2, h3 {
   .difference-grid .diff-item p { font-size: 0.78rem; line-height: 1.5; }
 
   /* ── Mission cards: tighter padding ── */
-  .mission { padding: 48px 0; }
+  .mission { padding: 30px 0; }
   .mission-card { padding: 24px 20px; }
 
   /* ── About intro ── */
-  .about-intro { padding: 48px 0; }
+  .about-intro { padding: 30px 0; }
   .about-img { display: none; } /* photo placeholder adds no value on mobile */
 
   /* ── Showroom section ── */
-  .showroom-section { padding: 48px 0; }
+  .showroom-section { padding: 30px 0; }
 }
 
 /* ════════════════════════════════════════════════════════
@@ -1233,9 +1243,9 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
 
-  .contact-main { padding: 48px 0; }
-  .trust-section { padding: 48px 0; }
-  .location-section { padding: 48px 0; }
+  .contact-main { padding: 30px 0; }
+  .trust-section { padding: 30px 0; }
+  .location-section { padding: 30px 0; }
 
   /* ── Guarantee cards: compact rows ── */
   .guarantee-card {
@@ -1260,8 +1270,8 @@ h1, h2, h3 {
    ════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  .page-hero { padding: 48px 0 56px; }
-  .cta-section { padding: 48px 0; }
+  .page-hero { padding: 30px 0; }
+  .cta-section { padding: 30px 0; }
   .cta-section h2 { font-size: 1.6rem; }
   .cta-section p { font-size: 0.875rem; }
 
@@ -1284,7 +1294,7 @@ h1, h2, h3 {
    TESTIMONIALS — mobile (tighten section padding)
    ════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .testimonials { padding: 48px 0; }
+  .testimonials { padding: 30px 0; }
   .testimonials-header { margin-bottom: 20px; }
   .reviews-summary { margin-bottom: 24px; }
 }
