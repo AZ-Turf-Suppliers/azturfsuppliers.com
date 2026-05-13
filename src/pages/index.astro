@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Icon from '../components/Icon.astro';
 import pageData from '../data/homepage.json';
 const {
   hero_fallback_image,
@@ -92,7 +94,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 24px 100px;
+  padding: 80px 24px;
 }
 
 .hero h1 {
@@ -200,6 +202,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 /* ─── HERO RESPONSIVE ─── */
 @media (max-width: 768px) {
   .hero { min-height: calc(70vh - 72px); }
+  .hero-content { padding: 64px 20px; }
   .hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
   .hero-desc { font-size: 0.95rem; }
   .hero-cta-row { gap: 10px; }
@@ -207,7 +210,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 }
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.5rem; }
-  .hero-content { padding: 60px 20px 80px; }
+  .hero-content { padding: 56px 20px; }
   .hero-cta-row { flex-direction: column; }
   .hero-cta-row .btn { width: 100%; justify-content: center; }
 }
@@ -965,11 +968,17 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 
 @media (max-width: 768px) {
   .hero { min-height: auto; }
-  .hero-content { padding: 60px 0 140px; }
   .hero h1 { font-size: 1.6rem; }
   .hero p { font-size: 0.9rem; margin-bottom: 28px; line-height: 1.6; }
   .hero-btns { gap: 12px; }
   .hero-btns .btn { padding: 12px 24px; font-size: 0.85rem; }
+
+  /* Products: 4 squares, 1:1 ratio on mobile */
+  .products-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+  .product-card { aspect-ratio: 1 / 1; }
+  .product-card-content { padding: 16px; }
+  .product-card h4 { font-size: 1rem; }
+  .product-card p { font-size: 0.7rem; }
 
   .trust-bar-inner {
     flex-direction: row;
@@ -1022,7 +1031,8 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.4rem; }
   .hero p { font-size: 0.85rem; }
-  .products-grid { grid-template-columns: 1fr; }
+  /* Keep products 2-up (1:1 squares) even on narrowest viewports */
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
   .confidence-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -1082,7 +1092,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
     <h1>Premium Turf &amp;<br>Landscaping Supplies<br>in <em>Queen Creek, AZ</em></h1>
     <p class="hero-desc">Artificial turf, pavers, natural stone, lighting, and accessories — servicing and delivering to contractors and homeowners across all of Arizona.</p>
     <div class="hero-cta-row">
-      <a href="/contact" class="btn btn-primary">Get A Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/contact" class="btn btn-primary">Get A Quote <Icon name="arrow-right" size={18} /></a>
       <a href="/artificial-turf" class="btn btn-outline">Shop Products</a>
     </div>
     <p class="hero-sub">Call us directly at <a href="tel:4807393854">480-739-3854</a> or stop by our Queen Creek showroom.</p>
@@ -1112,7 +1122,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="serve-card-body">
           <h3>Contractors & Landscapers</h3>
           <p>Wholesale pricing, next-day delivery, and text-based ordering built for pros on the move.</p>
-          <span class="serve-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="serve-card-link">Learn More <Icon name="arrow-right" size={14} /></span>
         </div>
       </a>
       <a href="/homeowners" class="serve-card" data-reveal>
@@ -1122,7 +1132,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="serve-card-body">
           <h3>DIY Homeowners</h3>
           <p>Expert guidance, free samples, and precise material calculations to get your project done right.</p>
-          <span class="serve-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="serve-card-link">Learn More <Icon name="arrow-right" size={14} /></span>
         </div>
       </a>
     </div>
@@ -1141,7 +1151,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
       <a href="/artificial-turf" class="product-card" data-reveal>
         <div class="product-card-bg"><Pic name={fname(turf_card_image)} alt="Artificial turf installation" /></div>
         <div class="product-card-overlay"></div>
-        <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+        <div class="product-card-arrow"><Icon name="arrow-up-right" size={16} /></div>
         <div class="product-card-content">
           <h4>Artificial Turf</h4>
           <p>Premium turf built for AZ heat</p>
@@ -1150,7 +1160,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
       <a href="/pavers" class="product-card" data-reveal>
         <div class="product-card-bg"><Pic name={fname(pavers_card_image)} alt="Paver installation" /></div>
         <div class="product-card-overlay"></div>
-        <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+        <div class="product-card-arrow"><Icon name="arrow-up-right" size={16} /></div>
         <div class="product-card-content">
           <h4>Pavers</h4>
           <p>Patios, borders & driveways</p>
@@ -1159,7 +1169,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
       <a href="/natural-stone" class="product-card" data-reveal>
         <div class="product-card-bg"><Pic name={fname(stone_card_image)} alt="Natural stone installation" /></div>
         <div class="product-card-overlay"></div>
-        <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+        <div class="product-card-arrow"><Icon name="arrow-up-right" size={16} /></div>
         <div class="product-card-content">
           <h4>Natural Stone</h4>
           <p>Travertine & limestone options</p>
@@ -1168,7 +1178,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
       <a href="/landscape-lighting" class="product-card" data-reveal>
         <div class="product-card-bg"><Pic name={fname(lighting_card_image)} alt="Landscape lighting at night" /></div>
         <div class="product-card-overlay"></div>
-        <div class="product-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+        <div class="product-card-arrow"><Icon name="arrow-up-right" size={16} /></div>
         <div class="product-card-content">
           <h4>Landscape Lighting</h4>
           <p>Lumenex lighting solutions</p>
@@ -1189,39 +1199,27 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
     </div>
     <div class="confidence-grid">
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="dollar" size={30} /></div>
         <h4>Price Match Guarantee</h4>
       </div>
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="truck" size={30} /></div>
         <h4>Next Day Delivery Guarantee</h4>
       </div>
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="clock" size={30} /></div>
         <h4>15-Minute In-Store Pickup</h4>
       </div>
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="globe" size={30} /></div>
         <h4>Nationwide Shipping Available</h4>
       </div>
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="shield-check" size={30} /></div>
         <h4>15-Year Manufacturer Warranty</h4>
       </div>
       <div class="confidence-item" data-reveal>
-        <div class="confidence-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
+        <div class="confidence-icon"><Icon name="paw" size={30} /></div>
         <h4>100% Pet Friendly & Lead-Free</h4>
       </div>
     </div>
@@ -1238,23 +1236,23 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <p>We know that time is money. AZ Turf Suppliers is built around the way contractors actually work — fast, direct, and with zero friction.</p>
         <div class="serve-detail-list">
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="dollar" size={30} /></div>
             <div><h4>Wholesale Pricing</h4><p>Exclusive rates for licensed contractors on all products.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="truck" size={30} /></div>
             <div><h4>Next-Day Delivery</h4><p>Guaranteed delivery directly to your job site.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.14.9.35 1.87.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45c.94.35 1.91.56 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="chat" size={30} /></div>
             <div><h4>Text-Based Ordering</h4><p>Text us your order — we'll process it immediately. No hold music.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="document" size={30} /></div>
             <div><h4>Client-Ready Resources</h4><p>Downloadable spec sheets and product photos for your proposals.</p></div>
           </div>
         </div>
-        <a href="/contractors" class="btn btn-primary">Visit Contractors Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/contractors" class="btn btn-primary">I'm a Contractor <Icon name="arrow-right" size={16} /></a>
       </div>
       <div class="serve-detail-img">
         <Pic name={fname(contractor_detail_image)} alt="Contractor loading turf" />
@@ -1273,23 +1271,23 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <p>Whether you're tackling your first DIY project or upgrading your outdoor space, we make the process simple from start to finish.</p>
         <div class="serve-detail-list">
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="user" size={30} /></div>
             <div><h4>Expert Guidance</h4><p>Bring your measurements — we'll calculate exactly what you need.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="storefront" size={30} /></div>
             <div><h4>Visit Our Showroom</h4><p>Pick up free samples and see our displays in person.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="handshake" size={30} /></div>
             <div><h4>Installer Referral Network</h4><p>Not DIYing? We'll connect you with trusted local pros.</p></div>
           </div>
           <div class="serve-detail-item">
-            <div class="serve-detail-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="serve-detail-item-icon"><Icon name="calculator" size={30} /></div>
             <div><h4>Precise Calculations</h4><p>Get the right amount of materials — minimize waste, save money.</p></div>
           </div>
         </div>
-        <a href="/homeowners" class="btn btn-primary">Visit Homeowners Page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/homeowners" class="btn btn-primary">I'm a DIYer <Icon name="arrow-right" size={16} /></a>
       </div>
       <div class="serve-detail-img">
         <Pic name={fname(homeowner_detail_image)} alt="Beautiful backyard with turf" />
@@ -1311,61 +1309,49 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="benefit-list">
           <div class="benefit-item active">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="dollar" size={22} /></div>
               <h4>Low Maintenance Costs</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>You don't need to water, mow, or fertilize artificial turf, saving you both time & money!</p></div>
           </div>
           <div class="benefit-item">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="paw" size={22} /></div>
               <h4>Safe For Children + Pets</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>Artificial turf is allergen-free, easy to clean, and comfortable to play on.</p></div>
           </div>
           <div class="benefit-item">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="sun" size={22} /></div>
               <h4>Looks Perfect Year-Round</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>Regardless of the season or weather changes, artificial turf stays green all year.</p></div>
           </div>
           <div class="benefit-item">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="shield-check" size={22} /></div>
               <h4>Fewer Outdoor Pests</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>Not only does artificial turf look great, but it also doesn't attract bugs like natural grass does.</p></div>
           </div>
           <div class="benefit-item">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="leaf" size={22} /></div>
               <h4>No Harmful Chemicals</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>Unlike natural grass, artificial turf doesn't require treatment with pesticides and fertilizers!</p></div>
           </div>
           <div class="benefit-item">
             <button class="benefit-header" onclick="toggleBenefit(this)">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              </div>
+              <div class="benefit-icon"><Icon name="trending-up" size={22} /></div>
               <h4>Great ROI</h4>
-              <div class="benefit-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="benefit-toggle"><Icon name="plus" size={14} /></div>
             </button>
             <div class="benefit-body"><p>Artificial turf can boost the value of your home + instantly improves curb appeal!</p></div>
           </div>
@@ -1384,44 +1370,32 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
     </div>
     <div class="choose-turf-grid">
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="water-drop" size={28} /></div>
         <h4>Lower Your Water Bill</h4>
         <p>Artificial turf gives you the look of green grass without your water bill skyrocketing!</p>
       </div>
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="sun" size={28} /></div>
         <h4>Built for Arizona Heat</h4>
         <p>With stellar durability and heat tolerance, artificial turf can handle all weather conditions.</p>
       </div>
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="leaf" size={28} /></div>
         <h4>Drought-Proof Beauty</h4>
         <p>Even through a severe drought, artificial turf will always look lush and beautiful!</p>
       </div>
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="paw" size={28} /></div>
         <h4>Family & Pet Friendly</h4>
         <p>Your kids and pets will love playing on artificial turf — it's super comfortable to tumble around on.</p>
       </div>
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="sparkle" size={28} /></div>
         <h4>Minimal Maintenance</h4>
         <p>Say goodbye to mowing, fertilizing, and pulling weeds! Artificial turf requires very minimal maintenance.</p>
       </div>
       <div class="choose-turf-card" data-reveal>
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
+        <div class="card-icon"><Icon name="trending-up" size={28} /></div>
         <h4>Smart Long-Term Investment</h4>
         <p>Artificial grass is a smart investment that will save you a lot of money and headache in the long run!</p>
       </div>
@@ -1471,7 +1445,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="other-card-body">
           <h4>Pavers & Hardscaping</h4>
           <p>We are a proud dealer of top-quality concrete pavers to complete your landscape borders, patios, and driveways. We feature brands like Phoenix Paver, Ackerstone, and Belgard.</p>
-          <a href="/pavers" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Pavers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="/pavers" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Pavers <Icon name="arrow-right" size={16} /></a>
         </div>
       </div>
       <div class="other-card" data-reveal>
@@ -1481,7 +1455,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="other-card-body">
           <h4>Natural Stone</h4>
           <p>Elevate your pool decks and walkways with premium natural stone. Available in Travertine and Limestone, with various colors and sizes available.</p>
-          <a href="/natural-stone" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Stone <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="/natural-stone" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Stone <Icon name="arrow-right" size={16} /></a>
         </div>
       </div>
       <div class="other-card" data-reveal>
@@ -1491,7 +1465,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="other-card-body">
           <h4>Landscape Lighting</h4>
           <p>Illuminate your new yard with our Lumenex lighting brand. We stock wire lighting, path lights, spotlights, and transformers.</p>
-          <a href="/landscape-lighting" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Lighting <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="/landscape-lighting" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Lighting <Icon name="arrow-right" size={16} /></a>
         </div>
       </div>
       <div class="other-card" data-reveal>
@@ -1501,7 +1475,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <div class="other-card-body">
           <h4>Accessories</h4>
           <p>Everything you need for a perfect installation, including Camofill, silica sand, 15-year weed fabric, seam tape, turf glue, nails, and golf cups/flags.</p>
-          <a href="/accessories" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Accessories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="/accessories" class="btn btn-dark" style="padding:10px 20px; font-size:0.8rem;">View Accessories <Icon name="arrow-right" size={16} /></a>
         </div>
       </div>
     </div>
@@ -1515,10 +1489,9 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
       <div class="section-label centered">Words From Our Clients</div>
       <h2>What Our Customers Say</h2>
     </div>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-f918b4ed-539e-4bac-a7de-9de8e5b2bfa8"></div>
+    <Testimonials />
     <div class="testimonials-cta" data-reveal>
-      <a href="/reviews">Read More Reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/reviews">Read More Reviews <Icon name="arrow-right" size={16} /></a>
     </div>
   </div>
 </section>
@@ -1529,7 +1502,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
     <h2>Premium Artificial Turf & Landscaping Supplies in Queen Creek, AZ</h2>
     <p>Ready to transform your outdoor space? Let's get started today.</p>
     <div class="nobrainer-btns">
-      <a href="/contact" class="btn btn-primary">Get A Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/contact" class="btn btn-primary">Get A Quote <Icon name="arrow-right" size={16} /></a>
       <a href="/artificial-turf" class="btn btn-outline">Shop Products</a>
     </div>
   </div>
@@ -1545,27 +1518,21 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
         <p>Send us a message and we'll get in touch as soon as possible. Looking for a quicker response? Give us a call!</p>
         <div class="contact-methods">
           <div class="contact-method" data-reveal>
-            <div class="cm-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
+            <div class="cm-icon"><Icon name="phone" size={28} /></div>
             <div>
               <h4>Call Us</h4>
               <p>480-739-3854</p>
             </div>
           </div>
           <div class="contact-method" data-reveal>
-            <div class="cm-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
+            <div class="cm-icon"><Icon name="location" size={28} /></div>
             <div>
               <h4>Visit Our Showroom</h4>
               <p>Queen Creek, AZ</p>
             </div>
           </div>
           <div class="contact-method" data-reveal>
-            <div class="cm-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
+            <div class="cm-icon"><Icon name="mail" size={28} /></div>
             <div>
               <h4>Email Us</h4>
               <p>contact@azturfsuppliers.com</p>
@@ -1609,7 +1576,7 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
             <textarea id="home-message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
           <div id="home-form-status" style="display:none;padding:12px 16px;border-radius:8px;font-size:0.9rem;margin-bottom:12px;"></div>
-          <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message <Icon name="arrow-right" size={16} /></button>
         </form>
       </div>
     </div>
@@ -1651,7 +1618,7 @@ async function handleHomeFormSubmit(e: Event) {
     status.textContent = 'Something went wrong. Please call us at 480-739-3854.';
   } finally {
     btn.disabled = false;
-    btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    btn.innerHTML = 'Send Message <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 11h11.586l-4.293-4.293 1.414-1.414L20.414 12l-6.707 6.707-1.414-1.414L16.586 13H5z"/></svg>';
   }
 }
 

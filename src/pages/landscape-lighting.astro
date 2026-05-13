@@ -283,16 +283,30 @@ import Pic from '../components/Pic.astro';
   color: var(--green-700);
   white-space: nowrap;
 }
-.ltt th.ltt-th-img, .ltt td.ltt-td-img { width: 72px; padding: 8px; }
+.ltt th.ltt-th-img, .ltt td.ltt-td-img {
+  width: 76px;
+  min-width: 76px;
+  padding: 8px;
+}
+.ltt-td-img {
+  text-align: center;
+}
+/* Force every thumbnail to render in an identical 56×56 box regardless of
+   the source image's intrinsic aspect ratio. */
 .ltt-thumb {
   width: 56px;
   height: 56px;
-  object-fit: contain;
+  object-fit: cover;
   background: var(--white);
   border-radius: 6px;
   border: 1px solid var(--gray-200);
-  display: block;
-  padding: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .ltt th.ltt-th-img, .ltt td.ltt-td-img { width: 68px; min-width: 68px; padding: 6px; }
+  .ltt-thumb { width: 52px; height: 52px; }
 }
 
 /* ─── DARK SECTION - TRANSFORMERS ─── */

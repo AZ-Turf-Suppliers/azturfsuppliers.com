@@ -33,16 +33,26 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .calc-inputs-row {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     flex: 1;
   }
 
   .calc-inputs-row .form-group {
     margin-bottom: 0;
-    flex: 1;
-    min-width: 140px;
+    min-width: 0;
+  }
+
+  @media (max-width: 900px) {
+    .calc-inputs-row {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Turf face weight on its own row, orientations on the next */
+    .calc-inputs-row .form-group:nth-child(3),
+    .calc-inputs-row .form-group:nth-child(4) {
+      grid-column: 1 / -1;
+    }
   }
   
   .calc-inputs-row .form-group input,

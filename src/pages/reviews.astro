@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout title="Customer Reviews | AZ Turf Suppliers — Queen Creek, AZ" description="See what Arizona homeowners and contractors are saying about AZ Turf Suppliers. Real Google reviews from real customers.">
@@ -33,12 +35,26 @@ import Layout from '../layouts/Layout.astro';
   text-transform: none;
   letter-spacing: 0;
 }
-.reviews-page [class*="elfsight-app-"] {
-  min-height: 600px;
+/* Dark surface styling for reviews-page grid */
+.reviews-page .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+.reviews-page .review-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: none;
 }
-@media (max-width: 768px) {
-  .reviews-page [class*="elfsight-app-"] { min-height: 900px; }
+.reviews-page .review-card:hover {
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
 }
+.reviews-page .review-text { color: rgba(255,255,255,0.7); }
+.reviews-page .review-text::before { color: var(--green-700); }
+.reviews-page .review-name { color: var(--white); }
+.reviews-page .review-source { color: rgba(255,255,255,0.4); }
+.reviews-page .review-meta { border-top-color: rgba(255,255,255,0.08); }
+.reviews-page .reviews-summary-text { color: var(--white); }
+.reviews-page .reviews-summary-text span { color: rgba(255,255,255,0.5); }
+@media (max-width: 1024px) { .reviews-page .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .reviews-page .reviews-grid { grid-template-columns: 1fr; } }
 </style>
 
 <!-- ═══ PAGE HERO ═══ -->
@@ -64,8 +80,7 @@ import Layout from '../layouts/Layout.astro';
       <h2>Trusted by Arizona Homeowners &amp; Contractors</h2>
       <p>All reviews are pulled directly from Google. We don't filter or curate — you see everything.</p>
     </div>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-d7e9f73a-f74f-401c-a869-1b4c87bfb267"></div>
+    <Testimonials showAllOnReviewsPage />
   </div>
 </section>
 

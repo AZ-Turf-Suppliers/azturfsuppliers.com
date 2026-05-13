@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout
@@ -100,17 +102,6 @@ import Pic from '../components/Pic.astro';
   height: 4px;
   background: var(--green-700);
 }
-.mission-card-icon {
-  width: 48px;
-  height: 48px;
-
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.mission-card-icon svg { width: 28px; height: 28px; color: var(--green-700); }
 .mission-card h3 {
   font-size: 1.1rem;
   color: var(--white);
@@ -263,39 +254,7 @@ import Pic from '../components/Pic.astro';
 }
 
 
-@media (max-width: 768px) {
-  /* ── diff-item: same pattern as homepage choose-turf-card ── */
-  .difference-grid .diff-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0 12px;
-    padding: 14px 16px;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--gray-200);
-    box-shadow: none;
-    transform: none;
-    background: var(--white);
-    transition: none;
-  }
-  .difference-grid .diff-item:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-  .difference-grid .diff-item:last-child  { border-radius: 0 0 var(--radius-lg) var(--radius-lg); border-bottom: none; }
-  .difference-grid .diff-item:hover { transform: none; box-shadow: none; }
-  .difference-grid .diff-item-icon { width: 36px; height: 36px; min-width: 36px; flex-shrink: 0; border-radius: 8px; }
-  .difference-grid .diff-item h4 { flex: 1; margin-bottom: 0; font-size: 0.85rem; }
-  .difference-grid .diff-item p  { width: 100%; padding-top: 5px; padding-left: 48px; font-size: 0.78rem; line-height: 1.55; }
-}
-
-@media (max-width: 768px) {
-  .difference-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--gray-200);
-    overflow: visible;
-  }
-}
+/* Mobile difference-grid styling is handled by shared.css */
 </style>
 
 <!-- ═══ PAGE HERO ═══ -->
@@ -356,16 +315,10 @@ import Pic from '../components/Pic.astro';
     <h2 style="font-size:clamp(1.9rem,3vw,2.8rem); max-width:560px; margin-bottom:0; color:var(--white);">Let Us Help Create the Yard of Your Dreams</h2>
     <div class="mission-inner">
       <div class="mission-card" data-reveal>
-        <div class="mission-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
         <h3>For Professional Contractors</h3>
         <p>Our goal is to help you grow your business by providing reliable inventory, excellent service, quality products, and blazing-fast delivery. Text us your orders — we'll handle the rest.</p>
       </div>
       <div class="mission-card" data-reveal>
-        <div class="mission-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
         <h3>For DIY Homeowners</h3>
         <p>We welcome all DIYers working to achieve their dream yard. We're here to provide the education, materials, and expert answers you need to get the job done right — from measurements to the final blade.</p>
       </div>
@@ -383,36 +336,28 @@ import Pic from '../components/Pic.astro';
     </div>
     <div class="difference-grid">
       <div class="diff-item" data-reveal>
-        <div class="diff-item-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
+        <div class="diff-item-icon"><Icon name="chat" size={28} /></div>
         <div>
           <h4>Direct-to-Owner Communication</h4>
           <p>You deal directly with the owner. Contractors can simply text us their orders for immediate processing — no middleman, no hold music.</p>
         </div>
       </div>
       <div class="diff-item" data-reveal>
-        <div class="diff-item-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
+        <div class="diff-item-icon"><Icon name="truck" size={28} /></div>
         <div>
           <h4>Lightning-Fast Logistics</h4>
           <p>15-minute in-store pickup for fast loading, plus guaranteed next-day delivery directly to your home or job site. We respect your deadlines.</p>
         </div>
       </div>
       <div class="diff-item" data-reveal>
-        <div class="diff-item-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="diff-item-icon"><Icon name="shield-check" size={28} /></div>
         <div>
           <h4>Pro-Grade Quality</h4>
           <p>Our turf is built for Arizona's 110°+ heat — guaranteed lead-free, completely pet-friendly, and backed by a 15-year manufacturer warranty.</p>
         </div>
       </div>
       <div class="diff-item" data-reveal>
-        <div class="diff-item-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
+        <div class="diff-item-icon"><Icon name="dollar" size={28} /></div>
         <div>
           <h4>Wholesale Pricing &amp; Price Match</h4>
           <p>Top-tier materials at unbeatable prices. Find a better price locally? Bring us the invoice — we'll match it, no questions asked.</p>
@@ -429,10 +374,9 @@ import Pic from '../components/Pic.astro';
       <div class="section-label centered">Words From Our Clients</div>
       <h2>What Our Customers Say</h2>
     </div>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-f918b4ed-539e-4bac-a7de-9de8e5b2bfa8"></div>
+    <Testimonials />
     <div class="testimonials-cta" data-reveal>
-      <a href="/reviews">Read More Reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/reviews">Read More Reviews <Icon name="arrow-right" size={16} /></a>
     </div>
   </div>
 </section>
@@ -448,34 +392,28 @@ import Pic from '../components/Pic.astro';
         <p>Bring in your measurements (length and width in feet) and our friendly team will calculate exactly what you need and provide an immediate pricing quote.</p>
         <div class="showroom-details">
           <div class="showroom-detail" data-reveal>
-            <div class="showroom-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
+            <div class="showroom-detail-icon"><Icon name="location" size={24} /></div>
             <div class="showroom-detail-text">
               <strong>Address</strong>
               <span>18607 E San Tan Blvd, Queen Creek, AZ</span>
             </div>
           </div>
           <div class="showroom-detail" data-reveal>
-            <div class="showroom-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
+            <div class="showroom-detail-icon"><Icon name="phone" size={24} /></div>
             <div class="showroom-detail-text">
               <strong>Phone / Text</strong>
               <span>480-739-3854</span>
             </div>
           </div>
           <div class="showroom-detail" data-reveal>
-            <div class="showroom-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
+            <div class="showroom-detail-icon"><Icon name="clock" size={24} /></div>
             <div class="showroom-detail-text">
               <strong>Hours</strong>
               <span>Mon–Fri: 7 AM – 3 PM · Sat–Sun: Closed</span>
             </div>
           </div>
         </div>
-        <a href="tel:4807393854" class="btn btn-primary">Call or Text Us Today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:4807393854" class="btn btn-primary">Call or Text Us Today <Icon name="arrow-right" size={16} /></a>
       </div>
       <div class="showroom-map">
         <iframe
@@ -497,7 +435,7 @@ import Pic from '../components/Pic.astro';
     <h2>Ready to Build Your Dream Yard?</h2>
     <p>Call or text us at 480-739-3854 to get started. Same-day response, next-day delivery, and a price match guarantee — every time.</p>
     <div class="cta-btns">
-      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <Icon name="phone" size={16} /></a>
       <a href="/artificial-turf" class="btn btn-outline">Browse Our Products</a>
     </div>
   </div>
