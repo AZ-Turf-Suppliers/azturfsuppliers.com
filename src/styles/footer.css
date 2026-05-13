@@ -172,3 +172,46 @@ footer#footer {
   .footer-brand { grid-column: 1 / -1; }
   .footer-col-visit { grid-column: span 1; }
 }
+
+/* ─── MOBILE STICKY ACTION BAR ─── */
+.mobile-action-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-action-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.18);
+  }
+
+  .mobile-action-bar-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .mobile-action-bar-btn:active { background: rgba(255,255,255,0.06); }
+  .mobile-action-bar-btn--text { border-right: 1px solid rgba(255,255,255,0.08); }
+  .mobile-action-bar-btn--call { background: var(--green-700); }
+  .mobile-action-bar-btn--call:active { background: var(--green-800); }
+
+  /* Keep page content from sitting under the fixed bar */
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}
