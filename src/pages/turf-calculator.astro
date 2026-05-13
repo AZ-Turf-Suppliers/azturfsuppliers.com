@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
 
   .calc-inputs-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     flex: 1;
   }
@@ -48,47 +48,15 @@ import Layout from '../layouts/Layout.astro';
     .calc-inputs-row {
       grid-template-columns: 1fr 1fr;
     }
-    /* Turf face weight on its own row, orientations on the next */
-    .calc-inputs-row .form-group:nth-child(3),
-    .calc-inputs-row .form-group:nth-child(4) {
+    /* Turf face weight gets its own full-width row on mobile */
+    .calc-inputs-row .form-group:nth-child(3) {
       grid-column: 1 / -1;
     }
   }
-  
+
   .calc-inputs-row .form-group input,
   .calc-inputs-row .form-group select {
     font-weight: 600;
-  }
-
-  .checkbox-group {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    height: 46px; /* Match input height */
-  }
-
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    user-select: none;
-    color: var(--dark);
-  }
-
-  .checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--green-700);
-    cursor: pointer;
-  }
-
-  .orientation-icon {
-    font-size: 1rem;
-    color: var(--gray-400);
-    line-height: 1;
   }
 
   /* Results */
@@ -234,7 +202,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     justify-content: center;
     min-height: 340px;
-    background: #fbfbfb;
+    background: var(--white);
   }
 
   .diagram-col canvas {
@@ -340,19 +308,6 @@ import Layout from '../layouts/Layout.astro';
             <option value="2.5">90–100oz (2.5 lbs/sqft)</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Orientations</label>
-          <div class="checkbox-group">
-            <label class="checkbox-label">
-              <input type="checkbox" id="chkVertical" checked>
-              Vertical <span class="orientation-icon">↕</span>
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" id="chkHorizontal" checked>
-              Horizontal <span class="orientation-icon">↔</span>
-            </label>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -393,6 +348,19 @@ const TURF_CONFIG = {
 
 const MAX_ROLL_LENGTH = 100;
 const BAG_WEIGHT = 50; // lbs
+
+// Phosphor arrows-vertical-fill / arrows-horizontal-fill SVG paths (256x256 viewBox)
+const ARROW_VERT_PATH = new Path2D('M167.39 196.94a8 8 0 0 1-1.73 8.72l-32 32a8 8 0 0 1-11.32 0l-32-32A8 8 0 0 1 96 192h24V64H96a8 8 0 0 1-5.66-13.66l32-32a8 8 0 0 1 11.32 0l32 32A8 8 0 0 1 160 64h-24v128h24a8 8 0 0 1 7.39 4.94');
+const ARROW_HORIZ_PATH = new Path2D('m237.66 133.66l-32 32A8 8 0 0 1 192 160v-24H64v24a8 8 0 0 1-13.66 5.66l-32-32a8 8 0 0 1 0-11.32l32-32A8 8 0 0 1 64 96v24h128V96a8 8 0 0 1 13.66-5.66l32 32a8 8 0 0 1 0 11.32');
+
+function drawPhosphorArrow(ctx, cx, cy, size, vertical) {
+  ctx.save();
+  ctx.translate(cx - size / 2, cy - size / 2);
+  ctx.scale(size / 256, size / 256);
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.fill(vertical ? ARROW_VERT_PATH : ARROW_HORIZ_PATH);
+  ctx.restore();
+}
 
 function computeLayout(projW, projL, rollW, orientation) {
   let coverDim, stripDim;
@@ -523,23 +491,17 @@ function calculate() {
   const projL = parseInt(document.getElementById('projectLength').value) || 0;
   const turfKey = '15FT';
   const infillRate = parseFloat(document.getElementById('turfWeight').value) || 2;
-  const doVert = document.getElementById('chkVertical').checked;
-  const doHoriz = document.getElementById('chkHorizontal').checked;
 
   if (projW <= 0 || projL <= 0) return;
   const config = TURF_CONFIG[turfKey];
   if (!config) return;
 
-  const layouts = [];
-  if (doVert)  layouts.push(computeLayout(projW, projL, config.rollWidth, 'width'));
-  if (doHoriz) layouts.push(computeLayout(projW, projL, config.rollWidth, 'length'));
+  const layouts = [
+    computeLayout(projW, projL, config.rollWidth, 'width'),
+    computeLayout(projW, projL, config.rollWidth, 'length'),
+  ];
 
   const container = document.getElementById('results');
-
-  if (layouts.length === 0) {
-    container.innerHTML = '<div class="empty-state card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>Select at least one orientation.</div>';
-    return;
-  }
 
   let bestIdx = 0;
   for (let i = 1; i < layouts.length; i++) {
@@ -632,7 +594,7 @@ function buildOptionCard(layout, infill, optNum, isBest, config) {
     <span class="legend-item"><span class="legend-swatch" style="background:#239B2B;"></span> Turf</span>
     <span class="legend-item"><span class="legend-swatch" style="background:#ef4444;"></span> Waste</span>
     <span class="legend-item"><span class="legend-line" style="background:#1a1a1a;"></span> Seams</span>
-    <span class="legend-item"><span style="font-size:14px; color:var(--dark);">↕</span> Grain Direction</span>
+    <span class="legend-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 256 256" fill="currentColor" style="color:var(--dark);"><path d="M167.39 196.94a8 8 0 0 1-1.73 8.72l-32 32a8 8 0 0 1-11.32 0l-32-32A8 8 0 0 1 96 192h24V64H96a8 8 0 0 1-5.66-13.66l32-32a8 8 0 0 1 11.32 0l32 32A8 8 0 0 1 160 64h-24v128h24a8 8 0 0 1 7.39 4.94"/></svg> Grain Direction</span>
   `;
   diagCol.appendChild(legend);
 
@@ -672,7 +634,7 @@ function drawDiagram(canvas, layout) {
   const ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
 
-  ctx.fillStyle = '#fbfbfb';
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, cw, ch);
 
   const ox = padding + labelSpace;
@@ -819,22 +781,15 @@ function drawDiagram(canvas, layout) {
     ctx.setLineDash([]);
   }
 
-  ctx.fillStyle = 'rgba(255,255,255,0.7)';
-  ctx.font = '600 14px "Montserrat", sans-serif';
-  ctx.textAlign = 'center';
-
+  // Draw Phosphor arrows-vertical-fill / arrows-horizontal-fill via Path2D
+  // (Phosphor icons use a 256x256 viewBox)
+  const arrowSize = 22;
   const stripPixW = rollW * scale;
   if (stripPixW > 28) {
     for (let i = 0; i < numFull; i++) {
-      if (isVert) {
-        const cx = mapX(i * rollW + rollW / 2);
-        const cy = mapY(stripDim / 2);
-        ctx.fillText('↕', cx, cy);
-      } else {
-        const cx = mapX(stripDim / 2);
-        const cy = mapY(i * rollW + rollW / 2);
-        ctx.fillText('↔', cx, cy);
-      }
+      const cx = isVert ? mapX(i * rollW + rollW / 2) : mapX(stripDim / 2);
+      const cy = isVert ? mapY(stripDim / 2)         : mapY(i * rollW + rollW / 2);
+      drawPhosphorArrow(ctx, cx, cy, arrowSize, isVert);
     }
   }
 
