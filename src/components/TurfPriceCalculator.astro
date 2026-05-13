@@ -8,178 +8,123 @@ const initialTotal = (15 * 1 * pricePerSqFt).toFixed(2);
 
 <section class="tpc-section">
   <div class="container">
-    <div class="tpc-intro">
-      <div class="tpc-intro-left">
-        <div class="section-label">Informational Tool</div>
+    <div class="tpc-card">
+      <div class="tpc-card-head">
         <h2 class="tpc-heading">Estimate Your Cost</h2>
+        <span class="tpc-contractor-note">Contractors, call for wholesale pricing</span>
       </div>
-      <div class="tpc-intro-right">
-        <p class="tpc-max-note">Maximum length of 100 ft per roll</p>
-        <p class="tpc-contractor-note">*Contractors, please call for pricing</p>
-      </div>
-    </div>
 
-    <div class="tpc-widget">
-      <!-- Row 1: width × length = covers -->
-      <div class="tpc-row">
+      <div class="tpc-grid">
         <div class="tpc-field">
-          <label class="tpc-label" for="tpc-width">Select width</label>
+          <label class="tpc-label" for="tpc-width">Width</label>
           <select class="tpc-select" id="tpc-width">
-            <option value="15">15 FT</option>
+            <option value="15">15 ft</option>
           </select>
         </div>
-
-        <span class="tpc-sep">x</span>
 
         <div class="tpc-field">
           <label class="tpc-label" for="tpc-length">Length</label>
           <input class="tpc-input" type="number" id="tpc-length" min="1" max="100" value="1" inputmode="numeric" />
         </div>
 
-        <span class="tpc-sep">=</span>
-
         <div class="tpc-field">
-          <span class="tpc-label">Covers</span>
-          <div class="tpc-covers" id="tpc-covers">15 SQ/FT</div>
-        </div>
-      </div>
-
-      <!-- Row 2: roll quantity + total -->
-      <div class="tpc-row tpc-row-bottom">
-        <div class="tpc-field">
-          <span class="tpc-label">Roll quantity</span>
+          <span class="tpc-label">Rolls</span>
           <div class="tpc-spinner">
+            <button class="tpc-arrow" id="tpc-qty-down" aria-label="Decrease quantity" type="button">−</button>
             <span class="tpc-qty" id="tpc-qty">1</span>
-            <div class="tpc-arrows">
-              <button class="tpc-arrow" id="tpc-qty-up" aria-label="Increase quantity" type="button">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-              </button>
-              <button class="tpc-arrow" id="tpc-qty-down" aria-label="Decrease quantity" type="button">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
+            <button class="tpc-arrow" id="tpc-qty-up" aria-label="Increase quantity" type="button">+</button>
           </div>
         </div>
 
         <div class="tpc-field tpc-total-field">
-          <span class="tpc-label">Total</span>
+          <span class="tpc-label">Total <span class="tpc-covers" id="tpc-covers">15 sq ft</span></span>
           <div class="tpc-total" id="tpc-total">${initialTotal}</div>
         </div>
       </div>
-
-      <p class="tpc-disclaimer">For informational purposes only — contact us for an accurate quote.</p>
     </div>
   </div>
 </section>
 
 <style>
   .tpc-section {
-    padding: 72px 0;
-    background: var(--gray-100);
+    padding: 0 0 56px;
+    background: var(--white);
   }
 
-  .tpc-intro {
+  .tpc-card {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+  }
+
+  .tpc-card-head {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .tpc-intro-left {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    margin-bottom: 18px;
   }
 
   .tpc-heading {
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: 1.05rem;
     font-weight: 800;
     margin: 0;
-    letter-spacing: -0.02em;
-    text-transform: none;
-  }
-
-  .tpc-intro-right {
-    text-align: right;
-  }
-
-  .tpc-max-note {
-    font-size: 0.9rem;
-    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--dark);
-    margin: 0 0 4px;
-    text-transform: none;
-    letter-spacing: 0;
-    font-weight: 400;
   }
 
   .tpc-contractor-note {
-    font-size: 0.85rem;
-    color: var(--green-700);
+    font-size: 0.75rem;
+    color: var(--gray-600);
     font-weight: 500;
-    margin: 0;
-    text-transform: none;
-    letter-spacing: 0;
   }
 
-  .tpc-widget {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 36px 40px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    max-width: 700px;
-  }
-
-  .tpc-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-  }
-
-  .tpc-row-bottom {
-    margin-bottom: 20px;
-    gap: 32px;
+  .tpc-grid {
+    display: grid;
+    grid-template-columns: 110px 110px 130px 1fr;
+    gap: 16px;
+    align-items: end;
   }
 
   .tpc-field {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+    min-width: 0;
   }
 
   .tpc-label {
-    font-size: 0.72rem;
-    font-weight: 500;
+    font-size: 0.68rem;
+    font-weight: 700;
     color: var(--gray-400);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
   }
 
-  .tpc-sep {
-    font-size: 1.1rem;
-    font-weight: 400;
+  .tpc-covers {
+    font-weight: 500;
     color: var(--gray-400);
-    padding-bottom: 12px;
-    flex-shrink: 0;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .tpc-select,
   .tpc-input {
-    height: 48px;
-    border: 1.5px solid var(--gray-200);
-    border-radius: var(--radius);
-    font-size: 1rem;
+    height: 42px;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--dark);
     background: var(--white);
-    padding: 0 14px;
+    padding: 0 12px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
     font-family: inherit;
+    width: 100%;
   }
 
   .tpc-select:focus,
@@ -188,120 +133,66 @@ const initialTotal = (15 * 1 * pricePerSqFt).toFixed(2);
   }
 
   .tpc-select {
-    padding-right: 36px;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='%23888'%3E%3Cpath d='M12 15.5 5.5 9l1.414-1.414L12 12.672l5.086-5.086L18.5 9z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
-    min-width: 130px;
+    padding-right: 28px;
     cursor: pointer;
-  }
-
-  .tpc-input {
-    width: 80px;
-  }
-
-  .tpc-covers {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--dark);
-    white-space: nowrap;
   }
 
   .tpc-spinner {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    border: 1.5px solid var(--gray-200);
-    border-radius: var(--radius);
+    height: 42px;
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: stretch;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--white);
     overflow: hidden;
-    min-width: 110px;
-  }
-
-  .tpc-qty {
-    flex: 1;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--dark);
-    padding: 0 8px;
-    user-select: none;
-  }
-
-  .tpc-arrows {
-    display: flex;
-    flex-direction: column;
-    border-left: 1.5px solid var(--gray-200);
-    height: 100%;
   }
 
   .tpc-arrow {
-    flex: 1;
-    width: 34px;
-    background: none;
     border: none;
+    background: var(--white);
     cursor: pointer;
+    color: var(--gray-600);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tpc-arrow:hover { background: var(--gray-100); color: var(--dark); }
+  .tpc-arrow:first-child { border-right: 1px solid var(--gray-200); }
+  .tpc-arrow:last-child { border-left: 1px solid var(--gray-200); }
+
+  .tpc-qty {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gray-400);
-    transition: background 0.15s, color 0.15s;
-    padding: 0;
-  }
-
-  .tpc-arrow:not(:last-child) {
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .tpc-arrow:hover {
-    background: var(--gray-100);
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--dark);
+    user-select: none;
   }
 
-  .tpc-arrow svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .tpc-total-field {
-    gap: 8px;
-  }
+  .tpc-total-field { align-items: flex-end; text-align: right; }
 
   .tpc-total {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: var(--green-700);
     line-height: 1;
-    padding-top: 6px;
   }
 
-  .tpc-disclaimer {
-    font-size: 0.78rem;
-    color: var(--gray-400);
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 600px) {
-    .tpc-widget {
-      padding: 24px 20px;
-    }
-    .tpc-intro-right {
-      text-align: left;
-    }
-    .tpc-row {
+  @media (max-width: 640px) {
+    .tpc-card { padding: 20px; }
+    .tpc-grid {
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-    .tpc-total {
-      font-size: 1.6rem;
-    }
+    .tpc-total-field { grid-column: 1 / -1; align-items: flex-start; text-align: left; }
   }
 </style>
 
@@ -314,6 +205,7 @@ const initialTotal = (15 * 1 * pricePerSqFt).toFixed(2);
     var totalEl = document.getElementById('tpc-total');
     var qtyUpEl = document.getElementById('tpc-qty-up');
     var qtyDownEl = document.getElementById('tpc-qty-down');
+    if (!widthEl) return;
 
     function update() {
       var width = parseInt(widthEl.value) || 15;
@@ -323,7 +215,7 @@ const initialTotal = (15 * 1 * pricePerSqFt).toFixed(2);
       var covers = width * length;
       var total = covers * pricePerSqFt * qty;
 
-      coversEl.textContent = covers.toLocaleString('en-US') + ' SQ/FT';
+      coversEl.textContent = covers.toLocaleString('en-US') + ' sq ft';
       totalEl.textContent = '$' + total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 

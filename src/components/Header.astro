@@ -103,27 +103,33 @@ const isActive = (path: string) => {
 </header>
 
 <script>
-  // Window-level scroll listener: bind once per session so we don't
-  // accumulate duplicates across ViewTransitions navigations.
-  if (!(window as any).__azHeaderScrollInit) {
-    (window as any).__azHeaderScrollInit = true;
+  // Bind ONCE per session via event delegation on document. Document
+  // persists across ViewTransitions navigations, so we don't need to
+  // re-attach. Previously we attached twice (synchronously + on
+  // astro:page-load), which caused the first tap to open-then-close.
+  if (!(window as any).__azHeaderInit) {
+    (window as any).__azHeaderInit = true;
+
     window.addEventListener('scroll', () => {
       document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
-  }
 
-  // Mobile toggle binds to a fresh DOM element on every page; safe to
-  // re-run on every navigation because the old element (and listener)
-  // is gone with the previous DOM.
-  function initMobileToggle() {
-    document.getElementById('mobile-toggle')?.addEventListener('click', function () {
+    document.addEventListener('click', (e) => {
+      const target = e.target as Element | null;
+      const toggle = target?.closest('#mobile-toggle') as HTMLButtonElement | null;
+      if (!toggle) return;
       const menu = document.getElementById('mobile-menu');
       if (!menu) return;
       const open = menu.classList.toggle('open');
-      this.setAttribute('aria-expanded', String(open));
-      this.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    document.addEventListener('astro:after-swap', () => {
+      document.getElementById('mobile-menu')?.classList.remove('open');
+      const t = document.getElementById('mobile-toggle');
+      t?.setAttribute('aria-expanded', 'false');
+      t?.setAttribute('aria-label', 'Open navigation menu');
     });
   }
-  initMobileToggle();
-  document.addEventListener('astro:page-load', initMobileToggle);
 </script>

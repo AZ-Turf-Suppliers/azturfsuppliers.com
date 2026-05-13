@@ -1,0 +1,134 @@
+---
+/**
+ * Thin wrapper around astro-icon that maps friendly names to Phosphor
+ * Fill icons. Keep the friendly names site-local so call sites don't
+ * need to know the underlying pack — and so we can swap packs in one
+ * place if we ever change icon vendors.
+ */
+import { Icon as IconifyIcon } from 'astro-icon/components';
+
+interface Props {
+  name: keyof typeof MAP;
+  size?: number | string;
+  class?: string;
+  style?: string;
+  ariaLabel?: string;
+}
+
+const MAP = {
+  // Navigation / arrows (use Bold for line shapes — Phosphor's "fill" set
+  // doesn't include open arrows; Bold gives a uniformly heavy stroke that
+  // visually matches the filled glyphs.)
+  'arrow-right':       'ph:arrow-right-bold',
+  'arrow-up-right':    'ph:arrow-up-right-bold',
+  'chevron-down':      'ph:caret-down-fill',
+  'chevron-up':        'ph:caret-up-fill',
+  'plus':              'ph:plus-bold',
+  'minus':             'ph:minus-bold',
+  'close':             'ph:x-bold',
+  'menu':              'ph:list-bold',
+
+  // Status / confirmation
+  'check':             'ph:check-bold',
+  'check-circle':      'ph:check-circle-fill',
+  'shield':            'ph:shield-fill',
+  'shield-check':      'ph:shield-check-fill',
+  'star':              'ph:star-fill',
+  'sparkle':           'ph:sparkle-fill',
+  'thumbs-up':         'ph:thumbs-up-fill',
+
+  // Money / commerce
+  'dollar':            'ph:currency-dollar-bold',
+  'price-tag':         'ph:tag-fill',
+  'savings':           'ph:piggy-bank-fill',
+
+  // Communication
+  'phone':             'ph:phone-fill',
+  'chat':              'ph:chat-circle-text-fill',
+  'mail':              'ph:envelope-fill',
+  'message':           'ph:chat-fill',
+
+  // Place / time
+  'location':          'ph:map-pin-fill',
+  'map':               'ph:map-trifold-fill',
+  'clock':             'ph:clock-fill',
+  'calendar':          'ph:calendar-fill',
+
+  // Logistics
+  'truck':             'ph:truck-fill',
+  'package':           'ph:package-fill',
+  'globe':             'ph:globe-fill',
+
+  // People
+  'user':              'ph:user-fill',
+  'users':             'ph:users-fill',
+  'handshake':         'ph:handshake-fill',
+
+  // Building / home
+  'home':              'ph:house-fill',
+  'building':          'ph:buildings-fill',
+  'storefront':        'ph:storefront-fill',
+
+  // Construction / contractor
+  'hard-hat':          'ph:hard-hat-fill',
+  'wrench':            'ph:wrench-fill',
+  'tools':             'ph:toolbox-fill',
+  'briefcase':         'ph:briefcase-fill',
+
+  // Resources / docs
+  'document':          'ph:file-text-fill',
+  'clipboard':         'ph:clipboard-text-fill',
+  'calculator':        'ph:calculator-fill',
+
+  // Nature / weather / energy
+  'leaf':              'ph:leaf-fill',
+  'sun':               'ph:sun-fill',
+  'water-drop':        'ph:drop-fill',
+  'fire':              'ph:fire-fill',
+  'lightning':         'ph:lightning-fill',
+  'lightbulb':         'ph:lightbulb-fill',
+
+  // Pets
+  'paw':               'ph:paw-print-fill',
+  'heart':             'ph:heart-fill',
+
+  // Misc tools / actions
+  'search':            'ph:magnifying-glass-bold',
+  'play':              'ph:play-fill',
+  'eye':               'ph:eye-fill',
+  'rocket':            'ph:rocket-launch-fill',
+  'trophy':            'ph:trophy-fill',
+
+  // Squares / hardscape proxies
+  'squares':           'ph:squares-four-fill',
+  'mountain':          'ph:mountains-fill',
+
+  // Pin / target
+  'target':            'ph:target-fill',
+
+  // Trending
+  'trending-up':       'ph:trend-up-bold',
+  'chart-up':          'ph:chart-bar-fill',
+} as const;
+
+const {
+  name,
+  size = 24,
+  class: className,
+  style,
+  ariaLabel,
+} = Astro.props;
+
+const iconName = MAP[name];
+const dim = typeof size === 'number' ? size : size;
+---
+
+<IconifyIcon
+  name={iconName}
+  width={dim}
+  height={dim}
+  class={className}
+  style={style}
+  aria-hidden={ariaLabel ? undefined : 'true'}
+  aria-label={ariaLabel}
+/>

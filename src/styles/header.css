@@ -319,7 +319,20 @@ nav .dropdown-wide .dropdown-col { padding: 0; }
 .nav-phone:hover { color: var(--green-700); }
 
 /* Mobile toggle */
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dark);
+  padding: 6px;
+  transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-toggle:hover,
+.mobile-toggle:focus,
+.mobile-toggle[aria-expanded="true"] { color: var(--green-700); }
+.mobile-toggle svg { display: block; color: inherit; }
 
 /* Mobile menu */
 .mobile-menu {
