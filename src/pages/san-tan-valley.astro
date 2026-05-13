@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'San Tan Valley', url: '/san-tan-valley' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Pavers Delivered to San Tan Valley, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers delivers premium artificial turf, pavers, natural stone, and landscape lighting to San Tan Valley, AZ. Next-day delivery from our Queen Creek showroom. Call 480-739-3854."
+  title="Artificial Turf in San Tan Valley, AZ | AZ Turf Suppliers"
+  description="Artificial turf, pavers, natural stone, and landscape lighting delivered to San Tan Valley, AZ from our nearby Queen Creek showroom. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-2.jpg") !important; }

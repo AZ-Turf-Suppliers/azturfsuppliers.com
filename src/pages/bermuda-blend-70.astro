@@ -2,11 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import TurfPriceCalculator from '../components/TurfPriceCalculator.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Bermuda Blend 70 Artificial Turf',
+  image: 'https://www.azturfsuppliers.com/media/bermuda-side.png',
+  description: 'Bermuda Blend 70 artificial turf. 70oz face weight, 1.5" pile, emerald and olive blend. Best for front yards and low-traffic landscaping.',
+  brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.azturfsuppliers.com/bermuda-blend-70',
+    priceCurrency: 'USD',
+    price: '1.40',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+  { name: 'Bermuda Blend 70', url: '/bermuda-blend-70' },
+];
 ---
 
 <Layout
   title="Bermuda Blend 70 | AZ Turf Suppliers — Queen Creek, AZ"
   description="Bermuda Blend 70 artificial turf — $1.40/sqft. 49oz face weight, 1.5&quot; pile, emerald/olive blend. Best for front yards and low-traffic areas. In stock in Queen Creek, AZ."
+  ogImage="/media/bermuda-side.png"
+  schema={productSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/bermuda-side.png") !important; }

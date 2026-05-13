@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'Mesa', url: '/mesa' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Pavers Delivered to Mesa, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers supplies artificial turf, pavers, natural stone, and landscape lighting to Mesa, AZ. Fast East Valley delivery from our Queen Creek showroom. Call 480-739-3854."
+  title="Artificial Turf in Mesa, AZ | AZ Turf Suppliers"
+  description="Artificial turf, pavers, natural stone, and landscape lighting delivered to Mesa, AZ. East Valley delivery from Queen Creek. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-4.jpg") !important; }

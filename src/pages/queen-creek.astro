@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'Queen Creek', url: '/queen-creek' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Landscaping Supplies in Queen Creek, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers is located in Queen Creek, AZ. Shop or pick up same-day: artificial turf, pavers, natural stone, and landscape lighting at 18607 E San Tan Blvd. Call 480-739-3854."
+  title="Artificial Turf in Queen Creek, AZ | AZ Turf Suppliers"
+  description="Artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. Same-day pickup at 18607 E San Tan Blvd. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/winter-blend-1.jpg") !important; }

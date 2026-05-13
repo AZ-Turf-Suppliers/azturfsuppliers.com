@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Areas Served', url: '/locations' },
+  { name: 'Scottsdale', url: '/scottsdale' },
+];
 ---
 
 <Layout
-  title="Artificial Turf & Pavers Delivered to Scottsdale, AZ | AZ Turf Suppliers"
-  description="AZ Turf Suppliers delivers premium artificial turf, travertine pavers, natural stone, and landscape lighting to Scottsdale, AZ. Wholesale pricing, next-day delivery. Call 480-739-3854."
+  title="Artificial Turf in Scottsdale, AZ | AZ Turf Suppliers"
+  description="Premium artificial turf, travertine pavers, natural stone, and landscape lighting delivered to Scottsdale, AZ. Wholesale pricing. Call 480-739-3854."
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/spring-blend-1.jpg") !important; }

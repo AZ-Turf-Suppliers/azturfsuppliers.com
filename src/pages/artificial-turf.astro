@@ -3,11 +3,37 @@ import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Icon from '../components/Icon.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How wide are your turf rolls?',
+      acceptedAnswer: { '@type': 'Answer', text: 'All of our turf is sold in standard 15-foot wide rolls. When you bring in your measurements, we can help you plan your cuts to minimize waste and save money.' } },
+    { '@type': 'Question', name: 'Can I get a sample before I buy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Visit our Queen Creek showroom and take home free samples from any product in our collection. See and feel the quality before you commit.' } },
+    { '@type': 'Question', name: 'Face weight vs pile height?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Face weight (oz) is how dense the turf is — more ounces = more durable. Pile height is how tall the blades stand. For high-traffic areas and pets, we recommend 90+ oz face weight.' } },
+    { '@type': 'Question', name: 'Do you offer wholesale pricing?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We offer exclusive wholesale pricing for licensed contractors. Call or text us directly for contractor rates — pricing listed on the page is standard retail.' } },
+    { '@type': 'Question', name: 'Is your turf safe for pets?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. All products are pet-friendly and guaranteed lead-free. We also carry Oxy Turf Cleaner, specifically formulated for pet odor and sanitation on artificial grass.' } },
+    { '@type': 'Question', name: 'What warranty do your products carry?',
+      acceptedAnswer: { '@type': 'Answer', text: 'All turf products come with a 15-year manufacturer warranty. We stand behind every product we carry.' } },
+  ],
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+];
 ---
 
 <Layout
   title="Premium Artificial Turf | AZ Turf Suppliers — Queen Creek, AZ"
   description="Premium artificial turf for Arizona — Bermuda, Natural, Spring, and Winter Blends plus Putting Green. 15-year warranty, lead-free, $1.40–$2.50/sqft. Stocked in Queen Creek."
+  schema={faqSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 /* ─── PAGE HERO ─── */

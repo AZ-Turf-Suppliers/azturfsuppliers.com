@@ -1,10 +1,40 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'The Complete Guide to Installing Artificial Turf in Arizona',
+  description: "A step-by-step guide to installing artificial turf in Arizona's heat — base prep, drainage, infill rates, seam techniques, and common DIY mistakes.",
+  image: 'https://www.azturfsuppliers.com/media/natural-series-turf-6.jpg',
+  datePublished: '2026-05-01',
+  dateModified: '2026-05-13',
+  author: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'AZ Turf Suppliers',
+    logo: { '@type': 'ImageObject', url: 'https://www.azturfsuppliers.com/media/logo.png' },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.azturfsuppliers.com/blog/artificial-turf-installation-guide-arizona',
+  },
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Installing Artificial Turf in Arizona', url: '/blog/artificial-turf-installation-guide-arizona' },
+];
 ---
 
 <Layout
   title="The Complete Guide to Installing Artificial Turf in Arizona | AZ Turf Suppliers"
   description="A 14-minute, step-by-step guide to installing artificial turf in Arizona's heat — base prep, drainage, infill rates, seam techniques, and common DIY mistakes."
+  ogType="article"
+  ogImage="/media/natural-series-turf-6.jpg"
+  schema={articleSchema}
+  breadcrumbs={breadcrumbs}
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/natural-series-turf-6.jpg") !important; }

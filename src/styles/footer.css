@@ -11,8 +11,8 @@ footer#footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
   padding-bottom: 48px;
 }
 
@@ -171,6 +171,11 @@ footer#footer {
   .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-col-visit { grid-column: span 1; }
+}
+
+@media (max-width: 1400px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 }
 
 /* ─── MOBILE STICKY ACTION BAR ─── */
