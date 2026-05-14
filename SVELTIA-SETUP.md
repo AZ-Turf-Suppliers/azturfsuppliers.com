@@ -7,7 +7,37 @@ until you do **three things in dashboards** I can't touch:
 2. Add two environment variables in Cloudflare Pages.
 3. (Optional) Add CMS users.
 
-Once those are done, `https://www.azturfsuppliers.com/admin/` is live.
+Once those are done — *and* the production domain points at the Cloudflare
+Pages project (see prerequisite below) — `https://www.azturfsuppliers.com/admin/`
+is live.
+
+---
+
+## Prerequisite — Custom domain must be mapped to the Pages project
+
+`/admin/` and `/api/callback` only work on hosts that actually reach the
+Cloudflare Pages deployment. If `www.azturfsuppliers.com` still points at
+the old GoDaddy/registrar parking host, the CMS login flow will land on a
+generic 404 page even though every other piece is configured correctly.
+
+Confirm at **Cloudflare → Workers & Pages → `azturfsuppliers-com` →
+Custom domains**. You should see `www.azturfsuppliers.com` (and ideally
+the apex `azturfsuppliers.com` with a redirect) listed there. If the tab
+is empty, the rest of this guide will appear to work — env vars set,
+OAuth App configured, build green — but Task 3 below will fail with a
+parking-host 404.
+
+If the domain isn't mapped yet, you have two options:
+
+- **Smoke-test on the `*.pages.dev` URL first** (optional): change the
+  GitHub OAuth App's callback URL to
+  `https://azturfsuppliers-com.pages.dev/api/callback`, change
+  `base_url` in `public/admin/config.yml` to
+  `https://azturfsuppliers-com.pages.dev`, then visit
+  `https://azturfsuppliers-com.pages.dev/admin/`. Revert both on launch
+  day.
+- **Just wait for launch** (simpler): finish the DNS cutover, then come
+  back and verify `/admin/` directly on the production domain.
 
 ---
 
@@ -36,14 +66,18 @@ After clicking **Register application**:
 ## 2. Add the env vars in Cloudflare Pages
 
 Cloudflare dashboard → **Workers & Pages** → your `azturfsuppliers-com`
-(or similarly named) Pages project → **Settings** → **Environment variables**.
+Pages project → **Settings** tab.
 
-Add **for both** `Production` and `Preview`:
+There is a **"Choose Environment"** dropdown at the top of the Settings
+page (Production / Preview) and a section labelled **"Variables and Secrets"**
+further down — that's the renamed home of what used to be "Environment
+variables". You'll add the two variables twice: once with the dropdown on
+**Production**, then again with it switched to **Preview**.
 
-| Variable name | Value |
-| --- | --- |
-| `GITHUB_CLIENT_ID` | the Client ID from step 1 |
-| `GITHUB_CLIENT_SECRET` | the Client Secret from step 1 (mark as **Encrypted**) |
+| Variable name | Value | Type |
+| --- | --- | --- |
+| `GITHUB_CLIENT_ID` | the Client ID from step 1 | Plaintext |
+| `GITHUB_CLIENT_SECRET` | the Client Secret from step 1 | **Secret (encrypted)** |
 
 Save. Cloudflare will redeploy automatically; once that finishes, the
 `/api/auth` and `/api/callback` Pages Functions are live.
