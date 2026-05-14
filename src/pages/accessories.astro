@@ -17,6 +17,7 @@ const btnClass = (style: string) => {
   description={page.meta.description}
 >
 <style is:global>
+.page-hero::before { background-image: url("/media/accessories-hero.jpg") !important; }
 .acc-section { padding: 88px 0; background: var(--white); }
 .acc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
 .acc-card {
