@@ -1,5 +1,21 @@
 # Sveltia CMS — One-Time Setup
 
+> **⚠️ Action required before `/admin/` works on the production domain**
+>
+> The GitHub OAuth App's **Authorization callback URL** is currently pointing
+> at the pre-launch staging URL (`https://azturfsuppliers-com.pages.dev/api/callback`).
+> Before logging into `/admin/` on the live `www.azturfsuppliers.com` domain,
+> flip it back:
+>
+> 1. Open https://github.com/settings/developers → **OAuth Apps** → **AZ Turf Suppliers CMS**.
+> 2. Change **Authorization callback URL** to **exactly**:
+>    `https://www.azturfsuppliers.com/api/callback`
+> 3. Click **Update application**. Don't touch any other field; don't regenerate the client secret.
+>
+> Until this is done, GitHub will refuse the login with a `redirect_uri is not associated with this application` error.
+
+---
+
 The CMS code is committed and ready, but it can't actually log anyone in
 until you do **three things in dashboards** I can't touch:
 
