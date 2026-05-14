@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 import Pic from './Pic.astro';
 import TurfPriceCalculator from './TurfPriceCalculator.astro';
 import { renderInline } from '../utils/inline-markdown';
@@ -181,7 +182,7 @@ const btnClass = (style: string) => {
       <h1>{page.hero.heading}</h1>
       <p set:html={renderInline(page.hero.body)} />
       <div class="page-hero-btns">
-        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
         <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
@@ -205,8 +206,8 @@ const btnClass = (style: string) => {
         <p class="pd-desc" set:html={renderInline(page.detail.description)} />
         <div class="pd-best-for"><strong>Best For:</strong> {page.detail.bestFor}</div>
         <div class="pd-btns">
-          <a href={page.detail.ctaPrimary.link} class="btn btn-primary">{page.detail.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href={page.detail.specSheetUrl} target="_blank" class="btn btn-dark">Download Spec Sheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+          <a href={page.detail.ctaPrimary.link} class="btn btn-primary">{page.detail.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
+          <a href={page.detail.specSheetUrl} target="_blank" class="btn btn-dark">Download Spec Sheet <Icon name="document" size={16} /></a>
         </div>
 
         <div class="pd-key-specs" data-reveal>
@@ -223,9 +224,9 @@ const btnClass = (style: string) => {
           {page.features.map((feature: any) => (
             <div class="pd-feature">
               <div class="pd-feature-icon">
-                {feature.icon === 'sun' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>}
-                {feature.icon === 'shield' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
-                {feature.icon === 'check' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>}
+                {feature.icon === 'sun' && <Icon name="sun" size={16} />}
+                {feature.icon === 'shield' && <Icon name="shield" size={16} />}
+                {feature.icon === 'check' && <Icon name="check" size={16} />}
               </div>
               <p><strong>{feature.label}</strong> — <Fragment set:html={renderInline(feature.body)} /></p>
             </div>
@@ -234,7 +235,7 @@ const btnClass = (style: string) => {
 
         <div class="pd-badges">
           {page.badges.map((badge: string) => (
-            <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> {badge}</span>
+            <span class="pd-badge"><Icon name="check" size={16} /> {badge}</span>
           ))}
         </div>
       </div>
@@ -289,7 +290,7 @@ const btnClass = (style: string) => {
       {page.cta.buttons.map((btn: any) => (
         <a href={btn.link} class={btnClass(btn.style)}>
           {btn.text}
-          {btn.style === 'primary' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>}
+          {btn.style === 'primary' && <Icon name="arrow-right" size={16} />}
         </a>
       ))}
     </div>

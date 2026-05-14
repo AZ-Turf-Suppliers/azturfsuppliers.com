@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 import { renderInline } from '../utils/inline-markdown';
 
 interface Props {
@@ -56,7 +57,7 @@ const btnClass = (style: string) => {
       <h1 set:html={renderInline(page.hero.heading)} />
       <p>{page.hero.body}</p>
       <div class="page-hero-btns">
-        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
         <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
@@ -125,7 +126,7 @@ const btnClass = (style: string) => {
         >
           {btn.text}
           {btn.style === 'primary' && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <Icon name="arrow-right" size={16} />
           )}
         </a>
       ))}

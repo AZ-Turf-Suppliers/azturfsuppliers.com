@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout
@@ -87,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
       <h1>Resources for Your <em>Project</em></h1>
       <p>Plan, install, and protect your investment with AZ Turf Suppliers' free tools, installation guides, warranty docs, and lead-free guarantee.</p>
       <div class="page-hero-btns">
-        <a href="/turf-calculator" class="btn btn-primary">Try The Calculator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/turf-calculator" class="btn btn-primary">Try The Calculator <Icon name="arrow-right" size={16} /></a>
         <a href="/contact" class="btn btn-outline">Ask A Question</a>
       </div>
     </div>
@@ -104,35 +105,35 @@ import Layout from '../layouts/Layout.astro';
     <div class="resources-grid">
       <a href="/turf-calculator" class="resource-card" data-reveal>
         <div class="resource-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="14" y2="18"/></svg>
+          <Icon name="calculator" size={16} />
         </div>
         <h3>Turf Calculator</h3>
         <p>Estimate square footage, infill, and accessories needed for your install — accurate to within 5%.</p>
-        <span class="resource-card-link">Open Calculator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="resource-card-link">Open Calculator <Icon name="arrow-right" size={16} /></span>
       </a>
       <a href="/blog" class="resource-card" data-reveal>
         <div class="resource-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <Icon name="document" size={16} />
         </div>
         <h3>Installation Blog</h3>
         <p>Step-by-step guides written for Arizona heat — base prep, drainage, infill rates, seam techniques, and common DIY mistakes.</p>
-        <span class="resource-card-link">Read Articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="resource-card-link">Read Articles <Icon name="arrow-right" size={16} /></span>
       </a>
       <a href="/warranty" class="resource-card" data-reveal>
         <div class="resource-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <Icon name="shield" size={16} />
         </div>
         <h3>15-Year Warranty</h3>
         <p>What's covered, how claims work, and an example certificate — every roll we sell carries a manufacturer warranty.</p>
-        <span class="resource-card-link">View Warranty <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="resource-card-link">View Warranty <Icon name="arrow-right" size={16} /></span>
       </a>
       <a href="/lead-free" class="resource-card" data-reveal>
         <div class="resource-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <Icon name="heart" size={16} />
         </div>
         <h3>Lead-Free Guarantee</h3>
         <p>Every blend we stock is independently tested and certified lead-free — safe for kids and pets.</p>
-        <span class="resource-card-link">See Certification <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="resource-card-link">See Certification <Icon name="arrow-right" size={16} /></span>
       </a>
     </div>
   </div>
@@ -144,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>Talk to a Real Person</h2>
     <p>Have a question we didn't answer? Call or text us — same-day response, no hold music.</p>
     <div class="cta-btns">
-      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.14.9.35 1.87.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 14 15.82l1.27-1.27a2 2 0 0 1 2.11-.45c.94.35 1.91.56 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="tel:4807393854" class="btn btn-primary">Call or Text 480-739-3854 <Icon name="phone" size={16} /></a>
       <a href="/contact" class="btn btn-outline">Contact Us</a>
     </div>
   </div>
