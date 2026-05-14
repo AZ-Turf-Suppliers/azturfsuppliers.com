@@ -1,22 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { renderInline } from '../utils/inline-markdown';
+import page from '../data/pages/pavers.json';
+
+const introParas = page.intro.body.split('\n\n');
 ---
 
 <Layout
-  title="Pavers & Hardscape | AZ Turf Suppliers — Queen Creek, AZ"
-  description="Concrete pavers, travertine, and hardscape supplies for Arizona patios, driveways, and pool decks. Wholesale pricing, large inventory, next-day delivery from Queen Creek."
+  title={page.meta.title}
+  description={page.meta.description}
 >
+<style is:global set:html={`.page-hero::before { background-image: url("${page.heroImage}") !important; }`} />
 <style is:global>
-.page-hero::before { background-image: url("/media/pavers-hero.jpg") !important; }
-/* ─── INTRO ─── */
 .pavers-intro { padding: 88px 0; background: var(--white); }
 .pavers-intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .pavers-intro-content h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); margin-bottom: 16px; }
 .pavers-intro-content > p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 24px; font-weight: 400; text-transform: none; letter-spacing: 0; }
 .pavers-intro-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--gray-200); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.15); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .pavers-intro-img img { width: 100%; height: 100%; object-fit: cover; }
-
-/* ─── BRANDS ─── */
 .brands-section { padding: 88px 0; background: var(--gray-100); }
 .brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .brand-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px 32px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); text-align: center; transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -26,16 +28,12 @@ import Layout from '../layouts/Layout.astro';
 .brand-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(35,155,43,0.1); color: var(--green-700); margin-bottom: 16px; }
 .brand-card h4 { font-size: 1rem; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.02em; text-transform: none; }
 .brand-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
-
-/* ─── APPLICATIONS ─── */
 .applications { padding: 88px 0; background: var(--white); }
 .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .app-card { border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 3/4; background: var(--gray-200); display: flex; align-items: flex-end; cursor: default; }
 .app-card-overlay { padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); width: 100%; }
 .app-card h4 { font-size: 0.9rem; color: var(--white); text-transform: none; letter-spacing: 0; }
 .app-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-
-/* ─── SAMPLE PRODUCTS ─── */
 .sample-products { padding: 88px 0; background: var(--gray-100); }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .product-placeholder { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -45,8 +43,6 @@ import Layout from '../layouts/Layout.astro';
 .product-placeholder-body { padding: 20px 24px; }
 .product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
 .product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 14px; }
-
-/* ─── DARK SECTION ─── */
 .why-us { padding: 88px 0; position: relative; overflow: hidden; }
 .why-us::before { content: ''; position: absolute; inset: 0; background: url('https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg') center / cover no-repeat; z-index: 0; }
 .why-us::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 1; }
@@ -55,8 +51,6 @@ import Layout from '../layouts/Layout.astro';
 .why-us-card svg { width: 28px; height: 28px; color: var(--green-700); margin-bottom: 16px; }
 .why-us-card h4 { font-size: 0.9rem; color: var(--white); margin-bottom: 8px; letter-spacing: 0.04em; }
 .why-us-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
-
-/* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .pavers-intro-inner { grid-template-columns: 1fr; gap: 32px; }
   .brands-grid { grid-template-columns: 1fr; }
@@ -75,12 +69,12 @@ import Layout from '../layouts/Layout.astro';
 <section class="page-hero">
   <div class="container">
     <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Hardscape Materials</div>
-      <h1>Concrete <em>Pavers</em></h1>
-      <p>Premium pavers for driveways, patios, pool decks, and more — with next-day delivery or 15-minute in-store pickup.</p>
+      <div class="page-hero-eyebrow">{page.hero.eyebrow}</div>
+      <h1 set:html={renderInline(page.hero.heading)} />
+      <p>{page.hero.body}</p>
       <div class="page-hero-btns">
-        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
   </div>
@@ -89,22 +83,12 @@ import Layout from '../layouts/Layout.astro';
 <!-- ═══ STAT BAR ═══ -->
 <div class="stat-bar">
   <div class="container stat-bar-inner">
-    <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Premium Brands</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Next<span>-Day</span></div>
-      <div class="stat-label">Delivery Available</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">15<span>min</span></div>
-      <div class="stat-label">In-Store Pickup</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Price</div>
-      <div class="stat-label">Match Guarantee</div>
-    </div>
+    {page.statBar.map((item) => (
+      <div class="stat-item">
+        <div class="stat-num">{item.value}</div>
+        <div class="stat-label">{item.label}</div>
+      </div>
+    ))}
   </div>
 </div>
 
@@ -113,13 +97,12 @@ import Layout from '../layouts/Layout.astro';
   <div class="container">
     <div class="pavers-intro-inner">
       <div class="pavers-intro-content" data-reveal>
-        <div class="section-label">Pavers &amp; Hardscape</div>
-        <h2>Arizona's Top Paver Brands, One Location</h2>
-        <p>We supply professional contractors and DIY homeowners with premium pavers for driveways, patios, pool decks, and more. Stop by our Queen Creek showroom to see paver displays in person, or call for a quick material quote and next-day delivery.</p>
-        <p>The best way to choose pavers is to see them in person. Our team will help you build your material list and get you a quote on the spot.</p>
+        <div class="section-label">{page.intro.label}</div>
+        <h2 set:html={renderInline(page.intro.heading)} />
+        {introParas.map((para) => <p set:html={renderInline(para)} />)}
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-          <a href="/contact" class="btn btn-primary">Get a Paver Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
+          <a href={page.intro.ctaPrimary.link} class="btn btn-primary">{page.intro.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.intro.ctaSecondary.link} class="btn btn-dark">{page.intro.ctaSecondary.text}</a>
         </div>
       </div>
       <div class="pavers-intro-img" data-reveal>Paver Display Photo</div>
@@ -131,28 +114,18 @@ import Layout from '../layouts/Layout.astro';
 <section class="brands-section">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Brands We Carry</div>
-      <h2>Arizona's Best Paver Manufacturers</h2>
+      <div class="section-label centered">{page.brands.label}</div>
+      <h2 set:html={renderInline(page.brands.heading)} />
     </div>
     <div class="brands-grid">
-      <div class="brand-card" data-reveal>
-        <div class="brand-logo"><span>Phoenix Paver</span></div>
-        <div class="brand-tag">#1 in Arizona</div>
-        <h4>Made Locally for Desert Climate</h4>
-        <p>Ranked the top paver manufacturer in Arizona. Made locally with fast availability and consistent quality — built specifically for the demands of the desert.</p>
-      </div>
-      <div class="brand-card" data-reveal>
-        <div class="brand-logo"><span>Acker-Stone</span></div>
-        <div class="brand-tag">Design-Forward</div>
-        <h4>Large-Format &amp; Specialty Finishes</h4>
-        <p>Design-forward collections including large-format slabs, specialty finishes, and permeable pavers. The go-to for modern, high-end hardscape design.</p>
-      </div>
-      <div class="brand-card" data-reveal>
-        <div class="brand-logo"><span>Belgard</span></div>
-        <div class="brand-tag">Premium</div>
-        <h4>Top-Tier Hardscape Products</h4>
-        <p>Premium hardscape products rounding out our full selection of top-tier materials. Trusted nationally, available locally through our Queen Creek showroom.</p>
-      </div>
+      {page.brands.items.map((brand) => (
+        <div class="brand-card" data-reveal>
+          <div class="brand-logo"><span>{brand.name}</span></div>
+          <div class="brand-tag">{brand.tag}</div>
+          <h4 set:html={renderInline(brand.heading)} />
+          <p set:html={renderInline(brand.body)} />
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -161,22 +134,15 @@ import Layout from '../layouts/Layout.astro';
 <section class="applications">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Common Applications</div>
-      <h2>What You Can Build</h2>
+      <div class="section-label centered">{page.applications.label}</div>
+      <h2 set:html={renderInline(page.applications.heading)} />
     </div>
     <div class="app-grid">
-      <div class="app-card" data-reveal>
-        <div class="app-card-overlay"><h4>Driveways &amp; Walkways</h4></div>
-      </div>
-      <div class="app-card" data-reveal>
-        <div class="app-card-overlay"><h4>Patios &amp; Outdoor Kitchens</h4></div>
-      </div>
-      <div class="app-card" data-reveal>
-        <div class="app-card-overlay"><h4>Pool Decks</h4></div>
-      </div>
-      <div class="app-card" data-reveal>
-        <div class="app-card-overlay"><h4>Garden Walls &amp; Fire Pits</h4></div>
-      </div>
+      {page.applications.items.map((item) => (
+        <div class="app-card" data-reveal>
+          <div class="app-card-overlay"><h4>{item.label}</h4></div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -185,58 +151,20 @@ import Layout from '../layouts/Layout.astro';
 <section class="sample-products">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Our Inventory</div>
-      <h2>Sample Products</h2>
+      <div class="section-label centered">{page.sampleProducts.label}</div>
+      <h2 set:html={renderInline(page.sampleProducts.heading)} />
     </div>
     <div class="products-grid">
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 1</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
+      {page.sampleProducts.items.map((item) => (
+        <div class="product-placeholder" data-reveal>
+          <div class="product-placeholder-img">Product Photo</div>
+          <div class="product-placeholder-body">
+            <h4>{item.heading}</h4>
+            <p set:html={renderInline(item.body)} />
+            <a href={item.link} class="btn btn-dark">{item.linkText}</a>
+          </div>
         </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 2</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 3</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 4</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 5</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-      <div class="product-placeholder" data-reveal>
-        <div class="product-placeholder-img">Product Photo</div>
-        <div class="product-placeholder-body">
-          <h4>Product 6</h4>
-          <p>Details coming soon</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -245,25 +173,17 @@ import Layout from '../layouts/Layout.astro';
 <section class="why-us">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px; position:relative; z-index:2;">
-      <div class="section-label centered inverted">The AZ Turf Advantage</div>
-      <h2 style="color:var(--white);">Why Buy From Us</h2>
+      <div class="section-label centered inverted">{page.why.label}</div>
+      <h2 style="color:var(--white);" set:html={renderInline(page.why.heading)} />
     </div>
     <div class="why-us-inner">
-      <div class="why-us-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        <h4>Wholesale Pricing</h4>
-        <p>Competitive rates with a price-match guarantee on local quotes. Bring us a competitor's invoice — we'll match it.</p>
-      </div>
-      <div class="why-us-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <h4>Fast Turnaround</h4>
-        <p>Next-day delivery directly to your job site or home. Or pick up in-store — we'll have your order ready in 15 minutes.</p>
-      </div>
-      <div class="why-us-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <h4>Everything in One Stop</h4>
-        <p>Pavers, artificial turf, landscape lighting, natural stone, and accessories — grab everything in a single trip to our Queen Creek showroom.</p>
-      </div>
+      {page.why.items.map((item) => (
+        <div class="why-us-card" data-reveal>
+          <Icon name={item.icon as any} size={28} />
+          <h4>{item.heading}</h4>
+          <p set:html={renderInline(item.body)} />
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -271,12 +191,18 @@ import Layout from '../layouts/Layout.astro';
 <!-- ═══ CTA ═══ -->
 <section class="cta-section">
   <div class="container cta-inner">
-    <div class="section-label centered inverted">Visit Our Showroom</div>
-    <h2>See Our Paver Displays In Person</h2>
-    <p>Stop by our Queen Creek showroom to touch and compare pavers from Phoenix Paver, Acker-Stone, and Belgard. We'll help you build your material list and quote on the spot.</p>
+    <div class="section-label centered inverted">{page.cta.label}</div>
+    <h2 set:html={renderInline(page.cta.heading)} />
+    <p set:html={renderInline(page.cta.body)} />
     <div class="cta-btns">
-      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="/locations" class="btn btn-outline">Get Directions</a>
+      {page.cta.buttons.map((btn) => (
+        <a href={btn.link} class={`btn btn-${btn.style}`}>
+          {btn.text}
+          {btn.style === 'primary' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          )}
+        </a>
+      ))}
     </div>
   </div>
 </section>

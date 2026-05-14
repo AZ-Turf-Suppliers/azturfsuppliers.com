@@ -1,14 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
+import Icon from '../components/Icon.astro';
+import { renderInline } from '../utils/inline-markdown';
+import page from '../data/pages/landscape-lighting.json';
+
+const introParas = page.intro.body.split('\n\n');
 ---
 
 <Layout
-  title="Landscape Lighting | AZ Turf Suppliers — Queen Creek, AZ"
-  description="Low-voltage landscape lighting for Arizona yards: path lights, flood lights, transformers, and accessories. Designed to handle desert heat. Stocked in Queen Creek, AZ."
+  title={page.meta.title}
+  description={page.meta.description}
 >
+<style is:global set:html={`.page-hero::before { background-image: url("${page.heroImage}") !important; }`} />
 <style is:global>
-.page-hero::before { background-image: url("/media/lighting-flood-lights.webp") !important; }
+/* hero image is injected via the inline <style is:global> tag above */
 /* ─── INTRO ─── */
 .lighting-intro {
   padding: 88px 0;
@@ -432,12 +438,12 @@ import Pic from '../components/Pic.astro';
 <section class="page-hero">
   <div class="container">
     <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Lumenex Lighting</div>
-      <h1>Landscape <em>Lighting</em></h1>
-      <p>Professional-grade, low-voltage landscape lighting built for Arizona. In stock and ready for pickup or next-day delivery.</p>
+      <div class="page-hero-eyebrow">{page.hero.eyebrow}</div>
+      <h1 set:html={renderInline(page.hero.heading)} />
+      <p>{page.hero.body}</p>
       <div class="page-hero-btns">
-        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
   </div>
@@ -446,22 +452,12 @@ import Pic from '../components/Pic.astro';
 <!-- ═══ STAT BAR ═══ -->
 <div class="stat-bar">
   <div class="container stat-bar-inner">
-    <div class="stat-item">
-      <div class="stat-num">Low<span>-V</span></div>
-      <div class="stat-label">Safe &amp; Energy Efficient</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">LED</div>
-      <div class="stat-label">Long-Life Technology</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">75<span>–600W</span></div>
-      <div class="stat-label">Transformer Range</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Next<span>-Day</span></div>
-      <div class="stat-label">Delivery Available</div>
-    </div>
+    {page.statBar.map((item) => (
+      <div class="stat-item">
+        <div class="stat-num">{item.value}</div>
+        <div class="stat-label">{item.label}</div>
+      </div>
+    ))}
   </div>
 </div>
 
@@ -470,18 +466,17 @@ import Pic from '../components/Pic.astro';
   <div class="container">
     <div class="lighting-intro-inner">
       <div class="lighting-intro-content" data-reveal>
-        <div class="section-label">Professional Landscape Lighting</div>
-        <h2>Illuminate Your Outdoor Space with Lumenex</h2>
-        <p>Cheap solar fixtures fade, flicker, and fail. Lumenex is a professional-grade, low-voltage lighting line trusted by Arizona landscape contractors and homeowners. We stock everything you need to light up pathways, hardscapes, trees, and architectural features.</p>
-        <p>Hardwired low-voltage systems deliver consistent illumination night after night — no batteries, no disappointments. Heavy-duty aluminum and brass construction holds up against Arizona's extreme heat and UV exposure.</p>
+        <div class="section-label">{page.intro.label}</div>
+        <h2 set:html={renderInline(page.intro.heading)} />
+        {introParas.map((para) => <p set:html={renderInline(para)} />)}
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-          <a href="/contact" class="btn btn-primary">Get a Lighting Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
+          <a href={page.intro.ctaPrimary.link} class="btn btn-primary">{page.intro.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.intro.ctaSecondary.link} class="btn btn-dark">{page.intro.ctaSecondary.text}</a>
         </div>
       </div>
       <div class="lighting-intro-img" data-reveal>
         <img class="lt-brand-logo" src="/media/lumenex-lighting.svg" alt="Lumenex Lighting" loading="lazy" decoding="async"/>
-        <span class="lt-brand-badge">Authorized Dealer</span>
+        <span class="lt-brand-badge">{page.intro.brandBadge}</span>
       </div>
     </div>
   </div>
@@ -491,26 +486,18 @@ import Pic from '../components/Pic.astro';
 <section class="why-wire">
   <div class="container">
     <div class="why-wire-header">
-      <div class="section-label centered">Why Go Hardwired</div>
-      <h2>Why Wire Lighting — Not Solar</h2>
-      <p>Solar looks cheap because it is. Here's why professional landscape contractors always specify low-voltage hardwired systems.</p>
+      <div class="section-label centered">{page.whyWire.label}</div>
+      <h2 set:html={renderInline(page.whyWire.heading)} />
+      <p set:html={renderInline(page.whyWire.body)} />
     </div>
     <div class="why-wire-grid">
-      <div class="why-wire-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
-        <h4>Built for Arizona</h4>
-        <p>Heavy-duty aluminum and brass construction engineered to handle extreme heat and relentless UV exposure without degradation.</p>
-      </div>
-      <div class="why-wire-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <h4>Energy-Efficient LED</h4>
-        <p>Brilliant light output at a fraction of the operating cost. LED technology means longer bulb life and lower energy bills.</p>
-      </div>
-      <div class="why-wire-card" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <h4>Fully Controllable</h4>
-        <p>Pair with digital timers, mechanical timers, photocells, or magnetic dimmers for complete automation. Set it and forget it.</p>
-      </div>
+      {page.whyWire.items.map((item) => (
+        <div class="why-wire-card" data-reveal>
+          <Icon name={item.icon as any} size={28} />
+          <h4 set:html={renderInline(item.heading)} />
+          <p set:html={renderInline(item.body)} />
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -532,55 +519,22 @@ import Pic from '../components/Pic.astro';
 <section class="lighting-products">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Our Collection</div>
-      <h2>Lumenex Lighting Products</h2>
+      <div class="section-label centered">{page.products.label}</div>
+      <h2 set:html={renderInline(page.products.heading)} />
     </div>
     <div class="lighting-cat-grid">
-
-      <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">
-          <img src="/media/lighting-path-lights.webp" alt="Lumenex path lights illuminating a walkway" loading="lazy" decoding="async"/>
+      {page.products.items.map((item) => (
+        <div class="lighting-cat" data-reveal>
+          <div class="lighting-cat-img">
+            <img src={item.image} alt={item.alt} loading="lazy" decoding="async"/>
+          </div>
+          <div class="lighting-cat-content">
+            <h3 set:html={renderInline(item.heading)} />
+            <p set:html={renderInline(item.body)} />
+            <a href={item.link} class="btn btn-dark">{item.linkText}</a>
+          </div>
         </div>
-        <div class="lighting-cat-content">
-          <h3>Path &amp; Area Lights</h3>
-          <p>Illuminate walkways, garden beds, and turf borders with clean, ground-level light. Available in aluminum and brass with multiple finish options.</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-
-      <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">
-          <img src="/media/lighting-spot-lights.webp" alt="Lumenex spotlights on a landscape" loading="lazy" decoding="async"/>
-        </div>
-        <div class="lighting-cat-content">
-          <h3>Spotlights &amp; Flood Lights</h3>
-          <p>Highlight trees, walls, and architectural features. Choose from aluminum and brass spotlights, or go big with high-output flood lights for large areas.</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-
-      <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">
-          <img src="/media/lighting-hardscape-lights.webp" alt="Lumenex hardscape lights in a paver wall" loading="lazy" decoding="async"/>
-        </div>
-        <div class="lighting-cat-content">
-          <h3>Hardscape &amp; Well Lights</h3>
-          <p>Integrate lighting directly into paver walls, steps, fire pits, and pool decks. Available in multiple sizes with rotatable and replaceable module options.</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-
-      <div class="lighting-cat" data-reveal>
-        <div class="lighting-cat-img">
-          <img src="/media/lighting-wall-lights.webp" alt="Lumenex wall and deck lights" loading="lazy" decoding="async"/>
-        </div>
-        <div class="lighting-cat-content">
-          <h3>Wall, Deck &amp; Flood Lights</h3>
-          <p>Direct burial cable, waterproof connectors, wall-mount fixtures, deck lights, and mounting hardware. Everything you need for a clean, reliable installation.</p>
-          <a href="/contact" class="btn btn-dark">Get a Quote</a>
-        </div>
-      </div>
-
+      ))}
     </div>
   </div>
 </section>
@@ -731,31 +685,21 @@ import Pic from '../components/Pic.astro';
   <div class="container">
     <div class="transformers-inner">
       <div data-reveal>
-        <div class="section-label inverted">Power &amp; Control</div>
+        <div class="section-label inverted">{page.transformers.label}</div>
         <div class="transformers-content">
-          <h2>Transformers &amp; Installation</h2>
-          <p>Power your entire lighting system with confidence. We carry Lumenex transformers from 75W to 600W — enough to run anything from a simple path layout to a full commercial installation.</p>
+          <h2 set:html={renderInline(page.transformers.heading)} />
+          <p set:html={renderInline(page.transformers.body)} />
           <div class="transformers-list">
-            <div class="transformers-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Built-in timers</strong> — Mechanical and digital options for hands-free scheduling</p>
-            </div>
-            <div class="transformers-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Photocell compatible</strong> — Auto on at dusk, off at dawn</p>
-            </div>
-            <div class="transformers-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Magnetic dimmers</strong> — Dial in the exact brightness for any zone</p>
-            </div>
-            <div class="transformers-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Multi-tap outputs</strong> — Run balanced voltage across long wire runs</p>
-            </div>
+            {page.transformers.bullets.map((bullet) => (
+              <div class="transformers-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <p set:html={renderInline(bullet)} />
+              </div>
+            ))}
           </div>
-          <p>Not sure what size transformer you need? Our team will help you calculate your wattage and build your exact material list — no guesswork.</p>
+          <p set:html={renderInline(page.transformers.bodyFooter)} />
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
-            <a href="/contact" class="btn btn-primary">Get Help Planning <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href={page.transformers.cta.link} class="btn btn-primary">{page.transformers.cta.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
       </div>
@@ -771,10 +715,10 @@ import Pic from '../components/Pic.astro';
   <div class="container">
     <div class="contractor-callout-inner">
       <div class="contractor-callout-text">
-        <h3>Contractor Pricing Available</h3>
-        <p>We offer exclusive wholesale pricing tiers for landscape contractors. Call or text to set up your account.</p>
+        <h3 set:html={renderInline(page.contractorCallout.heading)} />
+        <p set:html={renderInline(page.contractorCallout.body)} />
       </div>
-      <a href="/contractors" class="btn btn-dark">Learn About Contractor Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href={page.contractorCallout.cta.link} class="btn btn-dark">{page.contractorCallout.cta.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -782,12 +726,18 @@ import Pic from '../components/Pic.astro';
 <!-- ═══ CTA ═══ -->
 <section class="cta-section">
   <div class="container cta-inner">
-    <div class="section-label centered inverted">Visit Our Showroom</div>
-    <h2>See Our Full Lighting Collection In Person</h2>
-    <p>Stop by our Queen Creek showroom to see every fixture, test light output, and get expert help planning your installation.</p>
+    <div class="section-label centered inverted">{page.cta.label}</div>
+    <h2 set:html={renderInline(page.cta.heading)} />
+    <p set:html={renderInline(page.cta.body)} />
     <div class="cta-btns">
-      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="/locations" class="btn btn-outline">Get Directions</a>
+      {page.cta.buttons.map((btn) => (
+        <a href={btn.link} class={`btn btn-${btn.style}`}>
+          {btn.text}
+          {btn.style === 'primary' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          )}
+        </a>
+      ))}
     </div>
   </div>
 </section>
