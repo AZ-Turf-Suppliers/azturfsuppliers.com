@@ -70,11 +70,11 @@ collections:
         fields:
           - { name: name,             label: Business Name,         widget: string }
           - { name: phone,             label: 'Phone (display)',     widget: string,
-              hint: 'Shown to humans, e.g. 480-739-3854' }
+              hint: 'Shown to humans, e.g. 480-793-1800' }
           - { name: phone_tel,         label: 'Phone (tel: link)',   widget: string,
-              hint: 'Digits only, no dashes, e.g. 4807393854' }
+              hint: 'Digits only, no dashes, e.g. 4807931800' }
           - { name: phone_sms,         label: 'Phone (SMS link)',    widget: string,
-              hint: 'E.164 format, e.g. +14807393854' }
+              hint: 'E.164 format, e.g. +14807931800' }
           - { name: email,             label: Email,                 widget: string }
           - { name: address_street,    label: Street Address,        widget: string }
           - { name: address_city,      label: City,                  widget: string }
@@ -866,21 +866,6 @@ collections:
                   - { name: image, label: 'Image', widget: image, required: false,
                       hint: 'Filename relative to /src/assets/media/, e.g. pavers-driveway.jpg' }
                   - { name: alt,   label: 'Image Alt Text', widget: string, required: false }
-          - name: sampleProducts
-            label: 'Sample Products'
-            widget: object
-            collapsed: true
-            fields:
-              - { name: label,   widget: string }
-              - { name: heading, widget: string }
-              - name: items
-                widget: list
-                summary: '{{heading}}'
-                fields:
-                  - { name: heading, widget: string }
-                  - { name: body,    widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
-                  - { name: linkText, widget: string }
-                  - { name: link,     widget: string }
           - name: why
             label: 'Why Section (dark)'
             widget: object

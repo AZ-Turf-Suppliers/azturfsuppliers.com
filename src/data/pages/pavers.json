@@ -3,13 +3,13 @@
     "title": "Pavers & Hardscape | AZ Turf Suppliers — Queen Creek, AZ",
     "description": "Concrete pavers, travertine, and hardscape supplies for Arizona patios, driveways, and pool decks. Wholesale pricing, large inventory, next-day delivery from Queen Creek."
   },
-  "heroImage": "/media/pavers-hero-1.jpg",
+  "heroImage": "/media/pavers-hero-2.jpg",
   "hero": {
     "eyebrow": "Hardscape Materials",
     "heading": "Concrete *Pavers*",
     "body": "Premium pavers for driveways, patios, pool decks, and more — with next-day delivery or 15-minute in-store pickup.",
     "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "3",         "label": "Premium Brands" },
@@ -22,7 +22,7 @@
     "heading": "Arizona's Top Paver Brands, One Location",
     "body": "We supply professional contractors and DIY homeowners with premium pavers for driveways, patios, pool decks, and more. Stop by our Queen Creek showroom to see paver displays in person, or call for a quick material quote and next-day delivery.\n\nThe best way to choose pavers is to see them in person. Our team will help you build your material list and get you a quote on the spot.",
     "ctaPrimary": { "text": "Get a Paver Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
   },
   "brands": {
     "label": "Brands We Carry",
@@ -68,18 +68,6 @@
       { "label": "Garden Walls & Fire Pits",   "image": "pavers-garden-wall.jpg", "alt": "Stacked paver garden wall"             }
     ]
   },
-  "sampleProducts": {
-    "label": "Our Inventory",
-    "heading": "Sample Products",
-    "items": [
-      { "heading": "Product 1", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
-      { "heading": "Product 2", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
-      { "heading": "Product 3", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
-      { "heading": "Product 4", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
-      { "heading": "Product 5", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
-      { "heading": "Product 6", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" }
-    ]
-  },
   "why": {
     "label": "The AZ Turf Advantage",
     "heading": "Why Buy From Us",
@@ -95,7 +83,7 @@
     "body": "Stop by our Queen Creek showroom to touch and compare pavers from Phoenix Paver, Acker-Stone, and Belgard. We'll help you build your material list and quote on the spot.",
     "buttons": [
       { "text": "Get a Free Quote", "link": "/contact",   "style": "primary" },
-      { "text": "Get Directions",   "link": "/locations", "style": "outline" }
+      { "text": "Get Directions",   "link": "https://www.google.com/maps/place/AZ+Turf+Suppliers/@33.2116173,-111.6850597,1538m/data=!3m3!1e3!4b1!5s0x872a52649d278509:0x18ed7274086f5edf!4m6!3m5!1s0x872ba76f41abd921:0x2b517f0189fa19ea!8m2!3d33.2116129!4d-111.6801888!16s%2Fg%2F11rfsw3t3t?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D", "style": "outline" }
     ]
   }
 }

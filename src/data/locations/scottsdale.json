@@ -2,7 +2,7 @@
   "name": "Scottsdale",
   "meta": {
     "title": "Artificial Turf in Scottsdale, AZ | AZ Turf Suppliers",
-    "description": "Premium artificial turf, travertine pavers, natural stone, and landscape lighting delivered to Scottsdale, AZ. Wholesale pricing. Call 480-739-3854.",
+    "description": "Premium artificial turf, travertine pavers, natural stone, and landscape lighting delivered to Scottsdale, AZ. Wholesale pricing. Call 480-793-1800.",
     "ogImage": "/media/spring-blend-1.jpg"
   },
   "heroImage": "/media/turf-natural-stone-hero-7.jpg",
@@ -11,13 +11,13 @@
     "heading": "Premium Turf, Travertine & Stone *Delivered to Scottsdale*",
     "body": "Scottsdale demands the best in outdoor living — and we deliver it. AZ Turf Suppliers stocks the premium materials Scottsdale's luxury homes and commercial properties require, at wholesale prices.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "~35–40 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-739-3854",  "label": "Call or Text" }
+    { "value": "480-793-1800",  "label": "Call or Text" }
   ],
   "products": {
     "label": "Our Premium Selection",
@@ -45,7 +45,7 @@
     "body": "Call for a quote, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Scottsdale contractors welcome — open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" }
+      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
     ]
   },
   "nearby": {
