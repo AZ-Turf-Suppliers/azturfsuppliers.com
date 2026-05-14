@@ -1,0 +1,66 @@
+{
+  "name": "Queen Creek",
+  "meta": {
+    "title": "Artificial Turf in Queen Creek, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. Same-day pickup at 18607 E San Tan Blvd. Call 480-739-3854.",
+    "ogImage": "/media/winter-blend-1.jpg"
+  },
+  "heroImage": "/media/winter-blend-1.jpg",
+  "hero": {
+    "eyebrow": "Queen Creek, AZ",
+    "heading": "Your Local Source for *Turf & Landscaping* in Queen Creek",
+    "body": "Our showroom is right here in Queen Creek — come in same-day, grab samples, and take materials home the same visit. No waiting, no shipping fees.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "18607 E San Tan Blvd", "label": "Showroom Address" },
+    { "value": "Same-Day", "label": "Pickup Available" },
+    { "value": "Mon–Fri 7–3", "label": "Showroom Hours" },
+    { "value": "480-739-3854", "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "What We Carry",
+    "heading": "Premium Landscaping Materials for Queen Creek Homeowners & Contractors",
+    "body": "Everything you need to transform your outdoor space — in stock and ready to go. AZ Turf Suppliers is the East Valley's go-to source for professional-grade materials at wholesale prices.",
+    "cards": [
+      { "heading": "Artificial Turf", "body": "UV-resistant, pet-friendly turf in a range of pile heights and blade styles. Ideal for Queen Creek's intense sun and heat.", "linkText": "View Turf Options →", "link": "/artificial-turf" },
+      { "heading": "Pavers", "body": "Concrete and travertine pavers for patios, driveways, pool decks, and walkways. In stock for same-day pickup.", "linkText": "View Pavers →", "link": "/pavers" },
+      { "heading": "Natural Stone", "body": "Travertine, limestone, and marble in multiple finishes. Perfect for Queen Creek's upscale outdoor living spaces.", "linkText": "View Natural Stone →", "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting systems — path lights, spotlights, hardscape lights, and transformers.", "linkText": "View Lighting →", "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The Advantage of Shopping Local in Queen Creek",
+    "cards": [
+      { "heading": "Walk In, Walk Out", "body": "No order minimums, no wait time. Our Queen Creek showroom stocks everything you need. See it in person, load it up, and start your project today." },
+      { "heading": "Contractor Wholesale Pricing", "body": "Queen Creek contractors get access to wholesale pricing on volume orders. We're the preferred supplier for landscapers and builders throughout the East Valley." },
+      { "heading": "Expert Advice On-Site", "body": "Our team knows Queen Creek's climate, HOA requirements, and soil conditions. We'll help you pick the right materials for your specific project." }
+    ]
+  },
+  "cta": {
+    "label": "Ready to Start?",
+    "heading": "Visit Our Queen Creek Showroom Today",
+    "body": "Stop by at 18607 E San Tan Blvd, call ahead, or request a quote online. We're open Monday–Friday, 7 AM – 3 PM.",
+    "buttons": [
+      { "text": "Request a Quote", "link": "/contact", "style": "primary" },
+      { "text": "Get Directions", "link": "https://maps.google.com/?q=18607+E+San+Tan+Blvd+Queen+Creek+AZ", "style": "dark", "newTab": true },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "outline" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "San Tan Valley", "link": "/san-tan-valley" },
+      { "name": "Gilbert", "link": "/gilbert" },
+      { "name": "Mesa", "link": "/mesa" },
+      { "name": "Chandler", "link": "/chandler" },
+      { "name": "Apache Junction", "link": "/apache-junction" },
+      { "name": "Scottsdale", "link": "/scottsdale" },
+      { "name": "Tempe", "link": "/tempe" },
+      { "name": "Phoenix", "link": "/phoenix" },
+      { "name": "View All Areas Served", "link": "/locations" }
+    ]
+  }
+}
