@@ -28,19 +28,44 @@
     "label": "Brands We Carry",
     "heading": "Arizona's Best Paver Manufacturers",
     "items": [
-      { "name": "Phoenix Paver", "tag": "#1 in Arizona",   "heading": "Made Locally for Desert Climate",  "body": "Ranked the top paver manufacturer in Arizona. Made locally with fast availability and consistent quality — built specifically for the demands of the desert." },
-      { "name": "Acker-Stone",   "tag": "Design-Forward",  "heading": "Large-Format & Specialty Finishes", "body": "Design-forward collections including large-format slabs, specialty finishes, and permeable pavers. The go-to for modern, high-end hardscape design." },
-      { "name": "Belgard",       "tag": "Premium",         "heading": "Top-Tier Hardscape Products",       "body": "Premium hardscape products rounding out our full selection of top-tier materials. Trusted nationally, available locally through our Queen Creek showroom." }
+      {
+        "name": "Phoenix Paver",
+        "tag": "#1 in Arizona",
+        "heading": "Made Locally for Desert Climate",
+        "body": "Ranked the top paver manufacturer in Arizona. Made locally with fast availability and consistent quality — built specifically for the demands of the desert.",
+        "catalogs": [
+          { "text": "View Catalog", "link": "/media/Phoenix_Pavers_eBrochure-2024.pdf" }
+        ]
+      },
+      {
+        "name": "Acker-Stone",
+        "tag": "Design-Forward",
+        "heading": "Large-Format & Specialty Finishes",
+        "body": "Design-forward collections including large-format slabs, specialty finishes, and permeable pavers. The go-to for modern, high-end hardscape design.",
+        "catalogs": [
+          { "text": "Architectural Spec Book", "link": "https://www.dropbox.com/s/p4lgpsttq7tq6k3/AZ%20Architectural%20Spec%20Book%202018.pdf?dl=1" },
+          { "text": "Residential Booklet",     "link": "https://www.dropbox.com/s/x6j7qw113itduph/AZ%20Residential%20Booklet%202023.pdf?dl=0" }
+        ]
+      },
+      {
+        "name": "Belgard",
+        "tag": "Premium",
+        "heading": "Top-Tier Hardscape Products",
+        "body": "Premium hardscape products rounding out our full selection of top-tier materials. Trusted nationally, available locally through our Queen Creek showroom.",
+        "catalogs": [
+          { "text": "View Catalog", "link": "https://www.belgard.com/downloads/southwest-az-nm-2/" }
+        ]
+      }
     ]
   },
   "applications": {
     "label": "Common Applications",
     "heading": "What You Can Build",
     "items": [
-      { "label": "Driveways & Walkways" },
-      { "label": "Patios & Outdoor Kitchens" },
-      { "label": "Pool Decks" },
-      { "label": "Garden Walls & Fire Pits" }
+      { "label": "Driveways & Walkways",       "image": "pavers-driveway.jpg",    "alt": "Concrete paver driveway installation" },
+      { "label": "Patios & Outdoor Kitchens",  "image": "pavers-patio.jpg",       "alt": "Paver patio with outdoor kitchen"      },
+      { "label": "Pool Decks",                 "image": "pavers-pool-deck.jpg",   "alt": "Paver pool deck installation"          },
+      { "label": "Garden Walls & Fire Pits",   "image": "pavers-garden-wall.jpg", "alt": "Stacked paver garden wall"             }
     ]
   },
   "sampleProducts": {

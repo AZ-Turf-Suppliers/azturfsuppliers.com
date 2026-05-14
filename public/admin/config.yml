@@ -842,6 +842,15 @@ collections:
                   - { name: tag,     label: 'Brand Tag',  widget: string }
                   - { name: heading, widget: string }
                   - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+                  - name: catalogs
+                    label: 'Catalog Buttons (open in new tab)'
+                    widget: list
+                    required: false
+                    summary: '{{text}}'
+                    fields:
+                      - { name: text, label: 'Button Text', widget: string }
+                      - { name: link, label: 'Catalog URL', widget: string,
+                          hint: 'External URL or /media/filename.pdf for files hosted on the site' }
           - name: applications
             label: 'Applications Section'
             widget: object
@@ -849,7 +858,14 @@ collections:
             fields:
               - { name: label,   widget: string }
               - { name: heading, widget: string }
-              - { name: items, widget: list, fields: [{ name: label, widget: string }] }
+              - name: items
+                widget: list
+                summary: '{{label}}'
+                fields:
+                  - { name: label, widget: string }
+                  - { name: image, label: 'Image', widget: image, required: false,
+                      hint: 'Filename relative to /src/assets/media/, e.g. pavers-driveway.jpg' }
+                  - { name: alt,   label: 'Image Alt Text', widget: string, required: false }
           - name: sampleProducts
             label: 'Sample Products'
             widget: object
