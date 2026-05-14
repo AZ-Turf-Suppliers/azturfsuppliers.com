@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
+import site from '../data/site.json';
 import '../styles/header.css';
 import '../styles/footer.css';
 import '../styles/shared.css';
@@ -44,35 +45,29 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': `${siteUrl}/#localbusiness`,
-  name: 'AZ Turf Suppliers',
+  name: site.name,
   image: new URL('/media/logo.png', siteUrl).toString(),
   logo: new URL('/media/logo.png', siteUrl).toString(),
   url: siteUrl,
-  telephone: '+1-480-739-3854',
-  email: 'contact@azturfsuppliers.com',
+  telephone: `+1-${site.phone_tel}`,
+  email: site.email,
   priceRange: '$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '18607 E San Tan Blvd',
-    addressLocality: 'Queen Creek',
-    addressRegion: 'AZ',
-    postalCode: '85142',
-    addressCountry: 'US',
+    streetAddress: site.address_street,
+    addressLocality: site.address_city,
+    addressRegion: site.address_region,
+    postalCode: site.address_postal,
+    addressCountry: site.address_country,
   },
   openingHoursSpecification: [{
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '07:00',
-    closes: '15:00',
+    opens: site.hours_opens,
+    closes: site.hours_closes,
   }],
-  sameAs: [
-    'https://www.facebook.com/AZturfsuppliers/',
-    'https://www.instagram.com/az.turf.suppliers/',
-  ],
-  areaServed: {
-    '@type': 'State',
-    name: 'Arizona',
-  },
+  sameAs: [site.social_facebook, site.social_instagram],
+  areaServed: { '@type': 'State', name: 'Arizona' },
 };
 
 const websiteSchema = {
@@ -80,7 +75,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
-  name: 'AZ Turf Suppliers',
+  name: site.name,
   publisher: { '@id': `${siteUrl}/#localbusiness` },
 };
 
