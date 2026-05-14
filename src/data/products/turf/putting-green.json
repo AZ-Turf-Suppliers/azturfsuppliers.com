@@ -26,6 +26,19 @@
     }
   },
   "mainImage": "putting-green-above.png",
+  "gallery": [
+    "putting-green-above.png",
+    "putting-green-side.png",
+    "putting-green-1.jpg",
+    "putting-green-2.jpg",
+    "putting-green-3.jpg",
+    "putting-green-4.jpg",
+    "putting-green-5.jpg",
+    "putting-green-6.jpg",
+    "putting-green-7.jpg",
+    "putting-green-8.jpg",
+    "putting-green-9.jpg"
+  ],
   "mainImageAlt": "Putting Green",
   "detail": {
     "label": "Premium Artificial Turf",

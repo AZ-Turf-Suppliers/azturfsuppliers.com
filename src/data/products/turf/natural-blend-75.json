@@ -27,6 +27,17 @@
   },
   "mainImage": "natural-series-turf.png",
   "mainImageAlt": "Natural Blend 75",
+  "gallery": [
+    "natural-series-turf.png",
+    "natural-blend-75-side.png",
+    "natural-series-turf-1.jpg",
+    "natural-series-turf-2.jpg",
+    "natural-series-turf-3.jpg",
+    "natural-series-turf-4.jpg",
+    "natural-series-turf-5.jpg",
+    "natural-series-turf-6.jpg",
+    "natural-series-turf-7.jpg"
+  ],
   "detail": {
     "label": "Premium Artificial Turf",
     "displayName": "Natural Blend 75",

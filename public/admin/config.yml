@@ -589,6 +589,13 @@ collections:
           hint: 'Filename relative to /media/, e.g. bermuda-side.png' }
       - { name: mainImageAlt, label: Main Image Alt Text,   widget: string }
 
+      - name: gallery
+        label: Gallery Thumbnails
+        widget: list
+        required: false
+        field: { name: image, label: Image, widget: image }
+        hint: 'Optional. Shown as a thumbnail row under the main image. The first entry should match the Main Product Image. Leave empty (or with a single entry) to hide the thumbnail row.'
+
       - name: detail
         label: Product Detail Section
         widget: object
