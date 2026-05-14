@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
+import Pic from '../components/Pic.astro';
 import { renderInline } from '../utils/inline-markdown';
 import page from '../data/pages/pavers.json';
 
@@ -28,6 +29,8 @@ const introParas = page.intro.body.split('\n\n');
 .brand-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(35,155,43,0.1); color: var(--green-700); margin-bottom: 16px; }
 .brand-card h4 { font-size: 1rem; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.02em; text-transform: none; }
 .brand-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.brand-catalogs { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; align-items: center; }
+.brand-catalogs .btn { width: 100%; max-width: 240px; padding: 10px 16px; font-size: 0.78rem; }
 .applications { padding: 88px 0; background: var(--white); }
 .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .app-card { border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 3/4; background: var(--gray-200); display: flex; align-items: flex-end; cursor: default; }
@@ -124,6 +127,18 @@ const introParas = page.intro.body.split('\n\n');
           <div class="brand-tag">{brand.tag}</div>
           <h4 set:html={renderInline(brand.heading)} />
           <p set:html={renderInline(brand.body)} />
+          {brand.catalogs && brand.catalogs.length > 0 && (
+            <div class="brand-catalogs">
+              {brand.catalogs.map((cat) => (
+                <a
+                  href={cat.link}
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-dark"
+                >{cat.text} <Icon name="document" size={14} /></a>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
@@ -140,6 +155,7 @@ const introParas = page.intro.body.split('\n\n');
     <div class="app-grid">
       {page.applications.items.map((item) => (
         <div class="app-card" data-reveal>
+          {item.image && <Pic name={item.image} alt={item.alt ?? item.label} />}
           <div class="app-card-overlay"><h4>{item.label}</h4></div>
         </div>
       ))}
