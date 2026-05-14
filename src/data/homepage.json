@@ -5,7 +5,7 @@
     "ogImage": "/media/logo.png"
   },
   "hero": {
-    "fallbackImage": "https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg",
+    "fallbackImage": "/media/natural-stone-hero_5.jpg",
     "youtubeId": "kQDQYFjJAgA",
     "heading": "Premium Turf &\nLandscaping Supplies\nin *Queen Creek, AZ*",
     "description": "Artificial turf, pavers, natural stone, lighting, and accessories — servicing and delivering to contractors and homeowners across all of Arizona.",
@@ -298,7 +298,7 @@
         "link": "/natural-stone"
       },
       {
-        "image": "/media/lighting-hardscape-lights.webp",
+        "image": "/media/lighting-wall-lights.webp",
         "alt": "Landscape Lighting",
         "heading": "Landscape Lighting",
         "body": "Illuminate your new yard with our Lumenex lighting brand. We stock wire lighting, path lights, spotlights, and transformers.",
