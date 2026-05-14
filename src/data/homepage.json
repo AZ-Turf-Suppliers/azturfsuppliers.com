@@ -1,17 +1,162 @@
 {
-  "hero_fallback_image": "https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg",
-  "contractors_card_image": "/media/natural-series-turf-2.jpg",
-  "homeowners_card_image": "/media/natural-series-turf-3.jpg",
-  "turf_card_image": "/media/turf-card.jpg",
-  "pavers_card_image": "/media/pavers-hero.jpg",
-  "stone_card_image": "/media/stone-card.jpg",
-  "lighting_card_image": "/media/lighting-flood-lights.webp",
-  "confidence_bg_image": "/media/winter-blend-1.jpg",
-  "contractor_detail_image": "/media/natural-series-turf-4.jpg",
-  "homeowner_detail_image": "/media/natural-series-turf-5.jpg",
-  "why_turf_image": "/media/natural-series-turf-6.jpg",
-  "pavers_other_image": "/media/pavers-other.jpg",
-  "stone_other_image": "/media/stone-other.jpg",
-  "lighting_other_image": "/media/lighting-hardscape-lights.webp",
-  "accessories_other_image": "/media/acc-camofill.png"
+  "meta": {
+    "title": "AZ Turf Suppliers | Premium Artificial Turf & Landscaping in Queen Creek, AZ",
+    "description": "Premium artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. 15-year warranty, lead-free, next-day delivery, contractor wholesale pricing.",
+    "ogImage": "/media/logo.png"
+  },
+  "hero": {
+    "fallbackImage": "https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg",
+    "youtubeId": "kQDQYFjJAgA",
+    "heading": "Premium Turf &\nLandscaping Supplies\nin *Queen Creek, AZ*",
+    "description": "Artificial turf, pavers, natural stone, lighting, and accessories — servicing and delivering to contractors and homeowners across all of Arizona.",
+    "subtext": "Call us directly at [480-739-3854](tel:4807393854) or stop by our Queen Creek showroom.",
+    "ctaPrimary": { "text": "Get A Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Shop Products", "link": "/artificial-turf" }
+  },
+  "ticker": [
+    "Price Match Guarantee",
+    "Next Day Delivery Guarantee",
+    "15-Minute In-Store Pickup",
+    "Nationwide Shipping Available",
+    "15-Year Manufacturer Warranty",
+    "100% Pet Friendly & Lead-Free"
+  ],
+  "serve": {
+    "label": "Who We Serve",
+    "heading": "Choose Your Path To Get Started",
+    "cards": [
+      {
+        "image": "/media/natural-series-turf-2.jpg",
+        "alt": "Contractors & Landscapers",
+        "heading": "Contractors & Landscapers",
+        "body": "Wholesale pricing, next-day delivery, and text-based ordering built for pros on the move.",
+        "linkText": "Learn More",
+        "link": "/contractors"
+      },
+      {
+        "image": "/media/natural-series-turf-3.jpg",
+        "alt": "DIY Homeowners",
+        "heading": "DIY Homeowners",
+        "body": "Expert guidance, free samples, and precise material calculations to get your project done right.",
+        "linkText": "Learn More",
+        "link": "/homeowners"
+      }
+    ]
+  },
+  "products": {
+    "label": "Our Products",
+    "heading": "Your One-Stop Shop for Outdoor Living in Queen Creek, Arizona",
+    "intro": "At AZ Turf Suppliers, we offer more than just turf — we provide everything you need to complete your outdoor space from start to finish. Our full range of products includes:",
+    "cards": [
+      { "image": "/media/turf-card.jpg",               "alt": "Artificial turf installation",  "heading": "Artificial Turf",     "subtitle": "Premium turf built for AZ heat",  "link": "/artificial-turf" },
+      { "image": "/media/pavers-hero.jpg",             "alt": "Paver installation",            "heading": "Pavers",              "subtitle": "Patios, borders & driveways",     "link": "/pavers" },
+      { "image": "/media/stone-card.jpg",              "alt": "Natural stone installation",    "heading": "Natural Stone",       "subtitle": "Travertine & limestone options",  "link": "/natural-stone" },
+      { "image": "/media/lighting-flood-lights.webp",  "alt": "Landscape lighting at night",   "heading": "Landscape Lighting",  "subtitle": "Lumenex lighting solutions",      "link": "/landscape-lighting" }
+    ],
+    "closing": "Whether you're a contractor managing multiple installs or a homeowner tackling a DIY project, we make it easy to source high-quality landscaping materials in [Queen Creek](/queen-creek) and throughout Arizona."
+  },
+  "confidence": {
+    "bgImage": "/media/winter-blend-1.jpg",
+    "heading": "Shop With Confidence",
+    "subheading": "Let us help create the yard of your dreams.",
+    "items": [
+      { "icon": "dollar",       "label": "Price Match Guarantee" },
+      { "icon": "truck",        "label": "Next Day Delivery Guarantee" },
+      { "icon": "clock",        "label": "15-Minute In-Store Pickup" },
+      { "icon": "globe",        "label": "Nationwide Shipping Available" },
+      { "icon": "shield-check", "label": "15-Year Manufacturer Warranty" },
+      { "icon": "paw",          "label": "100% Pet Friendly & Lead-Free" }
+    ]
+  },
+  "contractor": {
+    "label": "For Contractors",
+    "heading": "Built for Pros Who Move Fast",
+    "body": "We know that time is money. AZ Turf Suppliers is built around the way contractors actually work — fast, direct, and with zero friction.",
+    "image": "/media/natural-series-turf-4.jpg",
+    "imageAlt": "Contractor loading turf",
+    "items": [
+      { "icon": "dollar",   "heading": "Wholesale Pricing",       "body": "Exclusive rates for licensed contractors on all products." },
+      { "icon": "truck",    "heading": "Next-Day Delivery",       "body": "Guaranteed delivery directly to your job site." },
+      { "icon": "chat",     "heading": "Text-Based Ordering",     "body": "Text us your order — we'll process it immediately. No hold music." },
+      { "icon": "document", "heading": "Client-Ready Resources",  "body": "Downloadable spec sheets and product photos for your proposals." }
+    ],
+    "cta": { "text": "I'm a Contractor", "link": "/contractors" }
+  },
+  "homeowner": {
+    "label": "For Homeowners",
+    "heading": "Your Backyard Project, Made Easy",
+    "body": "Whether you're tackling your first DIY project or upgrading your outdoor space, we make the process simple from start to finish.",
+    "image": "/media/natural-series-turf-5.jpg",
+    "imageAlt": "Beautiful backyard with turf",
+    "items": [
+      { "icon": "user",       "heading": "Expert Guidance",            "body": "Bring your measurements — we'll calculate exactly what you need." },
+      { "icon": "storefront", "heading": "Visit Our Showroom",         "body": "Pick up free samples and see our displays in person." },
+      { "icon": "handshake",  "heading": "Installer Referral Network", "body": "Not DIYing? We'll connect you with trusted local pros." },
+      { "icon": "calculator", "heading": "Precise Calculations",       "body": "Get the right amount of materials — minimize waste, save money." }
+    ],
+    "cta": { "text": "I'm a DIYer", "link": "/homeowners" }
+  },
+  "whyTurf": {
+    "label": "We Love Artificial Turf",
+    "heading": "Here Are A Few Reasons Why You'll *Love It* Too",
+    "image": "/media/natural-series-turf-6.jpg",
+    "imageAlt": "Artificial Turf",
+    "benefits": [
+      { "icon": "dollar",       "heading": "Low Maintenance Costs",   "body": "You don't need to water, mow, or fertilize artificial turf, saving you both time & money!" },
+      { "icon": "paw",          "heading": "Safe For Children + Pets", "body": "Artificial turf is allergen-free, easy to clean, and comfortable to play on." },
+      { "icon": "sun",          "heading": "Looks Perfect Year-Round", "body": "Regardless of the season or weather changes, artificial turf stays green all year." },
+      { "icon": "shield-check", "heading": "Fewer Outdoor Pests",      "body": "Not only does artificial turf look great, but it also doesn't attract bugs like natural grass does." },
+      { "icon": "leaf",         "heading": "No Harmful Chemicals",     "body": "Unlike natural grass, artificial turf doesn't require treatment with pesticides and fertilizers!" },
+      { "icon": "trending-up",  "heading": "Great ROI",                "body": "Artificial turf can boost the value of your home + instantly improves curb appeal!" }
+    ]
+  },
+  "chooseTurf": {
+    "label": "Why Choose Turf",
+    "heading": "Artificial Turf Is A No-Brainer.",
+    "cards": [
+      { "icon": "water-drop",   "heading": "Lower Your Water Bill",         "body": "Artificial turf gives you the look of green grass without your water bill skyrocketing!" },
+      { "icon": "sun",          "heading": "Built for Arizona Heat",        "body": "With stellar durability and heat tolerance, artificial turf can handle all weather conditions." },
+      { "icon": "leaf",         "heading": "Drought-Proof Beauty",          "body": "Even through a severe drought, artificial turf will always look lush and beautiful!" },
+      { "icon": "paw",          "heading": "Family & Pet Friendly",         "body": "Your kids and pets will love playing on artificial turf — it's super comfortable to tumble around on." },
+      { "icon": "sparkle",      "heading": "Minimal Maintenance",           "body": "Say goodbye to mowing, fertilizing, and pulling weeds! Artificial turf requires very minimal maintenance." },
+      { "icon": "trending-up",  "heading": "Smart Long-Term Investment",    "body": "Artificial grass is a smart investment that will save you a lot of money and headache in the long run!" }
+    ]
+  },
+  "process": {
+    "label": "How It Works",
+    "heading": "Simple 3-Step Process",
+    "steps": [
+      { "number": "1", "heading": "Contact Us",           "body": "Over the phone or in-person. Be sure to bring measurements of the areas you want to lay turf — length and width in feet." },
+      { "number": "2", "heading": "Work With Our Team",   "body": "One of our sales representatives will help you choose the right turf for your project and will be able to give you a pricing quote!" },
+      { "number": "3", "heading": "Purchase Your Turf",   "body": "We have both delivery and pick-up options available, so choose whatever works best for you!" }
+    ]
+  },
+  "otherProducts": {
+    "label": "Beyond Turf",
+    "heading": "Our Other Products",
+    "cards": [
+      { "image": "/media/pavers-other.jpg",                 "alt": "Pavers & Hardscaping",  "heading": "Pavers & Hardscaping", "body": "We are a proud dealer of top-quality concrete pavers to complete your landscape borders, patios, and driveways. We feature brands like Phoenix Paver, Ackerstone, and Belgard.", "linkText": "View Pavers",       "link": "/pavers" },
+      { "image": "/media/stone-other.jpg",                  "alt": "Natural Stone",         "heading": "Natural Stone",        "body": "Elevate your pool decks and walkways with premium natural stone. Available in Travertine and Limestone, with various colors and sizes available.",                            "linkText": "View Stone",        "link": "/natural-stone" },
+      { "image": "/media/lighting-hardscape-lights.webp",   "alt": "Landscape Lighting",    "heading": "Landscape Lighting",   "body": "Illuminate your new yard with our Lumenex lighting brand. We stock wire lighting, path lights, spotlights, and transformers.",                                             "linkText": "View Lighting",     "link": "/landscape-lighting" },
+      { "image": "/media/acc-camofill.png",                 "alt": "Accessories",           "heading": "Accessories",          "body": "Everything you need for a perfect installation, including Camofill, silica sand, 15-year weed fabric, seam tape, turf glue, nails, and golf cups/flags.",                  "linkText": "View Accessories",  "link": "/accessories" }
+    ]
+  },
+  "testimonials": {
+    "label": "Words From Our Clients",
+    "heading": "What Our Customers Say",
+    "ctaText": "Read More Reviews",
+    "ctaLink": "/reviews"
+  },
+  "noBrainer": {
+    "heading": "Premium Artificial Turf & Landscaping Supplies in Queen Creek, AZ",
+    "body": "Ready to transform your outdoor space? Let's get started today.",
+    "ctaPrimary": { "text": "Get A Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Shop Products", "link": "/artificial-turf" }
+  },
+  "contact": {
+    "label": "Get In Touch",
+    "heading": "Have Questions? We'd Love To Help!",
+    "body": "Send us a message and we'll get in touch as soon as possible. Looking for a quicker response? Give us a call!",
+    "formHeading": "Send Us A Message"
+  }
 }
