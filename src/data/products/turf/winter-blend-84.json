@@ -26,6 +26,18 @@
     }
   },
   "mainImage": "winter-blend-84-above.png",
+  "gallery": [
+    "winter-blend-84-above.png",
+    "winter-blend-84-side.png",
+    "winter-blend-above.png",
+    "winter-blend-1.jpg",
+    "winter-blend-2.jpg",
+    "winter-blend-3.jpg",
+    "winter-blend-4.jpg",
+    "winter-blend-5.jpg",
+    "winter-blend-6.jpg",
+    "winter-blend-7.jpg"
+  ],
   "mainImageAlt": "Winter Blend 84",
   "detail": {
     "label": "Premium Artificial Turf",

@@ -762,19 +762,27 @@ function toggleFaq(btn) {
 // scroll reveal handled by Layout.astro
 
 // ─── TURF IMAGE LIGHTBOX ───
-document.querySelectorAll('.turf-card-img').forEach(function(cardImg) {
-  cardImg.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var img = this.querySelector('img');
-    if (!img) return;
-    var lb = document.createElement('div');
-    lb.className = 'turf-lightbox open';
-    lb.innerHTML = '<button class="turf-lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img src="' + img.src + '" alt="' + (img.alt || '') + '" loading="lazy" decoding="async">';
-    lb.addEventListener('click', function(ev) { if (ev.target === lb || ev.target.closest('.turf-lightbox-close')) lb.remove(); });
-    document.body.appendChild(lb);
-    document.addEventListener('keydown', function handler(ev) { if (ev.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', handler); } });
+// Rebound on every ViewTransitions navigation so the listeners attach to the
+// new page's .turf-card-img elements.
+function initTurfLightbox() {
+  document.querySelectorAll('.turf-card-img').forEach(function(cardImg) {
+    if ((cardImg as any).__lbBound) return;
+    (cardImg as any).__lbBound = true;
+    cardImg.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var img = (this as HTMLElement).querySelector('img') as HTMLImageElement | null;
+      if (!img) return;
+      var lb = document.createElement('div');
+      lb.className = 'turf-lightbox open';
+      lb.innerHTML = '<button class="turf-lightbox-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img src="' + img.src + '" alt="' + (img.alt || '') + '" loading="lazy" decoding="async">';
+      lb.addEventListener('click', function(ev) { if (ev.target === lb || (ev.target as HTMLElement).closest('.turf-lightbox-close')) lb.remove(); });
+      document.body.appendChild(lb);
+      document.addEventListener('keydown', function handler(ev) { if (ev.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', handler); } });
+    });
   });
-});
+}
+initTurfLightbox();
+document.addEventListener('astro:page-load', initTurfLightbox);
 </script>
 </Layout>

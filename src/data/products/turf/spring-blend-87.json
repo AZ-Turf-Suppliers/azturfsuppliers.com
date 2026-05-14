@@ -26,6 +26,12 @@
     }
   },
   "mainImage": "spring-blend-87-above.png",
+  "gallery": [
+    "spring-blend-87-above.png",
+    "spring-blend-87-side.png",
+    "spring-blend-1.jpg",
+    "spring-blend-2.jpg"
+  ],
   "mainImageAlt": "Spring Blend 87",
   "detail": {
     "label": "Premium Artificial Turf",
