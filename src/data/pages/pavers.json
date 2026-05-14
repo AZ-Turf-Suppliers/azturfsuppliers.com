@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Pavers & Hardscape | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Concrete pavers, travertine, and hardscape supplies for Arizona patios, driveways, and pool decks. Wholesale pricing, large inventory, next-day delivery from Queen Creek."
+  },
+  "heroImage": "/media/pavers-hero.jpg",
+  "hero": {
+    "eyebrow": "Hardscape Materials",
+    "heading": "Concrete *Pavers*",
+    "body": "Premium pavers for driveways, patios, pool decks, and more — with next-day delivery or 15-minute in-store pickup.",
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "3",         "label": "Premium Brands" },
+    { "value": "Next-Day",  "label": "Delivery Available" },
+    { "value": "15min",     "label": "In-Store Pickup" },
+    { "value": "Price",     "label": "Match Guarantee" }
+  ],
+  "intro": {
+    "label": "Pavers & Hardscape",
+    "heading": "Arizona's Top Paver Brands, One Location",
+    "body": "We supply professional contractors and DIY homeowners with premium pavers for driveways, patios, pool decks, and more. Stop by our Queen Creek showroom to see paver displays in person, or call for a quick material quote and next-day delivery.\n\nThe best way to choose pavers is to see them in person. Our team will help you build your material list and get you a quote on the spot.",
+    "ctaPrimary": { "text": "Get a Paver Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "brands": {
+    "label": "Brands We Carry",
+    "heading": "Arizona's Best Paver Manufacturers",
+    "items": [
+      { "name": "Phoenix Paver", "tag": "#1 in Arizona",   "heading": "Made Locally for Desert Climate",  "body": "Ranked the top paver manufacturer in Arizona. Made locally with fast availability and consistent quality — built specifically for the demands of the desert." },
+      { "name": "Acker-Stone",   "tag": "Design-Forward",  "heading": "Large-Format & Specialty Finishes", "body": "Design-forward collections including large-format slabs, specialty finishes, and permeable pavers. The go-to for modern, high-end hardscape design." },
+      { "name": "Belgard",       "tag": "Premium",         "heading": "Top-Tier Hardscape Products",       "body": "Premium hardscape products rounding out our full selection of top-tier materials. Trusted nationally, available locally through our Queen Creek showroom." }
+    ]
+  },
+  "applications": {
+    "label": "Common Applications",
+    "heading": "What You Can Build",
+    "items": [
+      { "label": "Driveways & Walkways" },
+      { "label": "Patios & Outdoor Kitchens" },
+      { "label": "Pool Decks" },
+      { "label": "Garden Walls & Fire Pits" }
+    ]
+  },
+  "sampleProducts": {
+    "label": "Our Inventory",
+    "heading": "Sample Products",
+    "items": [
+      { "heading": "Product 1", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
+      { "heading": "Product 2", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
+      { "heading": "Product 3", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
+      { "heading": "Product 4", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
+      { "heading": "Product 5", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" },
+      { "heading": "Product 6", "body": "Details coming soon", "linkText": "Get a Quote", "link": "/contact" }
+    ]
+  },
+  "why": {
+    "label": "The AZ Turf Advantage",
+    "heading": "Why Buy From Us",
+    "items": [
+      { "icon": "dollar",   "heading": "Wholesale Pricing",       "body": "Competitive rates with a price-match guarantee on local quotes. Bring us a competitor's invoice — we'll match it." },
+      { "icon": "truck",    "heading": "Fast Turnaround",         "body": "Next-day delivery directly to your job site or home. Or pick up in-store — we'll have your order ready in 15 minutes." },
+      { "icon": "location", "heading": "Everything in One Stop",  "body": "Pavers, artificial turf, landscape lighting, natural stone, and accessories — grab everything in a single trip to our Queen Creek showroom." }
+    ]
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "See Our Paver Displays In Person",
+    "body": "Stop by our Queen Creek showroom to touch and compare pavers from Phoenix Paver, Acker-Stone, and Belgard. We'll help you build your material list and quote on the spot.",
+    "buttons": [
+      { "text": "Get a Free Quote", "link": "/contact",   "style": "primary" },
+      { "text": "Get Directions",   "link": "/locations", "style": "outline" }
+    ]
+  }
+}

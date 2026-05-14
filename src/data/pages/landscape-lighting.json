@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Landscape Lighting | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Low-voltage landscape lighting for Arizona yards: path lights, flood lights, transformers, and accessories. Designed to handle desert heat. Stocked in Queen Creek, AZ."
+  },
+  "heroImage": "/media/lighting-flood-lights.webp",
+  "hero": {
+    "eyebrow": "Lumenex Lighting",
+    "heading": "Landscape *Lighting*",
+    "body": "Professional-grade, low-voltage landscape lighting built for Arizona. In stock and ready for pickup or next-day delivery.",
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "Low-V",     "label": "Safe & Energy Efficient" },
+    { "value": "LED",       "label": "Long-Life Technology" },
+    { "value": "75–600W",   "label": "Transformer Range" },
+    { "value": "Next-Day",  "label": "Delivery Available" }
+  ],
+  "intro": {
+    "label": "Professional Landscape Lighting",
+    "heading": "Illuminate Your Outdoor Space with Lumenex",
+    "body": "Cheap solar fixtures fade, flicker, and fail. Lumenex is a professional-grade, low-voltage lighting line trusted by Arizona landscape contractors and homeowners. We stock everything you need to light up pathways, hardscapes, trees, and architectural features.\n\nHardwired low-voltage systems deliver consistent illumination night after night — no batteries, no disappointments. Heavy-duty aluminum and brass construction holds up against Arizona's extreme heat and UV exposure.",
+    "ctaPrimary": { "text": "Get a Lighting Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" },
+    "brandBadge": "Authorized Dealer"
+  },
+  "whyWire": {
+    "label": "Why Go Hardwired",
+    "heading": "Why Wire Lighting — Not Solar",
+    "body": "Solar looks cheap because it is. Here's why professional landscape contractors always specify low-voltage hardwired systems.",
+    "items": [
+      { "icon": "sun",       "heading": "Built for Arizona",      "body": "Heavy-duty aluminum and brass construction engineered to handle extreme heat and relentless UV exposure without degradation." },
+      { "icon": "lightning", "heading": "Energy-Efficient LED",   "body": "Brilliant light output at a fraction of the operating cost. LED technology means longer bulb life and lower energy bills." },
+      { "icon": "clock",     "heading": "Fully Controllable",     "body": "Pair with digital timers, mechanical timers, photocells, or magnetic dimmers for complete automation. Set it and forget it." }
+    ]
+  },
+  "products": {
+    "label": "Our Collection",
+    "heading": "Lumenex Lighting Products",
+    "items": [
+      { "image": "/media/lighting-path-lights.webp",      "alt": "Lumenex path lights illuminating a walkway", "heading": "Path & Area Lights",         "body": "Illuminate walkways, garden beds, and turf borders with clean, ground-level light. Available in aluminum and brass with multiple finish options.",      "linkText": "Get a Quote", "link": "/contact" },
+      { "image": "/media/lighting-spot-lights.webp",      "alt": "Lumenex spotlights on a landscape",          "heading": "Spotlights & Flood Lights",  "body": "Highlight trees, walls, and architectural features. Choose from aluminum and brass spotlights, or go big with high-output flood lights for large areas.","linkText": "Get a Quote", "link": "/contact" },
+      { "image": "/media/lighting-hardscape-lights.webp", "alt": "Lumenex hardscape lights in a paver wall",   "heading": "Hardscape & Well Lights",    "body": "Integrate lighting directly into paver walls, steps, fire pits, and pool decks. Available in multiple sizes with rotatable and replaceable module options.","linkText": "Get a Quote", "link": "/contact" },
+      { "image": "/media/lighting-wall-lights.webp",      "alt": "Lumenex wall and deck lights",               "heading": "Wall, Deck & Flood Lights",  "body": "Direct burial cable, waterproof connectors, wall-mount fixtures, deck lights, and mounting hardware. Everything you need for a clean, reliable installation.","linkText": "Get a Quote", "link": "/contact" }
+    ]
+  },
+  "transformers": {
+    "label": "Power & Control",
+    "heading": "Transformers & Installation",
+    "body": "Power your entire lighting system with confidence. We carry Lumenex transformers from 75W to 600W — enough to run anything from a simple path layout to a full commercial installation.",
+    "bullets": [
+      "**Built-in timers** — Mechanical and digital options for hands-free scheduling",
+      "**Photocell compatible** — Auto on at dusk, off at dawn",
+      "**Magnetic dimmers** — Dial in the exact brightness for any zone",
+      "**Multi-tap outputs** — Run balanced voltage across long wire runs"
+    ],
+    "bodyFooter": "Not sure what size transformer you need? Our team will help you calculate your wattage and build your exact material list — no guesswork.",
+    "cta": { "text": "Get Help Planning", "link": "/contact" }
+  },
+  "contractorCallout": {
+    "heading": "Contractor Pricing Available",
+    "body": "We offer exclusive wholesale pricing tiers for landscape contractors. Call or text to set up your account.",
+    "cta": { "text": "Learn About Contractor Pricing", "link": "/contractors" }
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "See Our Full Lighting Collection In Person",
+    "body": "Stop by our Queen Creek showroom to see every fixture, test light output, and get expert help planning your installation.",
+    "buttons": [
+      { "text": "Get a Free Quote", "link": "/contact",   "style": "primary" },
+      { "text": "Get Directions",   "link": "/locations", "style": "outline" }
+    ]
+  }
+}

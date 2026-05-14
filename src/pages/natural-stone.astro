@@ -1,14 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
+import Icon from '../components/Icon.astro';
+import { renderInline } from '../utils/inline-markdown';
+import page from '../data/pages/natural-stone.json';
+
+const introParas = page.intro.body.split('\n\n');
 ---
 
 <Layout
-  title="Natural Stone | AZ Turf Suppliers — Queen Creek, AZ"
-  description="Travertine, flagstone, and natural-stone pavers for Arizona patios, pool decks, and walkways. Wholesale pricing and East Valley delivery from our Queen Creek yard."
+  title={page.meta.title}
+  description={page.meta.description}
 >
+<style is:global set:html={`.page-hero::before { background-image: url("${page.heroImage}") !important; }`} />
 <style is:global>
-.page-hero::before { background-image: url("/media/natural-stone-hero.jpg") !important; }
+/* hero image is injected via the inline <style is:global> tag below */
 /* ─── INTRO ─── */
 .stone-intro { padding: 88px 0; background: var(--white); }
 .stone-intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -175,12 +181,12 @@ import Pic from '../components/Pic.astro';
 <section class="page-hero">
   <div class="container">
     <div class="page-hero-content">
-      <div class="page-hero-eyebrow">Hardscape Materials</div>
-      <h1>Natural <em>Stone</em></h1>
-      <p>Travertine, flagstone, and natural stone for patios, walkways, pool decks, and accent walls — sourced for Arizona landscapes.</p>
+      <div class="page-hero-eyebrow">{page.hero.eyebrow}</div>
+      <h1 set:html={renderInline(page.hero.heading)} />
+      <p>{page.hero.body}</p>
       <div class="page-hero-btns">
-        <a href="/contact" class="btn btn-primary">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="tel:4807393854" class="btn btn-outline">Call 480-739-3854</a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
   </div>
@@ -189,22 +195,12 @@ import Pic from '../components/Pic.astro';
 <!-- ═══ STAT BAR ═══ -->
 <div class="stat-bar">
   <div class="container stat-bar-inner">
-    <div class="stat-item">
-      <div class="stat-num">Natural</div>
-      <div class="stat-label">Sourced Stone</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Next<span>-Day</span></div>
-      <div class="stat-label">Delivery Available</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">15<span>min</span></div>
-      <div class="stat-label">In-Store Pickup</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Price</div>
-      <div class="stat-label">Match Guarantee</div>
-    </div>
+    {page.statBar.map((item) => (
+      <div class="stat-item">
+        <div class="stat-num">{item.value}</div>
+        <div class="stat-label">{item.label}</div>
+      </div>
+    ))}
   </div>
 </div>
 
@@ -213,13 +209,12 @@ import Pic from '../components/Pic.astro';
   <div class="container">
     <div class="stone-intro-inner">
       <div class="stone-intro-content" data-reveal>
-        <div class="section-label">Natural Stone Collection</div>
-        <h2>Real Stone for Real Arizona Landscapes</h2>
-        <p>Nothing matches the look and feel of natural stone. We carry travertine pavers, flagstone, and natural stone in a variety of cuts, finishes, and colors — all suited for Arizona's climate and ready for pickup or next-day delivery.</p>
-        <p>Whether you're building a patio, lining a pool deck, or creating a statement walkway, natural stone adds a level of character and permanence that manufactured materials can't replicate.</p>
+        <div class="section-label">{page.intro.label}</div>
+        <h2 set:html={renderInline(page.intro.heading)} />
+        {introParas.map((para) => <p set:html={renderInline(para)} />)}
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-          <a href="/contact" class="btn btn-primary">Get a Stone Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="tel:4807393854" class="btn btn-dark">Call 480-739-3854</a>
+          <a href={page.intro.ctaPrimary.link} class="btn btn-primary">{page.intro.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.intro.ctaSecondary.link} class="btn btn-dark">{page.intro.ctaSecondary.text}</a>
         </div>
       </div>
       <div class="stone-intro-img" data-reveal><Pic name="stone.jpg" alt="Natural stone display" /></div>
@@ -231,8 +226,8 @@ import Pic from '../components/Pic.astro';
 <section class="stone-types">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">What We Carry</div>
-      <h2>Stone Types</h2>
+      <div class="section-label centered">{page.stoneTypes.label}</div>
+      <h2 set:html={renderInline(page.stoneTypes.heading)} />
     </div>
     <div class="stone-grid">
       <div class="stone-card" data-reveal>
@@ -243,9 +238,9 @@ import Pic from '../components/Pic.astro';
           <Pic name="Porcini.png" alt="Porcini Travertine" />
         </div>
         <div class="stone-card-body">
-          <h3>Travertine — Turkey</h3>
-          <p>Six color families — Walnut (Noce), Tuscany Beige, Tuscany Ivory, Tuscany Silver, Porcini, and Scabas. All tumbled 3cm pavers with matching coping. A natural favorite for Arizona pool decks and patios.</p>
-          <a href="#pricing" class="btn btn-dark">View Inventory</a>
+          <h3>{page.stoneTypes.items[0].heading}</h3>
+          <p set:html={renderInline(page.stoneTypes.items[0].body)} />
+          <a href={page.stoneTypes.items[0].link} class="btn btn-dark">{page.stoneTypes.items[0].linkText}</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
@@ -256,17 +251,17 @@ import Pic from '../components/Pic.astro';
           <Pic name="Mayra White.png" alt="Mayra White Limestone" />
         </div>
         <div class="stone-card-body">
-          <h3>Limestone — Egypt &amp; Turkey</h3>
-          <p>Greecian series from Egypt (Silver, Antico, Cream, Marbella) and Mayra White from Turkey. Tumbled 3cm with coping options. Clean, light tones that pair beautifully with turf and modern hardscape.</p>
-          <a href="#pricing" class="btn btn-dark">View Inventory</a>
+          <h3>{page.stoneTypes.items[1].heading}</h3>
+          <p set:html={renderInline(page.stoneTypes.items[1].body)} />
+          <a href={page.stoneTypes.items[1].link} class="btn btn-dark">{page.stoneTypes.items[1].linkText}</a>
         </div>
       </div>
       <div class="stone-card" data-reveal>
         <div class="stone-card-img"><Pic name="Sierra White.png" alt="Sierra White Marble" /></div>
         <div class="stone-card-body">
-          <h3>Marble — Turkey</h3>
-          <p>Sierra White marble in a sandblasted/straight finish — crisp, bright, and slip-resistant. Available in small and large format sizes with matching coping for a seamless high-end look.</p>
-          <a href="#pricing" class="btn btn-dark">View Inventory</a>
+          <h3>{page.stoneTypes.items[2].heading}</h3>
+          <p set:html={renderInline(page.stoneTypes.items[2].body)} />
+          <a href={page.stoneTypes.items[2].link} class="btn btn-dark">{page.stoneTypes.items[2].linkText}</a>
         </div>
       </div>
     </div>
@@ -277,38 +272,19 @@ import Pic from '../components/Pic.astro';
 <section class="stone-apps">
   <div class="container">
     <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">Common Applications</div>
-      <h2>What You Can Build with Natural Stone</h2>
+      <div class="section-label centered">{page.applications.label}</div>
+      <h2 set:html={renderInline(page.applications.heading)} />
     </div>
     <div class="stone-apps-grid">
-      <div class="stone-app" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <div>
-          <h4>Patios &amp; Outdoor Living</h4>
-          <p>Travertine and flagstone patios create inviting outdoor rooms. Naturally cool surfaces make them ideal for Arizona's summer heat.</p>
+      {page.applications.items.map((app) => (
+        <div class="stone-app" data-reveal>
+          <Icon name={app.icon as any} size={28} />
+          <div>
+            <h4 set:html={renderInline(app.heading)} />
+            <p set:html={renderInline(app.body)} />
+          </div>
         </div>
-      </div>
-      <div class="stone-app" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        <div>
-          <h4>Pool Decks &amp; Coping</h4>
-          <p>Travertine is a contractor favorite for pool surrounds — slip-resistant, heat-resistant, and naturally elegant. Available with matching coping and bullnose edges.</p>
-        </div>
-      </div>
-      <div class="stone-app" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        <div>
-          <h4>Walkways &amp; Stepping Stones</h4>
-          <p>Flagstone stepping stones through turf or gravel create a natural, organic flow through your landscape design.</p>
-        </div>
-      </div>
-      <div class="stone-app" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-        <div>
-          <h4>Accent Walls &amp; Fire Features</h4>
-          <p>Stacked stone veneers bring texture and depth to outdoor fireplaces, fire pits, kitchen facades, and garden retaining walls.</p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -666,29 +642,19 @@ import Pic from '../components/Pic.astro';
   <div class="container">
     <div class="stone-adv-inner">
       <div data-reveal>
-        <div class="section-label inverted">The Natural Advantage</div>
+        <div class="section-label inverted">{page.advantage.label}</div>
         <div class="stone-adv-content">
-          <h2>Why Choose Natural Stone</h2>
-          <p>Natural stone isn't just a material choice — it's an investment in lasting beauty. Every piece is unique, and the character only deepens with time.</p>
+          <h2 set:html={renderInline(page.advantage.heading)} />
+          <p set:html={renderInline(page.advantage.body)} />
           <div class="stone-adv-list">
-            <div class="stone-adv-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Naturally cool</strong> — Travertine stays comfortable underfoot even in Arizona's peak summer heat</p>
-            </div>
-            <div class="stone-adv-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>One-of-a-kind</strong> — Every stone is unique with natural color variation and texture</p>
-            </div>
-            <div class="stone-adv-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Lifetime durability</strong> — Natural stone outlasts manufactured alternatives by decades</p>
-            </div>
-            <div class="stone-adv-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <p><strong>Adds property value</strong> — Stone hardscaping is one of the highest-ROI exterior upgrades</p>
-            </div>
+            {page.advantage.bullets.map((bullet) => (
+              <div class="stone-adv-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <p set:html={renderInline(bullet)} />
+              </div>
+            ))}
           </div>
-          <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.advantage.cta.link} class="btn btn-primary">{page.advantage.cta.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
       <div class="stone-adv-img" data-reveal>
@@ -701,12 +667,18 @@ import Pic from '../components/Pic.astro';
 <!-- ═══ CTA ═══ -->
 <section class="cta-section">
   <div class="container cta-inner">
-    <div class="section-label centered inverted">Visit Our Showroom</div>
-    <h2>See &amp; Feel Our Stone Collection</h2>
-    <p>The best way to choose natural stone is to see it in person. Visit our Queen Creek showroom and our team will help you select the right material for your project.</p>
+    <div class="section-label centered inverted">{page.cta.label}</div>
+    <h2 set:html={renderInline(page.cta.heading)} />
+    <p set:html={renderInline(page.cta.body)} />
     <div class="cta-btns">
-      <a href="/contact" class="btn btn-primary">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="/locations" class="btn btn-outline">Get Directions</a>
+      {page.cta.buttons.map((btn) => (
+        <a href={btn.link} class={`btn btn-${btn.style}`}>
+          {btn.text}
+          {btn.style === 'primary' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          )}
+        </a>
+      ))}
     </div>
   </div>
 </section>

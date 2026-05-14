@@ -688,6 +688,471 @@ collections:
                   options: [primary, dark, outline] }
 
   # ─────────────────────────────────────────────────────────────────────
+  # Category & Marketing Pages: one file per page. Schemas vary by page
+  # because each page has a different structure. Pricing tables and
+  # product catalogs that live in code are not editable here — only the
+  # surrounding marketing copy.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: category_pages
+    label: Category Pages
+    files:
+      # ─── ACCESSORIES ───
+      - name: accessories
+        label: 'Accessories'
+        file: src/data/pages/accessories.json
+        delete: false
+        fields:
+          - { name: meta,    label: SEO / Meta, widget: object, collapsed: false, fields: [
+              { name: title,       label: Page Title,       widget: string },
+              { name: description, label: Meta Description, widget: text },
+            ] }
+          - { name: hero,    label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow,  label: Eyebrow, widget: string },
+              { name: heading,  label: 'Heading (use *italic*)', widget: string },
+              { name: body,     label: Body, widget: text },
+              { name: ctaPrimary,   label: Primary Button, widget: object, fields: [
+                { name: text, label: Button Text, widget: string },
+                { name: link, label: Button Link, widget: string },
+              ] },
+              { name: ctaSecondary, label: Secondary Button, widget: object, fields: [
+                { name: text, label: Button Text, widget: string },
+                { name: link, label: Button Link, widget: string },
+              ] },
+            ] }
+          - name: products
+            label: Products Section
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,    label: Section Label,    widget: string }
+              - { name: heading,  label: Section Heading,  widget: string }
+              - { name: body,     label: Body,             widget: markdown,
+                  modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+              - name: items
+                label: Accessory Items
+                widget: list
+                summary: '{{name}} — {{price}}'
+                fields:
+                  - { name: name,        label: Name,        widget: string }
+                  - { name: image,       label: Image File,  widget: image }
+                  - { name: price,       label: Price,       widget: string }
+                  - { name: description, label: Description, widget: markdown,
+                      modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+              - { name: note, label: Footer Note, widget: markdown,
+                  modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - { name: cta, label: Bottom CTA, widget: object, collapsed: true, fields: [
+              { name: label,   label: Section Label,    widget: string },
+              { name: heading, label: Section Heading,  widget: string },
+              { name: body,    label: Body, widget: text },
+              { name: buttons, label: Buttons, widget: list, fields: [
+                { name: text,  label: Text,  widget: string },
+                { name: link,  label: Link,  widget: string },
+                { name: style, label: Style, widget: select, options: [primary, dark, outline] },
+              ] },
+            ] }
+
+      # ─── PRODUCTS OVERVIEW ───
+      - name: products_overview
+        label: 'Products (Catalog Overview)'
+        file: src/data/pages/products.json
+        delete: false
+        fields:
+          - { name: meta, label: SEO / Meta, widget: object, collapsed: false, fields: [
+              { name: title,       label: Page Title,       widget: string },
+              { name: description, label: Meta Description, widget: text },
+            ] }
+          - { name: hero, label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow,  label: Eyebrow, widget: string },
+              { name: heading,  label: Heading, widget: string },
+              { name: body,     label: Body,    widget: text },
+              { name: ctaPrimary,   label: Primary Button, widget: object, fields: [
+                { name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, label: Secondary Button, widget: object, fields: [
+                { name: text, widget: string }, { name: link, widget: string }] },
+            ] }
+          - name: categories
+            label: Category Cards
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   label: Section Label,    widget: string }
+              - { name: heading, label: Section Heading,  widget: string }
+              - { name: body,    label: Body,             widget: text }
+              - name: items
+                label: Category Cards
+                widget: list
+                summary: '{{eyebrow}} — {{heading}}'
+                fields:
+                  - { name: image,     label: Image,     widget: image }
+                  - { name: imageAlt,  label: Image Alt, widget: string }
+                  - { name: eyebrow,   label: Eyebrow,   widget: string }
+                  - { name: heading,   label: Heading,   widget: string }
+                  - { name: body,      label: Body,      widget: markdown,
+                      modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+                  - { name: linkText,  label: Link Text, widget: string }
+                  - { name: link,      label: Link URL,  widget: string }
+          - { name: cta, label: Bottom CTA, widget: object, collapsed: true, fields: [
+              { name: label,   widget: string },
+              { name: heading, widget: string },
+              { name: body,    widget: text },
+              { name: buttons, widget: list, fields: [
+                { name: text,  widget: string },
+                { name: link,  widget: string },
+                { name: style, widget: select, options: [primary, dark, outline] }] }] }
+
+      # ─── PAVERS ───
+      - name: pavers
+        label: 'Pavers'
+        file: src/data/pages/pavers.json
+        delete: false
+        fields:
+          - { name: meta, label: SEO / Meta, widget: object, collapsed: false, fields: [
+              { name: title, widget: string }, { name: description, widget: text }] }
+          - { name: heroImage, label: Hero Background Image, widget: image }
+          - { name: hero, label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow, widget: string },
+              { name: heading, label: 'Heading (use *italic*)', widget: string },
+              { name: body, widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - { name: statBar, label: Stat Bar, widget: list, collapsed: true, fields: [
+              { name: value, widget: string }, { name: label, widget: string }] }
+          - { name: intro, label: 'Intro Section', widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, label: 'Body (use blank line for paragraph break)', widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - name: brands
+            label: 'Brands Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{name}}'
+                fields:
+                  - { name: name,    label: 'Brand Name', widget: string }
+                  - { name: tag,     label: 'Brand Tag',  widget: string }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: applications
+            label: 'Applications Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: items, widget: list, fields: [{ name: label, widget: string }] }
+          - name: sampleProducts
+            label: 'Sample Products'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: body,    widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+                  - { name: linkText, widget: string }
+                  - { name: link,     widget: string }
+          - name: why
+            label: 'Why Section (dark)'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: icon, widget: select, options: *icon_options }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - { name: cta, label: Bottom CTA, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, widget: text },
+              { name: buttons, widget: list, fields: [
+                { name: text, widget: string },
+                { name: link, widget: string },
+                { name: style, widget: select, options: [primary, dark, outline] }] }] }
+
+      # ─── NATURAL STONE ───
+      - name: natural_stone
+        label: 'Natural Stone'
+        file: src/data/pages/natural-stone.json
+        delete: false
+        fields:
+          - { name: meta, widget: object, collapsed: false, fields: [
+              { name: title, widget: string }, { name: description, widget: text }] }
+          - { name: heroImage, widget: image }
+          - { name: hero, label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow, widget: string },
+              { name: heading, label: 'Heading (use *italic*)', widget: string },
+              { name: body, widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - { name: statBar, widget: list, collapsed: true, fields: [
+              { name: value, widget: string }, { name: label, widget: string }] }
+          - { name: intro, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, label: 'Body (use blank line for paragraph break)', widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - name: stoneTypes
+            label: 'Stone Types Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+                  - { name: linkText, widget: string }
+                  - { name: link,     widget: string }
+          - name: applications
+            label: 'Applications Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: icon, widget: select, options: *icon_options }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: advantage
+            label: '"Why Natural Stone" Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: body, widget: text }
+              - { name: bullets, label: 'Bullet Points (use **bold** for the lead phrase)', widget: list, field: { name: bullet, widget: string } }
+              - { name: cta, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }
+          - { name: cta, label: Bottom CTA, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, widget: text },
+              { name: buttons, widget: list, fields: [
+                { name: text, widget: string },
+                { name: link, widget: string },
+                { name: style, widget: select, options: [primary, dark, outline] }] }] }
+
+      # ─── LANDSCAPE LIGHTING ───
+      - name: landscape_lighting
+        label: 'Landscape Lighting'
+        file: src/data/pages/landscape-lighting.json
+        delete: false
+        fields:
+          - { name: meta, widget: object, collapsed: false, fields: [
+              { name: title, widget: string }, { name: description, widget: text }] }
+          - { name: heroImage, widget: image }
+          - { name: hero, label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow, widget: string },
+              { name: heading, label: 'Heading (use *italic*)', widget: string },
+              { name: body, widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - { name: statBar, widget: list, collapsed: true, fields: [
+              { name: value, widget: string }, { name: label, widget: string }] }
+          - { name: intro, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, label: 'Body (use blank line for paragraph break)', widget: text },
+              { name: brandBadge, label: 'Authorized Dealer Badge', widget: string },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - name: whyWire
+            label: '"Why Wire" Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: body, widget: text }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: icon, widget: select, options: *icon_options }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: products
+            label: 'Product Categories Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: image, widget: image }
+                  - { name: alt, widget: string }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+                  - { name: linkText, widget: string }
+                  - { name: link, widget: string }
+          - name: transformers
+            label: '"Transformers & Installation" Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: body, widget: text }
+              - { name: bullets, label: 'Bullet Points (use **bold** for the lead phrase)', widget: list, field: { name: bullet, widget: string } }
+              - { name: bodyFooter, label: 'Closing Paragraph', widget: text }
+              - { name: cta, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }
+          - name: contractorCallout
+            label: 'Contractor Callout Strip'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: heading, widget: string }
+              - { name: body, widget: text }
+              - { name: cta, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }
+          - { name: cta, label: Bottom CTA, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: body, widget: text },
+              { name: buttons, widget: list, fields: [
+                { name: text, widget: string },
+                { name: link, widget: string },
+                { name: style, widget: select, options: [primary, dark, outline] }] }] }
+
+      # ─── ARTIFICIAL TURF (overview) ───
+      - name: artificial_turf
+        label: 'Artificial Turf (Overview)'
+        file: src/data/pages/artificial-turf.json
+        delete: false
+        fields:
+          - { name: meta, widget: object, collapsed: false, fields: [
+              { name: title, widget: string }, { name: description, widget: text }] }
+          - { name: hero, label: Hero, widget: object, collapsed: true, fields: [
+              { name: eyebrow, widget: string },
+              { name: heading, label: 'Heading (use *italic*)', widget: string },
+              { name: body, widget: text },
+              { name: ctaPrimary,   widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] },
+              { name: ctaSecondary, widget: object, fields: [{ name: text, widget: string }, { name: link, widget: string }] }] }
+          - { name: statBar, widget: list, collapsed: true, fields: [
+              { name: value, widget: string }, { name: label, widget: string }] }
+          - name: products
+            label: 'Product Cards Section'
+            widget: object
+            collapsed: true
+            hint: |
+              The detailed turf product pages (e.g. /bermuda-blend-70) live in
+              "Turf Products" — edit specs and pricing there. This section is
+              the overview list shown on the /artificial-turf page.
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: body, widget: text }
+              - { name: note, label: 'Note Bar (under heading)', widget: string }
+              - name: cards
+                widget: list
+                summary: '{{name}} — {{price}}'
+                fields:
+                  - { name: name,        widget: string }
+                  - { name: image,       widget: image }
+                  - { name: alt,         widget: string }
+                  - { name: faceWeight,  widget: string }
+                  - { name: pileHeight,  widget: string }
+                  - { name: color,       widget: string }
+                  - { name: rollWidth,   widget: string }
+                  - { name: price,       widget: string }
+                  - { name: priceUnit,   widget: string }
+                  - { name: detailsLink, widget: string }
+                  - name: badge
+                    label: 'Badge (optional)'
+                    widget: object
+                    required: false
+                    fields:
+                      - { name: text, widget: string }
+                      - { name: style, label: 'Style (popular/green/blank)', widget: string, required: false }
+          - { name: testimonials, label: Testimonials Section, widget: object, collapsed: true, fields: [
+              { name: label, widget: string },
+              { name: heading, widget: string },
+              { name: ctaText, widget: string },
+              { name: ctaLink, widget: string }] }
+          - name: whyLove
+            label: '"Why Love" Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{alt}}'
+                fields:
+                  - { name: logo, widget: image }
+                  - { name: alt,  widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: azDifference
+            label: '"AZ Turf Difference" Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{heading}}'
+                fields:
+                  - { name: icon, widget: select, options: *icon_options }
+                  - { name: heading, widget: string }
+                  - { name: body, widget: markdown, modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: faq
+            label: 'FAQ Section (also generates Google FAQ rich result)'
+            widget: object
+            collapsed: true
+            hint: 'Each Q&A here also appears in the FAQPage JSON-LD for Google search results.'
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - name: items
+                widget: list
+                summary: '{{question}}'
+                fields:
+                  - { name: question, widget: string }
+                  - { name: answer,   widget: text }
+          - name: cta
+            label: 'Bottom CTA Section'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,   widget: string }
+              - { name: heading, widget: string }
+              - { name: body,    widget: text }
+              - name: buttons
+                widget: list
+                fields:
+                  - { name: text,  widget: string }
+                  - { name: link,  widget: string }
+                  - { name: style, widget: select, options: [primary, dark, outline] }
+              - { name: footnote, label: 'Footnote (small text under buttons)', widget: string }
+
+  # ─────────────────────────────────────────────────────────────────────
   # Redirects: edited as a friendly form. The build step (Astro integration
   # `cloudflareRedirects` in astro.config.mjs) compiles this JSON into a
   # /_redirects file at the deploy root, which Cloudflare Pages reads

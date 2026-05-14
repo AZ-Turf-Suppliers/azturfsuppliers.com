@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Natural Stone | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Travertine, flagstone, and natural-stone pavers for Arizona patios, pool decks, and walkways. Wholesale pricing and East Valley delivery from our Queen Creek yard."
+  },
+  "heroImage": "/media/natural-stone-hero.jpg",
+  "hero": {
+    "eyebrow": "Hardscape Materials",
+    "heading": "Natural *Stone*",
+    "body": "Travertine, flagstone, and natural stone for patios, walkways, pool decks, and accent walls — sourced for Arizona landscapes.",
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "Natural",   "label": "Sourced Stone" },
+    { "value": "Next-Day",  "label": "Delivery Available" },
+    { "value": "15min",     "label": "In-Store Pickup" },
+    { "value": "Price",     "label": "Match Guarantee" }
+  ],
+  "intro": {
+    "label": "Natural Stone Collection",
+    "heading": "Real Stone for Real Arizona Landscapes",
+    "body": "Nothing matches the look and feel of natural stone. We carry travertine pavers, flagstone, and natural stone in a variety of cuts, finishes, and colors — all suited for Arizona's climate and ready for pickup or next-day delivery.\n\nWhether you're building a patio, lining a pool deck, or creating a statement walkway, natural stone adds a level of character and permanence that manufactured materials can't replicate.",
+    "ctaPrimary": { "text": "Get a Stone Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "stoneTypes": {
+    "label": "What We Carry",
+    "heading": "Stone Types",
+    "items": [
+      {
+        "heading": "Travertine — Turkey",
+        "body": "Six color families — Walnut (Noce), Tuscany Beige, Tuscany Ivory, Tuscany Silver, Porcini, and Scabas. All tumbled 3cm pavers with matching coping. A natural favorite for Arizona pool decks and patios.",
+        "linkText": "View Inventory",
+        "link": "#pricing"
+      },
+      {
+        "heading": "Limestone — Egypt & Turkey",
+        "body": "Greecian series from Egypt (Silver, Antico, Cream, Marbella) and Mayra White from Turkey. Tumbled 3cm with coping options. Clean, light tones that pair beautifully with turf and modern hardscape.",
+        "linkText": "View Inventory",
+        "link": "#pricing"
+      },
+      {
+        "heading": "Marble — Turkey",
+        "body": "Sierra White marble in a sandblasted/straight finish — crisp, bright, and slip-resistant. Available in small and large format sizes with matching coping for a seamless high-end look.",
+        "linkText": "View Inventory",
+        "link": "#pricing"
+      }
+    ]
+  },
+  "applications": {
+    "label": "Common Applications",
+    "heading": "What You Can Build with Natural Stone",
+    "items": [
+      { "icon": "home",   "heading": "Patios & Outdoor Living",         "body": "Travertine and flagstone patios create inviting outdoor rooms. Naturally cool surfaces make them ideal for Arizona's summer heat." },
+      { "icon": "shield", "heading": "Pool Decks & Coping",             "body": "Travertine is a contractor favorite for pool surrounds — slip-resistant, heat-resistant, and naturally elegant. Available with matching coping and bullnose edges." },
+      { "icon": "leaf",   "heading": "Walkways & Stepping Stones",      "body": "Flagstone stepping stones through turf or gravel create a natural, organic flow through your landscape design." },
+      { "icon": "squares","heading": "Accent Walls & Fire Features",    "body": "Stacked stone veneers bring texture and depth to outdoor fireplaces, fire pits, kitchen facades, and garden retaining walls." }
+    ]
+  },
+  "advantage": {
+    "label": "The Natural Advantage",
+    "heading": "Why Choose Natural Stone",
+    "body": "Natural stone isn't just a material choice — it's an investment in lasting beauty. Every piece is unique, and the character only deepens with time.",
+    "bullets": [
+      "**Naturally cool** — Travertine stays comfortable underfoot even in Arizona's peak summer heat",
+      "**One-of-a-kind** — Every stone is unique with natural color variation and texture",
+      "**Lifetime durability** — Natural stone outlasts manufactured alternatives by decades",
+      "**Adds property value** — Stone hardscaping is one of the highest-ROI exterior upgrades"
+    ],
+    "cta": { "text": "Get a Free Quote", "link": "/contact" }
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "See & Feel Our Stone Collection",
+    "body": "The best way to choose natural stone is to see it in person. Visit our Queen Creek showroom and our team will help you select the right material for your project.",
+    "buttons": [
+      { "text": "Get a Free Quote", "link": "/contact",   "style": "primary" },
+      { "text": "Get Directions",   "link": "/locations", "style": "outline" }
+    ]
+  }
+}
