@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Natural Blend 84 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
+    "description": "Natural Blend 84 artificial turf \u2014 $1.50/sqft. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping. In stock in Queen Creek, AZ.",
+    "ogImage": "/media/natural-blend-84-side.png"
+  },
+  "productSchema": {
+    "name": "Natural Blend 84 Artificial Turf",
+    "image": "/media/natural-blend-84-side.png",
+    "description": "Natural Blend 84 artificial turf. 84oz face weight, 1.65\" pile. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping.",
+    "price": "1.50",
+    "priceValidUntil": "2026-12-31"
+  },
+  "heroImage": "/media/natural-blend-84-side.png",
+  "hero": {
+    "eyebrow": "Artificial Turf",
+    "heading": "Natural Blend 84",
+    "body": "Designed to replicate the subtle color variation of real, sun-kissed grass. Its mix of green tones with hints of yellow,...",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "ctaSecondary": {
+      "text": "All Turf Products",
+      "link": "/artificial-turf"
+    }
+  },
+  "mainImage": "natural-series-turf.png",
+  "mainImageAlt": "Natural Blend 84",
+  "detail": {
+    "label": "Premium Artificial Turf",
+    "displayName": "Natural Blend 84",
+    "price": "$1.50",
+    "priceUnit": "/ sq ft",
+    "description": "Designed to replicate the subtle color variation of real, sun-kissed grass. Its mix of green tones with hints of yellow, combined with a realistic thatch layer, creates a warm and authentic appearance \u2014 a great choice for low-maintenance, everyday landscapes.",
+    "bestFor": "Backyards, play areas, general residential landscaping",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "specSheetUrl": "/media/az_turf_suppliers_natural_blend_84_spec_sheet.pdf"
+  },
+  "keySpecs": [
+    {
+      "label": "Face Weight",
+      "value": "58 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": "1.65\""
+    },
+    {
+      "label": "Color",
+      "value": "Yellow/Green"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    }
+  ],
+  "features": [
+    {
+      "icon": "sun",
+      "label": "CoolYarn Technology",
+      "body": "Yarn shape improves airflow, helping heat escape more efficiently and keeping surface temperatures lower."
+    },
+    {
+      "icon": "shield",
+      "label": "Enhanced Durability",
+      "body": "Engineered yarn structure enhances fiber strength, making the material both stronger and more durable."
+    },
+    {
+      "icon": "check",
+      "label": "UV-Stabilized",
+      "body": "Resists fading, helping maintain color and appearance even with prolonged sun exposure."
+    }
+  ],
+  "badges": [
+    "Lead-Free",
+    "Pet-Friendly",
+    "15-Year Warranty",
+    "CoolYarn"
+  ],
+  "calculatorPrice": 1.5,
+  "fullSpecs": [
+    {
+      "label": "Face Weight",
+      "value": "58 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": "1.65\""
+    },
+    {
+      "label": "Color",
+      "value": "Yellow/Green"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    },
+    {
+      "label": "Blade Shape",
+      "value": "Omega"
+    },
+    {
+      "label": "Thatch Color",
+      "value": "Emerald & Lime"
+    },
+    {
+      "label": "Total Weight",
+      "value": "84 oz"
+    },
+    {
+      "label": "Roll Weight",
+      "value": "840 lbs"
+    },
+    {
+      "label": "Drain Rate",
+      "value": "30+ in/hr"
+    },
+    {
+      "label": "Face Composition",
+      "value": "PE Monofilament"
+    },
+    {
+      "label": "Thatch Material",
+      "value": "Texturized PP"
+    },
+    {
+      "label": "Primary Backing",
+      "value": "26oz 2-Layer PU"
+    },
+    {
+      "label": "Tuft Gauge",
+      "value": "3/8\""
+    },
+    {
+      "label": "Warranty",
+      "value": "15 Years"
+    }
+  ],
+  "whyLove": {
+    "heading": "Natural Blend 84 Turf",
+    "items": [
+      {
+        "logo": "coolyarn.jpg",
+        "alt": "CoolYarn Technology",
+        "body": "Optimizes airflow to reduce surface temperature in extreme weather. UV-stabilized to resist fading from the sun."
+      },
+      {
+        "logo": "pet-friendly.jpg",
+        "alt": "Pet Friendly",
+        "body": "Allergen-free, easy to clean, and comfortable to play on. A great choice for any pet owner."
+      },
+      {
+        "logo": "save-water.jpg",
+        "alt": "Save Water",
+        "body": "No watering, mowing, or fertilizing needed. Even in a drought, your lawn stays lush and beautiful year-round."
+      },
+      {
+        "logo": "lead-free.jpg",
+        "alt": "Lead Free",
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Get Started",
+    "heading": "Ready to Order Natural Blend 84?",
+    "body": "Call or text us at 480-739-3854 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "buttons": [
+      {
+        "text": "Get a Quote",
+        "link": "/contact",
+        "style": "primary"
+      },
+      {
+        "text": "View All Products",
+        "link": "/artificial-turf",
+        "style": "outline"
+      }
+    ]
+  }
+}

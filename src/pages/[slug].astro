@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CityPage from '../components/CityPage.astro';
+import TurfProductPage from '../components/TurfProductPage.astro';
+
+// One dynamic route handling multiple content types. Each entry under
+// src/data/locations/ becomes a city URL; each entry under
+// src/data/products/turf/ becomes a turf product URL. Filename = slug.
+//
+// To add a new content type, add a new directory + a new template
+// component, then expand getStaticPaths and the dispatch below.
+
+export async function getStaticPaths() {
+  const cityModules = import.meta.glob('../data/locations/*.json', { eager: true });
+  const turfModules = import.meta.glob('../data/products/turf/*.json', { eager: true });
+
+  const cities = Object.entries(cityModules).map(([path, mod]) => {
+    const slug = path.split('/').pop()!.replace(/\.json$/, '');
+    return { params: { slug }, props: { type: 'city', data: (mod as any).default ?? mod } };
+  });
+
+  const turf = Object.entries(turfModules).map(([path, mod]) => {
+    const slug = path.split('/').pop()!.replace(/\.json$/, '');
+    return { params: { slug }, props: { type: 'turf', data: (mod as any).default ?? mod } };
+  });
+
+  return [...cities, ...turf];
+}
+
+interface Props { type: 'city' | 'turf'; data: any; }
+const { type, data } = Astro.props;
+const { slug } = Astro.params;
+
+let title: string;
+let description: string;
+let ogImage: string | undefined;
+let schema: any = null;
+let breadcrumbs: { name: string; url: string }[] = [];
+
+if (type === 'city') {
+  title = data.meta.title;
+  description = data.meta.description;
+  ogImage = data.meta.ogImage;
+  breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Areas Served', url: '/locations' },
+    { name: data.name, url: `/${slug}` },
+  ];
+} else {
+  title = data.meta.title;
+  description = data.meta.description;
+  ogImage = data.meta.ogImage;
+  const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: data.productSchema.name,
+    image: new URL(data.productSchema.image, siteUrl).toString(),
+    description: data.productSchema.description,
+    brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
+    offers: {
+      '@type': 'Offer',
+      url: `${siteUrl}/${slug}`,
+      priceCurrency: 'USD',
+      price: data.productSchema.price,
+      priceValidUntil: data.productSchema.priceValidUntil,
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
+    },
+  };
+  breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Artificial Turf', url: '/artificial-turf' },
+    { name: data.detail.displayName, url: `/${slug}` },
+  ];
+}
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  {type === 'city' && <CityPage page={data} slug={slug!} />}
+  {type === 'turf' && <TurfProductPage page={data} slug={slug!} />}
+</Layout>

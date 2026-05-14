@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Spring Blend 107 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
+    "description": "Spring Blend 107 artificial turf \u2014 $2.25/sqft. Premium, heavy face weight for high-traffic backyards, pets, and commercial installs. Stocked in Queen Creek, AZ.",
+    "ogImage": "/media/spring-blend-107-side.png"
+  },
+  "productSchema": {
+    "name": "Spring Blend 107 Artificial Turf",
+    "image": "/media/spring-blend-107-side.png",
+    "description": "Spring Blend 107 artificial turf. 107oz face weight. Premium heavy weight for high-traffic backyards, pets, and commercial installs.",
+    "price": "2.25",
+    "priceValidUntil": "2026-12-31"
+  },
+  "heroImage": "/media/spring-blend-107-side.png",
+  "hero": {
+    "eyebrow": "Artificial Turf",
+    "heading": "Spring Blend 107",
+    "body": "A premium turf designed to capture the vibrant look of fresh spring grass. Its blend of green and lime tones, complement...",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "ctaSecondary": {
+      "text": "All Turf Products",
+      "link": "/artificial-turf"
+    }
+  },
+  "mainImage": "spring-blend-107-above.png",
+  "mainImageAlt": "Spring Blend 107",
+  "detail": {
+    "label": "Premium Artificial Turf",
+    "displayName": "Spring Blend 107",
+    "price": "$2.25",
+    "priceUnit": "/ sq ft",
+    "description": "A premium turf designed to capture the vibrant look of fresh spring grass. Its blend of green and lime tones, complemented by a natural-looking thatch layer, creates a bright and inviting appearance \u2014 ideal for enhancing residential and commercial landscapes alike.",
+    "bestFor": "Premium backyards, pets, high-traffic residential & commercial",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "specSheetUrl": "/media/az_turf_suppliers_spring_blend_107_spec_sheet.pdf"
+  },
+  "keySpecs": [
+    {
+      "label": "Face Weight",
+      "value": "81 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": "1.75\""
+    },
+    {
+      "label": "Color",
+      "value": "Billow Green/Billow Lime"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    }
+  ],
+  "features": [
+    {
+      "icon": "sun",
+      "label": "CoolYarn Technology",
+      "body": "Yarn shape improves airflow, helping heat escape more efficiently and keeping surface temperatures lower."
+    },
+    {
+      "icon": "shield",
+      "label": "Enhanced Durability",
+      "body": "Engineered yarn structure enhances fiber strength, making the material both stronger and more durable."
+    },
+    {
+      "icon": "check",
+      "label": "UV-Stabilized",
+      "body": "Resists fading, helping maintain color and appearance even with prolonged sun exposure."
+    }
+  ],
+  "badges": [
+    "Lead-Free",
+    "Pet-Friendly",
+    "15-Year Warranty",
+    "CoolYarn"
+  ],
+  "calculatorPrice": 2.25,
+  "fullSpecs": [
+    {
+      "label": "Face Weight",
+      "value": "81 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": "1.75\""
+    },
+    {
+      "label": "Color",
+      "value": "Billow Green/Billow Lime"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    },
+    {
+      "label": "Blade Shape",
+      "value": "W Blade"
+    },
+    {
+      "label": "Thatch Color",
+      "value": "Asterisk Green/Yellow"
+    },
+    {
+      "label": "Total Weight",
+      "value": "107 oz"
+    },
+    {
+      "label": "Roll Weight",
+      "value": "1,100 lbs"
+    },
+    {
+      "label": "Drain Rate",
+      "value": "30+ in/hr"
+    },
+    {
+      "label": "Face Composition",
+      "value": "PE Monofilament"
+    },
+    {
+      "label": "Thatch Material",
+      "value": "Texturized PP"
+    },
+    {
+      "label": "Primary Backing",
+      "value": "26oz 2-Layer PU"
+    },
+    {
+      "label": "Tuft Gauge",
+      "value": "3/8\""
+    },
+    {
+      "label": "Warranty",
+      "value": "15 Years"
+    }
+  ],
+  "whyLove": {
+    "heading": "Spring Blend 107 Turf",
+    "items": [
+      {
+        "logo": "coolyarn.jpg",
+        "alt": "CoolYarn Technology",
+        "body": "Optimizes airflow to reduce surface temperature in extreme weather. UV-stabilized to resist fading from the sun."
+      },
+      {
+        "logo": "pet-friendly.jpg",
+        "alt": "Pet Friendly",
+        "body": "Allergen-free, easy to clean, and comfortable to play on. A great choice for any pet owner."
+      },
+      {
+        "logo": "save-water.jpg",
+        "alt": "Save Water",
+        "body": "No watering, mowing, or fertilizing needed. Even in a drought, your lawn stays lush and beautiful year-round."
+      },
+      {
+        "logo": "lead-free.jpg",
+        "alt": "Lead Free",
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Get Started",
+    "heading": "Ready to Order Spring Blend 107?",
+    "body": "Call or text us at 480-739-3854 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "buttons": [
+      {
+        "text": "Get a Quote",
+        "link": "/contact",
+        "style": "primary"
+      },
+      {
+        "text": "View All Products",
+        "link": "/artificial-turf",
+        "style": "outline"
+      }
+    ]
+  }
+}

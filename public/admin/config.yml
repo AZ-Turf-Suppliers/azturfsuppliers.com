@@ -525,6 +525,169 @@ collections:
               - { name: link, label: 'URL',           widget: string }
 
   # ─────────────────────────────────────────────────────────────────────
+  # Turf Products: one file per turf product. Adding a new product
+  # through the CMS creates a new JSON file under src/data/products/turf/
+  # — the dynamic [slug].astro route picks it up on the next build.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: turf_products
+    label: Turf Products
+    label_singular: Turf Product
+    folder: src/data/products/turf
+    create: true
+    delete: false
+    extension: json
+    format: json
+    slug: '{{slug}}'
+    identifier_field: detail.displayName
+    summary: '{{detail.displayName}} — {{detail.price}}{{detail.priceUnit}}'
+    fields:
+      - name: meta
+        label: SEO / Meta
+        widget: object
+        collapsed: false
+        fields:
+          - { name: title,       label: Page Title,         widget: string }
+          - { name: description, label: Meta Description,   widget: text }
+          - { name: ogImage,     label: Social Share Image, widget: image }
+
+      - name: productSchema
+        label: Product JSON-LD (Search Result Data)
+        widget: object
+        collapsed: true
+        hint: |
+          Used by Google to show price + product info directly in search results.
+          Keep description natural — Google penalizes keyword stuffing.
+        fields:
+          - { name: name,            label: Product Name,            widget: string }
+          - { name: image,           label: Product Image,           widget: image }
+          - { name: description,     label: Short Description,       widget: text }
+          - { name: price,           label: 'Price (number only)',   widget: string,
+              hint: 'Just the number, no $. Must match what is displayed below.' }
+          - { name: priceValidUntil, label: 'Price Valid Until (YYYY-MM-DD)', widget: string }
+
+      - { name: heroImage, label: Hero Background Image, widget: image }
+
+      - name: hero
+        label: Hero Section
+        widget: object
+        collapsed: true
+        fields:
+          - { name: eyebrow,  label: Eyebrow Label, widget: string }
+          - { name: heading,  label: Heading (H1),  widget: string }
+          - { name: body,     label: 'Hero Body (short — truncated description)', widget: text }
+          - name: ctaPrimary
+            label: Primary Button
+            widget: object
+            fields:
+              - { name: text, label: Button Text, widget: string }
+              - { name: link, label: Button Link, widget: string }
+          - name: ctaSecondary
+            label: Secondary Button
+            widget: object
+            fields:
+              - { name: text, label: Button Text, widget: string }
+              - { name: link, label: Button Link, widget: string }
+
+      - { name: mainImage,    label: Main Product Image,    widget: image,
+          hint: 'Filename relative to /media/, e.g. bermuda-side.png' }
+      - { name: mainImageAlt, label: Main Image Alt Text,   widget: string }
+
+      - name: detail
+        label: Product Detail Section
+        widget: object
+        collapsed: true
+        fields:
+          - { name: label,       label: Section Label,        widget: string }
+          - { name: displayName, label: Display Name (H2),    widget: string }
+          - { name: price,       label: 'Display Price (e.g. $1.40)', widget: string }
+          - { name: priceUnit,   label: 'Price Unit (e.g. / sq ft)',  widget: string }
+          - { name: description, label: Long Description,     widget: markdown,
+              modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - { name: bestFor,     label: 'Best For (short tagline)', widget: string }
+          - name: ctaPrimary
+            label: 'Detail Primary Button (under price)'
+            widget: object
+            fields:
+              - { name: text, label: Button Text, widget: string }
+              - { name: link, label: Button Link, widget: string }
+          - { name: specSheetUrl, label: Spec Sheet PDF, widget: file,
+              hint: 'PDF download for the spec sheet.' }
+
+      - name: keySpecs
+        label: 'Key Specs (4-up grid)'
+        widget: list
+        collapsed: true
+        summary: '{{label}}: {{value}}'
+        fields:
+          - { name: label, label: Spec Label, widget: string }
+          - { name: value, label: Spec Value, widget: string }
+
+      - name: features
+        label: Features (with icons)
+        widget: list
+        collapsed: true
+        summary: '{{label}}'
+        fields:
+          - { name: icon,  label: Icon, widget: select,
+              options: [{label: 'Sun', value: sun}, {label: 'Shield', value: shield}, {label: 'Check', value: check}] }
+          - { name: label, label: Feature Label, widget: string }
+          - { name: body,  label: Feature Body,  widget: markdown,
+              modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+
+      - name: badges
+        label: Badges (pill row under product detail)
+        widget: list
+        collapsed: true
+        field: { name: badge, label: Badge Text, widget: string }
+
+      - { name: calculatorPrice, label: 'Price for Calculator (number)', widget: number,
+          value_type: float, step: 0.01,
+          hint: 'Number value used by the price calculator. Must match the display price.' }
+
+      - name: fullSpecs
+        label: Full Specifications Table
+        widget: list
+        collapsed: true
+        summary: '{{label}}: {{value}}'
+        fields:
+          - { name: label, label: Spec Label, widget: string }
+          - { name: value, label: Spec Value, widget: string }
+
+      - name: whyLove
+        label: '"Why We Love" Section'
+        widget: object
+        collapsed: true
+        fields:
+          - { name: heading, label: Section Heading, widget: string }
+          - name: items
+            label: '"Why We Love" Items'
+            widget: list
+            summary: '{{alt}}'
+            fields:
+              - { name: logo, label: Logo Image, widget: image }
+              - { name: alt,  label: Logo Alt Text, widget: string }
+              - { name: body, label: Body, widget: markdown,
+                  modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+
+      - name: cta
+        label: 'Bottom CTA Section'
+        widget: object
+        collapsed: true
+        fields:
+          - { name: label,   label: Section Label,    widget: string }
+          - { name: heading, label: Section Heading,  widget: string }
+          - { name: body,    label: Body Paragraph,   widget: markdown,
+              modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+          - name: buttons
+            label: Buttons
+            widget: list
+            fields:
+              - { name: text,  label: Button Text, widget: string }
+              - { name: link,  label: Button Link, widget: string }
+              - { name: style, label: Style, widget: select,
+                  options: [primary, dark, outline] }
+
+  # ─────────────────────────────────────────────────────────────────────
   # Redirects: edited as a friendly form. The build step (Astro integration
   # `cloudflareRedirects` in astro.config.mjs) compiles this JSON into a
   # /_redirects file at the deploy root, which Cloudflare Pages reads

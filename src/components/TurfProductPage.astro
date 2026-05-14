@@ -1,0 +1,331 @@
+---
+import Pic from './Pic.astro';
+import TurfPriceCalculator from './TurfPriceCalculator.astro';
+import { renderInline } from '../utils/inline-markdown';
+
+interface Props {
+  page: any;
+  slug: string;
+}
+
+const { page } = Astro.props;
+
+const btnClass = (style: string) => {
+  if (style === 'primary') return 'btn btn-primary';
+  if (style === 'dark') return 'btn btn-dark';
+  return 'btn btn-outline';
+};
+---
+
+<style is:global set:html={`.page-hero::before { background-image: url("${page.heroImage}") !important; }`} />
+<style is:global>
+/* ─── PRODUCT DETAIL ─── */
+.pd-section { padding: 88px 0; background: var(--white); }
+.pd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.pd-image {
+  border-radius: var(--radius-lg); overflow: hidden; background: var(--gray-100);
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative;
+}
+.pd-gallery { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px; }
+.pd-thumbs { display: flex; gap: 12px; flex-wrap: wrap; }
+.pd-thumb {
+  width: 64px; height: 64px; border-radius: 12px; overflow: hidden;
+  border: 2px solid transparent; background: var(--gray-100); cursor: pointer;
+  padding: 0; transition: border-color 0.2s, transform 0.2s;
+}
+.pd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pd-thumb:hover { transform: translateY(-2px); }
+.pd-thumb.is-active { border-color: var(--green-700); }
+.pd-image img { width: 85%; height: auto; object-fit: contain; }
+.pd-content h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 8px; }
+.pd-price { font-size: 1.8rem; font-weight: 900; color: var(--green-700); margin-bottom: 20px; line-height: 1; }
+.pd-price span {
+  font-size: 0.85rem; font-weight: 500; color: var(--gray-400);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.pd-desc {
+  font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 24px;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+}
+.pd-best-for {
+  display: flex; align-items: center; gap: 10px; padding: 14px 20px;
+  background: var(--gray-100); border-radius: var(--radius); margin-bottom: 28px;
+  font-size: 0.85rem; color: var(--gray-600);
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+}
+.pd-best-for strong { font-weight: 700; color: var(--dark); white-space: nowrap; }
+.pd-btns { display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+.pd-btns .btn { white-space: nowrap; }
+.pd-key-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+.pd-key-spec {
+  background: var(--gray-100); border-radius: var(--radius); padding: 16px 20px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.pd-key-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray-400);
+}
+.pd-key-value { font-size: 1rem; font-weight: 800; color: var(--dark); }
+.pd-features { margin-bottom: 36px; }
+.pd-features h3 {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--dark);
+  margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--dark);
+}
+.pd-feature { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; }
+.pd-feature-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pd-feature-icon svg { width: 30px; height: 30px; color: var(--green-700); }
+.pd-feature p {
+  font-size: 0.875rem; color: var(--gray-600); line-height: 1.6;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+}
+.pd-full-specs { background: var(--dark); padding: 88px 0; }
+.pd-spec-table { width: 100%; max-width: 700px; margin: 0 auto; border-collapse: collapse; }
+.pd-spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.pd-spec-table tr:last-child { border-bottom: none; }
+.pd-spec-table td {
+  padding: 14px 16px; font-size: 0.875rem;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+}
+.pd-spec-table td:first-child {
+  font-weight: 700; color: var(--white); width: 40%;
+  font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.pd-spec-table td:last-child { color: rgba(255,255,255,0.6); }
+.pd-badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.pd-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 50px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; background: var(--gray-100); color: var(--dark);
+  border: 1px solid var(--gray-200);
+}
+.pd-badge svg { width: 14px; height: 14px; color: var(--green-700); }
+.pd-image { cursor: zoom-in; }
+.pd-image::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0); transition: background 0.3s;
+  display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg);
+}
+.pd-image:hover::after { background: rgba(0,0,0,0.15); }
+.pd-mag {
+  position: absolute; bottom: 20px; right: 20px;
+  width: 44px; height: 44px; background: rgba(0,0,0,0.5); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; z-index: 3;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none;
+}
+.pd-image:hover .pd-mag { opacity: 1; }
+.pd-mag svg { width: 20px; height: 20px; color: var(--white); }
+.pd-lightbox {
+  position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92);
+  display: none; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out;
+}
+.pd-lightbox.open { display: flex; }
+.pd-lightbox img { max-width: 90%; max-height: 85vh; border-radius: var(--radius-lg); object-fit: contain; }
+.pd-lightbox-close, .pd-lightbox-nav {
+  position: absolute; width: 44px; height: 44px;
+  background: rgba(255,255,255,0.1); border: none; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+}
+.pd-lightbox-close { top: 24px; right: 24px; }
+.pd-lightbox-nav { top: 50%; transform: translateY(-50%); }
+.pd-lightbox-prev { left: 24px; }
+.pd-lightbox-next { right: 24px; }
+.pd-lightbox-close:hover, .pd-lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+.pd-lightbox-close svg { width: 20px; height: 20px; color: var(--white); }
+.pd-lightbox-nav svg { width: 24px; height: 24px; color: var(--white); }
+@media (max-width: 768px) {
+  .pd-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pd-image { aspect-ratio: 4/3; }
+  .pd-gallery { position: static; }
+  .pd-section { padding: 30px 0; }
+  .pd-full-specs { padding: 30px 0; }
+}
+
+/* ─── WHY WE LOVE SECTION ─── */
+.why-love { padding: 88px 0; background: var(--white); }
+.why-love-header { text-align: center; margin-bottom: 56px; }
+.why-love-header h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 800;
+  text-transform: none; letter-spacing: -0.02em;
+}
+.why-love-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.why-love-item { text-align: center; }
+.why-love-logo {
+  max-width: 160px; height: 72px;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+}
+.why-love-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.why-love-item p {
+  font-size: 0.85rem; color: var(--gray-600); line-height: 1.65;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+  max-width: 280px; margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .why-love-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .why-love { padding: 30px 0; }
+}
+@media (max-width: 480px) {
+  .why-love-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">{page.hero.eyebrow}</div>
+      <h1>{page.hero.heading}</h1>
+      <p set:html={renderInline(page.hero.body)} />
+      <div class="page-hero-btns">
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT DETAIL ═══ -->
+<section class="pd-section">
+  <div class="container">
+    <div class="pd-grid">
+      <div class="pd-gallery" data-reveal>
+        <div class="pd-image">
+          <div class="pd-mag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="11" y2="11"/></svg></div>
+          <Pic name={page.mainImage} alt={page.mainImageAlt} />
+        </div>
+      </div>
+      <div class="pd-content">
+        <div class="section-label">{page.detail.label}</div>
+        <h2>{page.detail.displayName}</h2>
+        <div class="pd-price" set:html={`${page.detail.price} <span>${page.detail.priceUnit}</span>`} />
+        <p class="pd-desc" set:html={renderInline(page.detail.description)} />
+        <div class="pd-best-for"><strong>Best For:</strong> {page.detail.bestFor}</div>
+        <div class="pd-btns">
+          <a href={page.detail.ctaPrimary.link} class="btn btn-primary">{page.detail.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.detail.specSheetUrl} target="_blank" class="btn btn-dark">Download Spec Sheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+        </div>
+
+        <div class="pd-key-specs" data-reveal>
+          {page.keySpecs.map((spec: any) => (
+            <div class="pd-key-spec">
+              <span class="pd-key-label">{spec.label}</span>
+              <span class="pd-key-value">{spec.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="pd-features" data-reveal>
+          <h3>Features</h3>
+          {page.features.map((feature: any) => (
+            <div class="pd-feature">
+              <div class="pd-feature-icon">
+                {feature.icon === 'sun' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>}
+                {feature.icon === 'shield' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+                {feature.icon === 'check' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>}
+              </div>
+              <p><strong>{feature.label}</strong> — <Fragment set:html={renderInline(feature.body)} /></p>
+            </div>
+          ))}
+        </div>
+
+        <div class="pd-badges">
+          {page.badges.map((badge: string) => (
+            <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> {badge}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<TurfPriceCalculator pricePerSqFt={page.calculatorPrice} />
+
+<!-- ═══ FULL SPECIFICATIONS ═══ -->
+<section class="pd-full-specs">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:40px;">
+      <div class="section-label centered inverted">Technical Details</div>
+      <h2 style="color: var(--green-700);">Full Specifications</h2>
+    </div>
+    <table class="pd-spec-table" data-reveal>
+      {page.fullSpecs.map((spec: any) => (
+        <tr><td>{spec.label}</td><td>{spec.value}</td></tr>
+      ))}
+    </table>
+  </div>
+</section>
+
+<!-- ═══ WHY WE LOVE ═══ -->
+<section class="why-love">
+  <div class="container">
+    <div class="why-love-header">
+      <div class="section-label centered">Why We Love Our</div>
+      <h2>{page.whyLove.heading}</h2>
+    </div>
+    <div class="why-love-grid">
+      {page.whyLove.items.map((item: any) => (
+        <div class="why-love-item" data-reveal>
+          <div class="why-love-logo">
+            <Pic name={item.logo} alt={item.alt} />
+          </div>
+          <p set:html={renderInline(item.body)} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered inverted">{page.cta.label}</div>
+    <h2>{page.cta.heading}</h2>
+    <p set:html={renderInline(page.cta.body)} />
+    <div class="cta-btns">
+      {page.cta.buttons.map((btn: any) => (
+        <a href={btn.link} class={btnClass(btn.style)}>
+          {btn.text}
+          {btn.style === 'primary' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+// ─── PRODUCT IMAGE LIGHTBOX ───
+const lb = document.createElement('div');
+lb.className = 'pd-lightbox';
+lb.innerHTML = '<button class="pd-lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><img src="" alt="" loading="lazy" decoding="async">';
+document.body.appendChild(lb);
+const lbImg = lb.querySelector('img') as HTMLImageElement;
+function lbClose() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+const pdImage = document.querySelector('.pd-image');
+if (pdImage) {
+  pdImage.addEventListener('click', function() {
+    const img = (this as HTMLElement).querySelector('img') as HTMLImageElement | null;
+    if (!img) return;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+}
+lb.querySelector('.pd-lightbox-close')!.addEventListener('click', lbClose);
+lb.addEventListener('click', function(e) { if (e.target === lb) lbClose(); });
+document.addEventListener('keydown', function(e) {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') lbClose();
+});
+</script>

@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Putting Green | AZ Turf Suppliers \u2014 Queen Creek, AZ",
+    "description": "Putting Green turf \u2014 $2.50/sqft. Tight, true-roll surface for backyard putting greens, practice areas, and landscape accents. In stock in Queen Creek, AZ.",
+    "ogImage": "/media/putting-green-side.png"
+  },
+  "productSchema": {
+    "name": "Putting Green Turf",
+    "image": "/media/putting-green-side.png",
+    "description": "Putting green turf with a tight, true-roll surface for backyard putting greens, practice areas, and landscape accents.",
+    "price": "2.50",
+    "priceValidUntil": "2026-12-31"
+  },
+  "heroImage": "/media/putting-green-side.png",
+  "hero": {
+    "eyebrow": "Artificial Turf",
+    "heading": "Putting Green",
+    "body": "Crafted to deliver a smooth, true-to-life playing surface that closely mimics the performance of a professional golf gre...",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "ctaSecondary": {
+      "text": "All Turf Products",
+      "link": "/artificial-turf"
+    }
+  },
+  "mainImage": "putting-green-above.png",
+  "mainImageAlt": "Putting Green",
+  "detail": {
+    "label": "Premium Artificial Turf",
+    "displayName": "Putting Green",
+    "price": "$2.50",
+    "priceUnit": "/ sq ft",
+    "description": "Crafted to deliver a smooth, true-to-life playing surface that closely mimics the performance of a professional golf green. Vibrant green tones and subtle thatch layer provide reliable ball roll and a firm, even feel underfoot.",
+    "bestFor": "Putting greens, practice areas, landscape design accents",
+    "ctaPrimary": {
+      "text": "Get a Quote",
+      "link": "/contact"
+    },
+    "specSheetUrl": "/media/az_turf_suppliers_putting_green_spec_sheet.pdf"
+  },
+  "keySpecs": [
+    {
+      "label": "Face Weight",
+      "value": "59 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": ".51\""
+    },
+    {
+      "label": "Color",
+      "value": "Emerald & Green"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    }
+  ],
+  "features": [
+    {
+      "icon": "sun",
+      "label": "CoolYarn Technology",
+      "body": "Yarn shape improves airflow, helping heat escape more efficiently and keeping surface temperatures lower."
+    },
+    {
+      "icon": "shield",
+      "label": "Enhanced Durability",
+      "body": "Engineered yarn structure enhances fiber strength, making the material both stronger and more durable."
+    },
+    {
+      "icon": "check",
+      "label": "UV-Stabilized",
+      "body": "Resists fading, helping maintain color and appearance even with prolonged sun exposure."
+    }
+  ],
+  "badges": [
+    "Lead-Free",
+    "Pet-Friendly",
+    "15-Year Warranty",
+    "CoolYarn"
+  ],
+  "calculatorPrice": 2.5,
+  "fullSpecs": [
+    {
+      "label": "Face Weight",
+      "value": "59 oz"
+    },
+    {
+      "label": "Pile Height",
+      "value": ".51\""
+    },
+    {
+      "label": "Color",
+      "value": "Emerald & Green"
+    },
+    {
+      "label": "Roll Width",
+      "value": "15'"
+    },
+    {
+      "label": "Blade Shape",
+      "value": "Flat"
+    },
+    {
+      "label": "Thatch Color",
+      "value": "Yellow/Green"
+    },
+    {
+      "label": "Total Weight",
+      "value": "85 oz"
+    },
+    {
+      "label": "Roll Weight",
+      "value": "700 lbs"
+    },
+    {
+      "label": "Drain Rate",
+      "value": "30+ in/hr"
+    },
+    {
+      "label": "Face Composition",
+      "value": "PE Monofilament"
+    },
+    {
+      "label": "Thatch Material",
+      "value": "Texturized PP"
+    },
+    {
+      "label": "Primary Backing",
+      "value": "26oz 2-Layer PU"
+    },
+    {
+      "label": "Tuft Gauge",
+      "value": "3/8\""
+    },
+    {
+      "label": "Warranty",
+      "value": "15 Years"
+    }
+  ],
+  "whyLove": {
+    "heading": "Putting Green Turf",
+    "items": [
+      {
+        "logo": "coolyarn.jpg",
+        "alt": "CoolYarn Technology",
+        "body": "Optimizes airflow to reduce surface temperature in extreme weather. UV-stabilized to resist fading from the sun."
+      },
+      {
+        "logo": "pet-friendly.jpg",
+        "alt": "Pet Friendly",
+        "body": "Allergen-free, easy to clean, and comfortable to play on. A great choice for any pet owner."
+      },
+      {
+        "logo": "save-water.jpg",
+        "alt": "Save Water",
+        "body": "No watering, mowing, or fertilizing needed. Even in a drought, your lawn stays lush and beautiful year-round."
+      },
+      {
+        "logo": "lead-free.jpg",
+        "alt": "Lead Free",
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Get Started",
+    "heading": "Ready to Order Putting Green?",
+    "body": "Call or text us at 480-739-3854 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "buttons": [
+      {
+        "text": "Get a Quote",
+        "link": "/contact",
+        "style": "primary"
+      },
+      {
+        "text": "View All Products",
+        "link": "/artificial-turf",
+        "style": "outline"
+      }
+    ]
+  }
+}
