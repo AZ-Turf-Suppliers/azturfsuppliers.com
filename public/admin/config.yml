@@ -4,7 +4,10 @@ backend:
   branch: main
   # base_url is where /api/auth and /api/callback live. These are Cloudflare
   # Pages Functions deployed from /functions/api/* in this repo.
-  base_url: https://www.azturfsuppliers.com
+  # LAUNCH-DAY TODO: change back to https://www.azturfsuppliers.com once DNS
+  # points the live domain at this Pages project. See SVELTIA-SETUP.md
+  # "Launch-day revert checklist".
+  base_url: https://azturfsuppliers-com.pages.dev
   auth_endpoint: api/auth
 
 # Where uploads (images) go when added through the CMS.
