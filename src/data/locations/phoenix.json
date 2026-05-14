@@ -1,0 +1,66 @@
+{
+  "name": "Phoenix",
+  "meta": {
+    "title": "Artificial Turf in Phoenix, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered throughout Phoenix, AZ. Wholesale pricing, next-day delivery. Call 480-739-3854.",
+    "ogImage": "/media/winter-blend-7.jpg"
+  },
+  "heroImage": "/media/winter-blend-7.jpg",
+  "hero": {
+    "eyebrow": "Phoenix, AZ",
+    "heading": "Wholesale Turf, Pavers & Stone *Delivered to Phoenix*",
+    "body": "Phoenix is Arizona's largest market — and AZ Turf Suppliers delivers throughout it. Premium artificial turf, pavers, natural stone, and landscape lighting at wholesale pricing, with next-day delivery across the Phoenix Metro.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "~30–40 Miles",  "label": "From Our Showroom" },
+    { "value": "Next-Day",      "label": "Delivery Available" },
+    { "value": "Same-Day",      "label": "Showroom Pickup" },
+    { "value": "480-739-3854",  "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "Full Product Line",
+    "heading": "Landscaping Materials for Phoenix Homeowners & Contractors",
+    "body": "From South Mountain to Deer Valley, we deliver across all of Phoenix. Phoenix landscape contractors and homeowners get the same wholesale pricing and fast turnaround as our East Valley customers.",
+    "cards": [
+      { "heading": "Artificial Turf",    "body": "Phoenix-grade, UV-stabilized synthetic turf that holds color and shape through the Valley's extreme summers. Multiple styles in stock.",        "linkText": "View Turf Options →",  "link": "/artificial-turf" },
+      { "heading": "Pavers",             "body": "Concrete and travertine pavers for Phoenix driveways, pool decks, patios, and commercial hardscapes. Pallet delivery to any Phoenix address.",   "linkText": "View Pavers →",         "link": "/pavers" },
+      { "heading": "Natural Stone",      "body": "Premium travertine, limestone, and marble in a range of styles and finishes — ideal for Phoenix's luxury and mid-range outdoor projects.",        "linkText": "View Natural Stone →",  "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting systems for Phoenix commercial and residential properties. Complete catalog available.",                 "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The East Valley Supplier That Serves All of Phoenix",
+    "cards": [
+      { "heading": "Metro-Wide Delivery",  "body": "We deliver throughout all of Phoenix — North Phoenix, Arcadia, Ahwatukee, Central Phoenix, and everywhere in between. One call handles it." },
+      { "heading": "Contractor Accounts",  "body": "Phoenix landscape contractors running multiple jobs get dedicated account pricing, flexible scheduling, and a reliable supply partner that scales with your business." },
+      { "heading": "Deep Inventory",       "body": "Large pallet quantities of turf, pavers, and stone available without special orders. Your Phoenix projects won't stall waiting on materials." }
+    ]
+  },
+  "cta": {
+    "label": "Order Today",
+    "heading": "Delivering Premium Materials Across Phoenix",
+    "body": "Get a fast quote online or over the phone, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Open Mon–Fri, 7 AM–3 PM.",
+    "buttons": [
+      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" },
+      { "text": "Contractor Info",   "link": "/contractors",   "style": "outline" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "Queen Creek",            "link": "/queen-creek" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
+      { "name": "Gilbert",                "link": "/gilbert" },
+      { "name": "Mesa",                   "link": "/mesa" },
+      { "name": "Chandler",               "link": "/chandler" },
+      { "name": "Apache Junction",        "link": "/apache-junction" },
+      { "name": "Scottsdale",             "link": "/scottsdale" },
+      { "name": "Tempe",                  "link": "/tempe" },
+      { "name": "View All Areas Served",  "link": "/locations" }
+    ]
+  }
+}

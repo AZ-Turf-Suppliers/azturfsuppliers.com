@@ -1,0 +1,65 @@
+{
+  "name": "San Tan Valley",
+  "meta": {
+    "title": "Artificial Turf in San Tan Valley, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to San Tan Valley, AZ from our nearby Queen Creek showroom. Call 480-739-3854.",
+    "ogImage": "/media/winter-blend-2.jpg"
+  },
+  "heroImage": "/media/winter-blend-2.jpg",
+  "hero": {
+    "eyebrow": "San Tan Valley, AZ",
+    "heading": "Artificial Turf & Pavers Delivered to *San Tan Valley*",
+    "body": "AZ Turf Suppliers is just minutes away in Queen Creek. We deliver premium landscaping materials to San Tan Valley with fast turnaround — no waiting on freight or big-box orders.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "~5–10 Miles",   "label": "From Our Showroom" },
+    { "value": "Next-Day",      "label": "Delivery Available" },
+    { "value": "Same-Day",      "label": "Showroom Pickup" },
+    { "value": "480-739-3854",  "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "What We Deliver",
+    "heading": "Landscaping Materials for San Tan Valley Homes & Projects",
+    "body": "San Tan Valley is one of the fastest-growing communities in Arizona. Whether you're finishing a new build or upgrading an existing yard, we have the materials to get it done right.",
+    "cards": [
+      { "heading": "Artificial Turf",    "body": "Low-maintenance, heat-resistant turf perfect for San Tan Valley's desert climate. Save water and keep your yard green year-round.",            "linkText": "View Turf Options →",  "link": "/artificial-turf" },
+      { "heading": "Pavers",             "body": "Durable concrete and travertine pavers for patios, driveways, and pool surrounds — installed or delivered to your site.",                      "linkText": "View Pavers →",         "link": "/pavers" },
+      { "heading": "Natural Stone",      "body": "Travertine coping, limestone pavers, and marble selections that complement San Tan Valley's new-construction aesthetic.",                        "linkText": "View Natural Stone →",  "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting to finish your outdoor space with curb appeal and security.",                                          "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "Why Choose Us",
+    "heading": "The Closest Supplier to San Tan Valley",
+    "cards": [
+      { "heading": "Right Next Door",       "body": "Our Queen Creek warehouse is 5–10 minutes from most of San Tan Valley. Pick up same-day or let us deliver next-day to your jobsite or home." },
+      { "heading": "Wholesale Pricing",     "body": "San Tan Valley contractors and volume buyers get access to wholesale rates. No big-box markups — just direct pricing from an East Valley supplier." },
+      { "heading": "In-Stock Inventory",    "body": "We keep deep inventory so your project doesn't stall. Turf rolls, paver pallets, stone coping — all available without lead times." }
+    ]
+  },
+  "cta": {
+    "label": "Get Started",
+    "heading": "Serving San Tan Valley from Our Queen Creek Showroom",
+    "body": "Visit us at 18607 E San Tan Blvd, call to place an order, or get a free quote online. Fast, local, and reliable.",
+    "buttons": [
+      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "Queen Creek",            "link": "/queen-creek" },
+      { "name": "Gilbert",                "link": "/gilbert" },
+      { "name": "Mesa",                   "link": "/mesa" },
+      { "name": "Chandler",               "link": "/chandler" },
+      { "name": "Apache Junction",        "link": "/apache-junction" },
+      { "name": "Scottsdale",             "link": "/scottsdale" },
+      { "name": "Tempe",                  "link": "/tempe" },
+      { "name": "Phoenix",                "link": "/phoenix" },
+      { "name": "View All Areas Served",  "link": "/locations" }
+    ]
+  }
+}
