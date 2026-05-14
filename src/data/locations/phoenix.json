@@ -2,7 +2,7 @@
   "name": "Phoenix",
   "meta": {
     "title": "Artificial Turf in Phoenix, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered throughout Phoenix, AZ. Wholesale pricing, next-day delivery. Call 480-739-3854.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered throughout Phoenix, AZ. Wholesale pricing, next-day delivery. Call 480-793-1800.",
     "ogImage": "/media/winter-blend-7.jpg"
   },
   "heroImage": "/media/turf-hero-18.jpg",
@@ -11,13 +11,13 @@
     "heading": "Wholesale Turf, Pavers & Stone *Delivered to Phoenix*",
     "body": "Phoenix is Arizona's largest market — and AZ Turf Suppliers delivers throughout it. Premium artificial turf, pavers, natural stone, and landscape lighting at wholesale pricing, with next-day delivery across the Phoenix Metro.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "~30–40 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-739-3854",  "label": "Call or Text" }
+    { "value": "480-793-1800",  "label": "Call or Text" }
   ],
   "products": {
     "label": "Full Product Line",
@@ -45,7 +45,7 @@
     "body": "Get a fast quote online or over the phone, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" },
+      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" },
       { "text": "Contractor Info",   "link": "/contractors",   "style": "outline" }
     ]
   },

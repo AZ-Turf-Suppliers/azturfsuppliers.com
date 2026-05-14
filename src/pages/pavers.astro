@@ -18,8 +18,8 @@ const introParas = page.intro.body.split('\n\n');
 .pavers-intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .pavers-intro-content h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); margin-bottom: 16px; }
 .pavers-intro-content > p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 24px; font-weight: 400; text-transform: none; letter-spacing: 0; }
-.pavers-intro-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--gray-200); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.15); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.pavers-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+.pavers-intro-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--gray-200); }
+.pavers-intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .brands-section { padding: 88px 0; background: var(--gray-100); }
 .brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .brand-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px 32px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); text-align: center; transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -30,24 +30,15 @@ const introParas = page.intro.body.split('\n\n');
 .brand-card h4 { font-size: 1rem; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.02em; text-transform: none; }
 .brand-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; font-weight: 400; text-transform: none; letter-spacing: 0; }
 .brand-catalogs { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; align-items: center; }
-.brand-catalogs .btn { width: 100%; max-width: 240px; padding: 10px 16px; font-size: 0.78rem; }
+.brand-catalogs .btn { width: 100%; max-width: 240px; padding: 10px 16px; font-size: 0.78rem; justify-content: space-between; }
 .applications { padding: 88px 0; background: var(--white); }
 .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .app-card { border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 3/4; background: var(--gray-200); display: flex; align-items: flex-end; cursor: default; }
-.app-card-overlay { padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); width: 100%; }
+.app-card-overlay { padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); width: 100%; position: relative; z-index: 1; }
 .app-card h4 { font-size: 0.9rem; color: var(--white); text-transform: none; letter-spacing: 0; }
-.app-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.sample-products { padding: 88px 0; background: var(--gray-100); }
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.product-placeholder { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-sm); transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-.product-placeholder:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.product-placeholder-img { aspect-ratio: 1; background: var(--gray-100); display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.12); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.product-placeholder-img img { width: 100%; height: 100%; object-fit: cover; }
-.product-placeholder-body { padding: 20px 24px; }
-.product-placeholder-body h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
-.product-placeholder-body p { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 14px; }
+.app-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .why-us { padding: 88px 0; position: relative; overflow: hidden; }
-.why-us::before { content: ''; position: absolute; inset: 0; background: url('https://static.showit.co/1600/toQS1ag5R9-rJia5bb5Y9A/shared/img_0995-preview.jpg') center / cover no-repeat; z-index: 0; }
+.why-us::before { content: ''; position: absolute; inset: 0; background: url('/media/pavers-hero-4.jpg') center / cover no-repeat; z-index: 0; }
 .why-us::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 1; }
 .why-us-inner { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .why-us-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 32px 28px; text-align: center; }
@@ -58,13 +49,11 @@ const introParas = page.intro.body.split('\n\n');
   .pavers-intro-inner { grid-template-columns: 1fr; gap: 32px; }
   .brands-grid { grid-template-columns: 1fr; }
   .app-grid { grid-template-columns: 1fr 1fr; }
-  .products-grid { grid-template-columns: 1fr 1fr; }
   .why-us-inner { grid-template-columns: 1fr; }
-  .pavers-intro, .brands-section, .applications, .sample-products, .why-us { padding: 30px 0; }
+  .pavers-intro, .brands-section, .applications, .why-us { padding: 30px 0; }
 }
 @media (max-width: 480px) {
   .app-grid { grid-template-columns: 1fr; }
-  .products-grid { grid-template-columns: 1fr; }
 }
 </style>
 
@@ -108,7 +97,9 @@ const introParas = page.intro.body.split('\n\n');
           <a href={page.intro.ctaSecondary.link} class="btn btn-dark">{page.intro.ctaSecondary.text}</a>
         </div>
       </div>
-      <div class="pavers-intro-img" data-reveal>Paver Display Photo</div>
+      <div class="pavers-intro-img" data-reveal>
+        <img src="/media/pavers-hero-3.jpg" alt="Paver showroom display" loading="lazy" decoding="async" />
+      </div>
     </div>
   </div>
 </section>
@@ -163,28 +154,6 @@ const introParas = page.intro.body.split('\n\n');
   </div>
 </section>
 
-<!-- ═══ SAMPLE PRODUCTS ═══ -->
-<section class="sample-products">
-  <div class="container">
-    <div class="section-header centered" style="margin-bottom:48px;">
-      <div class="section-label centered">{page.sampleProducts.label}</div>
-      <h2 set:html={renderInline(page.sampleProducts.heading)} />
-    </div>
-    <div class="products-grid">
-      {page.sampleProducts.items.map((item) => (
-        <div class="product-placeholder" data-reveal>
-          <div class="product-placeholder-img">Product Photo</div>
-          <div class="product-placeholder-body">
-            <h4>{item.heading}</h4>
-            <p set:html={renderInline(item.body)} />
-            <a href={item.link} class="btn btn-dark">{item.linkText}</a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
 <!-- ═══ WHY BUY FROM US ═══ -->
 <section class="why-us">
   <div class="container">
@@ -211,14 +180,20 @@ const introParas = page.intro.body.split('\n\n');
     <h2 set:html={renderInline(page.cta.heading)} />
     <p set:html={renderInline(page.cta.body)} />
     <div class="cta-btns">
-      {page.cta.buttons.map((btn) => (
-        <a href={btn.link} class={`btn btn-${btn.style}`}>
-          {btn.text}
-          {btn.style === 'primary' && (
-            <Icon name="arrow-right" size={16} />
-          )}
-        </a>
-      ))}
+      {page.cta.buttons.map((btn) => {
+        const isExternal = /^https?:\/\//.test(btn.link);
+        return (
+          <a
+            href={btn.link}
+            class={`btn btn-${btn.style}`}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener' : undefined}
+          >
+            {btn.text}
+            {btn.style === 'primary' && <Icon name="arrow-right" size={16} />}
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
