@@ -13,22 +13,6 @@ is live.
 
 ---
 
-## Launch-day revert checklist
-
-The site is currently configured for **pre-launch smoke testing on
-`azturfsuppliers-com.pages.dev`**. When you cut DNS over to the live
-domain, two values need to flip back to the production URL:
-
-| Where | Current (pre-launch) | Launch day (revert to) |
-| --- | --- | --- |
-| `public/admin/config.yml` → `backend.base_url` | `https://azturfsuppliers-com.pages.dev` | `https://www.azturfsuppliers.com` |
-| GitHub OAuth App ("AZ Turf Suppliers CMS") → Authorization callback URL | `https://azturfsuppliers-com.pages.dev/api/callback` | `https://www.azturfsuppliers.com/api/callback` |
-
-Both reverts can wait until DNS is actually serving the production
-hostname; do them in either order.
-
----
-
 ## Prerequisite — Custom domain must be mapped to the Pages project
 
 `/admin/` and `/api/callback` only work on hosts that actually reach the
