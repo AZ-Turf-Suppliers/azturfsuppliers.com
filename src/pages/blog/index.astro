@@ -1,17 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const posts = [
-  {
-    slug: 'artificial-turf-installation-guide-arizona',
-    title: 'The Complete Guide to Installing Artificial Turf in Arizona',
-    excerpt: 'A step-by-step walkthrough — base prep, drainage, infill, and the desert-specific tricks that separate a 5-year install from a 15-year install.',
-    date: 'May 2026',
-    readTime: '14 min read',
-    category: 'Installation',
-    image: '/media/forklift-carrying-turf.jpg',
-  },
-];
+const all = await getCollection('blog', ({ data }) => !data.draft);
+const posts = all
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => ({
+    slug: post.slug,
+    title: post.data.title,
+    excerpt: post.data.description,
+    date: post.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+    readTime: post.data.readTime,
+    category: post.data.category,
+    image: post.data.image,
+  }));
 ---
 
 <Layout title="Blog | AZ Turf Suppliers — Queen Creek, AZ" description="Practical, no-fluff guides on artificial turf, pavers, and landscaping in Arizona's climate.">

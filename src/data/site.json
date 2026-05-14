@@ -1,0 +1,19 @@
+{
+  "name": "AZ Turf Suppliers",
+  "phone": "480-739-3854",
+  "phone_tel": "4807393854",
+  "phone_sms": "+14807393854",
+  "email": "contact@azturfsuppliers.com",
+  "address_street": "18607 E San Tan Blvd",
+  "address_city": "Queen Creek",
+  "address_region": "AZ",
+  "address_postal": "85142",
+  "address_country": "US",
+  "hours_weekday": "Mon–Fri: 7:00 AM – 3:00 PM",
+  "hours_weekend": "Sat–Sun: Closed",
+  "hours_opens": "07:00",
+  "hours_closes": "15:00",
+  "social_facebook": "https://www.facebook.com/AZturfsuppliers/",
+  "social_instagram": "https://www.instagram.com/az.turf.suppliers/",
+  "map_query": "18607+E+San+Tan+Blvd+Queen+Creek+AZ"
+}

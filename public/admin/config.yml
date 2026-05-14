@@ -1,0 +1,141 @@
+backend:
+  name: github
+  repo: az-turf-suppliers/azturfsuppliers.com
+  branch: main
+  # base_url is where /api/auth and /api/callback live. These are Cloudflare
+  # Pages Functions deployed from /functions/api/* in this repo.
+  base_url: https://www.azturfsuppliers.com
+  auth_endpoint: api/auth
+
+# Where uploads (images) go when added through the CMS.
+media_folder: public/media
+public_folder: /media
+
+# Default to "Working" mode (commit directly to main). Editors can toggle to
+# Editorial Workflow later if you set up PR-based reviews.
+publish_mode: simple
+
+# Sveltia supports preview links from the CMS. Local previews need this set.
+site_url: https://www.azturfsuppliers.com
+display_url: https://www.azturfsuppliers.com
+logo_url: /media/logo.png
+
+collections:
+  # ─────────────────────────────────────────────────────────────────────
+  # Blog: editable Markdown posts. New posts are added through the CMS.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    summary: '{{title}} — {{date | date(''MMM YYYY'')}}'
+    sortable_fields: [date, title]
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+    fields:
+      - { name: title,        label: Title,             widget: string }
+      - { name: description,  label: Meta Description,  widget: text,
+          hint: 'Shown in Google search results and on social shares. Aim for 130–155 characters.' }
+      - { name: category,     label: Category,          widget: select,
+          options: [Installation, Maintenance, Buying Guide, Hardscape, News],
+          default: Installation }
+      - { name: date,         label: Publish Date,      widget: datetime, picker_utc: false }
+      - { name: dateModified, label: Last Updated,      widget: datetime, picker_utc: false, required: false }
+      - { name: readTime,     label: Read Time,         widget: string, default: '10 min read' }
+      - { name: image,        label: Hero Image,        widget: image, media_library: { config: { multiple: false } } }
+      - { name: imageAlt,     label: Hero Image Alt Text, widget: string, required: false,
+          hint: 'Describes the image for screen readers and image search.' }
+      - { name: lede,         label: Lede Paragraph,    widget: text,
+          hint: 'First paragraph shown in large type under the title.' }
+      - { name: draft,        label: Draft,             widget: boolean, default: false,
+          hint: 'Drafts do not get built to the live site.' }
+      - { name: body,         label: Body,              widget: markdown }
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Site Configuration: phone, address, hours, social. Single file.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: site_config
+    label: Site Configuration
+    files:
+      - name: site
+        label: Business Info
+        file: src/data/site.json
+        delete: false
+        fields:
+          - { name: name,             label: Business Name,         widget: string }
+          - { name: phone,             label: 'Phone (display)',     widget: string,
+              hint: 'Shown to humans, e.g. 480-739-3854' }
+          - { name: phone_tel,         label: 'Phone (tel: link)',   widget: string,
+              hint: 'Digits only, no dashes, e.g. 4807393854' }
+          - { name: phone_sms,         label: 'Phone (SMS link)',    widget: string,
+              hint: 'E.164 format, e.g. +14807393854' }
+          - { name: email,             label: Email,                 widget: string }
+          - { name: address_street,    label: Street Address,        widget: string }
+          - { name: address_city,      label: City,                  widget: string }
+          - { name: address_region,    label: State,                 widget: string }
+          - { name: address_postal,    label: Postal Code,           widget: string }
+          - { name: address_country,   label: Country Code,          widget: string, default: 'US' }
+          - { name: hours_weekday,     label: 'Hours (display, weekdays)', widget: string }
+          - { name: hours_weekend,     label: 'Hours (display, weekends)', widget: string }
+          - { name: hours_opens,       label: 'Opens (24h, for schema)',   widget: string,
+              hint: 'Used in LocalBusiness schema — e.g. 07:00' }
+          - { name: hours_closes,      label: 'Closes (24h, for schema)',  widget: string }
+          - { name: social_facebook,   label: Facebook URL,          widget: string }
+          - { name: social_instagram,  label: Instagram URL,         widget: string }
+          - { name: map_query,         label: Google Maps query,     widget: string,
+              hint: 'URL-encoded address used to build the directions link.' }
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Homepage Images: which photos appear in each homepage section.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: homepage_data
+    label: Homepage Images
+    files:
+      - name: homepage
+        label: Homepage Image Slots
+        file: src/data/homepage.json
+        delete: false
+        fields:
+          - { name: hero_fallback_image,    label: Hero Fallback Image,
+              widget: image, hint: 'Shown behind the hero video while it loads.' }
+          - { name: contractors_card_image, label: Contractors Card Image, widget: image }
+          - { name: homeowners_card_image,  label: DIY Homeowners Card Image, widget: image }
+          - { name: turf_card_image,        label: Turf Card (Products grid), widget: image }
+          - { name: pavers_card_image,      label: Pavers Card (Products grid), widget: image }
+          - { name: stone_card_image,       label: Stone Card (Products grid), widget: image }
+          - { name: lighting_card_image,    label: Lighting Card (Products grid), widget: image }
+          - { name: confidence_bg_image,    label: 'Shop With Confidence — Background', widget: image }
+          - { name: contractor_detail_image,label: Contractor Detail Section Image, widget: image }
+          - { name: homeowner_detail_image, label: Homeowner Detail Section Image, widget: image }
+          - { name: why_turf_image,         label: 'Why Turf — Section Image', widget: image }
+          - { name: pavers_other_image,     label: 'Other Products — Pavers', widget: image }
+          - { name: stone_other_image,      label: 'Other Products — Stone', widget: image }
+          - { name: lighting_other_image,   label: 'Other Products — Lighting', widget: image }
+          - { name: accessories_other_image,label: 'Other Products — Accessories', widget: image }
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Gallery Labels: optional title/location shown on hover per filename.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: gallery_data
+    label: Gallery Labels
+    files:
+      - name: gallery
+        label: Hover Labels
+        file: src/data/gallery.json
+        delete: false
+        fields:
+          - name: overrides
+            label: Labels by Filename
+            widget: object
+            hint: |
+              Each key is the exact filename (e.g. "turf-pavers--chandler-deck.jpg"). Add one
+              entry per photo that needs a hover label. Photos with no entry show no label.
+            fields:
+              - { name: title,    label: Title,    widget: string, required: false }
+              - { name: location, label: Location, widget: string, required: false }

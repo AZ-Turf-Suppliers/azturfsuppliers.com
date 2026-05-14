@@ -1,6 +1,8 @@
 ---
 import Icon from './Icon.astro';
+import site from '../data/site.json';
 const year = new Date().getFullYear();
+const mapUrl = `https://maps.google.com/?q=${site.map_query}`;
 ---
 
 <footer id="footer">
@@ -8,14 +10,14 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          <img src="/media/logo.png" alt="AZ Turf Suppliers" width="200" height="60" loading="lazy" decoding="async">
+          <img src="/media/logo.png" alt={site.name} width="200" height="60" loading="lazy" decoding="async">
         </a>
-        <p>Premium artificial turf and landscaping supplies based in Queen Creek and serving all of Arizona. Your trusted partner for outdoor living.</p>
+        <p>Premium artificial turf and landscaping supplies based in {site.address_city} and serving all of Arizona. Your trusted partner for outdoor living.</p>
         <div class="footer-socials">
-          <a href="https://www.facebook.com/AZturfsuppliers/" target="_blank" rel="noopener" aria-label="Follow AZ Turf Suppliers on Facebook">
+          <a href={site.social_facebook} target="_blank" rel="noopener" aria-label={`Follow ${site.name} on Facebook`}>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
           </a>
-          <a href="https://www.instagram.com/az.turf.suppliers/" target="_blank" rel="noopener" aria-label="Follow AZ Turf Suppliers on Instagram">
+          <a href={site.social_instagram} target="_blank" rel="noopener" aria-label={`Follow ${site.name} on Instagram`}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
         </div>
@@ -54,10 +56,10 @@ const year = new Date().getFullYear();
       </div>
       <div class="footer-col footer-col-visit">
         <h5>Visit Us</h5>
-        <p class="footer-address">18607 E San Tan Blvd<br>Queen Creek, AZ 85142</p>
-        <p class="footer-hours">Mon–Fri: 7:00 AM – 3:00 PM<br>Sat–Sun: Closed</p>
-        <a href="tel:4807393854" class="footer-phone">480-739-3854</a>
-        <a href="https://maps.google.com/?q=18607+E+San+Tan+Blvd+Queen+Creek+AZ" target="_blank" rel="noopener" class="footer-directions">Get Directions →</a>
+        <p class="footer-address">{site.address_street}<br>{site.address_city}, {site.address_region} {site.address_postal}</p>
+        <p class="footer-hours">{site.hours_weekday}<br>{site.hours_weekend}</p>
+        <a href={`tel:${site.phone_tel}`} class="footer-phone">{site.phone}</a>
+        <a href={mapUrl} target="_blank" rel="noopener" class="footer-directions">Get Directions →</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -69,11 +71,11 @@ const year = new Date().getFullYear();
 
 <!-- Mobile-only sticky action bar -->
 <div class="mobile-action-bar" aria-label="Quick contact">
-  <a href="sms:+14807393854" class="mobile-action-bar-btn mobile-action-bar-btn--text">
+  <a href={`sms:${site.phone_sms}`} class="mobile-action-bar-btn mobile-action-bar-btn--text">
     <Icon name="chat" size={20} />
     <span>Text Us</span>
   </a>
-  <a href="tel:4807393854" class="mobile-action-bar-btn mobile-action-bar-btn--call">
+  <a href={`tel:${site.phone_tel}`} class="mobile-action-bar-btn mobile-action-bar-btn--call">
     <Icon name="phone" size={20} />
     <span>Call Us</span>
   </a>
