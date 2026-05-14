@@ -525,6 +525,39 @@ collections:
               - { name: link, label: 'URL',           widget: string }
 
   # ─────────────────────────────────────────────────────────────────────
+  # Redirects: edited as a friendly form. The build step (Astro integration
+  # `cloudflareRedirects` in astro.config.mjs) compiles this JSON into a
+  # /_redirects file at the deploy root, which Cloudflare Pages reads
+  # automatically at request time.
+  # ─────────────────────────────────────────────────────────────────────
+  - name: redirects
+    label: Redirects
+    files:
+      - name: redirects
+        label: All Redirects
+        file: src/data/redirects.json
+        delete: false
+        fields:
+          - name: entries
+            label: Redirects
+            widget: list
+            label_singular: Redirect
+            summary: '{{from}}  →  {{to}}  ({{status}})'
+            hint: |
+              "From" is the URL path on this site that should redirect. "To" is where the
+              visitor lands. "Status" is 301 (permanent — tells Google to update the index)
+              or 302 (temporary). Use 301 for SEO-significant moves, 302 for short-term
+              swaps.
+            fields:
+              - { name: from,   label: 'From (path on this site)', widget: string,
+                  pattern: ['^/.*', 'Must start with /, e.g. /old-products/turf'] }
+              - { name: to,     label: 'To (destination URL or path)', widget: string,
+                  hint: 'Internal: /products/natural-blend-75 — or external: https://example.com/page' }
+              - { name: status, label: Status Code, widget: select, default: '301',
+                  options: [{ label: '301 Permanent (recommended for SEO moves)', value: '301' },
+                            { label: '302 Temporary',                              value: '302' }] }
+
+  # ─────────────────────────────────────────────────────────────────────
   # Gallery Labels: optional title/location shown on hover per filename.
   # ─────────────────────────────────────────────────────────────────────
   - name: gallery_data
