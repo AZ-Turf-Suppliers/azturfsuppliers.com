@@ -185,7 +185,7 @@ const introParas = page.intro.body.split('\n\n');
       <h1 set:html={renderInline(page.hero.heading)} />
       <p>{page.hero.body}</p>
       <div class="page-hero-btns">
-        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
         <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
       </div>
     </div>
@@ -213,7 +213,7 @@ const introParas = page.intro.body.split('\n\n');
         <h2 set:html={renderInline(page.intro.heading)} />
         {introParas.map((para) => <p set:html={renderInline(para)} />)}
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-          <a href={page.intro.ctaPrimary.link} class="btn btn-primary">{page.intro.ctaPrimary.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.intro.ctaPrimary.link} class="btn btn-primary">{page.intro.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
           <a href={page.intro.ctaSecondary.link} class="btn btn-dark">{page.intro.ctaSecondary.text}</a>
         </div>
       </div>
@@ -649,12 +649,12 @@ const introParas = page.intro.body.split('\n\n');
           <div class="stone-adv-list">
             {page.advantage.bullets.map((bullet) => (
               <div class="stone-adv-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <Icon name="check" size={16} />
                 <p set:html={renderInline(bullet)} />
               </div>
             ))}
           </div>
-          <a href={page.advantage.cta.link} class="btn btn-primary">{page.advantage.cta.text} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href={page.advantage.cta.link} class="btn btn-primary">{page.advantage.cta.text} <Icon name="arrow-right" size={16} /></a>
         </div>
       </div>
       <div class="stone-adv-img" data-reveal>
@@ -675,7 +675,7 @@ const introParas = page.intro.body.split('\n\n');
         <a href={btn.link} class={`btn btn-${btn.style}`}>
           {btn.text}
           {btn.style === 'primary' && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <Icon name="arrow-right" size={16} />
           )}
         </a>
       ))}
