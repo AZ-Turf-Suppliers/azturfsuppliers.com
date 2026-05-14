@@ -1,0 +1,65 @@
+{
+  "name": "Mesa",
+  "meta": {
+    "title": "Artificial Turf in Mesa, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Mesa, AZ. East Valley delivery from Queen Creek. Call 480-739-3854.",
+    "ogImage": "/media/winter-blend-4.jpg"
+  },
+  "heroImage": "/media/winter-blend-4.jpg",
+  "hero": {
+    "eyebrow": "Mesa, AZ",
+    "heading": "Landscaping Materials *Delivered to Mesa*",
+    "body": "Mesa is Arizona's largest suburb — and we deliver to all of it. AZ Turf Suppliers brings professional-grade turf, pavers, and stone directly to Mesa homeowners and contractors.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "~20–25 Miles",  "label": "From Our Showroom" },
+    { "value": "Next-Day",      "label": "Delivery Available" },
+    { "value": "Same-Day",      "label": "Showroom Pickup" },
+    { "value": "480-739-3854",  "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "Products We Deliver",
+    "heading": "What Mesa Homeowners & Contractors Order Most",
+    "body": "From full backyard turf installations to paver patios and pool deck resurfacing, we stock everything Mesa contractors and DIYers need — at wholesale prices with fast delivery.",
+    "cards": [
+      { "heading": "Artificial Turf",    "body": "Water-saving synthetic turf for Mesa's desert climate. Multiple pile heights and styles to match your yard's look and use case.",            "linkText": "View Turf Options →",  "link": "/artificial-turf" },
+      { "heading": "Pavers",             "body": "Concrete and travertine pavers for Mesa patios, driveways, and pool decks. Delivered by the pallet to your address.",                       "linkText": "View Pavers →",         "link": "/pavers" },
+      { "heading": "Natural Stone",      "body": "Travertine, limestone, and marble coping and pavers — add natural elegance to any Mesa outdoor living space.",                              "linkText": "View Natural Stone →",  "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting for Mesa homes and commercial properties. Path lights, spotlights, and more.",                    "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The Preferred Supplier for Mesa Landscapers",
+    "cards": [
+      { "heading": "Fast East Valley Delivery", "body": "Located in nearby Queen Creek, we run regular delivery routes throughout Mesa. Order today for next-day delivery to your Mesa address." },
+      { "heading": "Volume Pricing Available",  "body": "Mesa contractors handling multiple jobs get access to volume pricing and dedicated account management. More jobs, better margins." },
+      { "heading": "Real Product Samples",      "body": "Not sure which turf or paver is right? Visit our Queen Creek showroom to feel the materials before you buy — just a short drive from East Mesa." }
+    ]
+  },
+  "cta": {
+    "label": "Order Today",
+    "heading": "Next-Day Delivery to Mesa, AZ",
+    "body": "Get a fast quote by phone or online, or stop by our showroom at 18607 E San Tan Blvd in Queen Creek — open Mon–Fri, 7 AM–3 PM.",
+    "buttons": [
+      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "Queen Creek",            "link": "/queen-creek" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
+      { "name": "Gilbert",                "link": "/gilbert" },
+      { "name": "Chandler",               "link": "/chandler" },
+      { "name": "Apache Junction",        "link": "/apache-junction" },
+      { "name": "Scottsdale",             "link": "/scottsdale" },
+      { "name": "Tempe",                  "link": "/tempe" },
+      { "name": "Phoenix",                "link": "/phoenix" },
+      { "name": "View All Areas Served",  "link": "/locations" }
+    ]
+  }
+}

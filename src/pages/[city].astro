@@ -1,12 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { renderInline } from '../utils/inline-markdown';
-import page from '../data/locations/queen-creek.json';
+
+// Dynamic route: one rendered page per JSON file in src/data/locations/.
+// Filename = URL slug. To add a new city, the CMS creates a new JSON file
+// here through the "Location Pages" collection — no .astro edits needed.
+const cityModules = import.meta.glob('../data/locations/*.json', { eager: true });
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob('../data/locations/*.json', { eager: true });
+  return Object.entries(modules).map(([path, mod]) => {
+    const slug = path.split('/').pop()!.replace(/\.json$/, '');
+    return { params: { city: slug }, props: { page: (mod as any).default ?? mod } };
+  });
+}
+
+interface Props { page: any; }
+const { page } = Astro.props;
+const { city } = Astro.params;
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Areas Served', url: '/locations' },
-  { name: page.name, url: '/queen-creek' },
+  { name: page.name, url: `/${city}` },
 ];
 
 const btnClass = (style: string) => {
@@ -74,7 +90,7 @@ const btnClass = (style: string) => {
 <!-- ═══ STAT BAR ═══ -->
 <div class="stat-bar">
   <div class="container stat-bar-inner">
-    {page.statBar.map((item) => (
+    {page.statBar.map((item: any) => (
       <div class="stat-item">
         <div class="stat-num">{item.value}</div>
         <div class="stat-label">{item.label}</div>
@@ -92,7 +108,7 @@ const btnClass = (style: string) => {
       <p set:html={renderInline(page.products.body)} />
     </div>
     <div class="city-products-grid">
-      {page.products.cards.map((card) => (
+      {page.products.cards.map((card: any) => (
         <div class="city-product-card" data-reveal>
           <h3>{card.heading}</h3>
           <p set:html={renderInline(card.body)} />
@@ -111,7 +127,7 @@ const btnClass = (style: string) => {
       <h2 style="color:var(--white);" set:html={renderInline(page.why.heading)} />
     </div>
     <div class="city-why-grid">
-      {page.why.cards.map((card) => (
+      {page.why.cards.map((card: any) => (
         <div class="city-why-card" data-reveal>
           <h3>{card.heading}</h3>
           <p set:html={renderInline(card.body)} />
@@ -128,7 +144,7 @@ const btnClass = (style: string) => {
     <h2 set:html={renderInline(page.cta.heading)} />
     <p set:html={renderInline(page.cta.body)} />
     <div class="city-cta-btns">
-      {page.cta.buttons.map((btn) => (
+      {page.cta.buttons.map((btn: any) => (
         <a
           href={btn.link}
           class={btnClass(btn.style)}
@@ -150,7 +166,7 @@ const btnClass = (style: string) => {
   <div class="container">
     <p>
       {page.nearby.prefix}{' '}
-      {page.nearby.links.map((link, i) => (
+      {page.nearby.links.map((link: any, i: number) => (
         <>
           {i > 0 && ' · '}
           <a href={link.link}>{link.name}</a>

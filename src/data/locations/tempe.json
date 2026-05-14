@@ -1,0 +1,65 @@
+{
+  "name": "Tempe",
+  "meta": {
+    "title": "Artificial Turf in Tempe, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Tempe, AZ. Next-day delivery from Queen Creek. Call 480-739-3854.",
+    "ogImage": "/media/spring-blend-2.jpg"
+  },
+  "heroImage": "/media/spring-blend-2.jpg",
+  "hero": {
+    "eyebrow": "Tempe, AZ",
+    "heading": "Artificial Turf & Pavers *Delivered to Tempe*",
+    "body": "Tempe homeowners and landscape contractors have a reliable East Valley supplier in AZ Turf Suppliers. Premium materials, fair pricing, and fast delivery from our Queen Creek warehouse.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "~28–32 Miles",  "label": "From Our Showroom" },
+    { "value": "Next-Day",      "label": "Delivery Available" },
+    { "value": "Same-Day",      "label": "Showroom Pickup" },
+    { "value": "480-739-3854",  "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "What We Supply",
+    "heading": "Landscaping Materials for Tempe Homes & Projects",
+    "body": "From older neighborhoods undergoing backyard renovations to new infill development, Tempe has a growing demand for quality landscaping materials. We meet that demand with fast delivery and competitive pricing.",
+    "cards": [
+      { "heading": "Artificial Turf",    "body": "Water-saving synthetic grass for Tempe's heat. Great for small urban backyards, dog runs, and front yard landscaping in Arizona's desert climate.", "linkText": "View Turf Options →",  "link": "/artificial-turf" },
+      { "heading": "Pavers",             "body": "Concrete and travertine pavers to upgrade Tempe patios, courtyards, and driveways. Durable and heat-friendly for Arizona summers.",                  "linkText": "View Pavers →",         "link": "/pavers" },
+      { "heading": "Natural Stone",      "body": "Natural travertine and limestone coping and tile for Tempe pool areas and outdoor spaces. Premium look at wholesale pricing.",                       "linkText": "View Natural Stone →",  "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Lumenex professional low-voltage lighting to enhance Tempe outdoor spaces — from backyard patios to commercial property landscapes.",                "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "Tempe's Trusted East Valley Supplier",
+    "cards": [
+      { "heading": "Reliable Delivery to Tempe", "body": "We run regular delivery routes across the Phoenix Metro, including Tempe. Order by phone or online and receive materials next-day at your Tempe address." },
+      { "heading": "Wholesale Pricing",          "body": "No retail markup. Whether you're a Tempe homeowner doing one project or a contractor running multiple jobs, you get wholesale pricing on every order." },
+      { "heading": "Full Product Range",         "body": "Turf, pavers, natural stone, and lighting from one supplier. Simplify procurement and reduce coordination overhead on every Tempe project." }
+    ]
+  },
+  "cta": {
+    "label": "Get a Quote",
+    "heading": "Next-Day Delivery to Tempe, AZ",
+    "body": "Call us, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd — about 30 minutes from central Tempe. Open Mon–Fri, 7 AM–3 PM.",
+    "buttons": [
+      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "Queen Creek",            "link": "/queen-creek" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
+      { "name": "Gilbert",                "link": "/gilbert" },
+      { "name": "Mesa",                   "link": "/mesa" },
+      { "name": "Chandler",               "link": "/chandler" },
+      { "name": "Apache Junction",        "link": "/apache-junction" },
+      { "name": "Scottsdale",             "link": "/scottsdale" },
+      { "name": "Phoenix",                "link": "/phoenix" },
+      { "name": "View All Areas Served",  "link": "/locations" }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Gilbert",
+  "meta": {
+    "title": "Artificial Turf in Gilbert, AZ | AZ Turf Suppliers",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Gilbert, AZ. Next-day delivery from Queen Creek. Call 480-739-3854.",
+    "ogImage": "/media/winter-blend-6.jpg"
+  },
+  "heroImage": "/media/winter-blend-6.jpg",
+  "hero": {
+    "eyebrow": "Gilbert, AZ",
+    "heading": "Turf, Pavers & Stone *Delivered to Gilbert*",
+    "body": "Gilbert homeowners and contractors trust AZ Turf Suppliers for premium materials and fast East Valley delivery. Quality products, competitive pricing, and a team that knows the Valley.",
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaSecondary": { "text": "Call 480-739-3854", "link": "tel:4807393854" }
+  },
+  "statBar": [
+    { "value": "~15–18 Miles",  "label": "From Our Showroom" },
+    { "value": "Next-Day",      "label": "Delivery Available" },
+    { "value": "Same-Day",      "label": "Showroom Pickup" },
+    { "value": "480-739-3854",  "label": "Call or Text" }
+  ],
+  "products": {
+    "label": "Our Products",
+    "heading": "Premium Landscaping Materials for Gilbert, AZ",
+    "body": "Gilbert is one of Arizona's premier planned communities with high standards for curb appeal and outdoor living. We stock the materials that match — delivered to your door or available for same-day pickup.",
+    "cards": [
+      { "heading": "Artificial Turf",    "body": "HOA-compliant, realistic-looking turf that withstands Gilbert's summer heat. UV-stabilized, pet-safe, and water-wise.",                          "linkText": "View Turf Options →",  "link": "/artificial-turf" },
+      { "heading": "Pavers",             "body": "Travertine and concrete pavers for pool decks, front entries, patios, and driveways — trusted by Gilbert's top landscape contractors.",          "linkText": "View Pavers →",         "link": "/pavers" },
+      { "heading": "Natural Stone",      "body": "High-end limestone, travertine, and marble selections ideal for Gilbert's upscale residential projects and pool areas.",                          "linkText": "View Natural Stone →",  "link": "/natural-stone" },
+      { "heading": "Landscape Lighting", "body": "Lumenex professional-grade low-voltage systems — elevate your Gilbert home's nighttime curb appeal and security.",                                "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+    ]
+  },
+  "why": {
+    "label": "The AZ Turf Difference",
+    "heading": "Gilbert's East Valley Landscaping Supplier",
+    "cards": [
+      { "heading": "East Valley Local",    "body": "Just 15–18 miles from Gilbert. We know the area, the HOA requirements, and the climate demands — and our team is always available to help you spec the right materials." },
+      { "heading": "Contractor Accounts",  "body": "Gilbert landscape contractors get dedicated account pricing, volume discounts, and priority delivery scheduling. Call to set up a contractor account today." },
+      { "heading": "No Waiting",           "body": "We keep large inventory on hand. Order today and receive next-day delivery to your Gilbert job site — no supply chain delays or special orders required." }
+    ]
+  },
+  "cta": {
+    "label": "Ready to Order?",
+    "heading": "Get Materials Delivered to Gilbert Tomorrow",
+    "body": "Call or text us, get a fast quote online, or swing by our Queen Creek showroom at 18607 E San Tan Blvd — just 20 minutes away.",
+    "buttons": [
+      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Call 480-739-3854", "link": "tel:4807393854", "style": "dark" }
+    ]
+  },
+  "nearby": {
+    "prefix": "Also serving:",
+    "links": [
+      { "name": "Queen Creek",            "link": "/queen-creek" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
+      { "name": "Mesa",                   "link": "/mesa" },
+      { "name": "Chandler",               "link": "/chandler" },
+      { "name": "Apache Junction",        "link": "/apache-junction" },
+      { "name": "Scottsdale",             "link": "/scottsdale" },
+      { "name": "Tempe",                  "link": "/tempe" },
+      { "name": "Phoenix",                "link": "/phoenix" },
+      { "name": "View All Areas Served",  "link": "/locations" }
+    ]
+  }
+}
