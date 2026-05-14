@@ -5,7 +5,7 @@ category: "Installation"
 date: 2026-05-01
 dateModified: 2026-05-13
 readTime: "14 min read"
-image: "/media/natural-series-turf-6.jpg"
+image: "/media/turf-hero-13.jpg"
 imageAlt: "Rolls of premium artificial turf being staged for installation in Queen Creek, Arizona"
 lede: "Arizona destroys turf installs that would last 15 years anywhere else. 110°+ ground temps, monsoon downpours, gophers, and reflective glass from south-facing windows all conspire against you. This guide covers what actually works in the desert — written from over a decade of selling turf to contractors and DIYers across the Valley."
 ---
