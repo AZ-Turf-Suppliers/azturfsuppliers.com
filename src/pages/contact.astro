@@ -624,6 +624,12 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
               <label for="website">Website</label>
               <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
+            {/* Attribution — auto-filled by the capture script in Layout.astro */}
+            <input type="hidden" name="utmcsr">
+            <input type="hidden" name="utmcmd">
+            <input type="hidden" name="utmccn">
+            <input type="hidden" name="utmctr">
+            <input type="hidden" name="utmgclid">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>

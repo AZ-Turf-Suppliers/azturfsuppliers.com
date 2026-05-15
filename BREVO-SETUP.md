@@ -58,18 +58,31 @@ you can browse submissions at a glance. Brevo only auto-creates
 
 **Contacts → Settings (gear icon) → Contact attributes → Add an attribute**
 
-Add these four — all type **Text**:
+Add these nine — all type **Text**:
 
-| Attribute name | Type |
-| --- | --- |
-| `PHONE` | Text |
-| `ROLE` | Text |
-| `MESSAGE` | Text |
-| `LAST_SUBMITTED_AT` | Text *(or Date — Text is simpler since we already pass an ISO string)* |
+| Attribute name | Purpose | Type |
+| --- | --- | --- |
+| `PHONE` | Submitter phone | Text |
+| `ROLE` | Homeowner / Contractor / etc. from the form's role select | Text |
+| `MESSAGE` | The first ~240 chars of their message (full text lives in the notification email and Sheet) | Text |
+| `LAST_SUBMITTED_AT` | ISO timestamp of their most recent submission | Text *(or Date — Text is simpler since we already pass an ISO string)* |
+| `UTMCSR` | First-touch attribution: `utm_source` / `utmcsr` from the landing URL | Text |
+| `UTMCMD` | First-touch attribution: `utm_medium` / `utmcmd` | Text |
+| `UTMCCN` | First-touch attribution: `utm_campaign` / `utmccn` | Text |
+| `UTMCTR` | First-touch attribution: `utm_term` (keyword) / `utmctr` | Text |
+| `UTMGCLID` | First-touch Google Ads click ID (`gclid` / `utmgclid`) | Text |
 
 > Why not the built-in `SMS` attribute for phone? Brevo's SMS field
 > requires E.164 (`+14807931800`) and rejects anything else. Keeping
 > phone in a plain text attribute avoids that validation friction.
+
+> The five attribution attributes are populated automatically by the
+> Cloudflare Function when a submitter arrived from a tagged URL like
+> `?utmcsr=google&utmcmd=cpc&utmccn=spring2026`. If the attributes
+> don't exist in Brevo yet, the Function still works — Brevo silently
+> ignores unknown attributes, so attribution just doesn't land on the
+> contact record (it still appears in the notification email and the
+> Google Sheet). Create them when you're ready to use them.
 
 ### 1d. Create the "Website Leads" list
 

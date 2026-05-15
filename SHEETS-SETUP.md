@@ -30,9 +30,17 @@ Optionally pre-populate row 1 with header labels (the Apps Script will
 auto-add them on the first append if the sheet is empty, so this step
 is just cosmetic):
 
-| A | B | C | D | E | F | G | H |
-|---|---|---|---|---|---|---|---|
-| Submitted (Phoenix) | First Name | Last Name | Email | Phone | Role | Newsletter | Message |
+| A | B | C | D | E | F | G | H | I | J | K | L | M |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Submitted (Phoenix) | First Name | Last Name | Email | Phone | Role | Newsletter | Message | Source | Medium | Campaign | Keyword | GCLID |
+
+The last five columns (`Source` → `GCLID`) are first-touch attribution
+captured from the URL when a visitor lands via a tagged link
+(`?utmcsr=…&utmcmd=…&utmccn=…&utmctr=…&utmgclid=…`, with `utm_source` /
+`utm_medium` / `utm_campaign` / `utm_term` / `gclid` accepted as
+fallback aliases). Stored in `localStorage` for 90 days, then attached
+to every form submission until the window expires or the browser data
+is cleared. Empty when the visitor arrived organically.
 
 You can rename / reorder headers later — the Apps Script writes columns
 in this order regardless of what's in row 1.
@@ -55,6 +63,11 @@ const HEADERS = [
   'Role',
   'Newsletter',
   'Message',
+  'Source',
+  'Medium',
+  'Campaign',
+  'Keyword',
+  'GCLID',
 ];
 
 function doPost(e) {
@@ -95,6 +108,11 @@ function doPost(e) {
     body.role || '',
     body.optIn ? 'Yes' : 'No',
     body.message || '',
+    body.utmcsr || '',
+    body.utmcmd || '',
+    body.utmccn || '',
+    body.utmctr || '',
+    body.utmgclid || '',
   ]);
 
   return json({ ok: true });

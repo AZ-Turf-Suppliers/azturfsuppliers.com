@@ -34,8 +34,8 @@ Maintain this running table and show it after each phase:
 
 1. Open https://sheets.new in a new tab (Google creates a fresh untitled sheet on the signed-in account).
 2. Rename: top-left "Untitled spreadsheet" → click → type **AZ Turf — Website Leads**.
-3. *(Optional)* In row 1, type these column headers across A1–H1 in order:
-   `Submitted (Phoenix)`, `First Name`, `Last Name`, `Email`, `Phone`, `Role`, `Newsletter`, `Message`. If you skip, the Apps Script auto-creates them on the first append. Both work.
+3. *(Optional)* In row 1, type these column headers across A1–M1 in order:
+   `Submitted (Phoenix)`, `First Name`, `Last Name`, `Email`, `Phone`, `Role`, `Newsletter`, `Message`, `Source`, `Medium`, `Campaign`, `Keyword`, `GCLID`. If you skip, the Apps Script auto-creates them on the first append. Both work. The last 5 columns are first-touch attribution from ad URLs (empty on organic traffic).
 4. Capture the sheet URL (`docs.google.com/spreadsheets/d/<ID>/edit`) into the table.
 
 ### Phase 2 — Paste the Apps Script
@@ -53,6 +53,11 @@ const HEADERS = [
   'Role',
   'Newsletter',
   'Message',
+  'Source',
+  'Medium',
+  'Campaign',
+  'Keyword',
+  'GCLID',
 ];
 
 function doPost(e) {
@@ -93,6 +98,11 @@ function doPost(e) {
     body.role || '',
     body.optIn ? 'Yes' : 'No',
     body.message || '',
+    body.utmcsr || '',
+    body.utmcmd || '',
+    body.utmccn || '',
+    body.utmctr || '',
+    body.utmgclid || '',
   ]);
 
   return json({ ok: true });

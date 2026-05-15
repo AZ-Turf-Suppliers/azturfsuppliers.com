@@ -119,6 +119,15 @@ export async function onRequestPost(context) {
   const message   = String(form.message   || '').trim().slice(0, 5000);
   const optIn     = form.optIn === 'on' || form.optIn === true || form.optIn === 'true';
 
+  // Attribution (first-touch UTMs, captured client-side in Layout.astro).
+  // Empty when the visitor arrived without UTM/gclid params.
+  const utmcsr   = String(form.utmcsr   || '').trim().slice(0, 200);
+  const utmcmd   = String(form.utmcmd   || '').trim().slice(0, 200);
+  const utmccn   = String(form.utmccn   || '').trim().slice(0, 200);
+  const utmctr   = String(form.utmctr   || '').trim().slice(0, 200);
+  const utmgclid = String(form.utmgclid || '').trim().slice(0, 500);
+  const hasAttribution = !!(utmcsr || utmcmd || utmccn || utmctr || utmgclid);
+
   if (!firstName) {
     return jsonResponse(400, { ok: false, error: 'First name is required.' });
   }
@@ -161,6 +170,16 @@ export async function onRequestPost(context) {
       ROLE: role,
       MESSAGE: snippet,
       LAST_SUBMITTED_AT: new Date().toISOString(),
+      // Attribution attributes — only set when values are present, so contacts
+      // who arrived organically don't get blank UTMs written over a prior
+      // value. Create UTMCSR/UTMCMD/UTMCCN/UTMCTR/UTMGCLID as Text attributes
+      // in Brevo (Contacts → Settings → Contact attributes) for these to land
+      // on the contact record; until then Brevo silently ignores them.
+      ...(utmcsr   && { UTMCSR:   utmcsr   }),
+      ...(utmcmd   && { UTMCMD:   utmcmd   }),
+      ...(utmccn   && { UTMCCN:   utmccn   }),
+      ...(utmctr   && { UTMCTR:   utmctr   }),
+      ...(utmgclid && { UTMGCLID: utmgclid }),
     },
   };
   if (listId) contactBody.listIds = [listId];
@@ -197,6 +216,11 @@ export async function onRequestPost(context) {
     role,
     optIn,
     message,
+    utmcsr,
+    utmcmd,
+    utmccn,
+    utmctr,
+    utmgclid,
   });
 
   // ─── 8. Send the notification email ────────────────────────────────
@@ -228,6 +252,14 @@ export async function onRequestPost(context) {
   </table>
   ${message ? `<h3 style="margin:24px 0 8px;color:#1a1a1a;font-size:15px;">Message</h3>
     <div style="background:#f5f5f5;padding:16px 18px;border-radius:8px;white-space:pre-wrap;font-size:14.5px;line-height:1.55;">${escapeHtml(message)}</div>` : ''}
+  ${hasAttribution ? `<h3 style="margin:24px 0 8px;color:#1a1a1a;font-size:15px;">Attribution</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:14.5px;">
+      ${utmcsr   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;width:130px;">Source</td>   <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmcsr)}</td></tr>`   : ''}
+      ${utmcmd   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Medium</td>             <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmcmd)}</td></tr>`   : ''}
+      ${utmccn   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Campaign</td>           <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmccn)}</td></tr>`   : ''}
+      ${utmctr   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Keyword</td>            <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmctr)}</td></tr>`   : ''}
+      ${utmgclid ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">GCLID</td>              <td style="padding:6px 0;border-bottom:1px solid #eee;font-family:monospace;font-size:12px;word-break:break-all;">${escapeHtml(utmgclid)}</td></tr>` : ''}
+    </table>` : ''}
   <p style="margin-top:28px;font-size:12.5px;color:#999;">Hit reply to message ${escapeHtml(firstName) || 'the submitter'} directly — reply-to is set to their email.</p>
 </body></html>
   `.trim();
