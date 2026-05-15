@@ -8,7 +8,7 @@
     "heading": "Accessories & *Maintenance Products*",
     "body": "Nails, infill, weed fabric, putting green accessories, and turf maintenance supplies — everything you need to install and maintain your turf the right way.",
     "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
   },
   "products": {
     "label": "In Stock",
@@ -23,23 +23,23 @@
       { "name": "3.5\" Putting Green Finish Nails 50 Lbs.",  "image": "acc-nails-3.5in.png",        "price": "$70",  "description": "Finish nails sized for fastening putting green turf without disturbing the playing surface." },
       { "name": "6×300 Weed Fabric — 8 Year",                "image": "acc-weed-fabric.png",        "price": "$75",  "description": "6-foot-wide, 300-foot roll. 8-year landscape-grade weed barrier installed under the turf base layer." },
       { "name": "6×300 Weed Fabric — 15 Year",               "image": "acc-weed-fabric.png",        "price": "$120", "description": "6-foot-wide, 300-foot roll. Heavy-duty 15-year landscape weed barrier for long-term installations." },
-      { "name": "100' Seam Tape",                            "image": "acc-weed-fabric.png",        "price": "$35",  "description": "100-foot roll of seam tape for joining turf rolls into a single seamless surface." },
-      { "name": "1 Gallon Turf Glue",                        "image": "acc-oxy-turf.jpg",           "price": "$80",  "description": "1-gallon professional turf glue for bonding seam tape to turf backing. Strong, weather-resistant hold." },
-      { "name": "29oz Glue Tube",                            "image": "acc-oxy-turf.jpg",           "price": "$30",  "description": "29-ounce caulk-style turf glue tube for small seam jobs and quick repairs. Fits standard caulk guns." },
+      { "name": "100' Seam Tape",                            "image": "",                           "price": "$35",  "description": "100-foot roll of seam tape for joining turf rolls into a single seamless surface." },
+      { "name": "1 Gallon Turf Glue",                        "image": "",                           "price": "$80",  "description": "1-gallon professional turf glue for bonding seam tape to turf backing. Strong, weather-resistant hold." },
+      { "name": "29oz Glue Tube",                            "image": "",                           "price": "$30",  "description": "29-ounce caulk-style turf glue tube for small seam jobs and quick repairs. Fits standard caulk guns." },
       { "name": "Oxy Turf 1-Gal. Jug",                       "image": "acc-oxy-turf.jpg",           "price": "$60",  "description": "Concentrated oxidizing turf cleaner. Breaks down pet waste, odors, and organic debris at the source." },
       { "name": "Flag Stick",                                "image": "acc-flag-stick.png",         "price": "$15",  "description": "Standard cup-size flag stick for putting green installations. Fits 4\" aluminum cups." },
       { "name": "White Flag",                                "image": "acc-flag-white.png",         "price": "$15",  "description": "Classic white putting green flag. Pairs with any flag stick and 4\" cup." },
       { "name": "Black & White Checkered Flag",              "image": "acc-flag-checkered.png",     "price": "$15",  "description": "Checkered putting green flag. A fun finish detail for backyard and practice greens." },
       { "name": "4\" Aluminum Cup",                          "image": "acc-aluminum-cup.png",       "price": "$20",  "description": "Standard-size aluminum putting cup. Installs flush into the green surface for a professional look." }
     ],
-    "note": "Prices are subject to change. Call or text [480-793-1800](tel:4807931800) for current availability and bulk pricing on large orders."
+    "note": "Prices are subject to change. Call or text [(602) 520-7511](tel:6025207511) for current availability and bulk pricing on large orders."
   },
   "cta": {
     "label": "Visit Us",
     "heading": "Everything You Need, In One Place",
     "body": "Stop by our Queen Creek showroom and grab what you need for your next install. Same-day pickup available on all stocked items.",
     "buttons": [
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "primary" },
+      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "primary" },
       { "text": "Send a Message",    "link": "/contact",       "style": "outline" }
     ]
   }

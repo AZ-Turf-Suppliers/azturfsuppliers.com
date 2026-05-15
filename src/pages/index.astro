@@ -1345,7 +1345,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             <div class="cm-icon"><Icon name="phone" size={28} /></div>
             <div>
               <h4>Call Us</h4>
-              <p>480-793-1800</p>
+              <p>(602) 520-7511</p>
             </div>
           </div>
           <div class="contact-method" data-reveal>
@@ -1470,7 +1470,7 @@ async function handleHomeFormSubmit(e: Event) {
     status.style.color = '#c0392b';
     status.textContent = (err instanceof Error && err.message)
       ? err.message
-      : 'Something went wrong. Please call us at 480-793-1800.';
+      : 'Something went wrong. Please call us at (602) 520-7511.';
     // @ts-expect-error — turnstile is injected by Cloudflare's widget script
     if (typeof turnstile !== 'undefined') turnstile.reset();
   } finally {

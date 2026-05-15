@@ -2,7 +2,7 @@
   "name": "Mesa",
   "meta": {
     "title": "Artificial Turf in Mesa, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Mesa, AZ. East Valley delivery from Queen Creek. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Mesa, AZ. East Valley delivery from Queen Creek. Call (602) 520-7511.",
     "ogImage": "/media/winter-blend-4.jpg"
   },
   "heroImage": "/media/turf-hero-17.jpg",
@@ -11,13 +11,13 @@
     "heading": "Landscaping Materials *Delivered to Mesa*",
     "body": "Mesa is Arizona's largest suburb — and we deliver to all of it. AZ Turf Suppliers brings professional-grade turf, pavers, and stone directly to Mesa homeowners and contractors.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
   },
   "statBar": [
     { "value": "~20–25 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-793-1800",  "label": "Call or Text" }
+    { "value": "(602) 520-7511",  "label": "Call or Text" }
   ],
   "products": {
     "label": "Products We Deliver",
@@ -45,7 +45,7 @@
     "body": "Get a fast quote by phone or online, or stop by our showroom at 18607 E San Tan Blvd in Queen Creek — open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
+      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "dark" }
     ]
   },
   "nearby": {

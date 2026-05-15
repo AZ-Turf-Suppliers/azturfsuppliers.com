@@ -2,7 +2,7 @@
   "name": "Gilbert",
   "meta": {
     "title": "Artificial Turf in Gilbert, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Gilbert, AZ. Next-day delivery from Queen Creek. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Gilbert, AZ. Next-day delivery from Queen Creek. Call (602) 520-7511.",
     "ogImage": "/media/winter-blend-6.jpg"
   },
   "heroImage": "/media/turf-hero-16.jpg",
@@ -11,13 +11,13 @@
     "heading": "Turf, Pavers & Stone *Delivered to Gilbert*",
     "body": "Gilbert homeowners and contractors trust AZ Turf Suppliers for premium materials and fast East Valley delivery. Quality products, competitive pricing, and a team that knows the Valley.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
   },
   "statBar": [
     { "value": "~15–18 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-793-1800",  "label": "Call or Text" }
+    { "value": "(602) 520-7511",  "label": "Call or Text" }
   ],
   "products": {
     "label": "Our Products",
@@ -45,7 +45,7 @@
     "body": "Call or text us, get a fast quote online, or swing by our Queen Creek showroom at 18607 E San Tan Blvd — just 20 minutes away.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
+      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "dark" }
     ]
   },
   "nearby": {

@@ -2,7 +2,7 @@
   "name": "Chandler",
   "meta": {
     "title": "Artificial Turf in Chandler, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Chandler, AZ. Next-day delivery from Queen Creek. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Chandler, AZ. Next-day delivery from Queen Creek. Call (602) 520-7511.",
     "ogImage": "/media/winter-blend-5.jpg"
   },
   "heroImage": "/media/turf-hero-15.jpg",
@@ -11,13 +11,13 @@
     "heading": "Artificial Turf, Pavers & Stone *Delivered to Chandler*",
     "body": "Chandler's booming growth means more landscaping projects than ever. AZ Turf Suppliers keeps up — with deep inventory, next-day delivery, and wholesale pricing for Chandler contractors.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
   },
   "statBar": [
     { "value": "~22–28 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-793-1800",  "label": "Call or Text" }
+    { "value": "(602) 520-7511",  "label": "Call or Text" }
   ],
   "products": {
     "label": "What We Supply",
@@ -45,7 +45,7 @@
     "body": "Order online, call us, or visit the showroom at 18607 E San Tan Blvd. Open Mon–Fri, 7 AM–3 PM — about 25–30 minutes from Chandler.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
+      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "dark" }
     ]
   },
   "nearby": {

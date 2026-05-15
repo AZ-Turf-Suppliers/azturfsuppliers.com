@@ -2,7 +2,7 @@
   "name": "San Tan Valley",
   "meta": {
     "title": "Artificial Turf in San Tan Valley, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to San Tan Valley, AZ from our nearby Queen Creek showroom. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to San Tan Valley, AZ from our nearby Queen Creek showroom. Call (602) 520-7511.",
     "ogImage": "/media/winter-blend-2.jpg"
   },
   "heroImage": "/media/turf-natural-stone-hero-6.jpg",
@@ -11,13 +11,13 @@
     "heading": "Artificial Turf & Pavers Delivered to *San Tan Valley*",
     "body": "AZ Turf Suppliers is just minutes away in Queen Creek. We deliver premium landscaping materials to San Tan Valley with fast turnaround — no waiting on freight or big-box orders.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
   },
   "statBar": [
     { "value": "~5–10 Miles",   "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-793-1800",  "label": "Call or Text" }
+    { "value": "(602) 520-7511",  "label": "Call or Text" }
   ],
   "products": {
     "label": "What We Deliver",
@@ -45,7 +45,7 @@
     "body": "Visit us at 18607 E San Tan Blvd, call to place an order, or get a free quote online. Fast, local, and reliable.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
+      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "dark" }
     ]
   },
   "nearby": {
