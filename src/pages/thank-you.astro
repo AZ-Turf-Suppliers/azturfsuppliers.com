@@ -192,12 +192,29 @@ import Icon from '../components/Icon.astro';
 
 <script is:inline>
   // GTM / GA4 conversion event — fires once when a visitor lands on /thank-you
-  // (i.e. the form submitted successfully and we redirected here).
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'generate_lead',
-    form_name: 'contact_form',
-    page_path: '/thank-you',
-  });
+  // (i.e. the form submitted successfully and we redirected here). Pulls
+  // first-touch attribution from localStorage (set by the capture script in
+  // Layout.astro) so GTM can route Source/Medium/Campaign/Keyword/GCLID to
+  // GA4, Google Ads, or any other tag without code changes.
+  (function () {
+    var attribution = {};
+    try {
+      var stored = JSON.parse(localStorage.getItem('az_attribution') || 'null');
+      if (stored) {
+        if (stored.utmcsr)   attribution.utmcsr   = stored.utmcsr;
+        if (stored.utmcmd)   attribution.utmcmd   = stored.utmcmd;
+        if (stored.utmccn)   attribution.utmccn   = stored.utmccn;
+        if (stored.utmctr)   attribution.utmctr   = stored.utmctr;
+        if (stored.utmgclid) attribution.utmgclid = stored.utmgclid;
+      }
+    } catch (e) {}
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({
+      event: 'generate_lead',
+      form_name: 'contact_form',
+      page_path: '/thank-you',
+    }, attribution));
+  })();
 </script>
 </Layout>
