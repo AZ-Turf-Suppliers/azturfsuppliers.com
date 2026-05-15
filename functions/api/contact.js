@@ -5,7 +5,10 @@
 //   2. Upserts the submitter into Brevo as a contact (with their info on
 //      the contact record so it's browsable / searchable / exportable from
 //      the Brevo dashboard). If they opt in, adds them to BREVO_LIST_ID.
-//   3. Sends a transactional notification email with the full message to
+//   3. Appends a row to a Google Sheet (via Apps Script web app) so every
+//      submission is preserved as an append-only archive with full message.
+//      Optional — skipped silently if SHEETS_WEBHOOK_URL isn't set.
+//   4. Sends a transactional notification email with the full message to
 //      BREVO_NOTIFY_EMAIL, with reply-to set to the submitter so hitting
 //      reply in your inbox messages them directly.
 //
@@ -20,6 +23,11 @@
 //                            to "AZ Turf Suppliers Website".
 //   BREVO_LIST_ID          — Numeric Brevo list ID. When set, contacts who
 //                            tick the opt-in checkbox join this list.
+//   SHEETS_WEBHOOK_URL     — Google Apps Script web app URL. When set, every
+//                            submission appends a row to the bound Sheet.
+//   SHEETS_WEBHOOK_SECRET  — Shared secret sent in the body; the Apps Script
+//                            rejects mismatches. Secret. Required when
+//                            SHEETS_WEBHOOK_URL is set.
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
@@ -34,6 +42,30 @@ function escapeHtml(s) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+async function appendToSheet(env, payload) {
+  if (!env.SHEETS_WEBHOOK_URL) return;
+  if (!env.SHEETS_WEBHOOK_SECRET) {
+    console.error('SHEETS_WEBHOOK_URL set but SHEETS_WEBHOOK_SECRET missing — skipping sheet append.');
+    return;
+  }
+  try {
+    const resp = await fetch(env.SHEETS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // Apps Script web apps respond via a 302 to script.googleusercontent.com;
+      // letting fetch follow the redirect surfaces the JSON {ok:...} response.
+      redirect: 'follow',
+      body: JSON.stringify({ ...payload, secret: env.SHEETS_WEBHOOK_SECRET }),
+    });
+    if (!resp.ok) {
+      const body = await resp.text().catch(() => '');
+      console.error('Sheets append non-OK:', resp.status, body);
+    }
+  } catch (e) {
+    console.error('Sheets append threw:', e);
+  }
 }
 
 async function verifyTurnstile(secret, token, ip) {
@@ -153,7 +185,21 @@ export async function onRequestPost(context) {
     console.error('Brevo contact upsert threw:', e);
   }
 
-  // ─── 7. Send the notification email ────────────────────────────────
+  // ─── 7. Append a row to the Google Sheet archive (optional) ────────
+  // Non-blocking: errors are logged, but never fail the form.
+  const submittedAt = new Date().toISOString();
+  await appendToSheet(env, {
+    submittedAt,
+    firstName,
+    lastName,
+    email,
+    phone,
+    role,
+    optIn,
+    message,
+  });
+
+  // ─── 8. Send the notification email ────────────────────────────────
   const fullName = [firstName, lastName].filter(Boolean).join(' ');
   const subject  = `New website lead — ${fullName || email}`;
 
