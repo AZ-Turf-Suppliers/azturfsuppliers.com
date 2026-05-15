@@ -55,8 +55,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "59 oz"
+      "label": "Total Weight",
+      "value": "85 oz"
     },
     {
       "label": "Pile Height",
@@ -181,7 +181,7 @@
   "cta": {
     "label": "Get Started",
     "heading": "Ready to Order Putting Green?",
-    "body": "Call or text us at 480-793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "body": "Call or text us at (480) 793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
     "buttons": [
       {
         "text": "Get a Quote",

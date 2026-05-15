@@ -2,7 +2,7 @@
   "name": "Queen Creek",
   "meta": {
     "title": "Artificial Turf in Queen Creek, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. Same-day pickup at 18607 E San Tan Blvd. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting in Queen Creek, AZ. Same-day pickup at 18607 E San Tan Blvd. Call (480) 793-1800.",
     "ogImage": "/media/winter-blend-1.jpg"
   },
   "heroImage": "/media/turf-hero-19.jpg",
@@ -11,13 +11,13 @@
     "heading": "Your Local Source for *Turf & Landscaping* in Queen Creek",
     "body": "Our showroom is right here in Queen Creek — come in same-day, grab samples, and take materials home the same visit. No waiting, no shipping fees.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "18607 E San Tan Blvd", "label": "Showroom Address" },
     { "value": "Same-Day", "label": "Pickup Available" },
     { "value": "Mon–Fri 7–3", "label": "Showroom Hours" },
-    { "value": "480-793-1800", "label": "Call or Text" }
+    { "value": "(480) 793-1800", "label": "Call or Text" }
   ],
   "products": {
     "label": "What We Carry",
@@ -46,7 +46,7 @@
     "buttons": [
       { "text": "Request a Quote", "link": "/contact", "style": "primary" },
       { "text": "Get Directions", "link": "https://maps.google.com/?q=18607+E+San+Tan+Blvd+Queen+Creek+AZ", "style": "dark", "newTab": true },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "outline" }
+      { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "outline" }
     ]
   },
   "nearby": {

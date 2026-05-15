@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Bermuda Blend 70 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Bermuda Blend 70 artificial turf \u2014 $1.40/sqft. 49oz face weight, 1.5\" pile, emerald/olive blend. Best for front yards and low-traffic areas. In stock in Queen Creek, AZ.",
+    "description": "Bermuda Blend 70 artificial turf \u2014 $1.40/sqft. 70oz total weight, 1.5\" pile, emerald/olive blend. Best for front yards and low-traffic areas. In stock in Queen Creek, AZ.",
     "ogImage": "/media/bermuda-side.png"
   },
   "productSchema": {
     "name": "Bermuda Blend 70 Artificial Turf",
     "image": "/media/bermuda-side.png",
-    "description": "Bermuda Blend 70 artificial turf. 70oz face weight, 1.5\" pile, emerald and olive blend. Best for front yards and low-traffic landscaping.",
+    "description": "Bermuda Blend 70 artificial turf. 70oz total weight, 1.5\" pile, emerald and olive blend. Best for front yards and low-traffic landscaping.",
     "price": "1.40",
     "priceValidUntil": "2026-12-31"
   },
@@ -42,8 +42,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "49 oz"
+      "label": "Total Weight",
+      "value": "70 oz"
     },
     {
       "label": "Pile Height",
@@ -109,7 +109,7 @@
     },
     {
       "label": "Total Weight",
-      "value": "75 oz"
+      "value": "70 oz"
     },
     {
       "label": "Roll Weight",
@@ -168,7 +168,7 @@
   "cta": {
     "label": "Get Started",
     "heading": "Ready to Order Bermuda Blend 70?",
-    "body": "Call or text us at 480-793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "body": "Call or text us at (480) 793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
     "buttons": [
       {
         "text": "Get a Quote",

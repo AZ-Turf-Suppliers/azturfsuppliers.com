@@ -32,6 +32,13 @@ const btnClass = (style: string) => {
   padding: 20px; border-bottom: 1px solid var(--gray-200);
 }
 .acc-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.acc-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray-400); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; text-align: center;
+  background: var(--gray-100); border-radius: var(--radius);
+}
 .acc-body { padding: 20px 20px 18px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
 .acc-name { font-size: 0.88rem; font-weight: 700; color: var(--dark); letter-spacing: 0.01em; line-height: 1.3; }
 .acc-desc {
@@ -79,7 +86,11 @@ const btnClass = (style: string) => {
       {page.products.items.map((p) => (
         <div class="acc-card" data-reveal>
           <div class="acc-img">
-            <Pic name={p.image} alt={p.name} loading="lazy" />
+            {p.image ? (
+              <Pic name={p.image} alt={p.name} loading="lazy" />
+            ) : (
+              <div class="acc-img-placeholder">Image Coming Soon</div>
+            )}
           </div>
           <div class="acc-body">
             <div class="acc-name">{p.name}</div>

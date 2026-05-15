@@ -2,7 +2,7 @@
   "name": "Tempe",
   "meta": {
     "title": "Artificial Turf in Tempe, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Tempe, AZ. Next-day delivery from Queen Creek. Call 480-793-1800.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Tempe, AZ. Next-day delivery from Queen Creek. Call (480) 793-1800.",
     "ogImage": "/media/spring-blend-2.jpg"
   },
   "heroImage": "/media/turf-natural-stone-hero-8.jpg",
@@ -11,13 +11,13 @@
     "heading": "Artificial Turf & Pavers *Delivered to Tempe*",
     "body": "Tempe homeowners and landscape contractors have a reliable East Valley supplier in AZ Turf Suppliers. Premium materials, fair pricing, and fast delivery from our Queen Creek warehouse.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call 480-793-1800", "link": "tel:4807931800" }
+    "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "~28–32 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "480-793-1800",  "label": "Call or Text" }
+    { "value": "(480) 793-1800",  "label": "Call or Text" }
   ],
   "products": {
     "label": "What We Supply",
@@ -45,7 +45,7 @@
     "body": "Call us, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd — about 30 minutes from central Tempe. Open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
-      { "text": "Call 480-793-1800", "link": "tel:4807931800", "style": "dark" }
+      { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "dark" }
     ]
   },
   "nearby": {

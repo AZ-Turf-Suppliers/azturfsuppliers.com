@@ -11,7 +11,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 
 <Layout
   title="Contact Us | AZ Turf Suppliers — Queen Creek, AZ"
-  description="Call or text 480-793-1800, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Same-day quotes on artificial turf, pavers, natural stone, and landscape lighting."
+  description="Call or text (480) 793-1800, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Same-day quotes on artificial turf, pavers, natural stone, and landscape lighting."
 >
 <style is:global>
 .page-hero::before { background-image: url("/media/turf-hero-7.jpg") !important; }
@@ -525,7 +525,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
               </div>
               <div class="contact-row-text">
                 <span class="contact-row-label">Call or Text</span>
-                <span class="contact-row-value">480-793-1800<span>Same-day response guaranteed</span></span>
+                <span class="contact-row-value">(480) 793-1800<span>Same-day response guaranteed</span></span>
               </div>
             </a>
             <a href="mailto:contact@azturfsuppliers.com" class="contact-row">
@@ -615,7 +615,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
       <div class="contact-form-card">
         <div class="form-card-header">
           <h2>Send Us a Message</h2>
-          <p>We'll get back to you same day. For a faster response, call or text 480-793-1800.</p>
+          <p>We'll get back to you same day. For a faster response, call or text (480) 793-1800.</p>
         </div>
         <div class="form-card-body">
           <form id="contact-form-el" novalidate>
@@ -807,7 +807,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
     <h2>Let's Build Something Beautiful</h2>
     <p>Call or text us, stop by the showroom, or send a message below. We'll get back to you same day with everything you need to get started.</p>
     <div class="cta-btns">
-      <a href="tel:4807931800" class="btn btn-primary cta-pulse">Call or Text 480-793-1800 <Icon name="phone" size={16} /></a>
+      <a href="tel:4807931800" class="btn btn-primary cta-pulse">Call or Text (480) 793-1800 <Icon name="phone" size={16} /></a>
       <a href="#contact-form" class="btn btn-outline">Send a Message</a>
     </div>
   </div>
@@ -864,7 +864,7 @@ document.getElementById('contact-form-el')?.addEventListener('submit', async fun
     status.style.color = '#c0392b';
     status.textContent = (err instanceof Error && err.message)
       ? err.message
-      : 'Something went wrong. Please call us at 480-793-1800.';
+      : 'Something went wrong. Please call us at (480) 793-1800.';
 
     // Turnstile tokens are single-use — reset so the user can retry.
     // @ts-expect-error — `turnstile` is injected by Cloudflare's widget script.

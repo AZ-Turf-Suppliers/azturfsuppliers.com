@@ -7,7 +7,7 @@
   "productSchema": {
     "name": "Natural Blend 75 Artificial Turf",
     "image": "/media/natural-blend-75-side.png",
-    "description": "Natural Blend 75 artificial turf. 75oz face weight, 1.5\" pile, emerald and lime blend. Soft, realistic blade for front yards and low-traffic landscaping.",
+    "description": "Natural Blend 75 artificial turf. 75oz total weight, 1.5\" pile, emerald and lime blend. Soft, realistic blade for front yards and low-traffic landscaping.",
     "price": "1.40",
     "priceValidUntil": "2026-12-31"
   },
@@ -53,8 +53,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "49 oz"
+      "label": "Total Weight",
+      "value": "75 oz"
     },
     {
       "label": "Pile Height",
@@ -179,7 +179,7 @@
   "cta": {
     "label": "Get Started",
     "heading": "Ready to Order Natural Blend 75?",
-    "body": "Call or text us at 480-793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "body": "Call or text us at (480) 793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
     "buttons": [
       {
         "text": "Get a Quote",

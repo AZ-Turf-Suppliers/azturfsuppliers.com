@@ -7,7 +7,7 @@
   "productSchema": {
     "name": "Natural Blend 84 Artificial Turf",
     "image": "/media/natural-blend-84-side.png",
-    "description": "Natural Blend 84 artificial turf. 84oz face weight, 1.65\" pile. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping.",
+    "description": "Natural Blend 84 artificial turf. 84oz total weight, 1.65\" pile. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping.",
     "price": "1.50",
     "priceValidUntil": "2026-12-31"
   },
@@ -53,8 +53,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "58 oz"
+      "label": "Total Weight",
+      "value": "84 oz"
     },
     {
       "label": "Pile Height",
@@ -179,7 +179,7 @@
   "cta": {
     "label": "Get Started",
     "heading": "Ready to Order Natural Blend 84?",
-    "body": "Call or text us at 480-793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
+    "body": "Call or text us at (480) 793-1800 to get a quote, schedule delivery, or pick up at our Queen Creek showroom.",
     "buttons": [
       {
         "text": "Get a Quote",
