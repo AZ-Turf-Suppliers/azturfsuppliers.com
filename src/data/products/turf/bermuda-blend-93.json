@@ -7,7 +7,7 @@
   "productSchema": {
     "name": "Bermuda Blend 93 Artificial Turf",
     "image": "/media/bermuda-side.png",
-    "description": "Bermuda Blend 93 artificial turf. 93oz face weight, heavy-duty, pet- and traffic-rated for backyards and commercial use.",
+    "description": "Bermuda Blend 93 artificial turf. 93oz total weight, heavy-duty, pet- and traffic-rated for backyards and commercial use.",
     "price": "1.85",
     "priceValidUntil": "2026-12-31"
   },
@@ -42,8 +42,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "67 oz"
+      "label": "Total Weight",
+      "value": "93 oz"
     },
     {
       "label": "Pile Height",

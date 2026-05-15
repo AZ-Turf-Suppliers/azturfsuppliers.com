@@ -50,7 +50,7 @@ import Icon from '../components/Icon.astro';
     .calc-inputs-row {
       grid-template-columns: 1fr 1fr;
     }
-    /* Turf face weight gets its own full-width row on mobile */
+    /* Turf total weight gets its own full-width row on mobile */
     .calc-inputs-row .form-group:nth-child(3) {
       grid-column: 1 / -1;
     }
@@ -311,7 +311,7 @@ import Icon from '../components/Icon.astro';
           <input type="number" id="projectLength" value="40" min="1" step="1">
         </div>
         <div class="form-group">
-          <label>Turf Face Weight</label>
+          <label>Turf Total Weight</label>
           <select id="turfWeight">
             <option value="2">70–80oz (2 lbs/sqft)</option>
             <option value="2.5">90–100oz (2.5 lbs/sqft)</option>

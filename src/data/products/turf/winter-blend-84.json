@@ -7,7 +7,7 @@
   "productSchema": {
     "name": "Winter Blend 84 Artificial Turf",
     "image": "/media/winter-blend-84-side.png",
-    "description": "Winter Blend 84 artificial turf. 84oz face weight, mid-weight, soft underfoot. Year-round green for residential lawns and backyards.",
+    "description": "Winter Blend 84 artificial turf. 84oz total weight, mid-weight, soft underfoot. Year-round green for residential lawns and backyards.",
     "price": "1.50",
     "priceValidUntil": "2026-12-31"
   },
@@ -54,8 +54,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "58 oz"
+      "label": "Total Weight",
+      "value": "84 oz"
     },
     {
       "label": "Pile Height",

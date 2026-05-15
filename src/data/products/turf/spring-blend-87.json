@@ -7,7 +7,7 @@
   "productSchema": {
     "name": "Spring Blend 87 Artificial Turf",
     "image": "/media/spring-blend-87-side.png",
-    "description": "Spring Blend 87 artificial turf. 87oz face weight. Bright, fresh green turf for backyards, play areas, and general residential landscaping.",
+    "description": "Spring Blend 87 artificial turf. 87oz total weight. Bright, fresh green turf for backyards, play areas, and general residential landscaping.",
     "price": "1.65",
     "priceValidUntil": "2026-12-31"
   },
@@ -48,8 +48,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "61 oz"
+      "label": "Total Weight",
+      "value": "87 oz"
     },
     {
       "label": "Pile Height",

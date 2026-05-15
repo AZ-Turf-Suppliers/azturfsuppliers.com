@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Spring Blend 107 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Spring Blend 107 artificial turf \u2014 $2.25/sqft. Premium, heavy face weight for high-traffic backyards, pets, and commercial installs. Stocked in Queen Creek, AZ.",
+    "description": "Spring Blend 107 artificial turf \u2014 $2.25/sqft. Premium, heavy total weight for high-traffic backyards, pets, and commercial installs. Stocked in Queen Creek, AZ.",
     "ogImage": "/media/spring-blend-107-side.png"
   },
   "productSchema": {
     "name": "Spring Blend 107 Artificial Turf",
     "image": "/media/spring-blend-107-side.png",
-    "description": "Spring Blend 107 artificial turf. 107oz face weight. Premium heavy weight for high-traffic backyards, pets, and commercial installs.",
+    "description": "Spring Blend 107 artificial turf. 107oz total weight. Premium heavy weight for high-traffic backyards, pets, and commercial installs.",
     "price": "2.25",
     "priceValidUntil": "2026-12-31"
   },
@@ -48,8 +48,8 @@
   },
   "keySpecs": [
     {
-      "label": "Face Weight",
-      "value": "81 oz"
+      "label": "Total Weight",
+      "value": "107 oz"
     },
     {
       "label": "Pile Height",
