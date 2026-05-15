@@ -108,8 +108,10 @@ footer#footer {
 }
 
 @media (max-width: 768px) {
+  footer#footer .container { padding: 0 28px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { max-width: none; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
 
