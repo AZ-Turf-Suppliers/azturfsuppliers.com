@@ -106,6 +106,22 @@ const extraSchemas: object[] = schema
     })(window,document,'script','dataLayer','GTM-595K6QJW');</script>
     <!-- End Google Tag Manager -->
 
+    <!-- SPA navigation signal for GTM. Astro's <ViewTransitions /> swaps pages
+         client-side without a full reload, so tags like CallRail that fire on
+         page load only run once. This pushes a custom event on every Astro
+         navigation so GTM can re-fire page-view-based tags. -->
+    <script is:inline>(function () {
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('astro:page-load', function () {
+        window.dataLayer.push({
+          event: 'astro_page_view',
+          page_path: window.location.pathname + window.location.search,
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      });
+    })();</script>
+
     <!-- Lead attribution capture — stores first-touch UTMs in localStorage and
          stamps hidden inputs (utmcsr/utmcmd/utmccn/utmctr/utmgclid) on any form.
          Accepts either abbreviated (utmcsr) or standard (utm_source) URL params. -->
