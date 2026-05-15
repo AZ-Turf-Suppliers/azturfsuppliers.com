@@ -189,4 +189,15 @@ import Icon from '../components/Icon.astro';
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // GTM / GA4 conversion event — fires once when a visitor lands on /thank-you
+  // (i.e. the form submitted successfully and we redirected here).
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'generate_lead',
+    form_name: 'contact_form',
+    page_path: '/thank-you',
+  });
+</script>
 </Layout>
