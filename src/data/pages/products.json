@@ -8,7 +8,7 @@
     "heading": "Everything You Need *In One Place*",
     "body": "Artificial turf, pavers, natural stone, landscape lighting, and installation accessories — all stocked at our Queen Creek showroom for same-day pickup or next-day delivery.",
     "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
+    "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "categories": {
     "label": "What We Carry",
@@ -67,7 +67,7 @@
     "heading": "Not Sure Where to Start?",
     "body": "Stop by our Queen Creek showroom and our team will help you pick the right materials for your project, your budget, and your timeline.",
     "buttons": [
-      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "primary" },
+      { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "primary" },
       { "text": "Send Us a Message", "link": "/contact",       "style": "outline" }
     ]
   }

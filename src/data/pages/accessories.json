@@ -8,7 +8,7 @@
     "heading": "Accessories & *Maintenance Products*",
     "body": "Nails, infill, weed fabric, putting green accessories, and turf maintenance supplies — everything you need to install and maintain your turf the right way.",
     "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
+    "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "products": {
     "label": "In Stock",
@@ -32,14 +32,14 @@
       { "name": "Black & White Checkered Flag",              "image": "acc-flag-checkered.png",     "price": "$15",  "description": "Checkered putting green flag. A fun finish detail for backyard and practice greens." },
       { "name": "4\" Aluminum Cup",                          "image": "acc-aluminum-cup.png",       "price": "$20",  "description": "Standard-size aluminum putting cup. Installs flush into the green surface for a professional look." }
     ],
-    "note": "Prices are subject to change. Call or text [(602) 520-7511](tel:6025207511) for current availability and bulk pricing on large orders."
+    "note": "Prices are subject to change. Call or text [(480) 793-1800](tel:4807931800) for current availability and bulk pricing on large orders."
   },
   "cta": {
     "label": "Visit Us",
     "heading": "Everything You Need, In One Place",
     "body": "Stop by our Queen Creek showroom and grab what you need for your next install. Same-day pickup available on all stocked items.",
     "buttons": [
-      { "text": "Call (602) 520-7511", "link": "tel:6025207511", "style": "primary" },
+      { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "primary" },
       { "text": "Send a Message",    "link": "/contact",       "style": "outline" }
     ]
   }

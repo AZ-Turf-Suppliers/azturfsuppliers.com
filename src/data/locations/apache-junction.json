@@ -2,7 +2,7 @@
   "name": "Apache Junction",
   "meta": {
     "title": "Artificial Turf in Apache Junction, AZ | AZ Turf Suppliers",
-    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Apache Junction, AZ from our Queen Creek showroom. Call (602) 520-7511.",
+    "description": "Artificial turf, pavers, natural stone, and landscape lighting delivered to Apache Junction, AZ from our Queen Creek showroom. Call (480) 793-1800.",
     "ogImage": "/media/winter-blend-3.jpg"
   },
   "heroImage": "/media/turf-hero-14.jpg",
@@ -11,13 +11,13 @@
     "heading": "Turf & Landscaping Materials *Near Apache Junction*",
     "body": "AZ Turf Suppliers is your closest source for professional landscaping materials in the Apache Junction area. Stop by our Queen Creek showroom or let us deliver directly to your property.",
     "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
-    "ctaSecondary": { "text": "Call (602) 520-7511", "link": "tel:6025207511" }
+    "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
     { "value": "~12–18 Miles",  "label": "From Our Showroom" },
     { "value": "Next-Day",      "label": "Delivery Available" },
     { "value": "Same-Day",      "label": "Showroom Pickup" },
-    { "value": "(602) 520-7511",  "label": "Call or Text" }
+    { "value": "(480) 793-1800",  "label": "Call or Text" }
   ],
   "products": {
     "label": "What We Offer",
@@ -45,7 +45,7 @@
     "body": "Stop by our showroom at 18607 E San Tan Blvd, call ahead for an order, or request a free quote online. Open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
       { "text": "Request a Quote",   "link": "/contact",         "style": "primary" },
-      { "text": "Call (602) 520-7511", "link": "tel:6025207511",   "style": "dark" }
+      { "text": "Call (480) 793-1800", "link": "tel:4807931800",   "style": "dark" }
     ]
   },
   "nearby": {
