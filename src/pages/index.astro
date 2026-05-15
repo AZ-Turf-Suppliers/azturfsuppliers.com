@@ -11,6 +11,10 @@ const fname = (path: string) => path.replace(/^\/media\//, '');
 
 // Hero heading uses newline-separated lines + *emphasis* convention
 const heroLines = page.hero.heading.split('\n');
+
+// Optional Cloudflare Turnstile site key — when set, the contact form
+// renders a Turnstile widget and the /api/contact function verifies it.
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 ---
 
 <Layout
@@ -1363,10 +1367,15 @@ const heroLines = page.hero.heading.split('\n');
       <div class="contact-form">
         <h3>{page.contact.formHeading}</h3>
         <form id="home-contact-form" novalidate>
+          {/* Honeypot — bots fill this, humans skip it */}
+          <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" aria-hidden="true">
+            <label for="home-website">Website</label>
+            <input id="home-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="home-firstName">First Name</label>
-              <input id="home-firstName" type="text" name="firstName" placeholder="John">
+              <input id="home-firstName" type="text" name="firstName" placeholder="John" required>
             </div>
             <div class="form-group">
               <label for="home-lastName">Last Name</label>
@@ -1376,7 +1385,7 @@ const heroLines = page.hero.heading.split('\n');
           <div class="form-row">
             <div class="form-group">
               <label for="home-email">Email</label>
-              <input id="home-email" type="email" name="email" placeholder="john@example.com">
+              <input id="home-email" type="email" name="email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
               <label for="home-phone">Phone</label>
@@ -1395,8 +1404,22 @@ const heroLines = page.hero.heading.split('\n');
             <label for="home-message">Message</label>
             <textarea id="home-message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
+          <div class="form-group" style="margin-top:4px;">
+            <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:0.8rem;font-weight:400;color:var(--gray-600);line-height:1.45;">
+              <input type="checkbox" name="optIn" id="home-optIn" value="on" style="margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--green-700);cursor:pointer;">
+              <span>Send me occasional updates on new products and seasonal deals. We never share your info.</span>
+            </label>
+          </div>
+          {turnstileSiteKey && (
+            <div style="margin:4px 0 12px;display:flex;justify-content:center;">
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-size="flexible"></div>
+            </div>
+          )}
           <div id="home-form-status" style="display:none;padding:12px 16px;border-radius:8px;font-size:0.9rem;margin-bottom:12px;"></div>
-          <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message <Icon name="arrow-right" size={16} /></button>
+          <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">
+            <span class="home-submit-btn-label">Send Message</span>
+            <Icon name="arrow-right" size={16} />
+          </button>
         </form>
       </div>
     </div>
@@ -1409,36 +1432,44 @@ async function handleHomeFormSubmit(e: Event) {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
   const btn = document.getElementById('home-submit-btn') as HTMLButtonElement;
+  const label = btn.querySelector('.home-submit-btn-label') as HTMLElement | null;
   const status = document.getElementById('home-form-status') as HTMLElement;
 
+  const originalLabel = label?.textContent ?? 'Send Message';
   btn.disabled = true;
-  btn.textContent = 'Sending…';
+  if (label) label.textContent = 'Sending…';
   status.style.display = 'none';
 
   try {
-    const res = await fetch('https://formspree.io/f/mdabkzde', {
+    const res = await fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
+      headers: { Accept: 'application/json' },
       body: new FormData(form),
     });
-    const json = await res.json();
+    const json = await res.json().catch(() => ({}));
     if (res.ok && json.ok) {
       status.style.display = 'block';
       status.style.background = '#e8f7e9';
       status.style.color = '#186b1e';
       status.textContent = "Message sent! We'll be in touch same day.";
       form.reset();
+      // @ts-expect-error — turnstile is injected by Cloudflare's widget script
+      if (typeof turnstile !== 'undefined') turnstile.reset();
     } else {
-      throw new Error(json.error ?? 'Unknown error');
+      throw new Error(json.error ?? `Request failed (${res.status})`);
     }
-  } catch {
+  } catch (err) {
     status.style.display = 'block';
     status.style.background = '#fff0f0';
     status.style.color = '#c0392b';
-    status.textContent = 'Something went wrong. Please call us at 480-793-1800.';
+    status.textContent = (err instanceof Error && err.message)
+      ? err.message
+      : 'Something went wrong. Please call us at 480-793-1800.';
+    // @ts-expect-error — turnstile is injected by Cloudflare's widget script
+    if (typeof turnstile !== 'undefined') turnstile.reset();
   } finally {
     btn.disabled = false;
-    btn.innerHTML = 'Send Message <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 11h11.586l-4.293-4.293 1.414-1.414L20.414 12l-6.707 6.707-1.414-1.414L16.586 13H5z"/></svg>';
+    if (label) label.textContent = originalLabel;
   }
 }
 
@@ -1491,4 +1522,8 @@ function toggleBenefit(btn: HTMLElement) {
 }
 (window as any).toggleBenefit = toggleBenefit;
 </script>
+
+{turnstileSiteKey && (
+  <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+)}
 </Layout>
