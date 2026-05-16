@@ -1,3 +1,12 @@
+# Tell search engines NOT to index pages.dev URLs (only apex/www should be indexed)
+# Production pages.dev hostname
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Preview deploy pages.dev hostnames (e.g. <hash>.azturfsuppliers-com.pages.dev)
+https://*.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
 # Cloudflare Pages cache headers
 
 # HTML pages — always revalidate so updates go live immediately
