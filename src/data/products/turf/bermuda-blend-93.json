@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Bermuda Blend 93 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Bermuda Blend 93 artificial turf \u2014 $1.85/sqft. Heavy-duty, pet- and traffic-rated for backyards and commercial use. Stocked in Queen Creek with next-day delivery.",
+    "description": "Bermuda Blend 93 artificial turf \u2014 $1.65/sqft. Heavy-duty, pet- and traffic-rated for backyards and commercial use. Stocked in Queen Creek with next-day delivery.",
     "ogImage": "/media/bermuda-side.png"
   },
   "productSchema": {
     "name": "Bermuda Blend 93 Artificial Turf",
     "image": "/media/bermuda-side.png",
     "description": "Bermuda Blend 93 artificial turf. 93oz total weight, heavy-duty, pet- and traffic-rated for backyards and commercial use.",
-    "price": "1.85",
+    "price": "1.65",
     "priceValidUntil": "2026-12-31"
   },
   "heroImage": "/media/turf-hero-2.jpg",
@@ -30,7 +30,7 @@
   "detail": {
     "label": "Premium Artificial Turf",
     "displayName": "Bermuda Blend 93",
-    "price": "$1.85",
+    "price": "$1.65",
     "priceUnit": "/ sq ft",
     "description": "A premium turf designed to deliver a lush, natural appearance with lasting durability. Realistic emerald and olive tones paired with a soft, supportive thatch layer create the look and feel of healthy, well-maintained grass \u2014 ideal for both residential and high-traffic areas.",
     "bestFor": "Backyards, pets, high-traffic residential & commercial",
@@ -81,7 +81,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 1.85,
+  "calculatorPrice": 1.65,
   "fullSpecs": [
     {
       "label": "Face Weight",

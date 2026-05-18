@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Winter Blend 103 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Winter Blend 103 artificial turf \u2014 $2.10/sqft. Heavy total weight for high-traffic backyards, pets, and commercial use. Stocked in Queen Creek, AZ.",
+    "description": "Winter Blend 103 artificial turf \u2014 $1.70/sqft. Heavy total weight for high-traffic backyards, pets, and commercial use. Stocked in Queen Creek, AZ.",
     "ogImage": "/media/winter-blend-103-side.png"
   },
   "productSchema": {
     "name": "Winter Blend 103 Artificial Turf",
     "image": "/media/winter-blend-103-side.png",
     "description": "Winter Blend 103 artificial turf. 103oz total weight. Heavy total weight built for high-traffic backyards, pets, and commercial use.",
-    "price": "2.10",
+    "price": "1.70",
     "priceValidUntil": "2026-12-31"
   },
   "heroImage": "/media/turf-hero-7.jpg",
@@ -42,7 +42,7 @@
   "detail": {
     "label": "Premium Artificial Turf",
     "displayName": "Winter Blend 103",
-    "price": "$2.10",
+    "price": "$1.70",
     "priceUnit": "/ sq ft",
     "description": "A high-quality turf designed to maintain a lush, vibrant appearance year-round. Its blend of emerald and lime tones, paired with a realistic thatch layer, creates the look of fresh, healthy grass even in cooler seasons \u2014 excellent for both residential and commercial landscapes.",
     "bestFor": "High-traffic backyards, pets, commercial applications",
@@ -93,7 +93,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 2.1,
+  "calculatorPrice": 1.70,
   "fullSpecs": [
     {
       "label": "Face Weight",
