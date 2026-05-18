@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Spring Blend 87 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Spring Blend 87 artificial turf \u2014 $1.65/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ.",
+    "description": "Spring Blend 87 artificial turf \u2014 $1.55/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ.",
     "ogImage": "/media/spring-blend-87-side.png"
   },
   "productSchema": {
     "name": "Spring Blend 87 Artificial Turf",
     "image": "/media/spring-blend-87-side.png",
     "description": "Spring Blend 87 artificial turf. 87oz total weight. Bright, fresh green turf for backyards, play areas, and general residential landscaping.",
-    "price": "1.65",
+    "price": "1.55",
     "priceValidUntil": "2026-12-31"
   },
   "heroImage": "/media/turf-hero-6.jpg",
@@ -36,7 +36,7 @@
   "detail": {
     "label": "Premium Artificial Turf",
     "displayName": "Spring Blend 87",
-    "price": "$1.65",
+    "price": "$1.55",
     "priceUnit": "/ sq ft",
     "description": "A versatile turf that brings the fresh, lively look of spring to any outdoor space. Its blend of green and lime tones, paired with a natural-looking thatch layer, creates a bright and realistic appearance \u2014 a great choice for residential and landscape applications.",
     "bestFor": "Backyards, play areas, general residential landscaping",
@@ -87,7 +87,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 1.65,
+  "calculatorPrice": 1.55,
   "fullSpecs": [
     {
       "label": "Face Weight",

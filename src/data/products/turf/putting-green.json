@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Putting Green | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Putting Green turf \u2014 $2.50/sqft. Tight, true-roll surface for backyard putting greens, practice areas, and landscape accents. In stock in Queen Creek, AZ.",
+    "description": "Putting Green turf \u2014 $1.60/sqft. Tight, true-roll surface for backyard putting greens, practice areas, and landscape accents. In stock in Queen Creek, AZ.",
     "ogImage": "/media/putting-green-side.png"
   },
   "productSchema": {
     "name": "Putting Green Turf",
     "image": "/media/putting-green-side.png",
     "description": "Putting green turf with a tight, true-roll surface for backyard putting greens, practice areas, and landscape accents.",
-    "price": "2.50",
+    "price": "1.60",
     "priceValidUntil": "2026-12-31"
   },
   "heroImage": "/media/putting-hero.jpg",
@@ -43,7 +43,7 @@
   "detail": {
     "label": "Premium Artificial Turf",
     "displayName": "Putting Green",
-    "price": "$2.50",
+    "price": "$1.60",
     "priceUnit": "/ sq ft",
     "description": "Crafted to deliver a smooth, true-to-life playing surface that closely mimics the performance of a professional golf green. Vibrant green tones and subtle thatch layer provide reliable ball roll and a firm, even feel underfoot.",
     "bestFor": "Putting greens, practice areas, landscape design accents",
@@ -94,7 +94,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 2.5,
+  "calculatorPrice": 1.60,
   "fullSpecs": [
     {
       "label": "Face Weight",

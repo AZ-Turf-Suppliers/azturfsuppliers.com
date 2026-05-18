@@ -6,6 +6,30 @@ import Icon from '../components/Icon.astro';
 import { renderInline } from '../utils/inline-markdown';
 import page from '../data/pages/artificial-turf.json';
 
+// Pull pricing from the per-product detail JSONs at build time so the
+// landing card and the product detail page can never drift out of sync.
+// Editing a single product's price now means editing only that product's
+// detail file under src/data/products/turf/.
+const detailModules = import.meta.glob<{ default: any }>(
+  '../data/products/turf/*.json',
+  { eager: true },
+);
+const detailBySlug: Record<string, any> = {};
+for (const path in detailModules) {
+  const slug = path.split('/').pop()!.replace(/\.json$/, '');
+  detailBySlug[slug] = (detailModules[path] as any).default ?? detailModules[path];
+}
+
+const productCards = page.products.cards.map((card) => {
+  const slug = card.detailsLink.replace(/^\//, '');
+  const detail = detailBySlug[slug];
+  return {
+    ...card,
+    price: detail?.detail?.price ?? card.price,
+    priceUnit: detail?.detail?.priceUnit ?? card.priceUnit,
+  };
+});
+
 // FAQ JSON-LD built from page.faq.items so editors see SEO impact of edits.
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -622,7 +646,7 @@ const breadcrumbs = [
     <div class="turf-note">{page.products.note}</div>
 
     <div class="turf-cards-grid">
-      {page.products.cards.map((card) => (
+      {productCards.map((card) => (
         <div class="turf-card">
           <div class="turf-card-img">
             <div class="turf-card-mag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
