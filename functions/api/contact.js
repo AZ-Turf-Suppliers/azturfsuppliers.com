@@ -6,12 +6,10 @@
 //      the contact record so it's browsable / searchable / exportable from
 //      the Brevo dashboard). If they opt in, adds them to BREVO_LIST_ID.
 //   3. Appends a row to a Google Sheet (via Apps Script web app) so every
-//      submission is preserved as an append-only archive with full message.
-//      Optional — skipped silently if SHEETS_WEBHOOK_URL isn't set.
-//   4. POSTs the submission to a Zapier "Catch Hook" webhook so Zapier can
-//      fan out to any combination of its 6000+ destinations (Slack, CRM,
-//      Mailchimp, etc.). Optional — skipped if ZAPIER_WEBHOOK_URL isn't set.
-//   5. Sends a transactional notification email with the full message to
+//      submission is preserved in real time as an append-only archive
+//      with the full untruncated message. Optional — skipped silently
+//      if SHEETS_WEBHOOK_URL isn't set.
+//   4. Sends a transactional notification email with the full message to
 //      BREVO_NOTIFY_EMAIL, with reply-to set to the submitter so hitting
 //      reply in your inbox messages them directly.
 //
@@ -31,9 +29,6 @@
 //   SHEETS_WEBHOOK_SECRET  — Shared secret sent in the body; the Apps Script
 //                            rejects mismatches. Secret. Required when
 //                            SHEETS_WEBHOOK_URL is set.
-//   ZAPIER_WEBHOOK_URL     — Zapier "Catch Hook" trigger URL. When set, every
-//                            submission is POSTed to Zapier as JSON for fan-out
-//                            to whatever Zap actions are configured.
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
@@ -71,23 +66,6 @@ async function appendToSheet(env, payload) {
     }
   } catch (e) {
     console.error('Sheets append threw:', e);
-  }
-}
-
-async function postToZapier(env, payload) {
-  if (!env.ZAPIER_WEBHOOK_URL) return;
-  try {
-    const resp = await fetch(env.ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      const body = await resp.text().catch(() => '');
-      console.error('Zapier webhook non-OK:', resp.status, body);
-    }
-  } catch (e) {
-    console.error('Zapier webhook threw:', e);
   }
 }
 
@@ -227,11 +205,10 @@ export async function onRequestPost(context) {
     console.error('Brevo contact upsert threw:', e);
   }
 
-  // ─── 7. Fan out to optional downstream destinations ────────────────
-  // Both are non-blocking: errors are logged, but never fail the form.
-  // Run in parallel so the slower of the two is the total latency.
+  // ─── 7. Append a row to the Google Sheet archive (optional) ────────
+  // Non-blocking: errors are logged, but never fail the form.
   const submittedAt = new Date().toISOString();
-  const submissionPayload = {
+  await appendToSheet(env, {
     submittedAt,
     firstName,
     lastName,
@@ -245,11 +222,7 @@ export async function onRequestPost(context) {
     utmccn,
     utmctr,
     utmgclid,
-  };
-  await Promise.all([
-    appendToSheet(env, submissionPayload),
-    postToZapier(env, submissionPayload),
-  ]);
+  });
 
   // ─── 8. Send the notification email ────────────────────────────────
   const fullName = [firstName, lastName].filter(Boolean).join(' ');

@@ -142,7 +142,7 @@ When someone submits the contact form, the page POSTs to a Cloudflare Pages Func
 
 1. Verifies Cloudflare Turnstile + a honeypot field.
 2. Upserts a contact in Brevo (CRM) with the form fields + 5 attribution attributes (UTMCSR, UTMCMD, UTMCCN, UTMCTR, UTMGCLID).
-3. POSTs the submission to optional downstream destinations (Google Sheet, Zapier — both env-var-gated).
+3. Appends a row to a Google Sheet (env-var-gated, real-time) so every submission is preserved as an append-only archive. The analyst pulls from this Sheet on whatever schedule he wants — no per-submission webhook needed.
 4. Sends a transactional notification email with full message + attribution table.
 5. Returns 200 → page JS redirects to `/thank-you` → `generate_lead` event fires.
 

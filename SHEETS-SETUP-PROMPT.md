@@ -192,6 +192,19 @@ Verify all of:
 
 Screenshot the sheet row and the Brevo contact for proof.
 
+### Phase 7 — Share the Sheet with the analytics consultant
+
+The analyst pulls leads from this Sheet on his own schedule (likely monthly via a Zapier "Schedule + Get many rows" Zap on his side). He needs read access.
+
+1. In the Google Sheet tab, top-right → **Share**.
+2. **Add people and groups** → paste the analyst's email address (ask me for it if I haven't provided it).
+3. Permission: **Viewer** (read-only — he doesn't need to edit; this prevents accidental changes to the schema).
+4. Untick **Notify people** if you don't want to send him an email (he probably already knows it's coming).
+5. Click **Share / Send**.
+6. Confirm the Sheet's general sharing setting is **"Restricted"** (only invited people) — not "Anyone with the link." We don't want public lead data.
+
+After sharing, send me a one-liner I can forward to the analyst, e.g.: "Shared the leads sheet with you (view-only). Submissions write in real time; pull on whatever cadence works for you. Schema is in row 1 — 13 columns including 5 UTM attribution fields."
+
 ### Failure-mode quick reference
 
 - **Row doesn't appear in sheet** → Cloudflare → Workers & Pages → `azturfsuppliers-com` → **Functions → Real-time logs**. Resubmit the form. Look for `Sheets append non-OK:` or `Sheets append threw:` lines. The status code + body tell us what failed.
