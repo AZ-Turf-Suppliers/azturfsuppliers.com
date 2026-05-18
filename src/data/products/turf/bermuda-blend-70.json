@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Bermuda Blend 70 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Bermuda Blend 70 artificial turf \u2014 $1.35/sqft. 70oz total weight, 1.5\" pile, emerald/olive blend. Best for front yards and low-traffic areas. In stock in Queen Creek, AZ.",
+    "title": "Bermuda Blend 70 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Bermuda Blend 70 artificial turf — $1.35/sqft. 70oz total weight, 1.5\" pile, emerald/olive blend. Best for front yards and low-traffic areas. In stock in Queen Creek, AZ.",
     "ogImage": "/media/bermuda-side.png"
   },
   "productSchema": {
@@ -32,6 +32,7 @@
     "displayName": "Bermuda Blend 70",
     "price": "$1.35",
     "priceUnit": "/ sq ft",
+    "fullRollPrice": "$1.25",
     "description": "A versatile turf designed to deliver a clean, natural lawn look with dependable everyday performance. Durable polyethylene fibers in a balanced mix of emerald and olive tones, paired with a subtle yellow-green thatch layer for added realism and depth.",
     "bestFor": "Front yards, low-traffic areas, classic natural aesthetic",
     "ctaPrimary": {
@@ -161,7 +162,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

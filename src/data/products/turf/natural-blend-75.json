@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Natural Blend 75 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Natural Blend 75 artificial turf \u2014 $1.40/sqft. Soft, realistic blade for front yards, side yards, and low-traffic landscaping. In stock in Queen Creek, AZ.",
+    "title": "Natural Blend 75 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Natural Blend 75 artificial turf — $1.40/sqft. Soft, realistic blade for front yards, side yards, and low-traffic landscaping. In stock in Queen Creek, AZ.",
     "ogImage": "/media/natural-blend-75-side.png"
   },
   "productSchema": {
@@ -43,7 +43,8 @@
     "displayName": "Natural Blend 75",
     "price": "$1.40",
     "priceUnit": "/ sq ft",
-    "description": "A lightweight, natural-looking turf that captures the relaxed appearance of real grass. Its blend of green and subtle yellow tones, paired with a realistic thatch layer, creates a warm and inviting finish \u2014 a practical, low-maintenance option for a variety of landscape settings.",
+    "fullRollPrice": "$1.30",
+    "description": "A lightweight, natural-looking turf that captures the relaxed appearance of real grass. Its blend of green and subtle yellow tones, paired with a realistic thatch layer, creates a warm and inviting finish — a practical, low-maintenance option for a variety of landscape settings.",
     "bestFor": "Front yards, side yards, low-traffic landscaping accents",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -172,7 +173,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Spring Blend 107 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Spring Blend 107 artificial turf \u2014 $1.80/sqft. Premium, heavy total weight for high-traffic backyards, pets, and commercial installs. Stocked in Queen Creek, AZ.",
+    "title": "Spring Blend 107 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Spring Blend 107 artificial turf — $1.80/sqft. Premium, heavy total weight for high-traffic backyards, pets, and commercial installs. Stocked in Queen Creek, AZ.",
     "ogImage": "/media/spring-blend-107-side.png"
   },
   "productSchema": {
@@ -38,7 +38,8 @@
     "displayName": "Spring Blend 107",
     "price": "$1.80",
     "priceUnit": "/ sq ft",
-    "description": "A premium turf designed to capture the vibrant look of fresh spring grass. Its blend of green and lime tones, complemented by a natural-looking thatch layer, creates a bright and inviting appearance \u2014 ideal for enhancing residential and commercial landscapes alike.",
+    "fullRollPrice": "$1.70",
+    "description": "A premium turf designed to capture the vibrant look of fresh spring grass. Its blend of green and lime tones, complemented by a natural-looking thatch layer, creates a bright and inviting appearance — ideal for enhancing residential and commercial landscapes alike.",
     "bestFor": "Premium backyards, pets, high-traffic residential & commercial",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -87,7 +88,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 1.80,
+  "calculatorPrice": 1.8,
   "fullSpecs": [
     {
       "label": "Face Weight",
@@ -167,7 +168,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

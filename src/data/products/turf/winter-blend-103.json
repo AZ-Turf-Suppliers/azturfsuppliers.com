@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Winter Blend 103 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Winter Blend 103 artificial turf \u2014 $1.70/sqft. Heavy total weight for high-traffic backyards, pets, and commercial use. Stocked in Queen Creek, AZ.",
+    "title": "Winter Blend 103 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Winter Blend 103 artificial turf — $1.70/sqft. Heavy total weight for high-traffic backyards, pets, and commercial use. Stocked in Queen Creek, AZ.",
     "ogImage": "/media/winter-blend-103-side.png"
   },
   "productSchema": {
@@ -44,7 +44,8 @@
     "displayName": "Winter Blend 103",
     "price": "$1.70",
     "priceUnit": "/ sq ft",
-    "description": "A high-quality turf designed to maintain a lush, vibrant appearance year-round. Its blend of emerald and lime tones, paired with a realistic thatch layer, creates the look of fresh, healthy grass even in cooler seasons \u2014 excellent for both residential and commercial landscapes.",
+    "fullRollPrice": "$1.60",
+    "description": "A high-quality turf designed to maintain a lush, vibrant appearance year-round. Its blend of emerald and lime tones, paired with a realistic thatch layer, creates the look of fresh, healthy grass even in cooler seasons — excellent for both residential and commercial landscapes.",
     "bestFor": "High-traffic backyards, pets, commercial applications",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -93,7 +94,7 @@
     "15-Year Warranty",
     "CoolYarn"
   ],
-  "calculatorPrice": 1.70,
+  "calculatorPrice": 1.7,
   "fullSpecs": [
     {
       "label": "Face Weight",
@@ -173,7 +174,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

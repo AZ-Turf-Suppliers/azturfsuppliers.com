@@ -27,6 +27,7 @@ const productCards = page.products.cards.map((card) => {
     ...card,
     price: detail?.detail?.price ?? card.price,
     priceUnit: detail?.detail?.priceUnit ?? card.priceUnit,
+    fullRollPrice: detail?.detail?.fullRollPrice ?? null,
   };
 });
 
@@ -554,6 +555,19 @@ const breadcrumbs = [
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+.turf-price-roll {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gray-600);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.turf-price-roll span {
+  font-weight: 400;
+  color: var(--gray-400);
+  font-size: 0.72rem;
+}
 .turf-card-btns {
   display: flex;
   gap: 8px;
@@ -666,6 +680,9 @@ const breadcrumbs = [
             <div class="turf-card-footer">
               <div class="turf-card-footer-top">
                 <div class="turf-price">{card.price} <span>{card.priceUnit}</span></div>
+                {card.fullRollPrice && (
+                  <div class="turf-price-roll">{card.fullRollPrice} <span>full roll (15' × 100')</span></div>
+                )}
               </div>
               <div class="turf-card-btns">
                 <a href={card.detailsLink} class="btn btn-dark">More Details</a>

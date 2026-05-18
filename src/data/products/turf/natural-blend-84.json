@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Natural Blend 84 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Natural Blend 84 artificial turf \u2014 $1.50/sqft. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping. In stock in Queen Creek, AZ.",
+    "title": "Natural Blend 84 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Natural Blend 84 artificial turf — $1.50/sqft. Mid-weight, all-purpose turf for backyards, play areas, and residential landscaping. In stock in Queen Creek, AZ.",
     "ogImage": "/media/natural-blend-84-side.png"
   },
   "productSchema": {
@@ -43,7 +43,8 @@
     "displayName": "Natural Blend 84",
     "price": "$1.50",
     "priceUnit": "/ sq ft",
-    "description": "Designed to replicate the subtle color variation of real, sun-kissed grass. Its mix of green tones with hints of yellow, combined with a realistic thatch layer, creates a warm and authentic appearance \u2014 a great choice for low-maintenance, everyday landscapes.",
+    "fullRollPrice": "$1.40",
+    "description": "Designed to replicate the subtle color variation of real, sun-kissed grass. Its mix of green tones with hints of yellow, combined with a realistic thatch layer, creates a warm and authentic appearance — a great choice for low-maintenance, everyday landscapes.",
     "bestFor": "Backyards, play areas, general residential landscaping",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -172,7 +173,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Winter Blend 84 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Winter Blend 84 artificial turf \u2014 $1.50/sqft. Year-round green for residential lawns and backyards. Mid-weight, soft underfoot. In stock in Queen Creek, AZ.",
+    "title": "Winter Blend 84 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Winter Blend 84 artificial turf — $1.50/sqft. Year-round green for residential lawns and backyards. Mid-weight, soft underfoot. In stock in Queen Creek, AZ.",
     "ogImage": "/media/winter-blend-84-side.png"
   },
   "productSchema": {
@@ -44,7 +44,8 @@
     "displayName": "Winter Blend 84",
     "price": "$1.50",
     "priceUnit": "/ sq ft",
-    "description": "A versatile turf that delivers a fresh, natural look throughout the year. Featuring emerald and lime tones with a realistic thatch layer, it captures the appearance of healthy, well-kept grass \u2014 great for a wide range of residential and landscape applications.",
+    "fullRollPrice": "$1.40",
+    "description": "A versatile turf that delivers a fresh, natural look throughout the year. Featuring emerald and lime tones with a realistic thatch layer, it captures the appearance of healthy, well-kept grass — great for a wide range of residential and landscape applications.",
     "bestFor": "Year-round landscapes, backyards, residential lawns",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -173,7 +174,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Spring Blend 87 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Spring Blend 87 artificial turf \u2014 $1.55/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ.",
+    "title": "Spring Blend 87 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Spring Blend 87 artificial turf — $1.55/sqft. Bright, fresh green turf for backyards, play areas, and general residential landscaping. In stock in Queen Creek, AZ.",
     "ogImage": "/media/spring-blend-87-side.png"
   },
   "productSchema": {
@@ -38,7 +38,8 @@
     "displayName": "Spring Blend 87",
     "price": "$1.55",
     "priceUnit": "/ sq ft",
-    "description": "A versatile turf that brings the fresh, lively look of spring to any outdoor space. Its blend of green and lime tones, paired with a natural-looking thatch layer, creates a bright and realistic appearance \u2014 a great choice for residential and landscape applications.",
+    "fullRollPrice": "$1.45",
+    "description": "A versatile turf that brings the fresh, lively look of spring to any outdoor space. Its blend of green and lime tones, paired with a natural-looking thatch layer, creates a bright and realistic appearance — a great choice for residential and landscape applications.",
     "bestFor": "Backyards, play areas, general residential landscaping",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -167,7 +168,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },

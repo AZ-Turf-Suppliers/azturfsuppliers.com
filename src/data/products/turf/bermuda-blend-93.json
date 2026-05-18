@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Bermuda Blend 93 | AZ Turf Suppliers \u2014 Queen Creek, AZ",
-    "description": "Bermuda Blend 93 artificial turf \u2014 $1.65/sqft. Heavy-duty, pet- and traffic-rated for backyards and commercial use. Stocked in Queen Creek with next-day delivery.",
+    "title": "Bermuda Blend 93 | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Bermuda Blend 93 artificial turf — $1.65/sqft. Heavy-duty, pet- and traffic-rated for backyards and commercial use. Stocked in Queen Creek with next-day delivery.",
     "ogImage": "/media/bermuda-side.png"
   },
   "productSchema": {
@@ -32,7 +32,8 @@
     "displayName": "Bermuda Blend 93",
     "price": "$1.65",
     "priceUnit": "/ sq ft",
-    "description": "A premium turf designed to deliver a lush, natural appearance with lasting durability. Realistic emerald and olive tones paired with a soft, supportive thatch layer create the look and feel of healthy, well-maintained grass \u2014 ideal for both residential and high-traffic areas.",
+    "fullRollPrice": "$1.55",
+    "description": "A premium turf designed to deliver a lush, natural appearance with lasting durability. Realistic emerald and olive tones paired with a soft, supportive thatch layer create the look and feel of healthy, well-maintained grass — ideal for both residential and high-traffic areas.",
     "bestFor": "Backyards, pets, high-traffic residential & commercial",
     "ctaPrimary": {
       "text": "Get a Quote",
@@ -161,7 +162,7 @@
       {
         "logo": "lead-free.jpg",
         "alt": "Lead Free",
-        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required \u2014 safe for your family."
+        "body": "100% non-toxic and guaranteed lead-free. No pesticides or fertilizers required — safe for your family."
       }
     ]
   },
