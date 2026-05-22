@@ -72,6 +72,12 @@
         "heading": "Putting Greens",
         "seriesLink": "/putting-green",
         "intro": "Engineered for a true, consistent roll — bring your backyard golf game to the next level with our [Putting Green](/putting-green) turf.",
+        "highlights": [
+          { "icon": "check", "label": "Tight, true-roll surface — consistent ball roll on every putt" },
+          { "icon": "sun",   "label": "Vibrant emerald & lime tones that stay true under Arizona sun" },
+          { "icon": "shield", "label": "Drains 30+ in/hr — playable through monsoon rains" },
+          { "icon": "heart", "label": "Same lead-free, pet-safe build as the rest of our collection" }
+        ],
         "cards": [
           { "name": "Putting Green", "image": "putting-green-above.png", "alt": "Putting Green", "badge": { "text": "True Roll", "style": "green" }, "totalWeight": "85 oz", "pileHeight": "0.51\"", "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/putting-green" }
         ]
