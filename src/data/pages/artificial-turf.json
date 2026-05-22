@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Premium Artificial Turf | AZ Turf Suppliers — Queen Creek, AZ",
-    "description": "Premium artificial turf for Arizona — Bermuda, Natural, Spring, and Winter Blends plus Putting Green. 15-year warranty, lead-free, $1.40–$2.50/sqft. Stocked in Queen Creek."
+    "title": "Premium Artificial Turf Supply | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Professional-grade artificial turf for Arizona — Natural, Winter, Spring & Bermuda Blend series plus Putting Green. Lead-free, pet-friendly, 15-year warranty. From $1.35/sqft. Queen Creek, AZ."
   },
   "hero": {
     "eyebrow": "Premium Artificial Turf Supply",
     "heading": "Professional-Grade Synthetic Grass Built for *Arizona Heat*",
-    "body": "All of our turf is guaranteed lead-free, pet-friendly, and backed by a 15-year manufacturer warranty. Sold in standard 15-foot wide rolls. Serving and delivering to contractors and homeowners across all of Arizona.",
+    "body": "AZ Turf Suppliers is your premier source for professional-grade synthetic grass built to withstand the Arizona heat. Whether you're a DIY homeowner transforming your backyard or a landscape contractor who needs reliable bulk materials delivered on schedule, we carry the highest-quality artificial turf at unbeatable prices. All turf is guaranteed lead-free, pet-friendly, and backed by a 15-year manufacturer warranty. Sold in standard 15-foot wide rolls.",
     "ctaPrimary": { "text": "Browse Products", "link": "#products" },
-    "ctaSecondary": { "text": "Call for a Free Quote", "link": "/contact" }
+    "ctaSecondary": { "text": "Call or Text for a Free Quote", "link": "/contact" }
   },
   "statBar": [
     { "value": "15yr",     "label": "Manufacturer Warranty" },
@@ -18,20 +18,66 @@
   ],
   "products": {
     "label": "Our Collection",
-    "heading": "Premium Artificial Turf",
-    "body": "All turf sold in 15-foot wide rolls. Heavier total weights (90+ oz) built for backyards & pets, lighter options for front yards & accents — all lead-free, pet-friendly, and backed by a 15-year manufacturer warranty.",
-    "note": "Contractors & Landscapers: call or text for wholesale rates",
-    "cards": [
-      { "name": "Natural Blend 75",  "image": "natural-series-turf.png",   "alt": "Natural Blend 75",  "badge": null,                                            "totalWeight": "75 oz",  "pileHeight": "1.5\"",  "color": "Emerald & Lime",          "rollWidth": "15'", "price": "$1.40", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-75"  },
-      { "name": "Natural Blend 84",  "image": "natural-series-turf.png",   "alt": "Natural Blend 84",  "badge": null,                                            "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Emerald & Lime",          "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-84"  },
-      { "name": "Winter Blend 84",   "image": "winter-blend-84-above.png", "alt": "Winter Blend 84",   "badge": null,                                            "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Notify Emerald & Lime",   "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-84"   },
-      { "name": "Winter Blend 103",  "image": "winter-blend-103-above.png","alt": "Winter Blend 103",  "badge": { "text": "Moderate–Heavy Traffic", "style": "" }, "totalWeight": "103 oz", "pileHeight": "1.7\"",  "color": "Notify Emerald & Lime",   "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-103"  },
-      { "name": "Spring Blend 87",   "image": "spring-blend-87-above.png", "alt": "Spring Blend 87",   "badge": null,                                            "totalWeight": "87 oz",  "pileHeight": "1.65\"", "color": "Billow Emerald",          "rollWidth": "15'", "price": "$1.55", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-87"   },
-      { "name": "Spring Blend 107",  "image": "spring-blend-107-above.png","alt": "Spring Blend 107",  "badge": { "text": "Most Popular", "style": "popular" },   "totalWeight": "107 oz", "pileHeight": "1.75\"", "color": "Billow Emerald",          "rollWidth": "15'", "price": "$1.80", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-107"  },
-      { "name": "Bermuda Blend 70",  "image": "bermuda-side.png",          "alt": "Bermuda Blend 70",  "badge": null,                                            "totalWeight": "70 oz",  "pileHeight": "1.5\"",  "color": "Chant Olive & Green",     "rollWidth": "15'", "price": "$1.35", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-70"  },
-      { "name": "Bermuda Blend 93",  "image": "bermuda-side.png",          "alt": "Bermuda Blend 93",  "badge": null,                                            "totalWeight": "93 oz",  "pileHeight": "1.8\"",  "color": "Chant Olive & Green",     "rollWidth": "15'", "price": "$1.65", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-93"  },
-      { "name": "Putting Green",     "image": "putting-green-above.png",   "alt": "Putting Green",     "badge": { "text": "True Roll", "style": "green" },        "totalWeight": "85 oz",  "pileHeight": "0.51\"", "color": "Emerald & Lime",          "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/putting-green"     }
-    ]
+    "heading": "Our Premium Artificial Turf Collection",
+    "body": "All turf is sold in 15-foot wide rolls. *Heavier face weight* = built for high-traffic areas, pets, and long-term durability (backyards, commercial applications). *Lighter face weight* = ideal for aesthetic, low-traffic zones like front yards and landscaping accents.",
+    "note": "Pricing below is standard retail per square foot. Contractors — call or text for exclusive wholesale pricing.",
+    "series": [
+      {
+        "slug": "natural-series",
+        "label": "Natural Blend Series",
+        "heading": "Natural Blend Series",
+        "seriesLink": "/natural-series",
+        "intro": "Our [Natural Blend Series](/natural-series) offers a beautiful, realistic look that closely mimics natural grass. Perfect for light to moderate foot traffic front yards, side yards, and decorative landscaping.",
+        "cards": [
+          { "name": "Natural Blend 75",  "image": "natural-series-turf.png", "alt": "Natural Blend 75",  "badge": null, "totalWeight": "75 oz", "pileHeight": "1.5\"",  "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.40", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-75" },
+          { "name": "Natural Blend 84",  "image": "natural-series-turf.png", "alt": "Natural Blend 84",  "badge": null, "totalWeight": "84 oz", "pileHeight": "1.65\"", "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-84" }
+        ]
+      },
+      {
+        "slug": "winter-series",
+        "label": "Winter Blend Series",
+        "heading": "Winter Blend Series",
+        "seriesLink": "/winter-series",
+        "intro": "The [Winter Blend Series](/winter-series) features a specialized \"Notify\" Emerald & Lime palette — a lush, cool-toned green that stays vibrant year-round even under intense Arizona sun. *Winter Blend 103 is ideal for moderate-to-heavy traffic areas.*",
+        "cards": [
+          { "name": "Winter Blend 84",  "image": "winter-blend-84-above.png",  "alt": "Winter Blend 84",  "badge": null, "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-84"  },
+          { "name": "Winter Blend 103", "image": "winter-blend-103-above.png", "alt": "Winter Blend 103", "badge": { "text": "Moderate–Heavy Traffic", "style": "" }, "totalWeight": "103 oz", "pileHeight": "1.7\"",  "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-103" }
+        ]
+      },
+      {
+        "slug": "spring-blend",
+        "label": "Spring Blend Series",
+        "heading": "Spring Blend Series",
+        "seriesLink": "/spring-blend",
+        "intro": "Our [Spring Blend](/spring-blend) is a vibrant, plush collection using \"Billow\" Emerald coloring for maximum curb appeal. *Spring Blend 107 offers supreme density — our top recommendation for heavy backyard use and busy pet families.*",
+        "cards": [
+          { "name": "Spring Blend 87",  "image": "spring-blend-87-above.png",  "alt": "Spring Blend 87",  "badge": null, "totalWeight": "87 oz",  "pileHeight": "1.65\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.55", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-87" },
+          { "name": "Spring Blend 107", "image": "spring-blend-107-above.png", "alt": "Spring Blend 107", "badge": { "text": "Most Popular", "style": "popular" }, "totalWeight": "107 oz", "pileHeight": "1.75\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.80", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-107" }
+        ]
+      },
+      {
+        "slug": "bermuda-blend",
+        "label": "Bermuda Blend Series",
+        "heading": "Bermuda Blend Series",
+        "seriesLink": "/bermuda-blend",
+        "intro": "The [Bermuda Blend Series](/bermuda-blend) is designed to replicate the earthy, natural look of real Bermuda grass with an Olive & Green \"Chant\" tone. A natural-looking, lower-profile option that blends seamlessly into desert landscaping.",
+        "cards": [
+          { "name": "Bermuda Blend 70", "image": "bermuda-side.png", "alt": "Bermuda Blend 70", "badge": null, "totalWeight": "70 oz", "pileHeight": "1.5\"", "color": "Chant Olive & Green", "rollWidth": "15'", "price": "$1.35", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-70" },
+          { "name": "Bermuda Blend 93", "image": "bermuda-side.png", "alt": "Bermuda Blend 93", "badge": null, "totalWeight": "93 oz", "pileHeight": "1.8\"", "color": "Chant Olive & Green", "rollWidth": "15'", "price": "$1.65", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-93" }
+        ]
+      },
+      {
+        "slug": "putting-green",
+        "label": "Specialty",
+        "heading": "Putting Greens",
+        "seriesLink": "/putting-green",
+        "intro": "Engineered for a true, consistent roll — bring your backyard golf game to the next level with our [Putting Green](/putting-green) turf.",
+        "cards": [
+          { "name": "Putting Green", "image": "putting-green-above.png", "alt": "Putting Green", "badge": { "text": "True Roll", "style": "green" }, "totalWeight": "85 oz", "pileHeight": "0.51\"", "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/putting-green" }
+        ]
+      }
+    ],
+    "helpNote": "**Not sure how much turf you need?** Bring your measurements (length × width in feet) into our showroom or [give us a call](/contact). We'll calculate your exact cuts, account for waste, and give you an immediate price — no guesswork, no surprises."
   },
   "testimonials": {
     "label": "Words From Our Clients",
@@ -51,34 +97,35 @@
   },
   "azDifference": {
     "label": "Why AZ Turf Suppliers",
-    "heading": "The AZ Turf Difference",
+    "heading": "The AZ Turf Difference: Unmatched Service & Guarantees",
     "items": [
-      { "icon": "truck",  "heading": "Next-Day Delivery — Guaranteed",   "body": "We deliver straight to your home or job site so your project stays on schedule. No waiting, no guesswork." },
-      { "icon": "clock",  "heading": "15-Minute Pickup",                  "body": "In-store loading is fast. Grab your order and get back to the job — no delays, no runaround." },
-      { "icon": "dollar", "heading": "Price Match Guarantee",             "body": "Bring us any competitor's invoice and we'll match it. Simple as that." },
-      { "icon": "users",  "heading": "Expert Support from the Owners",    "body": "Deal directly with turf professionals who can calculate your cuts, plan your seams, minimize waste, and give you transparent pricing on the spot." },
-      { "icon": "heart",  "heading": "Safe for Pets & Kids",              "body": "Our turf is 100% kid and pet friendly and guaranteed lead-free. Your family can play on it with complete confidence." }
+      { "icon": "truck",  "heading": "Next-Day Delivery — Guaranteed", "body": "We deliver straight to your home or job site so your project stays on schedule." },
+      { "icon": "clock",  "heading": "15-Minute Pickup",                "body": "In-store loading is fast. Grab your order and get back to the job — no waiting." },
+      { "icon": "dollar", "heading": "Price Match Guarantee",           "body": "Bring us any competitor's invoice and we'll match it. Simple as that." },
+      { "icon": "users",  "heading": "Expert Support from the Owners",  "body": "Deal directly with turf professionals who can calculate your cuts, plan your seams, minimize waste, and give you transparent pricing on the spot." },
+      { "icon": "heart",  "heading": "Safe for Pets & Kids",            "body": "Our turf is 100% kid and pet friendly. Your family can play on it with complete confidence." },
+      { "icon": "sun",    "heading": "CoolYarn Technology",             "body": "Advanced fiber shapes optimize airflow between blades, actively reducing surface temperatures — essential in Arizona's 110°+ summers." }
     ]
   },
   "faq": {
     "label": "Common Questions",
     "heading": "Frequently Asked Questions",
     "items": [
-      { "question": "How wide are your turf rolls?",                 "answer": "All of our turf is sold in standard 15-foot wide rolls. When you bring in your measurements, we can help you plan your cuts to minimize waste and save money." },
-      { "question": "Can I get a sample before I buy?",              "answer": "Absolutely. Visit our Queen Creek showroom and take home free samples from any product in our collection. See and feel the quality before you commit." },
-      { "question": "Total weight vs pile height?",                  "answer": "Total weight (oz) is how dense and substantial the turf feels — more ounces = more durable. Pile height is how tall the blades stand. For high-traffic areas and pets, we recommend 90+ oz total weight." },
-      { "question": "Do you offer wholesale pricing?",               "answer": "Yes. We offer exclusive wholesale pricing for licensed contractors. Call or text us directly for contractor rates — pricing listed on this page is standard retail." },
-      { "question": "Is your turf safe for pets?",                   "answer": "Yes. All products are pet-friendly and guaranteed lead-free. We also carry Oxy Turf Cleaner, specifically formulated for pet odor and sanitation on artificial grass." },
-      { "question": "What warranty do your products carry?",         "answer": "All turf products come with a 15-year manufacturer warranty. We stand behind every product we carry." }
+      { "question": "How wide are your turf rolls?",                              "answer": "All of our turf is sold in standard 15-foot wide rolls. When you bring in your measurements, we can help you plan your cuts to minimize waste and save money." },
+      { "question": "Can I get a sample before I buy?",                           "answer": "Absolutely. Visit our Queen Creek showroom and take home free samples from any product in our collection. See and feel the quality before you commit." },
+      { "question": "What's the difference between face weight and pile height?", "answer": "Face weight (measured in ounces) refers to how much fiber is packed into the turf — more ounces means a denser, more durable product. Pile height is how tall the blades stand. For high-traffic areas and pets, we recommend 90+ oz face weight." },
+      { "question": "Do you offer contractor/wholesale pricing?",                 "answer": "Yes. We offer exclusive wholesale pricing for licensed contractors. Call or text us directly for contractor rates — pricing listed on this page is standard retail." },
+      { "question": "Is your turf safe for pets?",                                "answer": "Yes. All of our products are pet-friendly and guaranteed lead-free. The Oxy Turf Cleaner we carry is specifically formulated for pet odor and sanitation on artificial grass." },
+      { "question": "What warranty do your products carry?",                     "answer": "All turf products come with a 15-year manufacturer warranty. We stand behind every product we carry." }
     ]
   },
   "cta": {
-    "label": "Visit Our Showroom",
+    "label": "Visit Our Showroom or Order Today",
     "heading": "Ready to Transform Your Outdoor Space?",
-    "body": "Bring your measurements (length × width in feet) into our Queen Creek showroom and our team will calculate your exact cuts, account for waste, and give you an immediate price. No guesswork, no surprises.",
+    "body": "Come into our Queen Creek showroom to see and feel every product in person, pick up free samples, and get an immediate quote. Bring your measurements (length × width in feet) and our team will handle the rest. **Contractors:** call or text for wholesale pricing and to [schedule your next-day delivery](/contact).",
     "buttons": [
-      { "text": "Call or Text Us",          "link": "tel:4807931800", "style": "primary" },
-      { "text": "Get a Free Quote Online",  "link": "/contact",       "style": "outline" }
+      { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
+      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
     ],
     "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
   }

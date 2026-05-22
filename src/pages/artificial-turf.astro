@@ -20,7 +20,7 @@ for (const path in detailModules) {
   detailBySlug[slug] = (detailModules[path] as any).default ?? detailModules[path];
 }
 
-const productCards = page.products.cards.map((card) => {
+const hydrate = (card: any) => {
   const slug = card.detailsLink.replace(/^\//, '');
   const detail = detailBySlug[slug];
   return {
@@ -29,7 +29,12 @@ const productCards = page.products.cards.map((card) => {
     priceUnit: detail?.detail?.priceUnit ?? card.priceUnit,
     fullRollPrice: detail?.detail?.fullRollPrice ?? null,
   };
-});
+};
+
+const productSeries = page.products.series.map((s: any) => ({
+  ...s,
+  cards: s.cards.map(hydrate),
+}));
 
 // FAQ JSON-LD built from page.faq.items so editors see SEO impact of edits.
 const faqSchema = {
@@ -328,6 +333,47 @@ const breadcrumbs = [
 
 /* ─── PRODUCT CARDS ─── */
 .products-cards-section { padding: 88px 0; background: var(--gray-100); }
+
+/* ─── PRODUCT SERIES SECTIONS ─── */
+.turf-series-section { padding: 64px 0; background: var(--white); }
+.turf-series-section--alt { background: var(--gray-100); }
+.turf-series-header { max-width: 760px; margin: 0 auto 40px; text-align: center; }
+.turf-series-header .section-label { justify-content: center; }
+.turf-series-header h2 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin-bottom: 14px; }
+.turf-series-heading-link {
+  color: inherit; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: color 0.2s;
+}
+.turf-series-heading-link:hover { color: var(--green-700); }
+.turf-series-heading-link svg { width: 18px; height: 18px; color: var(--green-700); transition: transform 0.2s; }
+.turf-series-heading-link:hover svg { transform: translateX(3px); }
+.turf-series-header p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.7; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.turf-series-header p a { color: var(--green-700); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--green-700); }
+.turf-series-header p a:hover { color: var(--green-900); border-bottom-color: var(--green-900); }
+.turf-series-footer { display: flex; justify-content: center; margin-top: 36px; }
+
+.turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; }
+.turf-cards-grid--single { grid-template-columns: minmax(280px, 380px); justify-content: center; max-width: 420px; margin: 0 auto; }
+
+.products-help-note { padding: 56px 0 88px; background: var(--white); }
+.products-help-note p {
+  max-width: 720px; margin: 0 auto; text-align: center;
+  font-size: 0.95rem; color: var(--gray-600); line-height: 1.7;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+  background: var(--gray-100); border-left: 3px solid var(--green-700);
+  border-radius: var(--radius); padding: 20px 28px;
+}
+.products-help-note a { color: var(--green-700); font-weight: 600; }
+
+@media (max-width: 768px) {
+  .turf-series-section { padding: 40px 0; }
+  .turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); }
+  .products-help-note { padding: 30px 0; }
+}
+@media (max-width: 480px) {
+  .turf-cards-grid--double { grid-template-columns: 1fr; }
+}
 
 .turf-note {
   text-align: center;
@@ -648,54 +694,77 @@ const breadcrumbs = [
 <!-- ═══ PRODUCT SERIES ═══ -->
 <div id="products">
 
-<!-- ═══ PRODUCT CARDS ═══ -->
-<section class="products-cards-section">
+<!-- ═══ COLLECTION INTRO ═══ -->
+<section class="products-cards-section" style="padding-bottom:24px;">
   <div class="container">
-    <div class="section-header centered" style="margin-bottom:32px;">
+    <div class="section-header centered" style="margin-bottom:24px;">
       <div class="section-label centered">{page.products.label}</div>
       <h2 set:html={renderInline(page.products.heading)} />
       <p set:html={renderInline(page.products.body)} />
     </div>
-
     <div class="turf-note">{page.products.note}</div>
-
-    <div class="turf-cards-grid">
-      {productCards.map((card) => (
-        <div class="turf-card">
-          <div class="turf-card-img">
-            <div class="turf-card-mag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-            <Pic name={card.image} alt={card.alt} />
-            {card.badge && (
-              <span class={`turf-card-badge${card.badge.style ? ` turf-card-badge--${card.badge.style}` : ''}`}>{card.badge.text}</span>
-            )}
-          </div>
-          <div class="turf-card-name">{card.name}</div>
-          <div class="turf-card-body">
-            <div class="turf-specs">
-              <div class="turf-spec"><span>Total Weight</span><strong>{card.totalWeight}</strong></div>
-              <div class="turf-spec"><span>Pile Height</span><strong>{card.pileHeight}</strong></div>
-              <div class="turf-spec"><span>Color</span><strong>{card.color}</strong></div>
-              <div class="turf-spec"><span>Roll Width</span><strong>{card.rollWidth}</strong></div>
-            </div>
-            <div class="turf-card-footer">
-              <div class="turf-card-footer-top">
-                <div class="turf-price">{card.price} <span>{card.priceUnit}</span></div>
-                {card.fullRollPrice && (
-                  <div class="turf-price-roll">{card.fullRollPrice} <span>full roll (15' × 100')</span></div>
-                )}
-              </div>
-              <div class="turf-card-btns">
-                <a href={card.detailsLink} class="btn btn-dark">More Details</a>
-                <a href="/contact" class="btn btn-primary">Get a Quote</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
   </div>
 </section>
 
+<!-- ═══ PRODUCT SERIES SECTIONS ═══ -->
+{productSeries.map((series: any, idx: number) => (
+  <section class={`turf-series-section${idx % 2 === 1 ? ' turf-series-section--alt' : ''}`}>
+    <div class="container">
+      <div class="turf-series-header">
+        <div class="section-label">{series.label}</div>
+        <h2>
+          <a href={series.seriesLink} class="turf-series-heading-link">{series.heading} <Icon name="arrow-right" size={18} /></a>
+        </h2>
+        <p set:html={renderInline(series.intro)} />
+      </div>
+
+      <div class={`turf-cards-grid${series.cards.length === 1 ? ' turf-cards-grid--single' : ''}${series.cards.length === 2 ? ' turf-cards-grid--double' : ''}`}>
+        {series.cards.map((card: any) => (
+          <div class="turf-card">
+            <div class="turf-card-img">
+              <div class="turf-card-mag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+              <Pic name={card.image} alt={card.alt} />
+              {card.badge && (
+                <span class={`turf-card-badge${card.badge.style ? ` turf-card-badge--${card.badge.style}` : ''}`}>{card.badge.text}</span>
+              )}
+            </div>
+            <div class="turf-card-name">{card.name}</div>
+            <div class="turf-card-body">
+              <div class="turf-specs">
+                <div class="turf-spec"><span>Total Weight</span><strong>{card.totalWeight}</strong></div>
+                <div class="turf-spec"><span>Pile Height</span><strong>{card.pileHeight}</strong></div>
+                <div class="turf-spec"><span>Color</span><strong>{card.color}</strong></div>
+                <div class="turf-spec"><span>Roll Width</span><strong>{card.rollWidth}</strong></div>
+              </div>
+              <div class="turf-card-footer">
+                <div class="turf-card-footer-top">
+                  <div class="turf-price">{card.price} <span>{card.priceUnit}</span></div>
+                  {card.fullRollPrice && (
+                    <div class="turf-price-roll">{card.fullRollPrice} <span>full roll (15' × 100')</span></div>
+                  )}
+                </div>
+                <div class="turf-card-btns">
+                  <a href={card.detailsLink} class="btn btn-dark">More Details</a>
+                  <a href="/contact" class="btn btn-primary">Get a Quote</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="turf-series-footer">
+        <a href={series.seriesLink} class="btn btn-outline">Explore the {series.heading} <Icon name="arrow-right" size={16} /></a>
+      </div>
+    </div>
+  </section>
+))}
+
+<section class="products-help-note">
+  <div class="container">
+    <p set:html={renderInline(page.products.helpNote)} />
+  </div>
+</section>
 
 </div><!-- end #products -->
 

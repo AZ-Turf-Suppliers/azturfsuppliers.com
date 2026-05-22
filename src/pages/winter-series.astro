@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TurfSeriesPage from '../components/TurfSeriesPage.astro';
+import page from '../data/pages/winter-series.json';
+
+const detailModules = import.meta.glob<{ default: any }>(
+  '../data/products/turf/*.json',
+  { eager: true },
+);
+const detailBySlug: Record<string, any> = {};
+for (const path in detailModules) {
+  const slug = path.split('/').pop()!.replace(/\.json$/, '');
+  detailBySlug[slug] = (detailModules[path] as any).default ?? detailModules[path];
+}
+
+const hydratedCards = page.products.cards.map((card: any) => {
+  const slug = card.detailsLink.replace(/^\//, '');
+  const detail = detailBySlug[slug];
+  return {
+    ...card,
+    price: detail?.detail?.price ?? card.price,
+    priceUnit: detail?.detail?.priceUnit ?? card.priceUnit,
+    fullRollPrice: detail?.detail?.fullRollPrice ?? null,
+  };
+});
+
+const breadcrumbs = [
+  { name: 'Home',            url: '/' },
+  { name: 'Artificial Turf', url: '/artificial-turf' },
+  { name: 'Winter Blend Series', url: '/winter-series' },
+];
+---
+
+<Layout
+  title={page.meta.title}
+  description={page.meta.description}
+  breadcrumbs={breadcrumbs}
+>
+  <TurfSeriesPage page={page} hydratedCards={hydratedCards} />
+</Layout>

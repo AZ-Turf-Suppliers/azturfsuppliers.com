@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Winter Blend Series Artificial Turf | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Winter Blend Series artificial turf — Notify Emerald & Lime palette stays vibrant year-round under Arizona sun. Winter Blend 84 & 103 in stock. From $1.50/sqft."
+  },
+  "heroImage": "/media/turf-hero-8.jpg",
+  "hero": {
+    "eyebrow": "Winter Blend Series",
+    "heading": "Winter Blend Series — *Year-Round Vibrant Green*",
+    "body": "Featuring a specialized \"Notify\" Emerald & Lime palette — a lush, cool-toned green that stays vibrant year-round even under intense Arizona sun. Lead-free, pet-friendly, 15-year warranty.",
+    "ctaPrimary": { "text": "View Products", "link": "#products" },
+    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact" }
+  },
+  "statBar": [
+    { "value": "2",        "label": "Weights to Choose" },
+    { "value": "Notify",   "label": "Cool-Tone Palette" },
+    { "value": "15yr",     "label": "Manufacturer Warranty" },
+    { "value": "Next-Day", "label": "Delivery Available" }
+  ],
+  "intro": {
+    "label": "About the Series",
+    "heading": "Cool-Tone Color That Holds Its Vibrance",
+    "body": [
+      "The **Winter Blend Series** features a specialized **\"Notify\" Emerald & Lime** palette — a lush, cool-toned green that stays vibrant year-round even under intense Arizona sun. Where other turfs fade or yellow, Winter Blend holds true.",
+      "Winter Blend 84 is a great residential choice for backyards and side yards. **Winter Blend 103 is ideal for moderate-to-heavy traffic areas** — extra fiber density makes it well-suited to busy families and entertainment zones.",
+      "Need help choosing between the two? [Reach out](/contact) and we'll walk you through your options."
+    ]
+  },
+  "products": {
+    "cards": [
+      { "name": "Winter Blend 84",  "image": "winter-blend-84-above.png",  "alt": "Winter Blend 84",  "badge": null, "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-84" },
+      { "name": "Winter Blend 103", "image": "winter-blend-103-above.png", "alt": "Winter Blend 103", "badge": { "text": "Moderate–Heavy Traffic", "style": "" }, "totalWeight": "103 oz", "pileHeight": "1.7\"",  "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-103" }
+    ]
+  },
+  "features": {
+    "label": "Built-In Quality",
+    "heading": "Why Choose Winter Blend",
+    "items": [
+      { "icon": "sun",    "heading": "Notify Color Palette", "body": "Cool-toned Emerald & Lime stays vibrant year-round under Arizona sun — no fading, no yellowing." },
+      { "icon": "shield", "heading": "CoolYarn + UV-Stable", "body": "Yarn shape improves airflow and resists UV fading from prolonged sun exposure." },
+      { "icon": "heart",  "heading": "Pet & Kid Safe",       "body": "100% lead-free, allergen-free, and comfortable underfoot — safe for the whole family." },
+      { "icon": "check",  "heading": "15-Year Warranty",     "body": "Every roll is backed by a 15-year manufacturer warranty — no fine print." }
+    ]
+  },
+  "azDifference": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The AZ Turf Difference",
+    "items": [
+      { "icon": "truck",  "heading": "Next-Day Delivery — Guaranteed", "body": "We deliver straight to your home or job site so your project stays on schedule." },
+      { "icon": "clock",  "heading": "15-Minute Pickup",                "body": "In-store loading is fast. Grab your order and get back to the job." },
+      { "icon": "dollar", "heading": "Price Match Guarantee",           "body": "Bring us any competitor's invoice and we'll match it. Simple as that." }
+    ]
+  },
+  "crossSell": {
+    "heading": "Looking for a different style?",
+    "body": "Compare with our [Natural](/natural-series), [Spring](/spring-blend), [Bermuda](/bermuda-blend), and [Putting Green](/putting-green) series on our [Artificial Turf](/artificial-turf) page."
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "Ready to See & Feel Winter Blend in Person?",
+    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
+    "buttons": [
+      { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
+      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
+    ],
+    "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
+  }
+}

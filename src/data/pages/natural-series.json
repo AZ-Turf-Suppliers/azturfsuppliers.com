@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Natural Blend Series Artificial Turf | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Natural Blend Series artificial turf — realistic emerald & lime tones for front yards, side yards, and decorative landscaping. Natural Blend 75 & 84 in stock. From $1.40/sqft."
+  },
+  "heroImage": "/media/turf-hero-3.jpg",
+  "hero": {
+    "eyebrow": "Natural Blend Series",
+    "heading": "Natural Blend Series — *Realistic Grass Look* for Arizona Landscapes",
+    "body": "A beautiful, realistic look that closely mimics natural grass. Lead-free, pet-friendly, and backed by a 15-year warranty. Sold in standard 15-foot wide rolls.",
+    "ctaPrimary": { "text": "View Products", "link": "#products" },
+    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact" }
+  },
+  "statBar": [
+    { "value": "2",        "label": "Weights to Choose" },
+    { "value": "15yr",     "label": "Manufacturer Warranty" },
+    { "value": "Lead-Free", "label": "Pet & Kid Safe" },
+    { "value": "Next-Day", "label": "Delivery Available" }
+  ],
+  "intro": {
+    "label": "About the Series",
+    "heading": "Realistic Color, Reliable Performance",
+    "body": [
+      "Our **Natural Blend Series** offers a beautiful, realistic look that closely mimics natural grass. Perfect for *light to moderate foot traffic* — front yards, side yards, and decorative landscaping where curb appeal matters most.",
+      "Both weights share the same Emerald & Lime color palette and CoolYarn fiber technology — the difference is density. Natural Blend 75 is the budget-friendly lightweight option for accents and pathways, while Natural Blend 84 adds extra fiber for residential yards that see more use.",
+      "Not sure which weight is right for your project? [Call or text us](/contact) and we'll help you choose."
+    ]
+  },
+  "products": {
+    "cards": [
+      { "name": "Natural Blend 75", "image": "natural-series-turf.png", "alt": "Natural Blend 75", "badge": null, "totalWeight": "75 oz", "pileHeight": "1.5\"",  "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.40", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-75" },
+      { "name": "Natural Blend 84", "image": "natural-series-turf.png", "alt": "Natural Blend 84", "badge": null, "totalWeight": "84 oz", "pileHeight": "1.65\"", "color": "Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/natural-blend-84" }
+    ]
+  },
+  "features": {
+    "label": "Built-In Quality",
+    "heading": "Why Choose Natural Blend",
+    "items": [
+      { "icon": "sun",    "heading": "CoolYarn Technology", "body": "Yarn shape optimizes airflow to keep surface temperatures lower under Arizona sun." },
+      { "icon": "shield", "heading": "UV-Stabilized",       "body": "Resists fading from prolonged sun exposure — color stays true for years." },
+      { "icon": "heart",  "heading": "Pet & Kid Safe",      "body": "100% lead-free, allergen-free, and easy to clean. Safe for the whole family." },
+      { "icon": "check",  "heading": "15-Year Warranty",    "body": "Every roll backed by a 15-year manufacturer warranty — no fine print." }
+    ]
+  },
+  "azDifference": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The AZ Turf Difference",
+    "items": [
+      { "icon": "truck",  "heading": "Next-Day Delivery — Guaranteed", "body": "We deliver straight to your home or job site so your project stays on schedule." },
+      { "icon": "clock",  "heading": "15-Minute Pickup",                "body": "In-store loading is fast. Grab your order and get back to the job." },
+      { "icon": "dollar", "heading": "Price Match Guarantee",           "body": "Bring us any competitor's invoice and we'll match it. Simple as that." }
+    ]
+  },
+  "crossSell": {
+    "heading": "Looking for a different look or feel?",
+    "body": "Browse all of our turf series — including [Winter](/winter-series), [Spring](/spring-blend), [Bermuda](/bermuda-blend), and [Putting Green](/putting-green) — on our [Artificial Turf](/artificial-turf) page."
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "Ready to See & Feel Natural Blend in Person?",
+    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
+    "buttons": [
+      { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
+      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
+    ],
+    "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Bermuda Blend Series Artificial Turf | AZ Turf Suppliers — Queen Creek, AZ",
+    "description": "Bermuda Blend Series artificial turf — natural-looking Olive & Green \"Chant\" tone that blends seamlessly into desert landscaping. Bermuda Blend 70 & 93. From $1.35/sqft."
+  },
+  "heroImage": "/media/turf-hero.jpg",
+  "hero": {
+    "eyebrow": "Bermuda Blend Series",
+    "heading": "Bermuda Blend — *Natural Desert-Ready Tones*",
+    "body": "Designed to replicate the earthy, natural look of real Bermuda grass with an Olive & Green \"Chant\" tone. A lower-profile option that blends seamlessly into Arizona's desert landscape.",
+    "ctaPrimary": { "text": "View Products", "link": "#products" },
+    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact" }
+  },
+  "statBar": [
+    { "value": "2",        "label": "Weights to Choose" },
+    { "value": "Chant",    "label": "Olive & Green" },
+    { "value": "15yr",     "label": "Manufacturer Warranty" },
+    { "value": "Next-Day", "label": "Delivery Available" }
+  ],
+  "intro": {
+    "label": "About the Series",
+    "heading": "Earthy, Natural, Desert-Native Look",
+    "body": [
+      "The **Bermuda Blend Series** is designed to replicate the earthy, natural look of real Bermuda grass with an **Olive & Green \"Chant\"** tone. A natural-looking, lower-profile option that blends seamlessly into desert landscaping and Southwest-style hardscape.",
+      "Bermuda Blend 70 is our most affordable turf — perfect for accents, front yards, and budget-conscious low-traffic installations. Bermuda Blend 93 steps up density and pile height for fuller residential coverage that still keeps that classic Bermuda look.",
+      "Want to see the color in person? [Stop by our showroom](/contact) for a free sample."
+    ]
+  },
+  "products": {
+    "cards": [
+      { "name": "Bermuda Blend 70", "image": "bermuda-side.png", "alt": "Bermuda Blend 70", "badge": null, "totalWeight": "70 oz", "pileHeight": "1.5\"", "color": "Chant Olive & Green", "rollWidth": "15'", "price": "$1.35", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-70" },
+      { "name": "Bermuda Blend 93", "image": "bermuda-side.png", "alt": "Bermuda Blend 93", "badge": null, "totalWeight": "93 oz", "pileHeight": "1.8\"", "color": "Chant Olive & Green", "rollWidth": "15'", "price": "$1.65", "priceUnit": "/ sq ft", "detailsLink": "/bermuda-blend-93" }
+    ]
+  },
+  "features": {
+    "label": "Built-In Quality",
+    "heading": "Why Choose Bermuda Blend",
+    "items": [
+      { "icon": "sun",    "heading": "Chant Olive & Green",  "body": "Earthy, natural-looking tones that blend perfectly with Arizona's desert palette." },
+      { "icon": "shield", "heading": "CoolYarn + UV-Stable", "body": "Engineered fiber shape reduces surface temperature and resists fading under Arizona sun." },
+      { "icon": "heart",  "heading": "Pet & Kid Safe",       "body": "100% lead-free, allergen-free, and comfortable underfoot — safe for the whole family." },
+      { "icon": "check",  "heading": "15-Year Warranty",     "body": "Every roll is backed by a 15-year manufacturer warranty — no fine print." }
+    ]
+  },
+  "azDifference": {
+    "label": "Why AZ Turf Suppliers",
+    "heading": "The AZ Turf Difference",
+    "items": [
+      { "icon": "truck",  "heading": "Next-Day Delivery — Guaranteed", "body": "We deliver straight to your home or job site so your project stays on schedule." },
+      { "icon": "clock",  "heading": "15-Minute Pickup",                "body": "In-store loading is fast. Grab your order and get back to the job." },
+      { "icon": "dollar", "heading": "Price Match Guarantee",           "body": "Bring us any competitor's invoice and we'll match it. Simple as that." }
+    ]
+  },
+  "crossSell": {
+    "heading": "Want a different style?",
+    "body": "Compare with our [Natural](/natural-series), [Winter](/winter-series), [Spring](/spring-blend), and [Putting Green](/putting-green) series on our [Artificial Turf](/artificial-turf) page."
+  },
+  "cta": {
+    "label": "Visit Our Showroom",
+    "heading": "Ready to See & Feel Bermuda Blend in Person?",
+    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
+    "buttons": [
+      { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
+      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
+    ],
+    "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
+  }
+}
