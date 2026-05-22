@@ -353,7 +353,7 @@ const breadcrumbs = [
 .turf-series-header p a:hover { color: var(--green-900); border-bottom-color: var(--green-900); }
 .turf-series-footer { display: flex; justify-content: center; margin-top: 36px; }
 
-.turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); max-width: 960px; margin: 0 auto; gap: 28px; }
+.turf-cards-grid.turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; gap: 28px; }
 
 /* Specialty row (single product + features panel) */
 .turf-specialty-row {
@@ -427,13 +427,13 @@ const breadcrumbs = [
 
 @media (max-width: 768px) {
   .turf-series-section { padding: 36px 0; }
-  .turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .turf-cards-grid.turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .turf-specialty-row { grid-template-columns: 1fr; gap: 16px; max-width: 460px; }
   .turf-specialty-panel { padding: 22px 24px; }
   .products-help-note { padding: 30px 0; }
 }
 @media (max-width: 480px) {
-  .turf-cards-grid--double { grid-template-columns: 1fr; }
+  .turf-cards-grid.turf-cards-grid--double { grid-template-columns: 1fr; }
 }
 
 .turf-note {
