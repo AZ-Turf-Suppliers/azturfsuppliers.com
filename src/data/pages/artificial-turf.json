@@ -4,8 +4,8 @@
     "description": "Professional-grade artificial turf for Arizona — Natural, Winter, Spring & Bermuda Blend series plus Putting Green. Lead-free, pet-friendly, 15-year warranty. From $1.35/sqft. Queen Creek, AZ."
   },
   "hero": {
-    "eyebrow": "Premium Artificial Turf Supply",
-    "heading": "Professional-Grade Synthetic Grass Built for *Arizona Heat*",
+    "eyebrow": "Professional-Grade Synthetic Grass for Arizona Heat",
+    "heading": "Premium Artificial Turf Supply",
     "body": "AZ Turf Suppliers is your premier source for professional-grade synthetic grass built to withstand the Arizona heat. Whether you're a DIY homeowner transforming your backyard or a landscape contractor who needs reliable bulk materials delivered on schedule, we carry the highest-quality artificial turf at unbeatable prices. All turf is guaranteed lead-free, pet-friendly, and backed by a 15-year manufacturer warranty. Sold in standard 15-foot wide rolls.",
     "ctaPrimary": { "text": "Browse Products", "link": "#products" },
     "ctaSecondary": { "text": "Call or Text for a Free Quote", "link": "/contact" }
@@ -110,7 +110,8 @@
       { "icon": "dollar", "heading": "Price Match Guarantee",           "body": "Bring us any competitor's invoice and we'll match it. Simple as that." },
       { "icon": "users",  "heading": "Expert Support from the Owners",  "body": "Deal directly with turf professionals who can calculate your cuts, plan your seams, minimize waste, and give you transparent pricing on the spot." },
       { "icon": "heart",  "heading": "Safe for Pets & Kids",            "body": "Our turf is 100% kid and pet friendly. Your family can play on it with complete confidence." },
-      { "icon": "sun",    "heading": "CoolYarn Technology",             "body": "Advanced fiber shapes optimize airflow between blades, actively reducing surface temperatures — essential in Arizona's 110°+ summers." }
+      { "icon": "sun",    "heading": "CoolYarn Technology",             "body": "Advanced fiber shapes optimize airflow between blades, actively reducing surface temperatures — essential in Arizona's 110°+ summers." },
+      { "icon": "check",  "heading": "Free Samples",                    "body": "Stop by our Queen Creek showroom, grab samples, and feel the quality before you commit." }
     ]
   },
   "faq": {
@@ -128,7 +129,7 @@
   "cta": {
     "label": "Visit Our Showroom or Order Today",
     "heading": "Ready to Transform Your Outdoor Space?",
-    "body": "Come into our Queen Creek showroom to see and feel every product in person, pick up free samples, and get an immediate quote. Bring your measurements (length × width in feet) and our team will handle the rest. **Contractors:** call or text for wholesale pricing and to [schedule your next-day delivery](/contact).",
+    "body": "Come into our Queen Creek showroom at [AZ Turf Suppliers](/) to see and feel every product in person, pick up free samples, and get an immediate quote. Bring your measurements (length × width in feet) and our team will handle the rest. **Contractors:** call or text for wholesale pricing and to [schedule your next-day delivery](/contact#contact-form).",
     "buttons": [
       { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
       { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
