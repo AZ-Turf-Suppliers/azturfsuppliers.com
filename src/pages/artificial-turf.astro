@@ -352,6 +352,18 @@ const breadcrumbs = [
 .turf-series-header p a { color: var(--green-700); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--green-700); }
 .turf-series-header p a:hover { color: var(--green-900); border-bottom-color: var(--green-900); }
 .turf-series-footer { display: flex; justify-content: center; margin-top: 36px; }
+.turf-series-footer .btn-outline {
+  background: transparent;
+  color: var(--green-700);
+  border: 2px solid var(--green-700);
+}
+.turf-series-footer .btn-outline:hover {
+  background: var(--green-700);
+  color: var(--white);
+  border-color: var(--green-700);
+  box-shadow: 0 6px 24px rgba(35,155,43,0.18);
+}
+.turf-series-footer .btn-outline svg { color: currentColor; }
 
 .turf-cards-grid.turf-cards-grid--double { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; gap: 28px; }
 
