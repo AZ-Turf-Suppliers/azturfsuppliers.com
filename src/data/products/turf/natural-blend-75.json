@@ -18,11 +18,11 @@
     "body": "A lightweight, natural-looking turf that captures the relaxed appearance of real grass. Its blend of green and subtle ye...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "natural-series-turf.png",
@@ -48,7 +48,7 @@
     "bestFor": "Front yards, side yards, low-traffic landscaping accents",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_natural_blend_75_spec_sheet.pdf"
   },
@@ -184,12 +184,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]

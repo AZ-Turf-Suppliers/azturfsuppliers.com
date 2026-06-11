@@ -35,7 +35,7 @@ const {
   breadcrumbs,
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageAbsolute = new URL(ogImage, siteUrl).toString();
 const isHome = Astro.url.pathname === '/';

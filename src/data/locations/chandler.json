@@ -10,7 +10,7 @@
     "eyebrow": "Chandler, AZ",
     "heading": "Artificial Turf, Pavers & Stone *Delivered to Chandler*",
     "body": "Chandler's booming growth means more landscaping projects than ever. AZ Turf Suppliers keeps up — with deep inventory, next-day delivery, and wholesale pricing for Chandler contractors.",
-    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
@@ -24,10 +24,10 @@
     "heading": "Landscaping Materials for Chandler's New Builds & Renovations",
     "body": "From new construction in Fulton Ranch and Ocotillo to backyard upgrades in established neighborhoods, Chandler homeowners and contractors count on us for fast delivery and quality materials.",
     "cards": [
-      { "heading": "Artificial Turf",    "body": "Water-efficient turf for Chandler's desert climate. HOA-compatible options with realistic appearance and minimal maintenance.",                "linkText": "View Turf Options →",  "link": "/artificial-turf" },
-      { "heading": "Pavers",             "body": "Travertine and concrete pavers trusted by Chandler's top landscape contractors for pool decks, patios, and driveways.",                          "linkText": "View Pavers →",         "link": "/pavers" },
-      { "heading": "Natural Stone",      "body": "Premium limestone, travertine, and marble for Chandler's upscale pool areas and outdoor living spaces.",                                          "linkText": "View Natural Stone →",  "link": "/natural-stone" },
-      { "heading": "Landscape Lighting", "body": "Lumenex professional low-voltage systems — path lights, flood lights, hardscape lights, and transformers for Chandler installations.",          "linkText": "View Lighting →",       "link": "/landscape-lighting" }
+      { "heading": "Artificial Turf",    "body": "Water-efficient turf for Chandler's desert climate. HOA-compatible options with realistic appearance and minimal maintenance.",                "linkText": "View Turf Options →",  "link": "/artificial-turf/" },
+      { "heading": "Pavers",             "body": "Travertine and concrete pavers trusted by Chandler's top landscape contractors for pool decks, patios, and driveways.",                          "linkText": "View Pavers →",         "link": "/pavers/" },
+      { "heading": "Natural Stone",      "body": "Premium limestone, travertine, and marble for Chandler's upscale pool areas and outdoor living spaces.",                                          "linkText": "View Natural Stone →",  "link": "/natural-stone/" },
+      { "heading": "Landscape Lighting", "body": "Lumenex professional low-voltage systems — path lights, flood lights, hardscape lights, and transformers for Chandler installations.",          "linkText": "View Lighting →",       "link": "/landscape-lighting/" }
     ]
   },
   "why": {
@@ -44,22 +44,22 @@
     "heading": "Fast Delivery to Chandler from Queen Creek",
     "body": "Order online, call us, or visit the showroom at 18607 E San Tan Blvd. Open Mon–Fri, 7 AM–3 PM — about 25–30 minutes from Chandler.",
     "buttons": [
-      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Request a Quote",   "link": "/contact/",       "style": "primary" },
       { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "dark" }
     ]
   },
   "nearby": {
     "prefix": "Also serving:",
     "links": [
-      { "name": "Queen Creek",            "link": "/queen-creek" },
-      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
-      { "name": "Gilbert",                "link": "/gilbert" },
-      { "name": "Mesa",                   "link": "/mesa" },
-      { "name": "Apache Junction",        "link": "/apache-junction" },
-      { "name": "Scottsdale",             "link": "/scottsdale" },
-      { "name": "Tempe",                  "link": "/tempe" },
-      { "name": "Phoenix",                "link": "/phoenix" },
-      { "name": "View All Areas Served",  "link": "/locations" }
+      { "name": "Queen Creek",            "link": "/queen-creek/" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley/" },
+      { "name": "Gilbert",                "link": "/gilbert/" },
+      { "name": "Mesa",                   "link": "/mesa/" },
+      { "name": "Apache Junction",        "link": "/apache-junction/" },
+      { "name": "Scottsdale",             "link": "/scottsdale/" },
+      { "name": "Tempe",                  "link": "/tempe/" },
+      { "name": "Phoenix",                "link": "/phoenix/" },
+      { "name": "View All Areas Served",  "link": "/locations/" }
     ]
   }
 }

@@ -10,7 +10,7 @@
     "eyebrow": "Apache Junction, AZ",
     "heading": "Turf & Landscaping Materials *Near Apache Junction*",
     "body": "AZ Turf Suppliers is your closest source for professional landscaping materials in the Apache Junction area. Stop by our Queen Creek showroom or let us deliver directly to your property.",
-    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
@@ -24,10 +24,10 @@
     "heading": "Landscaping Supplies for Apache Junction Properties",
     "body": "Apache Junction's desert landscape is beautiful — and we help property owners and contractors make the most of it with durable, low-maintenance materials suited to the Sonoran Desert environment.",
     "cards": [
-      { "heading": "Artificial Turf",    "body": "Durable, heat-resistant synthetic turf that holds up in Apache Junction's extreme summer temperatures. Virtually zero maintenance.",      "linkText": "View Turf Options →",   "link": "/artificial-turf" },
-      { "heading": "Pavers",             "body": "Concrete and travertine pavers for driveways, patios, and walkways — tough enough for desert conditions, beautiful enough for any home.",      "linkText": "View Pavers →",          "link": "/pavers" },
-      { "heading": "Natural Stone",      "body": "Natural travertine and limestone that complements the desert setting. Coping, pavers, and wall stone available in multiple finishes.",          "linkText": "View Natural Stone →",   "link": "/natural-stone" },
-      { "heading": "Landscape Lighting", "body": "Low-voltage Lumenex lighting systems to highlight Apache Junction's stunning desert backdrop after sundown.",                                    "linkText": "View Lighting →",        "link": "/landscape-lighting" }
+      { "heading": "Artificial Turf",    "body": "Durable, heat-resistant synthetic turf that holds up in Apache Junction's extreme summer temperatures. Virtually zero maintenance.",      "linkText": "View Turf Options →",   "link": "/artificial-turf/" },
+      { "heading": "Pavers",             "body": "Concrete and travertine pavers for driveways, patios, and walkways — tough enough for desert conditions, beautiful enough for any home.",      "linkText": "View Pavers →",          "link": "/pavers/" },
+      { "heading": "Natural Stone",      "body": "Natural travertine and limestone that complements the desert setting. Coping, pavers, and wall stone available in multiple finishes.",          "linkText": "View Natural Stone →",   "link": "/natural-stone/" },
+      { "heading": "Landscape Lighting", "body": "Low-voltage Lumenex lighting systems to highlight Apache Junction's stunning desert backdrop after sundown.",                                    "linkText": "View Lighting →",        "link": "/landscape-lighting/" }
     ]
   },
   "why": {
@@ -44,22 +44,22 @@
     "heading": "Serving Apache Junction from Queen Creek",
     "body": "Stop by our showroom at 18607 E San Tan Blvd, call ahead for an order, or request a free quote online. Open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
-      { "text": "Request a Quote",   "link": "/contact",         "style": "primary" },
+      { "text": "Request a Quote",   "link": "/contact/",         "style": "primary" },
       { "text": "Call (480) 793-1800", "link": "tel:4807931800",   "style": "dark" }
     ]
   },
   "nearby": {
     "prefix": "Also serving:",
     "links": [
-      { "name": "Queen Creek",            "link": "/queen-creek" },
-      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
-      { "name": "Gilbert",                "link": "/gilbert" },
-      { "name": "Mesa",                   "link": "/mesa" },
-      { "name": "Chandler",               "link": "/chandler" },
-      { "name": "Scottsdale",             "link": "/scottsdale" },
-      { "name": "Tempe",                  "link": "/tempe" },
-      { "name": "Phoenix",                "link": "/phoenix" },
-      { "name": "View All Areas Served",  "link": "/locations" }
+      { "name": "Queen Creek",            "link": "/queen-creek/" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley/" },
+      { "name": "Gilbert",                "link": "/gilbert/" },
+      { "name": "Mesa",                   "link": "/mesa/" },
+      { "name": "Chandler",               "link": "/chandler/" },
+      { "name": "Scottsdale",             "link": "/scottsdale/" },
+      { "name": "Tempe",                  "link": "/tempe/" },
+      { "name": "Phoenix",                "link": "/phoenix/" },
+      { "name": "View All Areas Served",  "link": "/locations/" }
     ]
   }
 }

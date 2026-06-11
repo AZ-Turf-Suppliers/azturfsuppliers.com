@@ -43,14 +43,14 @@ if (type === 'city') {
   ogImage = data.meta.ogImage;
   breadcrumbs = [
     { name: 'Home', url: '/' },
-    { name: 'Areas Served', url: '/locations' },
-    { name: data.name, url: `/${slug}` },
+    { name: 'Areas Served', url: '/locations/' },
+    { name: data.name, url: `/${slug}/` },
   ];
 } else {
   title = data.meta.title;
   description = data.meta.description;
   ogImage = data.meta.ogImage;
-  const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
+  const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
   schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -60,7 +60,7 @@ if (type === 'city') {
     brand: { '@type': 'Brand', name: 'AZ Turf Suppliers' },
     offers: {
       '@type': 'Offer',
-      url: `${siteUrl}/${slug}`,
+      url: `${siteUrl}/${slug}/`,
       priceCurrency: 'USD',
       price: data.productSchema.price,
       priceValidUntil: data.productSchema.priceValidUntil,
@@ -71,8 +71,8 @@ if (type === 'city') {
   };
   breadcrumbs = [
     { name: 'Home', url: '/' },
-    { name: 'Artificial Turf', url: '/artificial-turf' },
-    { name: data.detail.displayName, url: `/${slug}` },
+    { name: 'Artificial Turf', url: '/artificial-turf/' },
+    { name: data.detail.displayName, url: `/${slug}/` },
   ];
 }
 ---

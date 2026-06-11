@@ -9,7 +9,7 @@
     "heading": "Winter Blend Series — *Year-Round Vibrant Green*",
     "body": "Featuring a specialized \"Notify\" Emerald & Lime palette — a lush, cool-toned green that stays vibrant year-round even under intense Arizona sun. Lead-free, pet-friendly, 15-year warranty.",
     "ctaPrimary": { "text": "View Products", "link": "#products" },
-    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact" }
+    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact/" }
   },
   "statBar": [
     { "value": "2",        "label": "Weights to Choose" },
@@ -23,13 +23,13 @@
     "body": [
       "The **Winter Blend Series** features a specialized **\"Notify\" Emerald & Lime** palette — a lush, cool-toned green that stays vibrant year-round even under intense Arizona sun. Where other turfs fade or yellow, Winter Blend holds true.",
       "Winter Blend 84 is a great residential choice for backyards and side yards. **Winter Blend 103 is ideal for moderate-to-heavy traffic areas** — extra fiber density makes it well-suited to busy families and entertainment zones.",
-      "Need help choosing between the two? [Reach out](/contact) and we'll walk you through your options."
+      "Need help choosing between the two? [Reach out](/contact/) and we'll walk you through your options."
     ]
   },
   "products": {
     "cards": [
-      { "name": "Winter Blend 84",  "image": "winter-blend-84-above.png",  "alt": "Winter Blend 84",  "badge": null, "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-84" },
-      { "name": "Winter Blend 103", "image": "winter-blend-103-above.png", "alt": "Winter Blend 103", "badge": { "text": "Moderate–Heavy Traffic", "style": "" }, "totalWeight": "103 oz", "pileHeight": "1.7\"",  "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-103" }
+      { "name": "Winter Blend 84",  "image": "winter-blend-84-above.png",  "alt": "Winter Blend 84",  "badge": null, "totalWeight": "84 oz",  "pileHeight": "1.65\"", "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.50", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-84/" },
+      { "name": "Winter Blend 103", "image": "winter-blend-103-above.png", "alt": "Winter Blend 103", "badge": { "text": "Moderate–Heavy Traffic", "style": "" }, "totalWeight": "103 oz", "pileHeight": "1.7\"",  "color": "Notify Emerald & Lime", "rollWidth": "15'", "price": "$1.70", "priceUnit": "/ sq ft", "detailsLink": "/winter-blend-103/" }
     ]
   },
   "features": {
@@ -53,15 +53,15 @@
   },
   "crossSell": {
     "heading": "Looking for a different style?",
-    "body": "Compare with our [Natural](/natural-series), [Spring](/spring-blend), [Bermuda](/bermuda-blend), and [Putting Green](/putting-green) series on our [Artificial Turf](/artificial-turf) page."
+    "body": "Compare with our [Natural](/natural-series/), [Spring](/spring-blend/), [Bermuda](/bermuda-blend/), and [Putting Green](/putting-green/) series on our [Artificial Turf](/artificial-turf/) page."
   },
   "cta": {
     "label": "Visit Our Showroom",
     "heading": "Ready to See & Feel Winter Blend in Person?",
-    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
+    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact/) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
     "buttons": [
       { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
-      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
+      { "text": "Get a Free Quote Online", "link": "/contact/",       "style": "outline" }
     ],
     "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
   }

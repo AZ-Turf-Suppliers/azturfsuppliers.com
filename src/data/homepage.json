@@ -12,11 +12,11 @@
     "subtext": "Call us directly at [(480) 793-1800](tel:4807931800) or stop by our Queen Creek showroom.",
     "ctaPrimary": {
       "text": "Get A Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "Shop Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "ticker": [
@@ -37,7 +37,7 @@
         "heading": "Contractors & Landscapers",
         "body": "Wholesale pricing, next-day delivery, and text-based ordering built for pros on the move.",
         "linkText": "Learn More",
-        "link": "/contractors"
+        "link": "/contractors/"
       },
       {
         "image": "/media/turf-hero-12.jpg",
@@ -45,7 +45,7 @@
         "heading": "DIY Homeowners",
         "body": "Expert guidance, free samples, and precise material calculations to get your project done right.",
         "linkText": "Learn More",
-        "link": "/homeowners"
+        "link": "/homeowners/"
       }
     ]
   },
@@ -59,31 +59,31 @@
         "alt": "Artificial turf installation",
         "heading": "Artificial Turf",
         "subtitle": "Premium turf built for AZ heat",
-        "link": "/artificial-turf"
+        "link": "/artificial-turf/"
       },
       {
         "image": "/media/pavers-5-hero.jpg",
         "alt": "Paver installation",
         "heading": "Pavers",
         "subtitle": "Patios, borders & driveways",
-        "link": "/pavers"
+        "link": "/pavers/"
       },
       {
         "image": "/media/natural-stone-hero-100.jpg",
         "alt": "Natural stone installation",
         "heading": "Natural Stone",
         "subtitle": "Travertine & limestone options",
-        "link": "/natural-stone"
+        "link": "/natural-stone/"
       },
       {
         "image": "/media/lighting-flood-lights.webp",
         "alt": "Landscape lighting at night",
         "heading": "Landscape Lighting",
         "subtitle": "Lumenex lighting solutions",
-        "link": "/landscape-lighting"
+        "link": "/landscape-lighting/"
       }
     ],
-    "closing": "Whether you're a contractor managing multiple installs or a homeowner tackling a DIY project, we make it easy to source high-quality landscaping materials in [Queen Creek](/queen-creek) and throughout Arizona."
+    "closing": "Whether you're a contractor managing multiple installs or a homeowner tackling a DIY project, we make it easy to source high-quality landscaping materials in [Queen Creek](/queen-creek/) and throughout Arizona."
   },
   "confidence": {
     "bgImage": "/media/turf-pavers-hero.jpg",
@@ -146,7 +146,7 @@
     ],
     "cta": {
       "text": "I'm a Contractor",
-      "link": "/contractors"
+      "link": "/contractors/"
     }
   },
   "homeowner": {
@@ -179,7 +179,7 @@
     ],
     "cta": {
       "text": "I'm a DIYer",
-      "link": "/homeowners"
+      "link": "/homeowners/"
     }
   },
   "whyTurf": {
@@ -287,7 +287,7 @@
         "heading": "Pavers & Hardscaping",
         "body": "We are a proud dealer of top-quality concrete pavers to complete your landscape borders, patios, and driveways. We feature brands like Phoenix Paver, Ackerstone, and Belgard.",
         "linkText": "View Pavers",
-        "link": "/pavers"
+        "link": "/pavers/"
       },
       {
         "image": "/media/stone-other.jpg",
@@ -295,7 +295,7 @@
         "heading": "Natural Stone",
         "body": "Elevate your pool decks and walkways with premium natural stone. Available in Travertine and Limestone, with various colors and sizes available.",
         "linkText": "View Stone",
-        "link": "/natural-stone"
+        "link": "/natural-stone/"
       },
       {
         "image": "/media/lighting-wall-lights.webp",
@@ -303,7 +303,7 @@
         "heading": "Landscape Lighting",
         "body": "Illuminate your new yard with our Lumenex lighting brand. We stock wire lighting, path lights, spotlights, and transformers.",
         "linkText": "View Lighting",
-        "link": "/landscape-lighting"
+        "link": "/landscape-lighting/"
       },
       {
         "image": "/media/accessories-hero.jpg",
@@ -311,7 +311,7 @@
         "heading": "Accessories",
         "body": "Everything you need for a perfect installation, including Camofill, silica sand, 15-year weed fabric, seam tape, turf glue, nails, and golf cups/flags.",
         "linkText": "View Accessories",
-        "link": "/accessories"
+        "link": "/accessories/"
       }
     ]
   },
@@ -319,18 +319,18 @@
     "label": "Words From Our Clients",
     "heading": "What Our Customers Say",
     "ctaText": "Read More Reviews",
-    "ctaLink": "/reviews"
+    "ctaLink": "/reviews/"
   },
   "noBrainer": {
     "heading": "Premium Artificial Turf & Landscaping Supplies in Queen Creek, AZ",
     "body": "Ready to transform your outdoor space? Let's get started today.",
     "ctaPrimary": {
       "text": "Get A Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "Shop Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "contact": {

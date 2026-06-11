@@ -528,6 +528,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
                 <span class="contact-row-value">(480) 793-1800<span>Same-day response guaranteed</span></span>
               </div>
             </a>
+            {/* email_off stops Cloudflare email obfuscation from rewriting
+                this into a broken /cdn-cgi/l/email-protection link */}
+            <!--email_off-->
             <a href="mailto:contact@azturfsuppliers.com" class="contact-row">
               <div class="contact-row-icon">
                 <Icon name="mail" size={16} />
@@ -537,6 +540,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
                 <span class="contact-row-value">contact@azturfsuppliers.com</span>
               </div>
             </a>
+            <!--/email_off-->
             <div class="contact-row" data-reveal>
               <div class="contact-row-icon">
                 <Icon name="location" size={16} />
@@ -698,7 +702,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
     </div>
     <Testimonials />
     <div class="testimonials-cta" data-reveal>
-      <a href="/reviews">Read More Reviews <Icon name="arrow-right" size={16} /></a>
+      <a href="/reviews/">Read More Reviews <Icon name="arrow-right" size={16} /></a>
     </div>
   </div>
 </section>

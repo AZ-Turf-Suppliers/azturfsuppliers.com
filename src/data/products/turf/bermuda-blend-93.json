@@ -18,11 +18,11 @@
     "body": "A premium turf designed to deliver a lush, natural appearance with lasting durability. Realistic emerald and olive tones...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "bermuda-side.png",
@@ -37,7 +37,7 @@
     "bestFor": "Backyards, pets, high-traffic residential & commercial",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_bermuda_blend_93_spec_sheet.pdf"
   },
@@ -173,12 +173,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]
