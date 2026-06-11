@@ -18,11 +18,11 @@
     "body": "A high-quality turf designed to maintain a lush, vibrant appearance year-round. Its blend of emerald and lime tones, pai...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "winter-blend-103-above.png",
@@ -49,7 +49,7 @@
     "bestFor": "High-traffic backyards, pets, commercial applications",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_winter_blend_103_spec_sheet.pdf"
   },
@@ -185,12 +185,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]

@@ -10,7 +10,7 @@
     "eyebrow": "Scottsdale, AZ",
     "heading": "Premium Turf, Travertine & Stone *Delivered to Scottsdale*",
     "body": "Scottsdale demands the best in outdoor living — and we deliver it. AZ Turf Suppliers stocks the premium materials Scottsdale's luxury homes and commercial properties require, at wholesale prices.",
-    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
@@ -24,10 +24,10 @@
     "heading": "High-End Landscaping Materials for Scottsdale's Market",
     "body": "Scottsdale homeowners, luxury builders, and landscape architects trust AZ Turf Suppliers for materials that match the area's elevated standards. We carry the premium finishes and product lines Scottsdale projects demand.",
     "cards": [
-      { "heading": "Artificial Turf",    "body": "Ultra-realistic, UV-resistant turf in premium blade styles. Ideal for Scottsdale's luxury pools, putting greens, and entertaining areas.",       "linkText": "View Turf Options →",  "link": "/artificial-turf" },
-      { "heading": "Travertine Pavers",  "body": "Natural travertine in Walnut, Scabas, Silver, and more — the material of choice for Scottsdale's upscale pool decks and resort-style patios.",   "linkText": "View Pavers →",         "link": "/pavers" },
-      { "heading": "Natural Stone",      "body": "Limestone, marble, and travertine coping and field tiles in premium finishes — including Greecian marble and Mayra White selections.",            "linkText": "View Natural Stone →",  "link": "/natural-stone" },
-      { "heading": "Landscape Lighting", "body": "Professional Lumenex lighting systems for Scottsdale's luxury outdoor environments — hardscape lights, spotlights, and complete transformer setups.", "linkText": "View Lighting →",   "link": "/landscape-lighting" }
+      { "heading": "Artificial Turf",    "body": "Ultra-realistic, UV-resistant turf in premium blade styles. Ideal for Scottsdale's luxury pools, putting greens, and entertaining areas.",       "linkText": "View Turf Options →",  "link": "/artificial-turf/" },
+      { "heading": "Travertine Pavers",  "body": "Natural travertine in Walnut, Scabas, Silver, and more — the material of choice for Scottsdale's upscale pool decks and resort-style patios.",   "linkText": "View Pavers →",         "link": "/pavers/" },
+      { "heading": "Natural Stone",      "body": "Limestone, marble, and travertine coping and field tiles in premium finishes — including Greecian marble and Mayra White selections.",            "linkText": "View Natural Stone →",  "link": "/natural-stone/" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex lighting systems for Scottsdale's luxury outdoor environments — hardscape lights, spotlights, and complete transformer setups.", "linkText": "View Lighting →",   "link": "/landscape-lighting/" }
     ]
   },
   "why": {
@@ -44,22 +44,22 @@
     "heading": "Delivering Premium Materials to Scottsdale",
     "body": "Call for a quote, order online, or visit our Queen Creek showroom at 18607 E San Tan Blvd. Scottsdale contractors welcome — open Mon–Fri, 7 AM–3 PM.",
     "buttons": [
-      { "text": "Request a Quote",   "link": "/contact",       "style": "primary" },
+      { "text": "Request a Quote",   "link": "/contact/",       "style": "primary" },
       { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "dark" }
     ]
   },
   "nearby": {
     "prefix": "Also serving:",
     "links": [
-      { "name": "Queen Creek",            "link": "/queen-creek" },
-      { "name": "San Tan Valley",         "link": "/san-tan-valley" },
-      { "name": "Gilbert",                "link": "/gilbert" },
-      { "name": "Mesa",                   "link": "/mesa" },
-      { "name": "Chandler",               "link": "/chandler" },
-      { "name": "Apache Junction",        "link": "/apache-junction" },
-      { "name": "Tempe",                  "link": "/tempe" },
-      { "name": "Phoenix",                "link": "/phoenix" },
-      { "name": "View All Areas Served",  "link": "/locations" }
+      { "name": "Queen Creek",            "link": "/queen-creek/" },
+      { "name": "San Tan Valley",         "link": "/san-tan-valley/" },
+      { "name": "Gilbert",                "link": "/gilbert/" },
+      { "name": "Mesa",                   "link": "/mesa/" },
+      { "name": "Chandler",               "link": "/chandler/" },
+      { "name": "Apache Junction",        "link": "/apache-junction/" },
+      { "name": "Tempe",                  "link": "/tempe/" },
+      { "name": "Phoenix",                "link": "/phoenix/" },
+      { "name": "View All Areas Served",  "link": "/locations/" }
     ]
   }
 }

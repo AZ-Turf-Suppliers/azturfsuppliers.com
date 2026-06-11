@@ -7,7 +7,7 @@
     "eyebrow": "Supplies & Maintenance",
     "heading": "Accessories & *Maintenance Products*",
     "body": "Nails, infill, weed fabric, putting green accessories, and turf maintenance supplies — everything you need to install and maintain your turf the right way.",
-    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "products": {
@@ -40,7 +40,7 @@
     "body": "Stop by our Queen Creek showroom and grab what you need for your next install. Same-day pickup available on all stocked items.",
     "buttons": [
       { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "primary" },
-      { "text": "Send a Message",    "link": "/contact",       "style": "outline" }
+      { "text": "Send a Message",    "link": "/contact/",       "style": "outline" }
     ]
   }
 }

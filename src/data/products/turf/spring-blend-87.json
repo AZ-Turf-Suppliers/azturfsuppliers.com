@@ -18,11 +18,11 @@
     "body": "A versatile turf that brings the fresh, lively look of spring to any outdoor space. Its blend of green and lime tones, p...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "spring-blend-87-above.png",
@@ -43,7 +43,7 @@
     "bestFor": "Backyards, play areas, general residential landscaping",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_spring_blend_87_spec_sheet.pdf"
   },
@@ -179,12 +179,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]

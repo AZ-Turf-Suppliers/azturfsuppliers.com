@@ -130,7 +130,7 @@ const posts = all
   <div class="container">
     <div class="blog-grid">
       {posts.map(post => (
-        <a href={`/blog/${post.slug}`} class="blog-card" data-reveal>
+        <a href={`/blog/${post.slug}/`} class="blog-card" data-reveal>
           <div class="blog-card-img">
             <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
           </div>
@@ -161,7 +161,7 @@ const posts = all
     <p>Real questions about your project get real answers from the owner. No call center, no canned replies.</p>
     <div class="cta-btns">
       <a href="tel:4807931800" class="btn btn-primary">Call or Text (480) 793-1800 <Icon name="arrow-right" size={16} /></a>
-      <a href="/contact" class="btn btn-outline">Contact Us</a>
+      <a href="/contact/" class="btn btn-outline">Contact Us</a>
     </div>
   </div>
 </section>

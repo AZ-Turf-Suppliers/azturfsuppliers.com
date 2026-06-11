@@ -16,8 +16,8 @@ interface Props { post: CollectionEntry<'blog'>; }
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.azturfsuppliers.com';
-const pageUrl = `${siteUrl}/blog/${post.slug}`;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
+const pageUrl = `${siteUrl}/blog/${post.slug}/`;
 const monthYear = post.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
 const articleSchema = {
@@ -39,8 +39,8 @@ const articleSchema = {
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
-  { name: 'Blog', url: '/blog' },
-  { name: post.data.title, url: `/blog/${post.slug}` },
+  { name: 'Blog', url: '/blog/' },
+  { name: post.data.title, url: `/blog/${post.slug}/` },
 ];
 ---
 
@@ -180,7 +180,7 @@ const breadcrumbs = [
           <p>Whether you're a homeowner doing your first install or a contractor running 20 jobs a month, we have the inventory and the answers. Stop by our Queen Creek showroom or text us your measurements.</p>
           <div class="post-cta-btns">
             <a href={`tel:${site.phone_tel}`} class="btn btn-primary">Call or Text {site.phone} <Icon name="phone" size={16} /></a>
-            <a href="/turf-calculator" class="btn btn-outline">Use the Turf Calculator</a>
+            <a href="/turf-calculator/" class="btn btn-outline">Use the Turf Calculator</a>
           </div>
         </div>
       </div>

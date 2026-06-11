@@ -7,7 +7,7 @@
     "eyebrow": "Our Catalog",
     "heading": "Everything You Need *In One Place*",
     "body": "Artificial turf, pavers, natural stone, landscape lighting, and installation accessories — all stocked at our Queen Creek showroom for same-day pickup or next-day delivery.",
-    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "categories": {
@@ -22,7 +22,7 @@
         "heading": "Premium Synthetic Grass",
         "body": "Eight blends from low-traffic landscape accents to high-performance putting greens. UV-stable, pet-friendly, lead-free, and built for Arizona heat.",
         "linkText": "View Turf Options →",
-        "link": "/artificial-turf"
+        "link": "/artificial-turf/"
       },
       {
         "image": "pavers-card.jpg",
@@ -31,7 +31,7 @@
         "heading": "Concrete & Travertine Pavers",
         "body": "Patios, driveways, pool decks, and walkways. Wide selection of finishes and colors stocked for same-day pickup.",
         "linkText": "View Pavers →",
-        "link": "/pavers"
+        "link": "/pavers/"
       },
       {
         "image": "stone-card.jpg",
@@ -40,7 +40,7 @@
         "heading": "Travertine, Limestone & Marble",
         "body": "Multiple finishes for upscale pool decks, patios, and feature walls. See and feel the material in person at our showroom.",
         "linkText": "View Natural Stone →",
-        "link": "/natural-stone"
+        "link": "/natural-stone/"
       },
       {
         "image": "LT2401A.png",
@@ -49,7 +49,7 @@
         "heading": "Professional Lumenex Systems",
         "body": "Low-voltage path lights, spotlights, hardscape lights, transformers, and accessories — built to last in Arizona's UV and heat.",
         "linkText": "View Lighting →",
-        "link": "/landscape-lighting"
+        "link": "/landscape-lighting/"
       },
       {
         "image": "9409B.jpg",
@@ -58,7 +58,7 @@
         "heading": "Installation Supplies",
         "body": "Nails, seam tape, infill, base aggregate, edging, and the consumables you need to finish the job right.",
         "linkText": "View Accessories →",
-        "link": "/accessories"
+        "link": "/accessories/"
       }
     ]
   },
@@ -68,7 +68,7 @@
     "body": "Stop by our Queen Creek showroom and our team will help you pick the right materials for your project, your budget, and your timeline.",
     "buttons": [
       { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "primary" },
-      { "text": "Send Us a Message", "link": "/contact",       "style": "outline" }
+      { "text": "Send Us a Message", "link": "/contact/",       "style": "outline" }
     ]
   }
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.azturfsuppliers.com/sitemap-index.xml
+Sitemap: https://azturfsuppliers.com/sitemap-index.xml

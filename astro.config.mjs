@@ -32,7 +32,13 @@ function cloudflareRedirects() {
 }
 
 export default defineConfig({
-  site: 'https://www.azturfsuppliers.com',
+  // Canonical host is the apex domain — www 301s to it at the edge, so the
+  // sitemap, canonicals, and JSON-LD must all be generated without www.
+  site: 'https://azturfsuppliers.com',
+  // Cloudflare Pages serves directory-format output and 308s bare paths to
+  // the trailing-slash version, so internal links must always carry the
+  // trailing slash to avoid shipping a redirect hop.
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       // Keep noindex pages and form-success pages out of the sitemap.

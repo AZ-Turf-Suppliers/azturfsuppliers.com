@@ -9,7 +9,7 @@
     "heading": "Spring Blend — *Vibrant, Plush, & Pet-Ready*",
     "body": "A vibrant, plush collection using \"Billow\" Emerald coloring for maximum curb appeal. Built for busy backyard families and pet owners. Lead-free, pet-friendly, 15-year warranty.",
     "ctaPrimary": { "text": "View Products", "link": "#products" },
-    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact" }
+    "ctaSecondary": { "text": "Get a Free Quote",  "link": "/contact/" }
   },
   "statBar": [
     { "value": "2",        "label": "Weights to Choose" },
@@ -23,13 +23,13 @@
     "body": [
       "At AZ Turf, our **Spring Blend** is a vibrant, plush collection using **\"Billow\" Emerald coloring** for maximum curb appeal. The richer, deeper green works beautifully against desert hardscape and modern home exteriors.",
       "**Spring Blend 107 offers supreme density — our top recommendation for heavy backyard use** and busy families with pets and kids. Spring Blend 87 hits a sweet spot for everyday residential lawns where plush feel matters but ultra-density isn't required.",
-      "Not sure which weight fits your project? [Reach out](/contact) and we'll guide you."
+      "Not sure which weight fits your project? [Reach out](/contact/) and we'll guide you."
     ]
   },
   "products": {
     "cards": [
-      { "name": "Spring Blend 87",  "image": "spring-blend-87-above.png",  "alt": "Spring Blend 87",  "badge": null, "totalWeight": "87 oz",  "pileHeight": "1.65\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.55", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-87" },
-      { "name": "Spring Blend 107", "image": "spring-blend-107-above.png", "alt": "Spring Blend 107", "badge": { "text": "Most Popular", "style": "popular" }, "totalWeight": "107 oz", "pileHeight": "1.75\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.80", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-107" }
+      { "name": "Spring Blend 87",  "image": "spring-blend-87-above.png",  "alt": "Spring Blend 87",  "badge": null, "totalWeight": "87 oz",  "pileHeight": "1.65\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.55", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-87/" },
+      { "name": "Spring Blend 107", "image": "spring-blend-107-above.png", "alt": "Spring Blend 107", "badge": { "text": "Most Popular", "style": "popular" }, "totalWeight": "107 oz", "pileHeight": "1.75\"", "color": "Billow Emerald", "rollWidth": "15'", "price": "$1.80", "priceUnit": "/ sq ft", "detailsLink": "/spring-blend-107/" }
     ]
   },
   "features": {
@@ -53,15 +53,15 @@
   },
   "crossSell": {
     "heading": "Want a different look?",
-    "body": "Compare with our [Natural](/natural-series), [Winter](/winter-series), [Bermuda](/bermuda-blend), and [Putting Green](/putting-green) series on our [Artificial Turf](/artificial-turf) page."
+    "body": "Compare with our [Natural](/natural-series/), [Winter](/winter-series/), [Bermuda](/bermuda-blend/), and [Putting Green](/putting-green/) series on our [Artificial Turf](/artificial-turf/) page."
   },
   "cta": {
     "label": "Visit Our Showroom",
     "heading": "Ready to See & Feel Spring Blend in Person?",
-    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
+    "body": "Stop into our Queen Creek showroom for free samples, or [call or text](/contact/) us with your measurements. We'll calculate exact cuts and give you an immediate price.",
     "buttons": [
       { "text": "Call or Text Us",         "link": "tel:4807931800", "style": "primary" },
-      { "text": "Get a Free Quote Online", "link": "/contact",       "style": "outline" }
+      { "text": "Get a Free Quote Online", "link": "/contact/",       "style": "outline" }
     ],
     "footnote": "Same-day response · Next-day delivery · Price match guaranteed"
   }

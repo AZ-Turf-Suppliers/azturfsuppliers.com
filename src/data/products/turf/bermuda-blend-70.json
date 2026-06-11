@@ -18,11 +18,11 @@
     "body": "A versatile turf designed to deliver a clean, natural lawn look with dependable everyday performance. Durable polyethyle...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "bermuda-side.png",
@@ -37,7 +37,7 @@
     "bestFor": "Front yards, low-traffic areas, classic natural aesthetic",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_bermuda_blend_70_spec_sheet.pdf"
   },
@@ -173,12 +173,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]

@@ -8,7 +8,7 @@
     "eyebrow": "Hardscape Materials",
     "heading": "Natural *Stone*",
     "body": "Travertine, natural stone, stacked stone, and porcelain pavers for patios, walkways, pool decks, and accent walls — sourced for Arizona landscapes.",
-    "ctaPrimary": { "text": "Get a Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
@@ -21,7 +21,7 @@
     "label": "Natural Stone Collection",
     "heading": "Real Stone for Real Arizona Landscapes",
     "body": "Nothing matches the look and feel of natural stone. We carry travertine pavers, natural stone, stacked stone, and porcelain pavers in a variety of cuts, finishes, and colors — all suited for Arizona's climate and ready for pickup or next-day delivery.\n\nWhether you're building a patio, lining a pool deck, or creating a statement walkway, natural stone adds a level of character and permanence that manufactured materials can't replicate.",
-    "ctaPrimary": { "text": "Get a Stone Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Stone Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "stoneTypes": {
@@ -68,15 +68,15 @@
       "**Lifetime durability** — Natural stone outlasts manufactured alternatives by decades",
       "**Adds property value** — Stone hardscaping is one of the highest-ROI exterior upgrades"
     ],
-    "cta": { "text": "Get a Free Quote", "link": "/contact" }
+    "cta": { "text": "Get a Free Quote", "link": "/contact/" }
   },
   "cta": {
     "label": "Visit Our Showroom",
     "heading": "See & Feel Our Stone Collection",
     "body": "The best way to choose natural stone is to see it in person. Visit our Queen Creek showroom and our team will help you select the right material for your project.",
     "buttons": [
-      { "text": "Get a Free Quote", "link": "/contact",   "style": "primary" },
-      { "text": "Get Directions",   "link": "/locations", "style": "outline" }
+      { "text": "Get a Free Quote", "link": "/contact/",   "style": "primary" },
+      { "text": "Get Directions",   "link": "/locations/", "style": "outline" }
     ]
   }
 }

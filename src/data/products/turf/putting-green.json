@@ -18,11 +18,11 @@
     "body": "Crafted to deliver a smooth, true-to-life playing surface that closely mimics the performance of a professional golf gre...",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "ctaSecondary": {
       "text": "All Turf Products",
-      "link": "/artificial-turf"
+      "link": "/artificial-turf/"
     }
   },
   "mainImage": "putting-green-above.png",
@@ -50,7 +50,7 @@
     "bestFor": "Putting greens, practice areas, landscape design accents",
     "ctaPrimary": {
       "text": "Get a Quote",
-      "link": "/contact"
+      "link": "/contact/"
     },
     "specSheetUrl": "/media/az_turf_suppliers_putting_green_spec_sheet.pdf"
   },
@@ -186,12 +186,12 @@
     "buttons": [
       {
         "text": "Get a Quote",
-        "link": "/contact",
+        "link": "/contact/",
         "style": "primary"
       },
       {
         "text": "View All Products",
-        "link": "/artificial-turf",
+        "link": "/artificial-turf/",
         "style": "outline"
       }
     ]

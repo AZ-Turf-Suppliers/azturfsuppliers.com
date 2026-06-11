@@ -60,7 +60,7 @@ Artificial turf comes in **15-foot-wide rolls**. Almost every install has waste 
 
 For a rectangular yard 20' × 30', you don't order 600 sq ft. You order two 15' × 20' pieces (600 sq ft) plus enough to fill the leftover 5' × 30' strip — and that strip needs to face the same direction as the rest, so you're cutting from a third roll. Real total: closer to 750 sq ft.
 
-Use our [turf calculator](/turf-calculator) — it accounts for grain direction, roll width, and infill in one step.
+Use our [turf calculator](/turf-calculator/) — it accounts for grain direction, roll width, and infill in one step.
 
 ## 3. Tools and materials you'll actually need {#tools}
 
@@ -141,7 +141,7 @@ Recommended rates:
 - **90–100 oz turf:** 2.5 lbs per square foot
 - **Putting green turf:** 3+ lbs per square foot
 
-A 1,000 sq ft yard at 2.5 lbs/ft² = 2,500 lbs of infill = 50 bags at 50 lbs each. (Our [turf calculator](/turf-calculator) figures this for you.)
+A 1,000 sq ft yard at 2.5 lbs/ft² = 2,500 lbs of infill = 50 bags at 50 lbs each. (Our [turf calculator](/turf-calculator/) figures this for you.)
 
 Application:
 

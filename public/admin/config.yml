@@ -4,7 +4,7 @@ backend:
   branch: main
   # base_url is where /api/auth and /api/callback live. These are Cloudflare
   # Pages Functions deployed from /functions/api/* in this repo.
-  base_url: https://www.azturfsuppliers.com
+  base_url: https://azturfsuppliers.com
   auth_endpoint: api/auth
 
 # Where uploads (images) go when added through the CMS.
@@ -16,8 +16,8 @@ public_folder: /media
 publish_mode: simple
 
 # Sveltia supports preview links from the CMS. Local previews need this set.
-site_url: https://www.azturfsuppliers.com
-display_url: https://www.azturfsuppliers.com
+site_url: https://azturfsuppliers.com
+display_url: https://azturfsuppliers.com
 logo_url: /media/logo.png
 
 collections:

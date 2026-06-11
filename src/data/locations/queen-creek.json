@@ -10,7 +10,7 @@
     "eyebrow": "Queen Creek, AZ",
     "heading": "Your Local Source for *Turf & Landscaping* in Queen Creek",
     "body": "Our showroom is right here in Queen Creek — come in same-day, grab samples, and take materials home the same visit. No waiting, no shipping fees.",
-    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact" },
+    "ctaPrimary": { "text": "Get a Free Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
   "statBar": [
@@ -24,10 +24,10 @@
     "heading": "Premium Landscaping Materials for Queen Creek Homeowners & Contractors",
     "body": "Everything you need to transform your outdoor space — in stock and ready to go. AZ Turf Suppliers is the East Valley's go-to source for professional-grade materials at wholesale prices.",
     "cards": [
-      { "heading": "Artificial Turf", "body": "UV-resistant, pet-friendly turf in a range of pile heights and blade styles. Ideal for Queen Creek's intense sun and heat.", "linkText": "View Turf Options →", "link": "/artificial-turf" },
-      { "heading": "Pavers", "body": "Concrete and travertine pavers for patios, driveways, pool decks, and walkways. In stock for same-day pickup.", "linkText": "View Pavers →", "link": "/pavers" },
-      { "heading": "Natural Stone", "body": "Travertine, limestone, and marble in multiple finishes. Perfect for Queen Creek's upscale outdoor living spaces.", "linkText": "View Natural Stone →", "link": "/natural-stone" },
-      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting systems — path lights, spotlights, hardscape lights, and transformers.", "linkText": "View Lighting →", "link": "/landscape-lighting" }
+      { "heading": "Artificial Turf", "body": "UV-resistant, pet-friendly turf in a range of pile heights and blade styles. Ideal for Queen Creek's intense sun and heat.", "linkText": "View Turf Options →", "link": "/artificial-turf/" },
+      { "heading": "Pavers", "body": "Concrete and travertine pavers for patios, driveways, pool decks, and walkways. In stock for same-day pickup.", "linkText": "View Pavers →", "link": "/pavers/" },
+      { "heading": "Natural Stone", "body": "Travertine, limestone, and marble in multiple finishes. Perfect for Queen Creek's upscale outdoor living spaces.", "linkText": "View Natural Stone →", "link": "/natural-stone/" },
+      { "heading": "Landscape Lighting", "body": "Professional Lumenex low-voltage lighting systems — path lights, spotlights, hardscape lights, and transformers.", "linkText": "View Lighting →", "link": "/landscape-lighting/" }
     ]
   },
   "why": {
@@ -44,7 +44,7 @@
     "heading": "Visit Our Queen Creek Showroom Today",
     "body": "Stop by at 18607 E San Tan Blvd, call ahead, or request a quote online. We're open Monday–Friday, 7 AM – 3 PM.",
     "buttons": [
-      { "text": "Request a Quote", "link": "/contact", "style": "primary" },
+      { "text": "Request a Quote", "link": "/contact/", "style": "primary" },
       { "text": "Get Directions", "link": "https://maps.google.com/?q=18607+E+San+Tan+Blvd+Queen+Creek+AZ", "style": "dark", "newTab": true },
       { "text": "Call (480) 793-1800", "link": "tel:4807931800", "style": "outline" }
     ]
@@ -52,15 +52,15 @@
   "nearby": {
     "prefix": "Also serving:",
     "links": [
-      { "name": "San Tan Valley", "link": "/san-tan-valley" },
-      { "name": "Gilbert", "link": "/gilbert" },
-      { "name": "Mesa", "link": "/mesa" },
-      { "name": "Chandler", "link": "/chandler" },
-      { "name": "Apache Junction", "link": "/apache-junction" },
-      { "name": "Scottsdale", "link": "/scottsdale" },
-      { "name": "Tempe", "link": "/tempe" },
-      { "name": "Phoenix", "link": "/phoenix" },
-      { "name": "View All Areas Served", "link": "/locations" }
+      { "name": "San Tan Valley", "link": "/san-tan-valley/" },
+      { "name": "Gilbert", "link": "/gilbert/" },
+      { "name": "Mesa", "link": "/mesa/" },
+      { "name": "Chandler", "link": "/chandler/" },
+      { "name": "Apache Junction", "link": "/apache-junction/" },
+      { "name": "Scottsdale", "link": "/scottsdale/" },
+      { "name": "Tempe", "link": "/tempe/" },
+      { "name": "Phoenix", "link": "/phoenix/" },
+      { "name": "View All Areas Served", "link": "/locations/" }
     ]
   }
 }

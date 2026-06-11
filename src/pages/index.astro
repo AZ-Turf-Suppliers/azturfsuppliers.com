@@ -1359,7 +1359,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             <div class="cm-icon"><Icon name="mail" size={28} /></div>
             <div>
               <h4>Email Us</h4>
-              <p>contact@azturfsuppliers.com</p>
+              {/* email_off stops Cloudflare email obfuscation from rewriting
+                  this into a broken /cdn-cgi/l/email-protection link */}
+              <!--email_off--><p>contact@azturfsuppliers.com</p><!--/email_off-->
             </div>
           </div>
         </div>
