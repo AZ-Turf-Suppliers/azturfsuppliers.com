@@ -7,7 +7,18 @@ import { join } from 'node:path';
 
 // Cloudflare Pages reads /_redirects at the deploy root. We generate it from
 // src/data/redirects.json so the CMS can manage redirects through a friendly
-// form widget instead of editing raw redirect syntax.
+// form widget instead of editing raw redirect syntax. Note this overwrites
+// anything copied from public/ — every redirect must ship through this hook.
+//
+// Infrastructure rules live here, not in redirects.json, so CMS editors
+// can't remove them. They are emitted first: the pages.dev rule must win
+// before any path rule fires, or a pages.dev request hitting a CMS redirect
+// would hop within pages.dev before reaching the custom domain. `301!`
+// forces the redirect even though a static asset exists at the same path.
+const INFRA_REDIRECTS = [
+  'https://azturfsuppliers-com.pages.dev/* https://azturfsuppliers.com/:splat 301!',
+];
+
 function cloudflareRedirects() {
   return {
     name: 'cloudflare-redirects',
@@ -23,9 +34,10 @@ function cloudflareRedirects() {
         const lines = (data?.entries ?? [])
           .filter((r) => r && r.from && r.to)
           .map((r) => `${r.from} ${r.to} ${r.status || 301}`);
-        const body = lines.length ? lines.join('\n') + '\n' : '';
+        const all = [...INFRA_REDIRECTS, ...lines];
+        const body = all.length ? all.join('\n') + '\n' : '';
         writeFileSync(join(fileURLToPath(dir), '_redirects'), body);
-        logger.info(`Wrote ${lines.length} redirect(s) to _redirects`);
+        logger.info(`Wrote ${all.length} redirect(s) to _redirects`);
       },
     },
   };
