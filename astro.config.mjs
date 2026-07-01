@@ -17,6 +17,11 @@ import { join } from 'node:path';
 // forces the redirect even though a static asset exists at the same path.
 const INFRA_REDIRECTS = [
   'https://azturfsuppliers-com.pages.dev/* https://azturfsuppliers.com/:splat 301!',
+  // @astrojs/sitemap emits a sitemap *index* at /sitemap-index.xml, not the
+  // conventional /sitemap.xml. robots.txt points crawlers at the right file,
+  // but people and tools reflexively try /sitemap.xml and hit a 404. Alias it
+  // so the conventional URL resolves to the real sitemap.
+  '/sitemap.xml /sitemap-index.xml 301',
 ];
 
 function cloudflareRedirects() {
