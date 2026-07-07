@@ -1,9 +1,71 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+
+// Last-modified dates for the sitemap. Google uses <lastmod> to prioritize
+// recrawling, which matters most right after a migration when a lot of pages
+// need to be reindexed. We derive each date from the source file's last git
+// commit rather than build time, so a page that didn't change doesn't claim to
+// have changed on every deploy (build-time stamps are uniform noise Google
+// learns to ignore). Each sitemap URL is mapped to the source file that owns
+// its content: static pages to their .astro file, city/turf pages to their
+// JSON data file, blog posts to their Markdown.
+//
+// Safety: if git history isn't available at build time — e.g. a shallow CI
+// clone collapses every file to a single commit — the dates lose their spread
+// and we ship NO lastmod at all rather than stamp every page with the same
+// misleading date.
+function gitCommitDate(file) {
+  try {
+    return execSync(`git log -1 --format=%cI -- "${file}"`, {
+      encoding: 'utf-8',
+    }).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+function buildLastmodMap() {
+  const map = {};
+  const add = (urlPath, file) => {
+    const date = gitCommitDate(file);
+    if (date) map[urlPath] = date;
+  };
+
+  // Static top-level pages. Dynamic routes ([slug]) are covered via their data
+  // files below; 404 and thank-you are excluded from the sitemap entirely.
+  for (const f of readdirSync('./src/pages')) {
+    if (!f.endsWith('.astro') || f.startsWith('[')) continue;
+    const name = f.replace(/\.astro$/, '');
+    if (name === '404' || name === 'thank-you') continue;
+    add(name === 'index' ? '/' : `/${name}/`, `./src/pages/${f}`);
+  }
+
+  // Blog index + posts.
+  add('/blog/', './src/pages/blog/index.astro');
+  for (const f of readdirSync('./src/content/blog')) {
+    if (!/\.mdx?$/.test(f)) continue;
+    add(`/blog/${f.replace(/\.mdx?$/, '')}/`, `./src/content/blog/${f}`);
+  }
+
+  // Data-driven city + turf product pages served by src/pages/[slug].astro.
+  for (const f of readdirSync('./src/data/locations')) {
+    if (f.endsWith('.json')) add(`/${f.replace(/\.json$/, '')}/`, `./src/data/locations/${f}`);
+  }
+  for (const f of readdirSync('./src/data/products/turf')) {
+    if (f.endsWith('.json')) add(`/${f.replace(/\.json$/, '')}/`, `./src/data/products/turf/${f}`);
+  }
+
+  // Need a real spread of dates or the signal is unreliable — bail to empty.
+  if (new Set(Object.values(map)).size < 2) return {};
+  return map;
+}
+
+const LASTMOD_BY_PATH = buildLastmodMap();
 
 // Cloudflare Pages reads /_redirects at the deploy root. We generate it from
 // src/data/redirects.json so the CMS can manage redirects through a friendly
@@ -17,6 +79,11 @@ import { join } from 'node:path';
 // forces the redirect even though a static asset exists at the same path.
 const INFRA_REDIRECTS = [
   'https://azturfsuppliers-com.pages.dev/* https://azturfsuppliers.com/:splat 301!',
+  // @astrojs/sitemap emits a sitemap *index* at /sitemap-index.xml, not the
+  // conventional /sitemap.xml. robots.txt points crawlers at the right file,
+  // but people and tools reflexively try /sitemap.xml and hit a 404. Alias it
+  // so the conventional URL resolves to the real sitemap.
+  '/sitemap.xml /sitemap-index.xml 301',
 ];
 
 function cloudflareRedirects() {
@@ -56,6 +123,14 @@ export default defineConfig({
       // Keep noindex pages and form-success pages out of the sitemap.
       filter: (page) =>
         !page.includes('/thank-you') && !page.includes('/404'),
+      // Stamp each URL with its source file's last-commit date (see
+      // buildLastmodMap). Pages with no mapped date are left without a
+      // lastmod, which is valid — the tag is optional per URL.
+      serialize(item) {
+        const lastmod = LASTMOD_BY_PATH[new URL(item.url).pathname];
+        if (lastmod) item.lastmod = lastmod;
+        return item;
+      },
     }),
     icon(),
     cloudflareRedirects(),
