@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, copyFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -79,12 +79,32 @@ const LASTMOD_BY_PATH = buildLastmodMap();
 // forces the redirect even though a static asset exists at the same path.
 const INFRA_REDIRECTS = [
   'https://azturfsuppliers-com.pages.dev/* https://azturfsuppliers.com/:splat 301!',
-  // @astrojs/sitemap emits a sitemap *index* at /sitemap-index.xml, not the
-  // conventional /sitemap.xml. robots.txt points crawlers at the right file,
-  // but people and tools reflexively try /sitemap.xml and hit a 404. Alias it
-  // so the conventional URL resolves to the real sitemap.
-  '/sitemap.xml /sitemap-index.xml 301',
 ];
+
+// @astrojs/sitemap always emits the sitemap index as /sitemap-index.xml and
+// gives no option to rename it. Everyone — humans and tools alike — reaches
+// for /sitemap.xml, so serve the real index there directly (a 200, not a
+// redirect to a less-common filename). We copy rather than move so the
+// original /sitemap-index.xml keeps working too and nothing that already
+// references it breaks. Runs after the sitemap integration's own build:done
+// hook because this integration is registered after it.
+function canonicalSitemap() {
+  return {
+    name: 'canonical-sitemap',
+    hooks: {
+      'astro:build:done': ({ dir, logger }) => {
+        const src = join(fileURLToPath(dir), 'sitemap-index.xml');
+        const dest = join(fileURLToPath(dir), 'sitemap.xml');
+        if (!existsSync(src)) {
+          logger.warn('sitemap-index.xml not found; skipping /sitemap.xml copy.');
+          return;
+        }
+        copyFileSync(src, dest);
+        logger.info('Copied sitemap-index.xml to sitemap.xml');
+      },
+    },
+  };
+}
 
 function cloudflareRedirects() {
   return {
@@ -132,6 +152,8 @@ export default defineConfig({
         return item;
       },
     }),
+    // Must come after sitemap() so the generated index exists when it runs.
+    canonicalSitemap(),
     icon(),
     cloudflareRedirects(),
   ],
