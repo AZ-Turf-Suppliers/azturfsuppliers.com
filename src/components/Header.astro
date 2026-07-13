@@ -37,11 +37,12 @@ const isActive = (path: string) => {
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="/resources/" aria-haspopup="true" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/blog') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
+          <a href="/resources/" aria-haspopup="true" class={isActive('/resources') || isActive('/turf-calculator') || isActive('/blog') || isActive('/faq') || isActive('/warranty') || isActive('/lead-free') ? 'active' : ''}>Resources</a>
           <div class="dropdown">
             <div class="dropdown-inner">
               <a href="/turf-calculator/">Turf Calculator</a>
               <a href="/blog/">Blog</a>
+              <a href="/faq/">FAQs</a>
               <hr>
               <a href="/warranty/">Warranty</a>
               <a href="/lead-free/">Lead Free Guarantee</a>
@@ -94,6 +95,7 @@ const isActive = (path: string) => {
     <div class="mobile-section-label">Resources</div>
     <a href="/turf-calculator/">Turf Calculator</a>
     <a href="/blog/">Blog</a>
+    <a href="/faq/">FAQs</a>
     <div class="mobile-section-label">Company</div>
     <a href="/about/">About</a>
     <a href="/gallery/">Gallery</a>
