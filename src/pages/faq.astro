@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [
+  {
+    question: 'Are your artificial grass products safe for dogs and children?',
+    answer: `Yes! As a trusted landscape supply company in Queen Creek, AZ Turf Suppliers guarantees that every artificial turf product we sell is 100% <a href="/lead-free/">certified lead-free</a> and pet-friendly. Our turf does not require toxic chemical pesticides or fertilizers, making it completely safe for families, kids, and pets to play on. Additionally, we offer specialized infill like Camo Fill, a coated sand infill that actively resists odors and bacteria, making it the perfect upgrade for high-traffic pet areas.`,
+  },
+  {
+    question: 'How much does artificial turf cost per square foot in Arizona?',
+    answer: `At AZ Turf Suppliers, our standard retail pricing for <a href="/artificial-turf/">premium artificial turf</a> ranges from $1.35 to $1.80 per square foot, depending on the face weight, pile height, and specific blend. For example, our Natural Blend 75 starts at $1.40/sq ft, while our ultra-plush Spring Blend 107 (ideal for heavy backyard use) is $1.80/sq ft. As a wholesale supplier for the Phoenix Metro area, we also offer aggressive pricing tiers for professional contractors and a Price Match Guarantee on local quotes, no questions asked. Pricing above is standard retail per square foot. Contractors call or text for exclusive wholesale pricing.`,
+  },
+  {
+    question: "How long is the manufacturer's warranty on artificial turf?",
+    answer: `Because we are a landscape supplier dedicated to providing products engineered for Arizona's extreme 110°+ heat, AZ Turf Suppliers backs all of our turf products with a robust <a href="/warranty/">15-year manufacturer warranty</a>. Our turf features CoolYarn technology and is UV-stabilized to resist fading from the relentless sun. The warranty covers defects in materials and workmanship, offering 100% full coverage for years 1–8, 50% partial coverage for years 9–12, and 25% final coverage for years 13–15.`,
+  },
+  {
+    question: 'Do you offer next-day delivery for landscape pavers and turf in the Phoenix Metro area?',
+    answer: `Yes, AZ Turf Suppliers offers guaranteed next-day delivery directly to your home or job site anywhere in the Phoenix Metro area, or 15-minute in-store pickup so you can get your landscape materials loaded and get back to the job site quickly. Operating out of our Queen Creek yard, we supply and drop-ship artificial turf, landscape lighting, natural stone, and concrete pavers to cities like San Tan Valley, Gilbert, Mesa, Chandler, Scottsdale, Tempe, and Phoenix.`,
+  },
+  {
+    question: 'How do I calculate how much artificial turf I need for my yard?',
+    answer: `Artificial turf is manufactured and sold in standard 15-foot wide rolls. Because the grass blades have a natural grain direction, planning your cuts to match the grain while minimizing waste can be tricky. You don't have to guess, simply use our <a href="/turf-calculator/">Turf Layout Calculator</a> or bring your yard measurements (length × width in feet) into the AZ Turf Suppliers showroom in Queen Creek. As your local hardscape and turf experts, our team will calculate your exact cuts, account for waste seams, and give you an immediate quote for your materials.`,
+  },
+  {
+    question: 'Does AZ Turf Suppliers install artificial turf and hardscaping?',
+    answer: `AZ Turf Suppliers is exclusively a premium landscape supply company based in Queen Creek, meaning we supply the turf, pavers, stone, and lighting, but we do not perform installations ourselves. However, we work with a network of top-rated, local professional installers across Arizona. If you are a homeowner who needs an installer, we will happily connect you with a preferred contractor (such as Turf Pros) who knows our products inside and out.`,
+  },
+  {
+    question: 'Why should I choose hardwired low-voltage landscape lighting over solar lights?',
+    answer: `Professional landscape contractors across the Valley choose hardwired, low-voltage systems because solar fixtures often fade, flicker, and fail. At AZ Turf Suppliers, we supply <a href="/landscape-lighting/">Lumenex Lighting</a>, a professional-grade, hardwired system that delivers consistent illumination for your property. Featuring heavy-duty aluminum and brass construction, these lights are engineered to handle the extreme Arizona heat and relentless UV exposure that destroys lesser fixtures.`,
+  },
+  {
+    question: 'What types of concrete pavers and natural stone do you supply for hardscape projects?',
+    answer: `As a premium wholesale landscape supply company located in Queen Creek, AZ, AZ Turf Suppliers carries an extensive selection of hardscape materials perfect for driveways, patios, and pool decks. For <a href="/pavers/">concrete pavers</a>, we are an authorized dealer for top-rated Arizona brands including Phoenix Paver, Acker-Stone, and Belgard. If your project calls for <a href="/natural-stone/">natural stone</a>, we supply high-quality tumbled travertine, limestone, and marble imported from Turkey and Egypt, alongside stacked stone veneers. We offer fast 15-minute in-store pickup at our Queen Creek showroom, or we can ship your stone and pavers directly to your job site with guaranteed next-day delivery anywhere in the Phoenix Metro area.`,
+  },
+];
+
+// FAQ JSON-LD — strip markup from answers so the schema stays clean.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'FAQs', url: '/faq/' },
+];
+---
+
+<Layout
+  title="Frequently Asked Questions | AZ Turf Suppliers — Queen Creek, AZ"
+  description="Answers to the most common questions about artificial turf pricing, warranties, pet safety, next-day delivery, pavers, natural stone, and landscape lighting from AZ Turf Suppliers in Queen Creek, AZ."
+  schema={faqSchema}
+  breadcrumbs={breadcrumbs}
+>
+<style is:global>
+.page-hero::before { background-image: url("/media/turf-hero-8.jpg") !important; }
+
+/* ─── FAQ LIST ─── */
+.faq-page-section { padding: 88px 0; background: var(--white); }
+.faq-page-list { max-width: 860px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 16px; }
+.faq-item { background: var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+.faq-item h3 { margin: 0; }
+.faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; }
+.faq-q:hover { color: var(--green-700); }
+.faq-q:focus { outline: none; }
+.faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--green-700); transition: transform 0.3s; }
+.faq-item.open .faq-q svg { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; padding: 0 24px; }
+.faq-item.open .faq-a { max-height: 800px; padding: 0 24px 20px; }
+.faq-a p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.75; font-weight: 400; text-transform: none; letter-spacing: 0; border-top: 1px solid var(--gray-200); padding-top: 16px; }
+.faq-a a { color: var(--green-700); font-weight: 600; text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .faq-page-section { padding: 48px 0; }
+  .faq-page-list { margin-top: 32px; }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Resources</div>
+      <h1>AZ Turf Suppliers: Frequently Asked <em>Questions</em> (FAQs)</h1>
+      <p>Straight answers about turf pricing, pet safety, warranties, delivery, pavers, stone, and lighting — from your local landscape supply experts in Queen Creek.</p>
+      <div class="page-hero-btns">
+        <a href="/contact/" class="btn btn-primary">Ask A Question <Icon name="arrow-right" size={16} /></a>
+        <a href="/turf-calculator/" class="btn btn-outline">Try The Calculator</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-page-section">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label centered">Common Questions</div>
+      <h2>Everything You Need To Know</h2>
+      <p>Tap a question to see the answer. Don't see yours? Call or text us — same-day response.</p>
+    </div>
+    <div class="faq-page-list">
+      {faqs.map((item) => (
+        <div class="faq-item" data-reveal>
+          <h3><button class="faq-q" onclick="toggleFaq(this)">{item.question}<Icon name="chevron-down" size={16} /></button></h3>
+          <div class="faq-a"><p set:html={item.answer} /></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Still Have Questions?</div>
+    <h2>Talk to a Real Person</h2>
+    <p>Have a question we didn't answer? Call or text us — same-day response, no hold music.</p>
+    <div class="cta-btns">
+      <a href="tel:4807931800" class="btn btn-primary">Call or Text (480) 793-1800 <Icon name="phone" size={16} /></a>
+      <a href="/contact/" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+(window as any).toggleFaq = toggleFaq;
+</script>
+</Layout>
