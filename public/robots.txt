@@ -1,4 +1,103 @@
+# azturfsuppliers.com — crawler policy
+#
+# This site WELCOMES search engines and AI crawlers. Content here may be
+# crawled for search indexing, AI model training, and AI-powered answers,
+# so the business can be found in both traditional and AI search.
+#
+# The per-agent blocks below are an explicit opt-in for known AI crawlers.
+# They are redundant with the default today, but they keep these bots
+# allowed even if the default rule is ever tightened — do not remove them
+# without checking with the site owner. Note that CDN/WAF-level bot
+# blocking (e.g. Cloudflare's "Block AI bots" / AI Audit settings)
+# overrides this file; it must stay off for these crawlers to get through.
+
+# Default: everyone is allowed everywhere.
 User-agent: *
 Allow: /
 
+# --- AI training crawlers ---
+
+# OpenAI (model training)
+User-agent: GPTBot
+Allow: /
+
+# Anthropic / Claude (model training)
+User-agent: ClaudeBot
+Allow: /
+
+# Google (Gemini / AI training opt-in token)
+User-agent: Google-Extended
+Allow: /
+
+# Apple (Apple Intelligence training opt-in token)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (open dataset used widely for AI training)
+User-agent: CCBot
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Cohere
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# --- AI search / answer-engine crawlers ---
+
+# OpenAI (ChatGPT search index)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude search index)
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# DuckDuckGo AI answers
+User-agent: DuckAssistBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# --- User-triggered AI fetchers (load a page when a user asks about it) ---
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
 Sitemap: https://azturfsuppliers.com/sitemap.xml
+
+# Machine-readable site guide for AI assistants: https://azturfsuppliers.com/llms.txt
