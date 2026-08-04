@@ -743,7 +743,7 @@ const breadcrumbs = [
     <div class="page-hero-content">
       <div class="page-hero-eyebrow">{page.hero.eyebrow}</div>
       <h1 set:html={renderInline(page.hero.heading)} />
-      <p>{page.hero.body}</p>
+      <p class="body-links body-links--light" set:html={renderInline(page.hero.body)} />
       <div class="page-hero-btns">
         <a href={page.hero.ctaPrimary.link} class="btn btn-primary">{page.hero.ctaPrimary.text} <Icon name="arrow-right" size={16} /></a>
         <a href={page.hero.ctaSecondary.link} class="btn btn-outline">{page.hero.ctaSecondary.text}</a>
@@ -775,7 +775,7 @@ const breadcrumbs = [
       <h2 set:html={renderInline(page.products.heading)} />
       <p set:html={renderInline(page.products.body)} />
     </div>
-    <div class="turf-note">{page.products.note}</div>
+    <div class="turf-note body-links" set:html={renderInline(page.products.note)} />
   </div>
 </section>
 
@@ -957,7 +957,7 @@ const breadcrumbs = [
       {page.faq.items.map((item) => (
         <div class="faq-item" data-reveal>
           <button class="faq-q" onclick="toggleFaq(this)">{item.question}<Icon name="chevron-down" size={16} /></button>
-          <div class="faq-a"><p set:html={renderInline(item.answer)} /></div>
+          <div class="faq-a body-links"><p set:html={renderInline(item.answer)} /></div>
         </div>
       ))}
     </div>

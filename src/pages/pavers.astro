@@ -88,7 +88,7 @@ const introParas = page.intro.body.split('\n\n');
 <section class="pavers-intro">
   <div class="container">
     <div class="pavers-intro-inner">
-      <div class="pavers-intro-content" data-reveal>
+      <div class="pavers-intro-content body-links" data-reveal>
         <div class="section-label">{page.intro.label}</div>
         <h2 set:html={renderInline(page.intro.heading)} />
         {introParas.map((para) => <p set:html={renderInline(para)} />)}
@@ -163,7 +163,7 @@ const introParas = page.intro.body.split('\n\n');
     </div>
     <div class="why-us-inner">
       {page.why.items.map((item) => (
-        <div class="why-us-card" data-reveal>
+        <div class="why-us-card body-links body-links--light" data-reveal>
           <Icon name={item.icon as any} size={28} />
           <h4>{item.heading}</h4>
           <p set:html={renderInline(item.body)} />

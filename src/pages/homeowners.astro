@@ -181,6 +181,9 @@ import Icon from '../components/Icon.astro';
   align-items: center;
   gap: 10px;
 }
+/* Heading is already green, so signal the link with an underline on hover. */
+.series-block h3 .heading-link { border-bottom: 1px solid transparent; }
+.series-block h3 .heading-link:hover { color: var(--green-900); border-bottom-color: var(--green-900); }
 .series-block h3::before {
   content: '';
   display: block;
@@ -569,9 +572,9 @@ import Icon from '../components/Icon.astro';
         </div>
       </div>
     </div>
-    <div class="choosing-note">
+    <div class="choosing-note body-links">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Not sure what to choose? Bring your yard measurements into our Queen Creek showroom — we'll walk you through the options and let you walk on our turf displays before you decide.
+      <span>Not sure what to choose? <a href="/turf-calculator/">Bring your yard measurements</a> into our Queen Creek showroom — we'll walk you through the options and let you walk on our turf displays before you decide.</span>
     </div>
   </div>
 </section>
@@ -600,7 +603,7 @@ import Icon from '../components/Icon.astro';
     <div class="products-note">All pricing is standard retail per sq ft. Professional contractors — call or text for exclusive wholesale pricing.</div>
 
     <div class="series-block">
-      <h3>Natural Blend Series</h3>
+      <h3><a href="/natural-series/" class="heading-link">Natural Blend Series</a></h3>
       <div class="product-table-wrap">
         <table class="product-table">
           <thead><tr><th>Product</th><th>Pile Height</th><th>Total Weight</th><th>Color</th><th>Price / sq ft</th></tr></thead>
@@ -613,7 +616,7 @@ import Icon from '../components/Icon.astro';
     </div>
 
     <div class="series-block">
-      <h3>Winter Blend Series</h3>
+      <h3><a href="/winter-series/" class="heading-link">Winter Blend Series</a></h3>
       <div class="product-table-wrap">
         <table class="product-table">
           <thead><tr><th>Product</th><th>Pile Height</th><th>Total Weight</th><th>Color</th><th>Price / sq ft</th></tr></thead>
@@ -626,7 +629,7 @@ import Icon from '../components/Icon.astro';
     </div>
 
     <div class="series-block">
-      <h3>Spring Blend Series</h3>
+      <h3><a href="/spring-blend/" class="heading-link">Spring Blend Series</a></h3>
       <div class="product-table-wrap">
         <table class="product-table">
           <thead><tr><th>Product</th><th>Pile Height</th><th>Total Weight</th><th>Color</th><th>Price / sq ft</th></tr></thead>
@@ -639,7 +642,7 @@ import Icon from '../components/Icon.astro';
     </div>
 
     <div class="series-block">
-      <h3>Bermuda Series</h3>
+      <h3><a href="/bermuda-blend/" class="heading-link">Bermuda Series</a></h3>
       <div class="product-table-wrap">
         <table class="product-table">
           <thead><tr><th>Product</th><th>Pile Height</th><th>Total Weight</th><th>Color</th><th>Price / sq ft</th></tr></thead>
@@ -652,7 +655,7 @@ import Icon from '../components/Icon.astro';
     </div>
 
     <div class="series-block">
-      <h3>Putting Greens</h3>
+      <h3><a href="/putting-green/" class="heading-link">Putting Greens</a></h3>
       <div class="product-table-wrap">
         <table class="product-table">
           <thead><tr><th>Product</th><th>Pile Height</th><th>Total Weight</th><th>Color</th><th>Price / sq ft</th></tr></thead>
@@ -669,10 +672,10 @@ import Icon from '../components/Icon.astro';
 <!-- ═══ ACCESSORIES ═══ -->
 <section class="accessories">
   <div class="container">
-    <div class="section-header" style="margin-bottom:48px;">
+    <div class="section-header body-links" style="margin-bottom:48px;">
       <div class="section-label">Installation Accessories</div>
       <h2>Everything You Need in One Trip</h2>
-      <p>Turf is manufactured in 15-foot wide rolls with a natural grain direction — calculating seams can be tricky. Bring your measurements and our team will do the math for you, then you can grab all your accessories in one stop.</p>
+      <p>Turf is manufactured in 15-foot wide rolls with a natural grain direction — calculating seams can be tricky. Bring your measurements and our team will <a href="/turf-calculator/">do the math for you</a>, then you can grab all your accessories in one stop.</p>
     </div>
     <div class="accessories-grid">
       <div class="acc-card" data-reveal>
@@ -747,7 +750,7 @@ import Icon from '../components/Icon.astro';
   <div class="container cta-inner">
     <div class="section-label centered inverted">Start Your Project</div>
     <h2>Ready to Transform Your Yard?</h2>
-    <p>Visit us at 18607 E San Tan Blvd in Queen Creek, or call us at (480) 793-1800. Bring your measurements and we'll give you an immediate quote — same-day response, next-day delivery guaranteed.</p>
+    <p class="body-links body-links--light">Visit us at 18607 E San Tan Blvd in <a href="/queen-creek/">Queen Creek</a>, or call us at (480) 793-1800. Bring your measurements and we'll give you an immediate quote — same-day response, next-day delivery guaranteed.</p>
     <div class="cta-btns">
       <a href="tel:4807931800" class="btn btn-primary">Call (480) 793-1800 <Icon name="phone" size={16} /></a>
       <a href="/artificial-turf/" class="btn btn-outline">Browse All Products</a>

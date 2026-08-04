@@ -92,6 +92,49 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
+/* ═══════════════════════════════════════════
+   INLINE BODY LINKS
+   Global `a` is color:inherit / no underline, so links sitting inside a
+   paragraph need an explicit style to read as links.
+
+   .body-link   → put on the <a> itself (markup written by hand)
+   .body-links  → put on a text container; styles the links inside it,
+                  buttons excluded. Use this for copy rendered from JSON
+                  through renderInline(), since markdown links carry no class.
+   Add the --light modifier on dark backgrounds.
+   ═══════════════════════════════════════════ */
+.body-link,
+.body-links a:not(.btn) {
+  color: var(--green-700);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(35, 155, 43, 0.4);
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+.body-link:hover,
+.body-links a:not(.btn):hover {
+  color: var(--green-800);
+  border-bottom-color: var(--green-800);
+}
+
+.body-link--light,
+.body-links--light a:not(.btn) {
+  color: var(--green-500);
+  border-bottom-color: rgba(69, 198, 77, 0.45);
+}
+.body-link--light:hover,
+.body-links--light a:not(.btn):hover {
+  color: var(--green-400);
+  border-bottom-color: var(--green-400);
+}
+
+/* Headings that link to their own page: keep the heading color, tint on hover. */
+.heading-link {
+  color: inherit;
+  transition: color var(--duration-fast);
+}
+.heading-link:hover { color: var(--green-700); }
+.heading-link--light:hover { color: var(--green-400); }
+
 /* ─── SHARED PAGE MARGIN ─── */
 /* Every page's first section carries this */
 .page-content-start {

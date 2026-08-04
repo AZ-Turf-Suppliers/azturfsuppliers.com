@@ -465,7 +465,7 @@ const introParas = page.intro.body.split('\n\n');
 <section class="lighting-intro">
   <div class="container">
     <div class="lighting-intro-inner">
-      <div class="lighting-intro-content" data-reveal>
+      <div class="lighting-intro-content body-links" data-reveal>
         <div class="section-label">{page.intro.label}</div>
         <h2 set:html={renderInline(page.intro.heading)} />
         {introParas.map((para) => <p set:html={renderInline(para)} />)}
@@ -528,7 +528,7 @@ const introParas = page.intro.body.split('\n\n');
           <div class="lighting-cat-img">
             <img src={item.image} alt={item.alt} loading="lazy" decoding="async"/>
           </div>
-          <div class="lighting-cat-content">
+          <div class="lighting-cat-content body-links">
             <h3 set:html={renderInline(item.heading)} />
             <p set:html={renderInline(item.body)} />
             <a href={item.link} class="btn btn-dark">{item.linkText}</a>

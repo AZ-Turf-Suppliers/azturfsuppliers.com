@@ -208,7 +208,7 @@ const introParas = page.intro.body.split('\n\n');
 <section class="stone-intro">
   <div class="container">
     <div class="stone-intro-inner">
-      <div class="stone-intro-content" data-reveal>
+      <div class="stone-intro-content body-links" data-reveal>
         <div class="section-label">{page.intro.label}</div>
         <h2 set:html={renderInline(page.intro.heading)} />
         {introParas.map((para) => <p set:html={renderInline(para)} />)}
@@ -277,7 +277,7 @@ const introParas = page.intro.body.split('\n\n');
     </div>
     <div class="stone-apps-grid">
       {page.applications.items.map((app) => (
-        <div class="stone-app" data-reveal>
+        <div class="stone-app body-links" data-reveal>
           <Icon name={app.icon as any} size={28} />
           <div>
             <h4 set:html={renderInline(app.heading)} />

@@ -107,6 +107,8 @@ import Icon from '../components/Icon.astro';
 }
 .mat-card-header-icon svg { width: 24px; height: 24px; color: var(--white); }
 .mat-card-header h3 { font-size: 1rem; color: var(--white); letter-spacing: 0.04em; }
+/* Header sits on solid green, so fade the white rather than tinting it green. */
+.mat-card-header h3 .heading-link:hover { color: rgba(255,255,255,0.72); }
 .mat-card-body { padding: 28px; }
 .mat-card-body p {
   font-size: 0.875rem;
@@ -403,10 +405,10 @@ import Icon from '../components/Icon.astro';
           <div class="mat-card-header-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
-          <h3>Premium Artificial Turf</h3>
+          <h3><a href="/artificial-turf/" class="heading-link heading-link--light">Premium Artificial Turf</a></h3>
         </div>
-        <div class="mat-card-body">
-          <p>8 specialized products across 4 color profiles — Natural, Winter, Spring, and Bermuda — plus professional-grade putting greens. All sold in 15-foot wide rolls, designed for Arizona heat with UV stabilization and CoolYarn technology.</p>
+        <div class="mat-card-body body-links">
+          <p>8 specialized products across 4 color profiles — <a href="/natural-series/">Natural</a>, <a href="/winter-series/">Winter</a>, <a href="/spring-blend/">Spring</a>, and <a href="/bermuda-blend/">Bermuda</a> — plus professional-grade <a href="/putting-green/">putting greens</a>. All sold in 15-foot wide rolls, designed for Arizona heat with UV stabilization and CoolYarn technology.</p>
           <ul class="mat-list">
             <li>Face weights up to 107 oz</li>
             <li>Guaranteed lead-free &amp; pet-friendly</li>
@@ -423,8 +425,8 @@ import Icon from '../components/Icon.astro';
           </div>
           <h3>Pavers &amp; Natural Stone</h3>
         </div>
-        <div class="mat-card-body">
-          <p>Authorized dealer for Phoenix Paver, Ackerstone, and Belgard — the top paver brands in the Southwest. We also supply premium Travertine and Limestone via MSI, perfect for luxury pool decks and patios.</p>
+        <div class="mat-card-body body-links">
+          <p>Authorized dealer for Phoenix Paver, Ackerstone, and Belgard — the <a href="/pavers/">top paver brands</a> in the Southwest. We also supply <a href="/natural-stone/">premium Travertine and Limestone</a> via MSI, perfect for luxury pool decks and patios.</p>
           <ul class="mat-list">
             <li>Semi-truck drop-ship available on 75% of paver orders</li>
             <li>Direct to job site from manufacturer</li>
@@ -441,8 +443,8 @@ import Icon from '../components/Icon.astro';
           </div>
           <h3>Lumenex Landscape Lighting</h3>
         </div>
-        <div class="mat-card-body">
-          <p>Boost job profitability by adding high-margin, professional-grade Lumenex lighting to your bids. A fast upsell that clients love — and one that differentiates your installs from the competition.</p>
+        <div class="mat-card-body body-links">
+          <p>Boost job profitability by adding high-margin, professional-grade <a href="/landscape-lighting/">Lumenex lighting</a> to your bids. A fast upsell that clients love — and one that differentiates your installs from the competition.</p>
           <ul class="mat-list">
             <li>Path lights, spotlights, and heavy-duty transformers</li>
             <li>Professional wire lighting solutions</li>
@@ -458,8 +460,8 @@ import Icon from '../components/Icon.astro';
           </div>
           <h3>Installation Accessories</h3>
         </div>
-        <div class="mat-card-body">
-          <p>Never leave the yard short-handed. We stock every hardware item needed for a flawless professional turf installation — all in one stop.</p>
+        <div class="mat-card-body body-links">
+          <p>Never leave the yard short-handed. We stock <a href="/accessories/">every hardware item needed</a> for a flawless professional turf installation — all in one stop.</p>
           <ul class="mat-list">
             <li>Standard &amp; Putting Green silica sand (50 lb bags) / Camo Fill</li>
             <li>8-Year &amp; 15-Year weed barrier fabric rolls</li>
@@ -501,15 +503,15 @@ import Icon from '../components/Icon.astro';
         <h2>Serving Contractors Across the Phoenix Metro</h2>
         <p>Conveniently located in Queen Creek, we serve landscape professionals, pool builders, and general contractors throughout the entire Phoenix Metropolitan area. Our primary delivery and service zones include:</p>
         <div class="zones-grid">
-          <div class="zone-pill">Queen Creek</div>
-          <div class="zone-pill">San Tan Valley</div>
-          <div class="zone-pill">Gilbert</div>
-          <div class="zone-pill">Mesa</div>
-          <div class="zone-pill">Chandler</div>
-          <div class="zone-pill">Apache Junction</div>
-          <div class="zone-pill">Scottsdale</div>
-          <div class="zone-pill">Tempe</div>
-          <div class="zone-pill">Phoenix</div>
+          <a href="/queen-creek/" class="zone-pill">Queen Creek</a>
+          <a href="/san-tan-valley/" class="zone-pill">San Tan Valley</a>
+          <a href="/gilbert/" class="zone-pill">Gilbert</a>
+          <a href="/mesa/" class="zone-pill">Mesa</a>
+          <a href="/chandler/" class="zone-pill">Chandler</a>
+          <a href="/apache-junction/" class="zone-pill">Apache Junction</a>
+          <a href="/scottsdale/" class="zone-pill">Scottsdale</a>
+          <a href="/tempe/" class="zone-pill">Tempe</a>
+          <a href="/phoenix/" class="zone-pill">Phoenix</a>
         </div>
       </div>
       <div class="showroom-card">

@@ -427,7 +427,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
 }
+.zone-tag:hover { background: var(--green-700); color: var(--white); }
 
 .map-detail-row:last-of-type { margin-bottom: 28px; }
 
@@ -722,7 +724,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
         </div>
         <div class="team-body">
           <h3>Meet the AZ Turf Team</h3>
-          <p>We're a locally owned, relationship-driven company. When you call or text us, you talk directly to the owners — not a call center. We specialize in artificial turf, pavers, natural stone, and landscape lighting for homeowners and contractors across the East Valley.</p>
+          <p class="body-links">We're a locally owned, relationship-driven company. When you call or text us, you talk directly to the owners — not a call center. We specialize in <a href="/artificial-turf/">artificial turf</a>, <a href="/pavers/">pavers</a>, <a href="/natural-stone/">natural stone</a>, and <a href="/landscape-lighting/">landscape lighting</a> for <a href="/homeowners/">homeowners</a> and <a href="/contractors/">contractors</a> across the East Valley.</p>
           <p style="margin-top:12px; font-size:0.875rem; color:var(--gray-600); font-weight:400; text-transform:none; letter-spacing:0; line-height:1.65;">Whether you're a first-time DIYer or a contractor running 20+ jobs a month, we have the inventory, expertise, and turnaround speed to keep you moving.</p>
           <div class="contact-socials">
             <a href="https://www.facebook.com/AZturfsuppliers/" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
@@ -746,14 +748,15 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             <h4>Serving the Entire Phoenix Metro</h4>
             <p>Based in Queen Creek with next-day delivery available throughout the Valley.</p>
             <div class="zone-pills-wrap">
-              <span class="zone-tag">Queen Creek</span>
-              <span class="zone-tag">San Tan Valley</span>
-              <span class="zone-tag">Gilbert</span>
-              <span class="zone-tag">Mesa</span>
-              <span class="zone-tag">Chandler</span>
-              <span class="zone-tag">Scottsdale</span>
-              <span class="zone-tag">Phoenix</span>
-              <span class="zone-tag">Tempe</span>
+              <a href="/queen-creek/" class="zone-tag">Queen Creek</a>
+              <a href="/san-tan-valley/" class="zone-tag">San Tan Valley</a>
+              <a href="/gilbert/" class="zone-tag">Gilbert</a>
+              <a href="/mesa/" class="zone-tag">Mesa</a>
+              <a href="/chandler/" class="zone-tag">Chandler</a>
+              <a href="/apache-junction/" class="zone-tag">Apache Junction</a>
+              <a href="/scottsdale/" class="zone-tag">Scottsdale</a>
+              <a href="/phoenix/" class="zone-tag">Phoenix</a>
+              <a href="/tempe/" class="zone-tag">Tempe</a>
             </div>
           </div>
         </div>

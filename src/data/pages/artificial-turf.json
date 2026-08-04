@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Professional-Grade Synthetic Grass for Arizona Heat",
     "heading": "Premium Artificial Turf Supply",
-    "body": "AZ Turf Suppliers is your premier source for professional-grade synthetic grass built to withstand the Arizona heat. Whether you're a DIY homeowner transforming your backyard or a landscape contractor who needs reliable bulk materials delivered on schedule, we carry the highest-quality artificial turf at unbeatable prices. All turf is guaranteed lead-free, pet-friendly, and backed by a 15-year manufacturer warranty. Sold in standard 15-foot wide rolls.",
+    "body": "AZ Turf Suppliers is your premier source for professional-grade synthetic grass built to withstand the Arizona heat. Whether you're a DIY homeowner transforming your backyard or a landscape contractor who needs reliable bulk materials delivered on schedule, we carry the highest-quality artificial turf at unbeatable prices. All turf is guaranteed [lead-free](/lead-free/), pet-friendly, and backed by a [15-year manufacturer warranty](/warranty/). Sold in standard 15-foot wide rolls.",
     "ctaPrimary": { "text": "Browse Products", "link": "#products" },
     "ctaSecondary": { "text": "Call or Text for a Free Quote", "link": "/contact/" }
   },
@@ -20,7 +20,7 @@
     "label": "Our Collection",
     "heading": "Our Premium Artificial Turf Collection",
     "body": "All turf is sold in 15-foot wide rolls. *Heavier face weight* = built for high-traffic areas, pets, and long-term durability (backyards, commercial applications). *Lighter face weight* = ideal for aesthetic, low-traffic zones like front yards and landscaping accents.",
-    "note": "Pricing below is standard retail per square foot. Contractors — call or text for exclusive wholesale pricing.",
+    "note": "Pricing below is standard retail per square foot. [Contractors](/contractors/) — call or text for exclusive wholesale pricing.",
     "series": [
       {
         "slug": "natural-series",
@@ -83,7 +83,7 @@
         ]
       }
     ],
-    "helpNote": "**Not sure how much turf you need?** Bring your measurements (length × width in feet) into our showroom or [give us a call](/contact/). We'll calculate your exact cuts, account for waste, and give you an immediate price — no guesswork, no surprises."
+    "helpNote": "**Not sure how much turf you need?** [Bring your measurements](/turf-calculator/) (length × width in feet) into our showroom or [give us a call](/contact/). We'll calculate your exact cuts, account for waste, and give you an immediate price — no guesswork, no surprises."
   },
   "testimonials": {
     "label": "Words From Our Clients",
@@ -122,7 +122,7 @@
       { "question": "Can I get a sample before I buy?",                           "answer": "Absolutely. Visit our Queen Creek showroom and take home free samples from any product in our collection. See and feel the quality before you commit." },
       { "question": "What's the difference between face weight and pile height?", "answer": "Face weight (measured in ounces) refers to how much fiber is packed into the turf — more ounces means a denser, more durable product. Pile height is how tall the blades stand. For high-traffic areas and pets, we recommend 90+ oz face weight." },
       { "question": "Do you offer contractor/wholesale pricing?",                 "answer": "Yes. We offer exclusive wholesale pricing for licensed contractors. Call or text us directly for contractor rates — pricing listed on this page is standard retail." },
-      { "question": "Is your turf safe for pets?",                                "answer": "Yes. All of our products are pet-friendly and guaranteed lead-free. The Oxy Turf Cleaner we carry is specifically formulated for pet odor and sanitation on artificial grass." },
+      { "question": "Is your turf safe for pets?",                                "answer": "Yes. All of our products are pet-friendly and guaranteed lead-free. The [Oxy Turf Cleaner](/accessories/) we carry is specifically formulated for pet odor and sanitation on artificial grass." },
       { "question": "What warranty do your products carry?",                     "answer": "All turf products come with a 15-year manufacturer warranty. We stand behind every product we carry." }
     ]
   },

@@ -20,7 +20,7 @@
   "intro": {
     "label": "Pavers & Hardscape",
     "heading": "Arizona's Top Paver Brands, One Location",
-    "body": "We supply professional contractors and DIY homeowners with premium pavers for driveways, patios, pool decks, and more. Stop by our Queen Creek showroom to see paver displays in person, or call for a quick material quote and next-day delivery.\n\nThe best way to choose pavers is to see them in person. Our team will help you build your material list and get you a quote on the spot.",
+    "body": "We supply [professional contractors](/contractors/) and [DIY homeowners](/homeowners/) with premium pavers for driveways, patios, pool decks, and more. Stop by our Queen Creek showroom to see paver displays in person, or call for a quick material quote and next-day delivery.\n\nThe best way to choose pavers is to see them in person. Our team will help you build your material list and get you a quote on the spot.",
     "ctaPrimary": { "text": "Get a Paver Quote", "link": "/contact/" },
     "ctaSecondary": { "text": "Call (480) 793-1800", "link": "tel:4807931800" }
   },
@@ -74,7 +74,7 @@
     "items": [
       { "icon": "dollar",   "heading": "Wholesale Pricing",       "body": "Competitive rates with a price-match guarantee on local quotes. Bring us a competitor's invoice — we'll match it." },
       { "icon": "truck",    "heading": "Fast Turnaround",         "body": "Next-day delivery directly to your job site or home. Or pick up in-store — we'll have your order ready in 15 minutes." },
-      { "icon": "location", "heading": "Everything in One Stop",  "body": "Pavers, artificial turf, landscape lighting, natural stone, and accessories — grab everything in a single trip to our Queen Creek showroom." }
+      { "icon": "location", "heading": "Everything in One Stop",  "body": "Pavers, [artificial turf](/artificial-turf/), [landscape lighting](/landscape-lighting/), [natural stone](/natural-stone/), and [accessories](/accessories/) — grab everything in a single trip to our Queen Creek showroom." }
     ]
   },
   "cta": {
