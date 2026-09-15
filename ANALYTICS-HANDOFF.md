@@ -20,7 +20,15 @@ You should already have edit access to the GTM container. If not, the site owner
 
 ### 1. Lead attribution capture
 
-On every page load, an inline script (in the shared layout) reads URL query parameters and stores attribution in `localStorage` under the key `az_attribution`. **First-touch attribution with a 90-day window** — i.e. once we capture attribution for a visitor, it won't be overwritten by later visits until 90 days pass or they clear browser data.
+On every page load, an inline script (in the shared layout) works out how the visitor arrived and stores it in `localStorage` under the key `az_attribution`. **First-touch attribution with a 90-day window** — once captured, it isn't overwritten by later visits until 90 days pass or they clear browser data. One exception: a tagged visit always upgrades a referrer-inferred record, so an organic first visit can never mask a later ad click.
+
+Attribution is resolved in three tiers, best first:
+
+1. **Tagged link** — `utm_*` (or `utmcsr`-style) params on the landing URL.
+2. **Ad click ID** — `gclid`, or `gbraid` / `wbraid` (what Google sends instead of `gclid` on iOS when App Tracking Transparency blocks it). A click ID with no explicit source/medium is by definition a paid Google click, so `utmcsr=google` / `utmcmd=cpc` are filled in rather than left blank. `gbraid` / `wbraid` values are stored prefixed (e.g. `gbraid:abc123`) because they are **not** interchangeable with a `gclid` for lookups.
+3. **Referrer** — organic search (`google` / `organic`), social (`facebook` / `social`), other referrers (`yelp.com` / `referral`), or `(direct)` / `(none)` when there's no referrer. These are marked internally as inferred.
+
+A record that has aged past the 90-day window is never stamped onto a form.
 
 **URL params accepted** (both abbreviated GA-classic and standard `utm_*` forms — whichever the ad URL uses):
 
@@ -59,6 +67,7 @@ The 5 attribution fields are pulled from `localStorage.az_attribution` at the mo
 ### 3. What's NOT hardcoded (you'd need a dev push)
 
 - No `page_view` events beyond GTM's default trigger.
+- The homepage contact form does **not** fire `generate_lead` — it shows an inline success message instead of redirecting to `/thank-you`, so only contact-page submissions are counted as conversions. A GTM form-submit trigger can cover it without a dev push.
 - No phone-click events (`tel:` links exist throughout the site but aren't instrumented).
 - No scroll-depth or engagement events.
 - No `view_item` / ecommerce events on product pages.

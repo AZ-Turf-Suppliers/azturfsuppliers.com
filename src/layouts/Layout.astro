@@ -105,18 +105,46 @@ const extraSchemas: object[] = schema
     })(window,document,'script','dataLayer','GTM-595K6QJW');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Lead attribution capture — stores first-touch UTMs in localStorage and
-         stamps hidden inputs (utmcsr/utmcmd/utmccn/utmctr/utmgclid) on any form.
-         Accepts either abbreviated (utmcsr) or standard (utm_source) URL params. -->
+    <!-- Lead attribution capture — records how each visitor reached the site and
+         stamps it onto any form they submit (hidden utmcsr/utmcmd/utmccn/utmctr/
+         utmgclid inputs).
+
+         Three tiers, best first:
+           1. Tagged link  — utm_* / utmcsr-style params on the landing URL.
+           2. Ad click ID  — gclid, or gbraid/wbraid (what Google sends instead
+              of gclid on iOS when ATT blocks it). A click ID with no explicit
+              source/medium is a Google Ads click, so we fill in google / cpc
+              rather than leaving the columns blank.
+           3. Referrer     — organic search, social, or referral, and (direct)
+              when there is no referrer at all.
+
+         First-touch is preserved within a 90-day window, with one exception: a
+         tagged visit always upgrades a referrer-inferred record, so an organic
+         first visit can never mask a later ad click. -->
     <script is:inline>(function () {
       var KEY = 'az_attribution';
-      var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000; // 90-day first-touch window
+      var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000; // first-touch window
       var MAP = {
         utmcsr:   ['utmcsr',   'utm_source'],
         utmcmd:   ['utmcmd',   'utm_medium'],
         utmccn:   ['utmccn',   'utm_campaign'],
         utmctr:   ['utmctr',   'utm_term'],
         utmgclid: ['utmgclid', 'gclid'],
+      };
+      // Google's iOS-privacy click IDs. Prefixed when stored so nobody tries to
+      // look one up as a gclid — they are not interchangeable.
+      var ALT_CLICK_IDS = ['gbraid', 'wbraid'];
+
+      var SEARCH_ENGINES = {
+        'google': 'google', 'bing': 'bing', 'duckduckgo': 'duckduckgo',
+        'yahoo': 'yahoo', 'ecosia': 'ecosia', 'brave': 'brave',
+        'yandex': 'yandex', 'baidu': 'baidu', 'search.marginalia': 'marginalia',
+      };
+      var SOCIAL = {
+        'facebook': 'facebook', 'instagram': 'instagram', 'linkedin': 'linkedin',
+        'pinterest': 'pinterest', 'nextdoor': 'nextdoor', 'youtube': 'youtube',
+        'reddit': 'reddit', 'tiktok': 'tiktok', 'twitter': 'twitter',
+        'x': 'twitter', 't': 'twitter',
       };
 
       function readParam(qs, names) {
@@ -127,31 +155,74 @@ const extraSchemas: object[] = schema
         return '';
       }
 
+      // Tier 1 + 2 — anything on the URL itself.
+      function fromUrl(qs) {
+        var found = {};
+        var any = false;
+        Object.keys(MAP).forEach(function (k) {
+          var v = readParam(qs, MAP[k]);
+          if (v) { found[k] = v; any = true; }
+        });
+        if (!found.utmgclid) {
+          for (var i = 0; i < ALT_CLICK_IDS.length; i++) {
+            var v = qs.get(ALT_CLICK_IDS[i]);
+            if (v) { found.utmgclid = ALT_CLICK_IDS[i] + ':' + v; any = true; break; }
+          }
+        }
+        if (!any) return null;
+        // A click ID is by definition a paid Google click.
+        if (found.utmgclid && !found.utmcsr) found.utmcsr = 'google';
+        if (found.utmgclid && !found.utmcmd) found.utmcmd = 'cpc';
+        found.t = 'tagged';
+        return found;
+      }
+
+      // Tier 3 — where the browser says they came from.
+      function fromReferrer() {
+        var ref = document.referrer || '';
+        if (!ref) return { utmcsr: '(direct)', utmcmd: '(none)', t: 'inferred' };
+
+        var host = '';
+        try { host = new URL(ref).hostname.replace(/^www\./, '').toLowerCase(); } catch (e) {}
+        if (!host) return { utmcsr: '(direct)', utmcmd: '(none)', t: 'inferred' };
+        // Our own pages — an internal click, not an arrival. Leave the record be.
+        if (host === window.location.hostname.replace(/^www\./, '').toLowerCase()) return null;
+
+        var root = host.split('.')[0];
+        if (SEARCH_ENGINES[root]) return { utmcsr: SEARCH_ENGINES[root], utmcmd: 'organic', t: 'inferred' };
+        if (SOCIAL[root])         return { utmcsr: SOCIAL[root],         utmcmd: 'social',  t: 'inferred' };
+        return { utmcsr: host, utmcmd: 'referral', t: 'inferred' };
+      }
+
+      function stored() {
+        try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; }
+      }
+
       function capture() {
         try {
-          var qs = new URLSearchParams(window.location.search);
-          var found = {};
-          var any = false;
-          Object.keys(MAP).forEach(function (k) {
-            var v = readParam(qs, MAP[k]);
-            if (v) { found[k] = v; any = true; }
-          });
-          if (!any) return;
+          var rec = fromUrl(new URLSearchParams(window.location.search)) || fromReferrer();
+          if (!rec) return;
 
-          // First-touch: keep the existing record if it's still inside the window.
-          var existing = null;
-          try { existing = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
-          if (existing && existing.capturedAt && (Date.now() - existing.capturedAt) < MAX_AGE_MS) return;
+          var existing = stored();
+          if (existing) {
+            var fresh = existing.capturedAt && (Date.now() - existing.capturedAt) < MAX_AGE_MS;
+            // Records written before this script gained tiers have no `t` and
+            // were always tagged.
+            var existingTagged = existing.t !== 'inferred';
+            // Keep the first touch, unless a tagged visit is upgrading a guess.
+            if (fresh && (existingTagged || rec.t === 'inferred')) return;
+          }
 
-          found.capturedAt = Date.now();
-          localStorage.setItem(KEY, JSON.stringify(found));
+          rec.capturedAt = Date.now();
+          localStorage.setItem(KEY, JSON.stringify(rec));
         } catch (e) {}
       }
 
       function fillForms() {
-        var data = null;
-        try { data = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+        var data = stored();
         if (!data) return;
+        // Never stamp a record that has aged out of the window.
+        if (data.capturedAt && (Date.now() - data.capturedAt) >= MAX_AGE_MS) return;
         var names = Object.keys(MAP);
         document.querySelectorAll('form').forEach(function (form) {
           names.forEach(function (n) {

@@ -60,9 +60,18 @@ async function appendToSheet(env, payload) {
       redirect: 'follow',
       body: JSON.stringify({ ...payload, secret: env.SHEETS_WEBHOOK_SECRET }),
     });
+    // The Apps Script answers 200 even when it rejects the request (bad JSON,
+    // wrong secret, no SHARED_SECRET), so the status alone can't be trusted —
+    // a rejected append would look identical to a written row.
+    const text = await resp.text().catch(() => '');
     if (!resp.ok) {
-      const body = await resp.text().catch(() => '');
-      console.error('Sheets append non-OK:', resp.status, body);
+      console.error('Sheets append non-OK:', resp.status, text);
+      return;
+    }
+    let result = null;
+    try { result = JSON.parse(text); } catch { /* not JSON — fall through */ }
+    if (!result || result.ok !== true) {
+      console.error('Sheets append rejected by Apps Script:', text.slice(0, 300));
     }
   } catch (e) {
     console.error('Sheets append threw:', e);
