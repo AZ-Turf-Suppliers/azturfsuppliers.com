@@ -231,6 +231,37 @@ collections:
                     ]
                   - { name: label, label: Label Text, widget: string }
 
+          # ── BRAND VIDEO ──
+          - name: video
+            label: 'Section: Brand Video'
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label,      label: Section Label,   widget: string }
+              - { name: heading,    label: Section Heading, widget: string,
+                  hint: 'Use *asterisks* around any phrase you want italicized.' }
+              - { name: body,       label: Body Paragraph,  widget: markdown,
+                  modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
+              - { name: youtubeId,  label: YouTube Video ID, widget: string,
+                  hint: 'Just the 11-character ID, e.g. "C1qfGJmxj2c".' }
+              - { name: videoTitle, label: Video Title,     widget: string,
+                  hint: 'Shown over the poster image and used as the player title for screen readers.' }
+              - { name: posterImage, label: Poster Image,   widget: image,
+                  hint: 'Shown until the visitor presses play — the video itself never loads before then.' }
+              - { name: posterAlt,  label: Poster Alt Text, widget: string }
+              - name: cta
+                label: Primary Button
+                widget: object
+                fields:
+                  - { name: text, label: Button Text, widget: string }
+                  - { name: link, label: Button Link, widget: string }
+              - name: ctaSecondary
+                label: Secondary Button
+                widget: object
+                fields:
+                  - { name: text, label: Button Text, widget: string }
+                  - { name: link, label: Button Link, widget: string }
+
           # ── CONTRACTOR DETAIL ──
           - name: contractor
             label: 'Section: For Contractors'

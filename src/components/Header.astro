@@ -17,7 +17,7 @@ const isActive = (path: string) => {
         <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
         <li><a href="/about/" class={isActive('/about') ? 'active' : ''}>About</a></li>
         <li class="has-dropdown">
-          <a href="/products/" aria-haspopup="true" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
+          <a href="/products/" aria-haspopup="true" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/who-we-serve') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
           <div class="dropdown dropdown-wide">
             <div class="dropdown-inner">
               <div class="dropdown-col">
@@ -30,6 +30,7 @@ const isActive = (path: string) => {
               </div>
               <div class="dropdown-col">
                 <span class="dropdown-label">Who We Serve</span>
+                <a href="/who-we-serve/">Overview</a>
                 <a href="/contractors/">Contractors</a>
                 <a href="/homeowners/">DIY Homeowners</a>
               </div>
@@ -90,6 +91,7 @@ const isActive = (path: string) => {
     <a href="/landscape-lighting/">Landscape Lighting</a>
     <a href="/accessories/">Accessories</a>
     <div class="mobile-section-label">Who We Serve</div>
+    <a href="/who-we-serve/">Overview</a>
     <a href="/contractors/">Contractors</a>
     <a href="/homeowners/">DIY Homeowners</a>
     <div class="mobile-section-label">Resources</div>

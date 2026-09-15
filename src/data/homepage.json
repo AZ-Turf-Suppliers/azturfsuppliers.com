@@ -116,6 +116,23 @@
       }
     ]
   },
+  "video": {
+    "label": "Our Story",
+    "heading": "Who We Are, *What We Do*",
+    "body": "Take a two-minute walk through our Queen Creek yard. Meet the family-run team behind AZ Turf Suppliers, see the turf, pavers, stone, and lighting we keep in stock, and find out how we get contractors loaded in 15 minutes and homeowners pointed in the right direction.",
+    "youtubeId": "C1qfGJmxj2c",
+    "videoTitle": "Who We Are, What We Do — AZ Turf Suppliers",
+    "posterImage": "/media/team.jpg",
+    "posterAlt": "The AZ Turf Suppliers team outside the Queen Creek showroom",
+    "cta": {
+      "text": "More About Us",
+      "link": "/about/"
+    },
+    "ctaSecondary": {
+      "text": "Who We Serve",
+      "link": "/who-we-serve/"
+    }
+  },
   "contractor": {
     "label": "For Contractors",
     "heading": "Built for Pros Who Move Fast",

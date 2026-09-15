@@ -1,0 +1,511 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pic from '../components/Pic.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+
+const faqs = [
+  {
+    question: 'Do you offer wholesale pricing for contractors?',
+    answer: `Yes. Licensed landscape contractors, pool builders, and installers get access to exclusive wholesale pricing across turf, pavers, natural stone, and lighting, plus a Price Match Guarantee on any local competitor invoice. <a href="/contractors/">Open a contractor account</a> to get started.`,
+  },
+  {
+    question: 'Can homeowners buy the same products as contractors?',
+    answer: `Yes. DIY homeowners shop the identical professional-grade turf, pavers, natural stone, and lighting our contractor network uses, with the same <a href="/warranty/">15-year manufacturer warranty</a>.`,
+  },
+  {
+    question: 'How do I calculate how much turf I need?',
+    answer: `Start with our <a href="/turf-calculator/">turf calculator</a> to get an estimate, then bring your yard measurements (length by width, in feet) to our Queen Creek showroom. Because turf is sold in 15-foot wide rolls with a natural grain direction, our team will calculate your exact cuts and minimize waste for you.`,
+  },
+  {
+    question: 'Do you install turf and pavers?',
+    answer: `We're a wholesale supply company, not an installer. If you need installation, we'll refer you to our network of trusted local installers, including Turf Pros.`,
+  },
+];
+
+// FAQ JSON-LD — strip markup from answers so the schema stays clean.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer.replace(/<[^>]+>/g, '') },
+  })),
+};
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Who We Serve', url: '/who-we-serve/' },
+];
+
+const cities = [
+  { name: 'Queen Creek', url: '/queen-creek/' },
+  { name: 'San Tan Valley', url: '/san-tan-valley/' },
+  { name: 'Gilbert', url: '/gilbert/' },
+  { name: 'Mesa', url: '/mesa/' },
+  { name: 'Chandler', url: '/chandler/' },
+  { name: 'Apache Junction', url: '/apache-junction/' },
+  { name: 'Scottsdale', url: '/scottsdale/' },
+  { name: 'Tempe', url: '/tempe/' },
+  { name: 'Phoenix', url: '/phoenix/' },
+];
+---
+
+<Layout
+  title="Who We Serve: Contractors & DIY Homeowners | AZ Turf Suppliers"
+  description="AZ Turf Suppliers is a wholesale landscape supply company in Queen Creek, AZ serving professional landscape contractors and DIY homeowners across the Phoenix Metro with turf, pavers, natural stone, and lighting."
+  breadcrumbs={breadcrumbs}
+  schema={faqSchema}
+>
+<style is:global>
+.page-hero::before { background-image: url("/media/turf-hero-17.jpg") !important; }
+
+/* ─── AUDIENCE CARDS ─── */
+.audience { padding: 88px 0; background: var(--white); }
+.audience-intro {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.85;
+  max-width: 820px;
+  margin: 0 auto 48px;
+  text-align: center;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.audience-card {
+  background: var(--gray-100);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s, background 0.35s;
+}
+.audience-card:hover { transform: translateY(-4px); background: var(--white); box-shadow: var(--shadow-md); }
+.audience-card-img { height: 200px; overflow: hidden; }
+.audience-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.audience-card:hover .audience-card-img img { transform: scale(1.05); }
+.audience-card-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 8px; }
+.audience-card-body h3 { font-size: 1.2rem; color: var(--dark); margin: 0; }
+.audience-card-body p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.audience-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green-700);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  transition: gap 0.2s;
+}
+.audience-card:hover .audience-card-link { gap: 10px; }
+.audience-card-link svg { width: 14px; height: 14px; }
+
+/* ─── DETAIL SECTIONS (contractors / homeowners) ─── */
+.serve-detail { padding: 88px 0; }
+/* Shared .card-icon ships with no fill; tint it the way /resources/ does. */
+.serve-detail .card-icon { background: var(--green-100); }
+.serve-detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.serve-detail .card p a:not(.btn) {
+  color: var(--green-700);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(35, 155, 43, 0.4);
+}
+
+/* ─── ONE-STOP SHOP ─── */
+.onestop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+/* ─── AREAS SERVED ─── */
+.serve-zones { padding: 88px 0; position: relative; overflow: hidden; }
+.serve-zones::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/media/turf-hero-14.jpg') center / cover no-repeat;
+  z-index: 0;
+}
+.serve-zones::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.72); z-index: 1; }
+.serve-zones-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.serve-zones-content h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); color: var(--white); margin-bottom: 16px; }
+.serve-zones-content > p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.serve-zones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.zone-pill {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.zone-pill:hover { background: var(--green-700); border-color: var(--green-700); }
+.serve-zones-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.serve-zones-all:hover { color: var(--green-400); }
+
+/* ─── FAQ ─── */
+.serve-faq { padding: 88px 0; background: var(--gray-100); }
+.serve-faq-list { max-width: 860px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 16px; }
+.faq-item { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+.faq-item h3 { margin: 0; }
+.faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; }
+.faq-q:hover { color: var(--green-700); }
+.faq-q:focus { outline: none; }
+.faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--green-700); transition: transform 0.3s; }
+.faq-item.open .faq-q svg { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; padding: 0 24px; }
+.faq-item.open .faq-a { max-height: 800px; padding: 0 24px 20px; }
+.faq-a p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.75; font-weight: 400; text-transform: none; letter-spacing: 0; border-top: 1px solid var(--gray-200); padding-top: 16px; }
+.faq-a a { color: var(--green-700); font-weight: 600; text-decoration: underline; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .serve-detail-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .audience { padding: 48px 0; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .serve-detail-grid { grid-template-columns: 1fr; }
+  .onestop-grid { grid-template-columns: 1fr; }
+  .serve-zones-inner { grid-template-columns: 1fr; gap: 40px; }
+  .serve-zones-grid { grid-template-columns: repeat(3, 1fr); }
+  .serve-faq-list { margin-top: 32px; }
+}
+@media (max-width: 480px) {
+  .serve-zones-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">Who We Serve</div>
+      <h1>Wholesale Landscape Supplies for <em>Contractors</em> and <em>DIY Homeowners</em></h1>
+      <p>Two core groups keep our Queen Creek yard busy: professional landscape contractors who need reliable inventory and fast logistics, and DIY homeowners building the backyard they've always wanted with the same professional-grade materials the pros use.</p>
+      <div class="page-hero-btns">
+        <a href={`tel:${site.phone_tel}`} class="btn btn-primary">Call or Text {site.phone} <Icon name="phone" size={16} /></a>
+        <a href="/contact/" class="btn btn-outline">Get A Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAT BAR ═══ -->
+<div class="stat-bar">
+  <div class="container stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">15<span>min</span></div>
+      <div class="stat-label">In-Store Pickup</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Next<span>-Day</span></div>
+      <div class="stat-label">Phoenix Metro Delivery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15<span>yr</span></div>
+      <div class="stat-label">Manufacturer Warranty</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Lead-Free &amp; Pet-Friendly</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AUDIENCE OVERVIEW ═══ -->
+<section class="audience">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:32px;">
+      <div class="section-label centered">Who We Serve</div>
+      <h2>Built for Pros. Open to Everyone.</h2>
+    </div>
+    <p class="audience-intro body-links">
+      <a href="/">AZ Turf Suppliers</a> is a premium wholesale landscape supply company based in Queen Creek, AZ, stocking top-tier <a href="/artificial-turf/">artificial turf</a>, <a href="/pavers/">concrete pavers</a>, <a href="/natural-stone/">natural stone</a>, and <a href="/landscape-lighting/">landscape lighting</a>. We serve two core groups across the Phoenix Metro area: professional landscape contractors who need reliable inventory and fast logistics, and DIY homeowners building the backyard they've always wanted with the same professional-grade materials the pros use.
+    </p>
+    <div class="audience-grid">
+      <a href="/contractors/" class="audience-card" data-reveal>
+        <div class="audience-card-img">
+          <Pic name="forklift-turf-square.jpg" alt="Forklift loading turf rolls for a contractor at the AZ Turf Suppliers yard" />
+        </div>
+        <div class="audience-card-body">
+          <h3>Landscape Contractors &amp; Pool Builders</h3>
+          <p>Exclusive wholesale pricing, 15-minute pickup, next-day job site delivery, and text-to-order built for crews on the move.</p>
+          <span class="audience-card-link">Contractor Wholesale <Icon name="arrow-right" size={14} /></span>
+        </div>
+      </a>
+      <a href="/homeowners/" class="audience-card" data-reveal>
+        <div class="audience-card-img">
+          <Pic name="turf-hero-15.jpg" alt="Low-maintenance artificial turf backyard installed for an Arizona homeowner" />
+        </div>
+        <div class="audience-card-body">
+          <h3>DIY Homeowners</h3>
+          <p>Pro-grade turf and hardscape materials, free samples, exact cut calculations, and installer referrals when you want a hand.</p>
+          <span class="audience-card-link">DIY Homeowners <Icon name="arrow-right" size={14} /></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTRACTORS ═══ -->
+<section class="serve-detail section-gray">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">For The Pros</div>
+      <h2>Landscape Contractors and Pool Builders</h2>
+      <p>The majority of our daily business comes from professional landscape contractors, pool builders, and installers. We understand that time is money, and you need a supplier who keeps your crews moving and your clients happy.</p>
+    </div>
+    <div class="serve-detail-grid">
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="truck" size={16} />
+        </div>
+        <h3>Fast 15-Minute Pickup and Next-Day Delivery</h3>
+        <p>We skip the corporate red tape and long wait times of big-box suppliers. Send your crew to our Queen Creek location and we guarantee 15-minute in-store pickup, so your trailers get loaded with turf and accessories without delay. Need materials on-site? We offer guaranteed next-day delivery to your job site anywhere in the Phoenix Metro area.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="chat" size={16} />
+        </div>
+        <h3>Direct Text-to-Order and Exclusive Wholesale Pricing</h3>
+        <p>Contractors can text us their material lists and job addresses for immediate processing and invoicing. No phone trees, no hold music. To protect your margins, we offer aggressive, exclusive wholesale pricing built for our contractor network. If you find a better price locally, bring us the invoice. We back it with a no-questions-asked Price Match Guarantee.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="document" size={16} />
+        </div>
+        <h3>HOA-Ready Spec Sheets and Heavy Inventory</h3>
+        <p>Our yard stays heavily stocked with 15-foot wide turf rolls across our <a href="/natural-series/">Natural</a>, <a href="/winter-series/">Winter</a>, <a href="/spring-blend/">Spring</a>, and <a href="/bermuda-blend/">Bermuda</a> blends, so you're never stuck waiting on backorders. Submitting materials for community approval? We provide downloadable PDF HOA spec sheets for every turf line, ready to attach to your proposal.</p>
+      </div>
+    </div>
+    <div class="inline-cta">
+      <div>
+        <strong>Ready to Open a Contractor Account?</strong>
+        <p>Learn more about wholesale pricing, jobsite delivery, and text-to-order for contractors.</p>
+      </div>
+      <a href="/contractors/" class="btn btn-primary" style="white-space:nowrap;">Contractor Wholesale <Icon name="arrow-right" size={16} /></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOMEOWNERS ═══ -->
+<section class="serve-detail section-white">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-label">For The Weekend Warriors</div>
+      <h2>DIY Homeowners and Residential Upgrades</h2>
+      <p>We welcome weekend warriors and DIY homeowners ready to trade natural grass for a low-maintenance, drought-proof backyard. When you shop with AZ Turf Suppliers, you get access to the exact same premium hardscape products our contractor network uses on every job.</p>
+    </div>
+    <div class="serve-detail-grid">
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="paw" size={16} />
+        </div>
+        <h3>Premium, Pet-Friendly Artificial Turf</h3>
+        <p>Our artificial turf is 100% <a href="/lead-free/">certified lead-free</a> and pet-friendly, with no toxic chemical pesticides or fertilizers required to keep it looking good. It's safe for kids and dogs to play on every day. Built for the extreme Arizona heat, many of our turf lines feature CoolYarn technology to improve airflow and lower surface temperature. Every turf product is backed by a <a href="/warranty/">15-year manufacturer warranty</a>.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="calculator" size={16} />
+        </div>
+        <h3>Expert Turf Calculation and Layout Guidance</h3>
+        <p>Artificial turf is manufactured with a natural grain direction and sold in 15-foot wide rolls, which makes calculating cuts and seams tricky if you've never done it before. You don't have to guess. Get a head start with our <a href="/turf-calculator/">online turf calculator</a>, then bring your yard measurements (length by width, in feet) to our Queen Creek showroom, where our team will calculate your exact cuts, minimize waste, and hand you an immediate quote.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="handshake" size={16} />
+        </div>
+        <h3>Need a Professional Turf Installer?</h3>
+        <p>We're exclusively a landscape supply company, and we know hauling and installing turf or pavers is heavy, hard work. If you decide you'd rather leave it to a professional, we'll connect you with our network of top-rated, trusted local installers, including Turf Pros, who know our products inside and out.</p>
+      </div>
+    </div>
+    <div class="inline-cta">
+      <div>
+        <strong>Starting Your Project This Weekend?</strong>
+        <p>Get expert guidance and free samples as a DIY homeowner.</p>
+      </div>
+      <a href="/homeowners/" class="btn btn-primary" style="white-space:nowrap;">DIY Homeowners <Icon name="arrow-right" size={16} /></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ONE-STOP SHOP ═══ -->
+<section class="serve-detail section-gray">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <div class="section-label centered">Everything In One Stop</div>
+      <h2>A Complete One-Stop Hardscape Shop</h2>
+      <p>Whether you're a contractor or a homeowner, AZ Turf Suppliers carries everything you need for a complete backyard transformation in a single stop.</p>
+    </div>
+    <div class="onestop-grid">
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="squares" size={16} />
+        </div>
+        <h3><a href="/pavers/" class="heading-link">Concrete Pavers</a></h3>
+        <p>We're an authorized dealer for Arizona's top paver brands, including <a href="/pavers/">Phoenix Paver, Ackerstone, and Belgard</a>, for patios, borders, and driveways.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="mountain" size={16} />
+        </div>
+        <h3><a href="/natural-stone/" class="heading-link">Natural Stone</a></h3>
+        <p>We supply high-quality tumbled travertine, limestone, and marble imported from Turkey and Egypt, perfect for luxury pool decks and patios. <a href="/natural-stone/">View our natural stone selection</a>.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="lightbulb" size={16} />
+        </div>
+        <h3><a href="/landscape-lighting/" class="heading-link">Landscape Lighting</a></h3>
+        <p>We carry Lumenex Lighting, a professional-grade, hardwired low-voltage system built with heavy-duty aluminum and brass construction. <a href="/landscape-lighting/">Explore landscape lighting options</a>.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">
+          <Icon name="wrench" size={16} />
+        </div>
+        <h3><a href="/accessories/" class="heading-link">Installation Accessories</a></h3>
+        <p>Grab your silica sand, Camofill for pet odors, 8-year or 15-year weed barrier fabric, seam tape, turf glue, and galvanized nails all in one trip. <a href="/accessories/">Browse installation accessories</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AREAS SERVED ═══ -->
+<section class="serve-zones">
+  <div class="container">
+    <div class="serve-zones-inner">
+      <div class="serve-zones-content">
+        <div class="section-label inverted">Service Area</div>
+        <h2>Areas We Serve in the Phoenix Metro</h2>
+        <p>Based out of Queen Creek, AZ, we provide fast delivery and drop-shipping to contractors and homeowners across the East Valley and greater Phoenix Metro area.</p>
+        <div class="serve-zones-grid">
+          {cities.map((city) => (
+            <a href={city.url} class="zone-pill">{city.name}</a>
+          ))}
+        </div>
+        <a href="/locations/" class="serve-zones-all">See Our Full List of Service Areas <Icon name="arrow-right" size={14} /></a>
+      </div>
+      <div class="showroom-card">
+        <h3>Visit Our Showroom</h3>
+        <div class="showroom-detail">
+          <div class="showroom-detail-icon">
+            <Icon name="location" size={16} />
+          </div>
+          <div class="showroom-detail-text">
+            <strong>Address</strong>
+            <span>{site.address_street}, {site.address_city}, {site.address_region} {site.address_postal}</span>
+          </div>
+        </div>
+        <div class="showroom-detail">
+          <div class="showroom-detail-icon">
+            <Icon name="clock" size={16} />
+          </div>
+          <div class="showroom-detail-text">
+            <strong>Hours</strong>
+            <span>{site.hours_weekday}</span>
+          </div>
+        </div>
+        <div class="showroom-detail">
+          <div class="showroom-detail-icon">
+            <Icon name="phone" size={16} />
+          </div>
+          <div class="showroom-detail-text">
+            <strong>Call or Text</strong>
+            <span>{site.phone}</span>
+          </div>
+        </div>
+        <a href={`tel:${site.phone_tel}`} class="btn btn-primary" style="width:100%; justify-content:center;">Call or Text to Order <Icon name="arrow-right" size={16} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="serve-faq">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label centered">Common Questions</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Tap a question to see the answer. Don't see yours? Call or text us — same-day response.</p>
+    </div>
+    <div class="serve-faq-list">
+      {faqs.map((item) => (
+        <div class="faq-item" data-reveal>
+          <h3><button class="faq-q" onclick="toggleFaq(this)">{item.question}<Icon name="chevron-down" size={16} /></button></h3>
+          <div class="faq-a"><p set:html={item.answer} /></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div class="section-label centered orange">Let's Get Started</div>
+    <h2>Have a Project in Mind?</h2>
+    <p>Contractor or homeowner, we'll price your materials, calculate your cuts, and get everything loaded or delivered. Call or text us today.</p>
+    <div class="cta-btns">
+      <a href={`tel:${site.phone_tel}`} class="btn btn-primary">Call or Text {site.phone} <Icon name="phone" size={16} /></a>
+      <a href="/contact/" class="btn btn-outline">Get A Free Quote Online</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+(window as any).toggleFaq = toggleFaq;
+</script>
+</Layout>
