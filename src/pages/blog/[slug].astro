@@ -95,8 +95,10 @@ const breadcrumbs = [
   display: flex; flex-direction: column; gap: 8px;
 }
 .article-body strong { color: var(--dark); font-weight: 700; }
-.article-body a { color: var(--green-700); font-weight: 600; border-bottom: 1px solid currentColor; }
-.article-body a:hover { color: var(--green-800); }
+/* Body links only — .btn must keep its own colours, or the CTA buttons end up
+   green-on-green (--orange is green in this palette) and the label vanishes. */
+.article-body a:not(.btn) { color: var(--green-700); font-weight: 600; border-bottom: 1px solid currentColor; }
+.article-body a:not(.btn):hover { color: var(--green-800); }
 .callout {
   background: var(--gray-100); border-left: 4px solid var(--green-700);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;

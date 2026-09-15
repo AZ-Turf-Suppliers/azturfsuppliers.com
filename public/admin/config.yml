@@ -240,8 +240,6 @@ collections:
               - { name: label,      label: Section Label,   widget: string }
               - { name: heading,    label: Section Heading, widget: string,
                   hint: 'Use *asterisks* around any phrase you want italicized.' }
-              - { name: body,       label: Body Paragraph,  widget: markdown,
-                  modes: [rich_text], buttons: [bold, italic, link], editor_components: [] }
               - { name: youtubeId,  label: YouTube Video ID, widget: string,
                   hint: 'Just the 11-character ID, e.g. "C1qfGJmxj2c".' }
               - { name: videoTitle, label: Video Title,     widget: string,
