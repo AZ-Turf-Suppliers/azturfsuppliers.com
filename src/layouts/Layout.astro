@@ -170,9 +170,16 @@ const extraSchemas: object[] = schema
           }
         }
         if (!any) return null;
-        // A click ID is by definition a paid Google click.
-        if (found.utmgclid && !found.utmcsr) found.utmcsr = 'google';
-        if (found.utmgclid && !found.utmcmd) found.utmcmd = 'cpc';
+        // A click ID means Google charged for the click, whatever else the URL
+        // says. This matters for the Business Profile link: once that URL is
+        // tagged, a paid click landing on it arrives carrying both the gmb tags
+        // and a gclid, and would otherwise be filed as free GBP traffic. Source
+        // and campaign are left as tagged, so such a visit reads
+        // google / cpc / gmb — paid, and via the Business Profile listing.
+        if (found.utmgclid) {
+          if (!found.utmcsr) found.utmcsr = 'google';
+          found.utmcmd = 'cpc';
+        }
         found.t = 'tagged';
         return found;
       }
