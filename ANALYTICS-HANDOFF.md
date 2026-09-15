@@ -44,7 +44,18 @@ Example ad URL that captures cleanly: `https://www.azturfsuppliers.com/?utmcsr=g
 
 ### 2. `generate_lead` dataLayer event
 
-Fires once on `/thank-you` page load, which is where the contact form redirects on successful submission. This is your conversion event.
+Fires once per successful submission, from **both** forms. This is your conversion event.
+
+| Form | Where | How it fires | `form_name` | `page_path` |
+|---|---|---|---|---|
+| Contact page form | `/contact/` | Redirects to `/thank-you`, which pushes on load | `contact_form` | `/thank-you` |
+| Homepage form | `/` | Stays put and shows an inline success message, so it pushes directly | `home_form` | `/` |
+
+Both pushes carry the same payload shape, so the single Custom Event trigger below catches both — no GTM change was needed when the homepage form was added to the event.
+
+Note for anyone comparing periods: the homepage form fired **nothing** before 2026-09-15. Conversion counts step up from that date because the tracking was completed, not because performance changed.
+
+Attribution older than the 90-day first-touch window is not included in either push.
 
 **dataLayer push:**
 
@@ -67,7 +78,6 @@ The 5 attribution fields are pulled from `localStorage.az_attribution` at the mo
 ### 3. What's NOT hardcoded (you'd need a dev push)
 
 - No `page_view` events beyond GTM's default trigger.
-- The homepage contact form does **not** fire `generate_lead` — it shows an inline success message instead of redirecting to `/thank-you`, so only contact-page submissions are counted as conversions. A GTM form-submit trigger can cover it without a dev push.
 - No phone-click events (`tel:` links exist throughout the site but aren't instrumented).
 - No scroll-depth or engagement events.
 - No `view_item` / ecommerce events on product pages.

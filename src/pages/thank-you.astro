@@ -197,9 +197,13 @@ import Icon from '../components/Icon.astro';
   // Layout.astro) so GTM can route Source/Medium/Campaign/Keyword/GCLID to
   // GA4, Google Ads, or any other tag without code changes.
   (function () {
+    var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
     var attribution = {};
     try {
       var stored = JSON.parse(localStorage.getItem('az_attribution') || 'null');
+      // Skip a record that has aged out of the first-touch window, so GA4 never
+      // gets credited with a click older than the window we attribute on.
+      if (stored && stored.capturedAt && (Date.now() - stored.capturedAt) >= MAX_AGE_MS) stored = null;
       if (stored) {
         if (stored.utmcsr)   attribution.utmcsr   = stored.utmcsr;
         if (stored.utmcmd)   attribution.utmcmd   = stored.utmcmd;
