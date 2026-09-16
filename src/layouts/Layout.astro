@@ -220,6 +220,7 @@ const extraSchemas: object[] = schema
             if (fresh && (existingTagged || rec.t === 'inferred')) return;
           }
 
+          rec.lp = window.location.pathname; // landing page for this touch
           rec.capturedAt = Date.now();
           localStorage.setItem(KEY, JSON.stringify(rec));
         } catch (e) {}
@@ -236,6 +237,8 @@ const extraSchemas: object[] = schema
             var input = form.querySelector('input[name="' + n + '"]');
             if (input && !input.value && data[n]) input.value = data[n];
           });
+          var lp = form.querySelector('input[name="landingPage"]');
+          if (lp && !lp.value && data.lp) lp.value = data.lp;
         });
       }
 

@@ -44,16 +44,27 @@ Example ad URL that captures cleanly: `https://www.azturfsuppliers.com/?utmcsr=g
 
 ### 2. `generate_lead` dataLayer event
 
-Fires once per successful submission, from **both** forms. This is your conversion event.
+Fires once per successful submission, from **both** forms. Both forms redirect to `/contact/thank-you/` on success (the homepage form with `?f=home`), and that page pushes it on load.
 
-| Form | Where | How it fires | `form_name` | `page_path` |
-|---|---|---|---|---|
-| Contact page form | `/contact/` | Redirects to `/thank-you`, which pushes on load | `contact_form` | `/thank-you` |
-| Homepage form | `/` | Stays put and shows an inline success message, so it pushes directly | `home_form` | `/` |
+| Form | Where | `form_name` | `page_path` |
+|---|---|---|---|
+| Contact page form | `/contact/` | `contact_form` | `/contact/` |
+| Homepage form | `/` | `home_form` | `/` |
 
-Both pushes carry the same payload shape, so the single Custom Event trigger below catches both — no GTM change was needed when the homepage form was added to the event.
+**As of 2026-09-16, nothing in the published container (v10) listens for `generate_lead`.** It is available for a Custom Event trigger whenever one is wanted, but conversions currently count through a different route — see below.
 
-Note for anyone comparing periods: the homepage form fired **nothing** before 2026-09-15. Conversion counts step up from that date because the tracking was completed, not because performance changed.
+### How conversions actually count today (published container v10)
+
+The container's GA4 event and Google Ads conversion fire on one trigger: GTM's built-in form-submit signal (`gtm.formSubmit`) on a page whose URL contains `/contact`. Two consequences:
+
+- **Contact page:** the native listener fires on the button click, so it counts on the click — before the server responds. Failed and spam submissions count too.
+- **Homepage form:** could never fire, because its URL is `/`. Its leads were invisible to GA4 and Google Ads until 2026-09-16.
+
+The thank-you page now lives at `/contact/thank-you/` so its URL meets the trigger's condition. For a homepage-origin arrival (`?f=home`) the page **replays** the `gtm.formSubmit` signal once, after the server has accepted the lead, then strips `?f=home` so a reload doesn't re-fire. Contact-page arrivals are not replayed (the click already counted). Nothing in the container had to change.
+
+This is coupled to that trigger's conditions as published. If the trigger is ever edited, homepage counting may stop silently. The notification email and Brevo record now carry `formPage` / `FORM_PAGE`, so the true homepage-vs-contact split is visible regardless of what GA4 shows.
+
+Note for anyone comparing periods: homepage form submissions counted as **nothing** in GA4 or Google Ads before 2026-09-16. Conversion counts step up from that date because the tracking was completed, not because performance changed.
 
 Attribution older than the 90-day first-touch window is not included in either push.
 

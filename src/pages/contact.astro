@@ -631,6 +631,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
               <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
             {/* Attribution — auto-filled by the capture script in Layout.astro */}
+            <input type="hidden" name="formPage" value="/contact/">
+            <input type="hidden" name="landingPage">
             <input type="hidden" name="utmcsr">
             <input type="hidden" name="utmcmd">
             <input type="hidden" name="utmccn">
@@ -861,7 +863,7 @@ document.getElementById('contact-form-el')?.addEventListener('submit', async fun
     const json = await res.json().catch(() => ({}));
 
     if (res.ok && json.ok) {
-      window.location.href = '/thank-you';
+      window.location.href = '/contact/thank-you/';
       return;
     }
     throw new Error(json.error ?? `Request failed (${res.status})`);

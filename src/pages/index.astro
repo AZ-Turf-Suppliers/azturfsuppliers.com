@@ -1509,6 +1509,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             <input id="home-website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
           {/* Attribution — auto-filled by the capture script in Layout.astro */}
+          <input type="hidden" name="formPage" value="/">
+          <input type="hidden" name="landingPage">
           <input type="hidden" name="utmcsr">
           <input type="hidden" name="utmcmd">
           <input type="hidden" name="utmccn">
@@ -1571,36 +1573,10 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 <script>
 // ─── HOME CONTACT FORM ───
 
-// GTM / GA4 conversion event. The contact page gets this by redirecting to
-// /thank-you, which pushes the same event; this form stays put and shows an
-// inline success message, so it has to push for itself or its leads never
-// count as conversions. GTM's trigger is a Custom Event on `generate_lead`
-// firing on all custom events, so this needs no GTM change. form_name tells
-// the two forms apart in GA4.
-function pushGenerateLead() {
-  try {
-    const MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
-    const attribution: Record<string, string> = {};
-    try {
-      const stored = JSON.parse(localStorage.getItem('az_attribution') || 'null');
-      // Don't report attribution that has aged out of the first-touch window.
-      const fresh = stored && (!stored.capturedAt || (Date.now() - stored.capturedAt) < MAX_AGE_MS);
-      if (fresh) {
-        ['utmcsr', 'utmcmd', 'utmccn', 'utmctr', 'utmgclid'].forEach((k) => {
-          if (stored[k]) attribution[k] = stored[k];
-        });
-      }
-    } catch (e) { /* storage blocked — send the event without attribution */ }
-
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push(Object.assign({
-      event: 'generate_lead',
-      form_name: 'home_form',
-      page_path: window.location.pathname,
-    }, attribution));
-  } catch (e) { /* never let analytics break the success path */ }
-}
-
+// On success this redirects to /contact/thank-you/?f=home, which pushes the
+// conversion signals. The page has to be under /contact/ because the
+// published GTM container only counts form submits on URLs containing
+// /contact — see the note in that page's script.
 async function handleHomeFormSubmit(e: Event) {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
@@ -1621,14 +1597,8 @@ async function handleHomeFormSubmit(e: Event) {
     });
     const json = await res.json().catch(() => ({}));
     if (res.ok && json.ok) {
-      pushGenerateLead();
-      status.style.display = 'block';
-      status.style.background = '#e8f7e9';
-      status.style.color = '#186b1e';
-      status.textContent = "Message sent! We'll be in touch same day.";
-      form.reset();
-      // @ts-expect-error — turnstile is injected by Cloudflare's widget script
-      if (typeof turnstile !== 'undefined') turnstile.reset();
+      window.location.href = '/contact/thank-you/?f=home';
+      return;
     } else {
       throw new Error(json.error ?? `Request failed (${res.status})`);
     }

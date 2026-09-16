@@ -136,7 +136,11 @@ export async function onRequestPost(context) {
   const utmccn   = String(form.utmccn   || '').trim().slice(0, 200);
   const utmctr   = String(form.utmctr   || '').trim().slice(0, 200);
   const utmgclid = String(form.utmgclid || '').trim().slice(0, 500);
-  const hasAttribution = !!(utmcsr || utmcmd || utmccn || utmctr || utmgclid);
+  // Which form was submitted, and where the visitor first landed. Not sent
+  // to the sheet — its 13 columns are fixed by the Apps Script.
+  const formPage    = String(form.formPage    || '').trim().slice(0, 200);
+  const landingPage = String(form.landingPage || '').trim().slice(0, 500);
+  const hasAttribution = !!(utmcsr || utmcmd || utmccn || utmctr || utmgclid || formPage || landingPage);
 
   if (!firstName) {
     return jsonResponse(400, { ok: false, error: 'First name is required.' });
@@ -190,6 +194,8 @@ export async function onRequestPost(context) {
       ...(utmccn   && { UTMCCN:   utmccn   }),
       ...(utmctr   && { UTMCTR:   utmctr   }),
       ...(utmgclid && { UTMGCLID: utmgclid }),
+      ...(formPage    && { FORM_PAGE:    formPage }),
+      ...(landingPage && { LANDING_PAGE: landingPage }),
     },
   };
   if (listId) contactBody.listIds = [listId];
@@ -269,6 +275,8 @@ export async function onRequestPost(context) {
       ${utmccn   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Campaign</td>           <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmccn)}</td></tr>`   : ''}
       ${utmctr   ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Keyword</td>            <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(utmctr)}</td></tr>`   : ''}
       ${utmgclid ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">GCLID</td>              <td style="padding:6px 0;border-bottom:1px solid #eee;font-family:monospace;font-size:12px;word-break:break-all;">${escapeHtml(utmgclid)}</td></tr>` : ''}
+      ${formPage    ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Form</td>               <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(formPage === '/' ? 'Homepage' : formPage)}</td></tr>` : ''}
+      ${landingPage ? `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;font-weight:600;">Landed on</td>          <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(landingPage)}</td></tr>` : ''}
     </table>` : ''}
   <p style="margin-top:28px;font-size:12.5px;color:#999;">Hit reply to message ${escapeHtml(firstName) || 'the submitter'} directly — reply-to is set to their email.</p>
 </body></html>

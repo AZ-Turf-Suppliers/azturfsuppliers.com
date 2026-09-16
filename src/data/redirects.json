@@ -1,9 +1,39 @@
 {
   "entries": [
-    { "from": "/warranty-page", "to": "/warranty/", "status": 301 },
-    { "from": "/lead-free-certificate", "to": "/lead-free/", "status": 301 },
-    { "from": "/home", "to": "/", "status": 301 },
-    { "from": "/index", "to": "/", "status": 301 },
-    { "from": "/index.html", "to": "/", "status": 301 }
+    {
+      "from": "/warranty-page",
+      "to": "/warranty/",
+      "status": 301
+    },
+    {
+      "from": "/lead-free-certificate",
+      "to": "/lead-free/",
+      "status": 301
+    },
+    {
+      "from": "/home",
+      "to": "/",
+      "status": 301
+    },
+    {
+      "from": "/index",
+      "to": "/",
+      "status": 301
+    },
+    {
+      "from": "/index.html",
+      "to": "/",
+      "status": 301
+    },
+    {
+      "from": "/thank-you",
+      "to": "/contact/thank-you/",
+      "status": 301
+    },
+    {
+      "from": "/thank-you/",
+      "to": "/contact/thank-you/",
+      "status": 301
+    }
   ]
 }

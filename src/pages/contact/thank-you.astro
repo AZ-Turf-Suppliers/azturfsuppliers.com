@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
 ---
 
 <Layout title="Thank You | AZ Turf Suppliers — Queen Creek, AZ" description="Thank you for contacting AZ Turf Suppliers. We'll be in touch same day." noindex>
@@ -191,12 +191,23 @@ import Icon from '../components/Icon.astro';
 </section>
 
 <script is:inline>
-  // GTM / GA4 conversion event — fires once when a visitor lands on /thank-you
-  // (i.e. the form submitted successfully and we redirected here). Pulls
-  // first-touch attribution from localStorage (set by the capture script in
-  // Layout.astro) so GTM can route Source/Medium/Campaign/Keyword/GCLID to
-  // GA4, Google Ads, or any other tag without code changes.
+  // Conversion signals. Both forms redirect here on success — the contact
+  // page plainly, the homepage form with ?f=home.
+  //
+  // The published GTM container fires its GA4 event and Google Ads
+  // conversion on one trigger: GTM's own form-submit signal on a page whose
+  // URL contains /contact. The contact page meets that by accident when the
+  // button is clicked. The homepage form never could — its URL is / — so
+  // its leads have never counted. This page's URL meets the condition, so
+  // for a homepage-origin arrival we replay the form-submit signal here, once,
+  // after the server has actually accepted the lead. Nothing in the container
+  // had to change. (Contact-page arrivals are NOT replayed: GTM's native
+  // listener already fired for them on the click.)
+  //
+  // We also push generate_lead — a cleaner signal carrying the form name,
+  // originating page and first-touch attribution — for anything wired to it.
   (function () {
+    var fromHome = new URLSearchParams(window.location.search).get('f') === 'home';
     var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
     var attribution = {};
     try {
@@ -214,10 +225,29 @@ import Icon from '../components/Icon.astro';
     } catch (e) {}
 
     window.dataLayer = window.dataLayer || [];
+
+    if (fromHome) {
+      // Same shape GTM's listener pushes. A detached form stands in for the
+      // one that was submitted, so Form ID / Form Element variables resolve.
+      var form = document.createElement('form');
+      form.id = 'home-contact-form';
+      window.dataLayer.push({
+        event: 'gtm.formSubmit',
+        'gtm.element': form,
+        'gtm.elementId': 'home-contact-form',
+        'gtm.elementClasses': '',
+        'gtm.elementTarget': '',
+        'gtm.elementUrl': '',
+      });
+      // Fire once per submission: drop ?f=home so a reload or bookmark of
+      // this page doesn't count the same lead again.
+      try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+    }
+
     window.dataLayer.push(Object.assign({
       event: 'generate_lead',
-      form_name: 'contact_form',
-      page_path: '/thank-you',
+      form_name: fromHome ? 'home_form' : 'contact_form',
+      page_path: fromHome ? '/' : '/contact/',
     }, attribution));
   })();
 </script>
