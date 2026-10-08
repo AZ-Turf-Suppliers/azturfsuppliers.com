@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Pic from '../components/Pic.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Icon from '../components/Icon.astro';
+import BrandVideo from '../components/BrandVideo.astro';
+import homepage from '../data/homepage.json';
+
+// Same "Who We Are, What We Do" video as the homepage, edited in one place.
+const video = homepage.video;
 ---
 
 <Layout
@@ -38,23 +42,6 @@ import Icon from '../components/Icon.astro';
   letter-spacing: 0;
 }
 .about-intro-text p:last-child { margin-bottom: 0; }
-.about-img {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
-.about-img img { width: 100%; height: auto; display: block; }
-.about-img-placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 /* ─── MISSION ─── */
 .mission {
@@ -242,7 +229,6 @@ import Icon from '../components/Icon.astro';
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .about-intro-inner { grid-template-columns: 1fr; gap: 32px; }
-  .about-img { aspect-ratio: 16/9; }
   .mission-inner { grid-template-columns: 1fr; }
   .difference-grid { grid-template-columns: 1fr; }
   .showroom-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -301,8 +287,13 @@ import Icon from '../components/Icon.astro';
         <p>For over five years, we have been serving the <a href="/locations/">East Valley and the greater Phoenix area</a> — growing from a dedicated synthetic grass supplier into a comprehensive one-stop shop for all your hardscaping needs, including <a href="/pavers/">pavers</a>, <a href="/natural-stone/">natural stone</a>, and <a href="/landscape-lighting/">landscape lighting</a>.</p>
         <p>We know that you have choices when it comes to landscape suppliers, but we pride ourselves on a relationship-driven approach that big-box stores simply cannot match.</p>
       </div>
-      <div class="about-img" data-reveal>
-        <Pic name="team.jpg" alt="The AZ Turf Suppliers team in Queen Creek, Arizona" />
+      <div data-reveal>
+        <BrandVideo
+          youtubeId={video.youtubeId}
+          title={video.videoTitle}
+          posterImage={video.posterImage}
+          posterAlt={video.posterAlt}
+        />
       </div>
     </div>
   </div>

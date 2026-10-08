@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Pic from '../components/Pic.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Icon from '../components/Icon.astro';
+import BrandVideo from '../components/BrandVideo.astro';
 import page from '../data/homepage.json';
 import { renderInline } from '../utils/inline-markdown';
 
@@ -1063,79 +1064,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   gap: 64px;
   align-items: center;
 }
-/* The frame lives on the container, not the button: pressing play replaces the
-   button with the iframe, so anything sized on the button would collapse. */
-.brand-video-media {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: var(--dark);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
-.brand-video-play-btn {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-.brand-video-play-btn:focus-visible { outline: 3px solid var(--green-700); outline-offset: -3px; }
-.brand-video-play-btn img,
-.brand-video-media iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 0;
-}
-.brand-video-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.72) 100%);
-  transition: background 0.35s;
-}
-.brand-video-play-btn:hover .brand-video-scrim {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.68) 100%);
-}
-.brand-video-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.14);
-  border: 2px solid rgba(255,255,255,0.75);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, border-color 0.3s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.brand-video-icon svg { width: 26px; height: 26px; color: var(--white); margin-left: 3px; }
-.brand-video-play-btn:hover .brand-video-icon {
-  background: var(--orange);
-  border-color: var(--orange);
-  transform: translate(-50%, -50%) scale(1.06);
-}
-.brand-video-caption {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 22px;
-  text-align: left;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white);
-}
 .brand-video-content h2 {
   font-size: clamp(1.9rem, 3vw, 2.8rem);
   margin-bottom: 32px;
@@ -1147,9 +1075,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 @media (max-width: 768px) {
   .brand-video { padding: 48px 0; }
-  .brand-video-icon { width: 60px; height: 60px; }
-  .brand-video-icon svg { width: 20px; height: 20px; }
-  .brand-video-caption { left: 18px; right: 18px; bottom: 16px; font-size: 0.7rem; }
   .brand-video-btns .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -1272,23 +1197,12 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 <section class="brand-video">
   <div class="container">
     <div class="brand-video-inner" data-reveal>
-      <div class="brand-video-media">
-        <!-- Facade: poster image only until clicked, then the iframe is swapped in.
-             Keeps YouTube off the critical path (and off the page entirely for
-             visitors who never press play). -->
-        <button
-          type="button"
-          class="brand-video-play-btn"
-          data-youtube-id={page.video.youtubeId}
-          data-video-title={page.video.videoTitle}
-          aria-label={`Play video: ${page.video.videoTitle}`}
-        >
-          <Pic name={fname(page.video.posterImage)} alt={page.video.posterAlt} />
-          <span class="brand-video-scrim"></span>
-          <span class="brand-video-icon"><Icon name="play" size={26} /></span>
-          <span class="brand-video-caption">{page.video.videoTitle}</span>
-        </button>
-      </div>
+      <BrandVideo
+        youtubeId={page.video.youtubeId}
+        title={page.video.videoTitle}
+        posterImage={page.video.posterImage}
+        posterAlt={page.video.posterAlt}
+      />
       <div class="brand-video-content">
         <div class="section-label">{page.video.label}</div>
         <h2 set:html={renderInline(page.video.heading)} />
@@ -1656,28 +1570,6 @@ function initHeroVideoFacade() {
 }
 initHeroVideoFacade();
 document.addEventListener('astro:page-load', initHeroVideoFacade);
-
-// ─── BRAND VIDEO FACADE ───
-// Nothing loads from YouTube until the visitor presses play; then the poster
-// button is replaced by the player, already started.
-function initBrandVideoFacade() {
-  const btn = document.querySelector<HTMLButtonElement>('.brand-video-play-btn[data-youtube-id]');
-  if (!btn || btn.dataset.loaded === 'true') return;
-
-  btn.addEventListener('click', () => {
-    const id = btn.dataset.youtubeId;
-    if (!id) return;
-    btn.dataset.loaded = 'true';
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-    iframe.title = btn.dataset.videoTitle || 'AZ Turf Suppliers';
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-    iframe.setAttribute('allowfullscreen', '');
-    btn.replaceWith(iframe);
-  }, { once: true });
-}
-initBrandVideoFacade();
-document.addEventListener('astro:page-load', initBrandVideoFacade);
 
 // Accordion toggle — set once at module scope, survives navigations
 function toggleBenefit(btn: HTMLElement) {
