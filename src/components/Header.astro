@@ -17,23 +17,23 @@ const isActive = (path: string) => {
         <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
         <li><a href="/about/" class={isActive('/about') ? 'active' : ''}>About</a></li>
         <li class="has-dropdown">
-          <a href="/products/" aria-haspopup="true" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') ? 'active' : ''}>Products</a>
-          <div class="dropdown">
+          <a href="/products/" aria-haspopup="true" class={isActive('/products') || isActive('/artificial-turf') || isActive('/pavers') || isActive('/natural-stone') || isActive('/landscape-lighting') || isActive('/accessories') || isActive('/who-we-serve') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Products</a>
+          <div class="dropdown dropdown-wide">
             <div class="dropdown-inner">
-              <a href="/artificial-turf/">Artificial Turf</a>
-              <a href="/pavers/">Pavers</a>
-              <a href="/natural-stone/">Natural Stone</a>
-              <a href="/landscape-lighting/">Landscape Lighting</a>
-              <a href="/accessories/">Accessories</a>
-            </div>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="/who-we-serve/" aria-haspopup="true" class={isActive('/who-we-serve') || isActive('/contractors') || isActive('/homeowners') ? 'active' : ''}>Who We Serve</a>
-          <div class="dropdown">
-            <div class="dropdown-inner">
-              <a href="/contractors/">Contractors</a>
-              <a href="/homeowners/">DIY Homeowners</a>
+              <div class="dropdown-col">
+                <a href="/products/" class="dropdown-label">Products</a>
+                <a href="/artificial-turf/">Artificial Turf</a>
+                <a href="/pavers/">Pavers</a>
+                <a href="/natural-stone/">Natural Stone</a>
+                <a href="/landscape-lighting/">Landscape Lighting</a>
+                <a href="/accessories/">Accessories</a>
+              </div>
+              <div class="dropdown-col">
+                <a href="/who-we-serve/" class="dropdown-label">Who We Serve</a>
+                <a href="/who-we-serve/">Overview</a>
+                <a href="/contractors/">Contractors</a>
+                <a href="/homeowners/">DIY Homeowners</a>
+              </div>
             </div>
           </div>
         </li>

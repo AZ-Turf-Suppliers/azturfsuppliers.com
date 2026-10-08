@@ -294,7 +294,28 @@ nav .dropdown-inner a {
   transition: all 0.15s;
 }
 nav .dropdown-inner a:hover { color: var(--green-700); background: var(--gray-100); padding-left: 28px; }
+/* Column headings in the wide dropdown; they link to the section's overview page. */
+nav .dropdown-inner a.dropdown-label,
+nav .dropdown-inner a.dropdown-label:hover {
+  padding: 4px 24px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-400);
+  background: none;
+}
+nav .dropdown-inner a.dropdown-label:hover { color: var(--green-700); }
 nav .dropdown-inner hr { border: none; border-top: 1px solid var(--gray-200); margin: 8px 0; }
+
+/* Wide 2-col dropdown */
+nav .dropdown-wide .dropdown-inner {
+  min-width: 520px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 0;
+}
+nav .dropdown-wide .dropdown-col { padding: 0; }
 
 /* CTA area */
 .nav-cta { display: flex; align-items: center; gap: 16px; }
@@ -364,12 +385,12 @@ nav .dropdown-inner hr { border: none; border-top: 1px solid var(--gray-200); ma
 .mobile-menu .mobile-cta:hover { background: var(--orange-hover); }
 
 /* ─── RESPONSIVE ─── */
-/* Eight top-level links plus logo and CTA need ~1300px at full spacing. */
-@media (max-width: 1320px) {
+/* The top-level links plus logo and CTA need ~1200px at full spacing. */
+@media (max-width: 1200px) {
   nav ul { gap: 16px; }
   nav a { font-size: 0.85rem; }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .nav-inner nav, .nav-cta .nav-phone { display: none; }
   .mobile-toggle { display: block; order: 3; }
   .nav-inner { padding: 0 4px; }
