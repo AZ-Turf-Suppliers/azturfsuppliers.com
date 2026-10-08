@@ -1274,7 +1274,6 @@ h1, h2, h3 {
 
   /* ── About intro ── */
   .about-intro { padding: 30px 0; }
-  .about-img { display: none; } /* photo placeholder adds no value on mobile */
 
   /* ── Showroom section ── */
   .showroom-section { padding: 30px 0; }

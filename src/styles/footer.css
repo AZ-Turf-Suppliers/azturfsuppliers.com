@@ -102,9 +102,15 @@ footer#footer {
   letter-spacing: 0;
 }
 
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+/* Breakpoints run widest to narrowest: a max-width rule placed after a
+   narrower one would override it on phones too. */
+@media (max-width: 1400px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 1024px) {
+  .footer-grid { gap: 28px; }
 }
 
 @media (max-width: 768px) {
@@ -168,17 +174,6 @@ footer#footer {
 }
 
 .footer-directions:hover { color: var(--white) !important; gap: 8px; }
-
-@media (max-width: 1200px) {
-  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-col-visit { grid-column: span 1; }
-}
-
-@media (max-width: 1400px) {
-  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; }
-}
 
 /* ─── MOBILE STICKY ACTION BAR ─── */
 .mobile-action-bar {
