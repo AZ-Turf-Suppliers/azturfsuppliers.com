@@ -132,6 +132,11 @@ const breadcrumbs = [
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;
 }
 .spec-table tr:last-child td { border-bottom: none; }
+/* Wide tables scroll inside themselves on phones instead of widening the page. */
+@media (max-width: 600px) {
+  .spec-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .spec-table th, .spec-table td { padding: 10px 12px; }
+}
 .post-cta {
   margin-top: 56px; padding: 36px 32px; background: var(--dark);
   border-radius: var(--radius-lg); text-align: center; color: var(--white);

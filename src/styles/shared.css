@@ -619,6 +619,9 @@ h1, h2, h3 {
 }
 .form-group textarea { resize: vertical; min-height: 100px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* Grid items default to min-width:auto, which keeps form inputs at their intrinsic
+   width and pushes the page wider than narrow phones. */
+.form-row > * { min-width: 0; }
 
 @media (max-width: 480px) {
   .form-row { grid-template-columns: 1fr; }
