@@ -70,11 +70,11 @@ const breadcrumbs = [
 .faq-item h3 { margin: 0; }
 .faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; text-align: left; font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; }
 .faq-q:hover { color: var(--green-700); }
-.faq-q:focus { outline: none; }
 .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--green-700); transition: transform 0.3s; }
 .faq-item.open .faq-q svg { transform: rotate(180deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; padding: 0 24px; }
-.faq-item.open .faq-a { max-height: 800px; padding: 0 24px 20px; }
+/* visibility (delayed until the collapse finishes) keeps links in closed answers out of the tab order */
+.faq-a { max-height: 0; overflow: hidden; visibility: hidden; transition: max-height 0.35s ease, padding 0.3s ease, visibility 0s linear 0.35s; padding: 0 24px; }
+.faq-item.open .faq-a { max-height: 800px; padding: 0 24px 20px; visibility: visible; transition-delay: 0s; }
 .faq-a p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.75; font-weight: 400; text-transform: none; letter-spacing: 0; border-top: 1px solid var(--gray-200); padding-top: 16px; }
 .faq-a a { color: var(--green-700); font-weight: 600; text-decoration: underline; }
 
@@ -110,7 +110,7 @@ const breadcrumbs = [
     <div class="faq-page-list">
       {faqs.map((item) => (
         <div class="faq-item" data-reveal>
-          <h3><button class="faq-q" onclick="toggleFaq(this)">{item.question}<Icon name="chevron-down" size={16} /></button></h3>
+          <h3><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">{item.question}<Icon name="chevron-down" size={16} /></button></h3>
           <div class="faq-a"><p set:html={item.answer} /></div>
         </div>
       ))}
@@ -135,8 +135,14 @@ const breadcrumbs = [
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+  });
+  if (!wasOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 (window as any).toggleFaq = toggleFaq;
 </script>

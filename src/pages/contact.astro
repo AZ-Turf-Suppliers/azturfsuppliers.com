@@ -642,7 +642,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             <input type="hidden" name="utmgclid">
             <div class="form-row">
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName">First Name <span class="req" aria-hidden="true">*</span></label>
                 <input id="firstName" name="firstName" type="text" placeholder="John" required>
               </div>
               <div class="form-group">
@@ -652,7 +652,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
                 <input id="email" name="email" type="email" placeholder="john@example.com" required>
               </div>
               <div class="form-group">
@@ -685,7 +685,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
                 <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-size="flexible"></div>
               </div>
             )}
-            <div id="form-status" style="display:none;margin-bottom:12px;padding:12px 16px;border-radius:8px;font-size:0.875rem;font-weight:600;"></div>
+            <div id="form-status" role="alert" style="display:none;margin-bottom:12px;padding:12px 16px;border-radius:8px;font-size:0.875rem;font-weight:600;"></div>
             <button type="submit" class="btn btn-primary submit-btn cta-pulse" id="submit-btn">
               <span class="submit-btn-label">Send Message</span>
               <Icon name="arrow-right" size={16} />
