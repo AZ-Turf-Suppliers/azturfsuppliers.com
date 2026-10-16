@@ -157,6 +157,10 @@ export async function onRequestPost(context) {
     if (!ok) {
       return jsonResponse(400, { ok: false, error: 'Spam check failed. Please reload the page and try again.' });
     }
+  } else {
+    // Still accept the lead, but make a missing secret visible in the Pages
+    // Functions logs instead of silently running without spam protection.
+    console.warn('TURNSTILE_SECRET_KEY is not set; contact form submitted without a spam check.');
   }
 
   // ─── 5. Validate Brevo configuration ───────────────────────────────

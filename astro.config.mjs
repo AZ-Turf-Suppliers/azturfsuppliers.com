@@ -73,14 +73,11 @@ const LASTMOD_BY_PATH = buildLastmodMap();
 // form widget instead of editing raw redirect syntax. Note this overwrites
 // anything copied from public/ — every redirect must ship through this hook.
 //
-// Infrastructure rules live here, not in redirects.json, so CMS editors
-// can't remove them. They are emitted first: the pages.dev rule must win
-// before any path rule fires, or a pages.dev request hitting a CMS redirect
-// would hop within pages.dev before reaching the custom domain. `301!`
-// forces the redirect even though a static asset exists at the same path.
-const INFRA_REDIRECTS = [
-  'https://azturfsuppliers-com.pages.dev/* https://azturfsuppliers.com/:splat 301!',
-];
+// The pages.dev → azturfsuppliers.com redirect is NOT done here: Pages'
+// _redirects doesn't support domain-level rules (and `301!` is Netlify
+// syntax), so it's an account-level Bulk Redirect in the Cloudflare
+// dashboard. public/_headers still noindexes pages.dev hostnames.
+const INFRA_REDIRECTS = [];
 
 // @astrojs/sitemap always emits the sitemap index as /sitemap-index.xml and
 // gives no option to rename it. Everyone — humans and tools alike — reaches
