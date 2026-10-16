@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
+import mediaVariants from './integrations/media-variants.mjs';
 import { readFileSync, writeFileSync, readdirSync, copyFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -139,6 +140,8 @@ export default defineConfig({
   // trailing slash to avoid shipping a redirect hop.
   trailingSlash: 'always',
   integrations: [
+    // Writes public/media/opt/*.webp before public/ is copied into dist.
+    mediaVariants(),
     sitemap({
       // Keep noindex pages and form-success pages out of the sitemap.
       filter: (page) =>

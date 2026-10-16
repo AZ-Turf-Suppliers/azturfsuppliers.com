@@ -149,13 +149,21 @@ h1, h2, h3 {
   overflow: hidden;
 }
 
-/* Full-bleed background image */
+/* Full-bleed background image. Pages pass heroImage to Layout, which sets
+   --hero-lg / --hero-sm to generated WebP copies (see src/utils/media.ts);
+   the breakpoint matches HERO_BREAKPOINT in Layout.astro. */
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/media/natural-series-turf-1.jpg') center / cover;
+  background: center / cover no-repeat;
+  background-image: var(--hero-lg, url('/media/opt/natural-series-turf-1-1600.webp'));
   z-index: 0;
+}
+@media (max-width: 800px) {
+  .page-hero::before {
+    background-image: var(--hero-sm, url('/media/opt/natural-series-turf-1-960.webp'));
+  }
 }
 
 /* Same dark gradient stack as the homepage hero */
@@ -599,7 +607,7 @@ h1, h2, h3 {
   padding: 12px 16px;
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   font-size: 0.95rem;
   transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
   background: var(--gray-100);

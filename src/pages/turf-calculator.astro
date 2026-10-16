@@ -4,11 +4,11 @@ import Icon from '../components/Icon.astro';
 ---
 
 <Layout
+  heroImage="/media/turf-hero-2.jpg"
   title="Turf Layout Calculator | AZ Turf Suppliers — Queen Creek, AZ"
   description="Free artificial turf calculator: enter your project dimensions and get optimal roll layout, seam count, infill bags, and waste estimate — accurate to within 5%."
 >
 <style is:global>
-.page-hero::before { background-image: url("/media/turf-hero-2.jpg") !important; }
 /* ─── CALCULATOR SPECIFIC STYLES ─── */
   
   .calc-section {
@@ -177,7 +177,7 @@ import Icon from '../components/Icon.astro';
     color: var(--gray-600);
     line-height: 1.7;
     padding: 8px 0;
-    font-family: 'Montserrat', sans-serif; /* Keep site font consistent */
+    font-family: 'Montserrat Variable', 'Montserrat', sans-serif; /* Keep site font consistent */
   }
 
   .infill-row {
@@ -679,7 +679,7 @@ function drawDiagram(canvas, layout) {
   ctx.strokeRect(ox, oy, drawW, drawH);
 
   ctx.fillStyle = '#1a1a1a';
-  ctx.font = '600 12px "Montserrat", sans-serif';
+  ctx.font = '600 12px "Montserrat Variable", "Montserrat", sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText(`${projW} ft`, ox + drawW / 2, oy - 12);
 
@@ -834,7 +834,7 @@ function drawDiagram(canvas, layout) {
 
   if (stripPixW > 40 && numFull <= 20) {
     ctx.fillStyle = 'rgba(255,255,255,0.9)';
-    ctx.font = '600 10px "Montserrat", sans-serif';
+    ctx.font = '600 10px "Montserrat Variable", "Montserrat", sans-serif';
     for (let i = 0; i < Math.min(numFull, 20); i++) {
       if (isVert) {
         const cx = mapX(i * rollW + rollW / 2);

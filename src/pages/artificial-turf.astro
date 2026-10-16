@@ -54,13 +54,13 @@ const breadcrumbs = [
 ---
 
 <Layout
+  heroImage="/media/turf-hero.jpg"
   title={page.meta.title}
   description={page.meta.description}
   schema={faqSchema}
   breadcrumbs={breadcrumbs}
 >
 <style is:global>
-.page-hero::before { background-image: url("/media/turf-hero.jpg") !important; }
 /* ─── PAGE HERO ─── */
 
 /* ─── SERIES SECTIONS ─── */
@@ -221,7 +221,7 @@ const breadcrumbs = [
 .faq-header h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 960px; margin: 0 auto; align-items: start; }
 .faq-item { background: var(--gray-100); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
-.faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; }
+.faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; text-align: left; font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; }
 .faq-q:hover { color: var(--green-700); }
 .faq-q:focus { outline: none; }
 .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--green-700); transition: transform 0.3s; }

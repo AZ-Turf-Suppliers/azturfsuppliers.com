@@ -2,6 +2,10 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
+import { mediaVariant, SMALL_WIDTH, LARGE_WIDTH } from '../utils/media';
+// Self-hosted variable Montserrat (one file covers weights 100–900).
+import '@fontsource-variable/montserrat/wght.css';
+import montserratLatin from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
 import '../styles/header.css';
 import '../styles/footer.css';
 import '../styles/shared.css';
@@ -23,6 +27,10 @@ interface Props {
   // Trail used to build a BreadcrumbList. Leave undefined on the home page
   // and any page where breadcrumbs are not appropriate (404, thank-you).
   breadcrumbs?: BreadcrumbItem[];
+  // Background photo for the page's hero (.page-hero, or the homepage hero).
+  // Phones get the small generated copy, desktops the large one, and only
+  // the size the viewport will use is preloaded.
+  heroImage?: string;
 }
 
 const {
@@ -33,7 +41,18 @@ const {
   noindex = false,
   schema,
   breadcrumbs,
+  heroImage,
 } = Astro.props;
+
+const HERO_BREAKPOINT = 800;
+const heroSm = heroImage ? mediaVariant(heroImage, SMALL_WIDTH) : null;
+const heroLg = heroImage ? mediaVariant(heroImage, LARGE_WIDTH) : null;
+// Quote the CMS-supplied path for CSS url(); escaping '<' keeps it from
+// closing the <style> element.
+const cssUrl = (u: string | null) => `url(${JSON.stringify(u).replace(/</g, '\\3c ')})`;
+const heroVars = heroImage
+  ? `:root{--hero-sm:${cssUrl(heroSm)};--hero-lg:${cssUrl(heroLg)}}`
+  : null;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
@@ -281,14 +300,16 @@ const extraSchemas: object[] = schema
     <meta name="twitter:image:alt" content={title}>
 
     <!-- DNS prefetch for third-party origins -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    {!isHome && (
-      <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg" />
+    <link rel="preload" as="font" type="font/woff2" href={montserratLatin} crossorigin>
+
+    {heroImage && (
+      <>
+        <link rel="preload" as="image" href={heroSm} media={`(max-width: ${HERO_BREAKPOINT}px)`} fetchpriority="high" />
+        <link rel="preload" as="image" href={heroLg} media={`(min-width: ${HERO_BREAKPOINT + 1}px)`} fetchpriority="high" />
+        <style is:global set:html={heroVars} />
+      </>
     )}
 
     {isHome && (

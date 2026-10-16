@@ -45,6 +45,7 @@ const breadcrumbs = [
 ---
 
 <Layout
+  heroImage={post.data.image}
   title={`${post.data.title} | ${site.name}`}
   description={post.data.description}
   ogType="article"
@@ -52,8 +53,7 @@ const breadcrumbs = [
   schema={articleSchema}
   breadcrumbs={breadcrumbs}
 >
-<style is:global define:vars={{ heroImage: `url("${post.data.image}")` }}>
-.page-hero::before { background-image: var(--heroImage) !important; }
+<style is:global>
 
 .article { padding: 72px 0 88px; background: var(--white); }
 .article-inner { max-width: 760px; margin: 0 auto; }
