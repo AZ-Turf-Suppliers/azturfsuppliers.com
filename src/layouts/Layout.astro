@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
 import { mediaVariant, SMALL_WIDTH, LARGE_WIDTH } from '../utils/media';
+import sharp from 'sharp';
 // Self-hosted variable Montserrat (one file covers weights 100–900).
 import '@fontsource-variable/montserrat/wght.css';
 import montserratLatin from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
@@ -36,7 +37,8 @@ interface Props {
 const {
   title,
   description = 'Premium artificial turf and landscaping supplies based in Queen Creek and serving all of Arizona.',
-  ogImage = '/media/logo.png',
+  // 1200×630 share card; the logo alone was below Facebook's/X's minimums.
+  ogImage = '/media/og-default.jpg',
   ogType = 'website',
   noindex = false,
   schema,
@@ -57,6 +59,11 @@ const heroVars = heroImage
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageAbsolute = new URL(ogImage, siteUrl).toString();
+// Declared dimensions let Facebook/LinkedIn render the large preview on the
+// first share instead of after fetching the image.
+const ogMeta = ogImage.startsWith('/media/')
+  ? await sharp(`public${ogImage}`).metadata().catch(() => null)
+  : null;
 const isHome = Astro.url.pathname === '/';
 
 const localBusinessSchema = {
@@ -116,6 +123,8 @@ const extraSchemas: object[] = schema
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Must sit within the first 1024 bytes, ahead of the GTM and attribution scripts. -->
+    <meta charset="UTF-8">
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -271,7 +280,6 @@ const extraSchemas: object[] = schema
       document.addEventListener('astro:page-load', run);
     })();</script>
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="1351D07E955C5D02C038BDC19066EBCA" />
     <title>{title}</title>
@@ -289,6 +297,8 @@ const extraSchemas: object[] = schema
     <meta property="og:description" content={description}>
     <meta property="og:url" content={canonical}>
     <meta property="og:image" content={ogImageAbsolute}>
+    {ogMeta?.width && <meta property="og:image:width" content={String(ogMeta.width)}>}
+    {ogMeta?.height && <meta property="og:image:height" content={String(ogMeta.height)}>}
     <meta property="og:image:alt" content={title}>
     <meta property="og:locale" content="en_US">
 
