@@ -9,21 +9,26 @@
 /* ─── CSS VARIABLES ─── */
 :root {
   --green-900: #0f3d13;
-  --green-800: #186b1e;
-  --green-700: #239B2B;
+  --green-800: #145c19;
+  /* Brand green, deepened from #239B2B so text and white-on-green buttons
+     meet WCAG AA 4.5:1 on white, #f5f5f5 and --green-100. */
+  --green-700: #1b7921;
   --green-600: #2db535;
+  /* Original brand green: still AA (4.8:1) on the dark heroes and --dark, so
+     highlights on dark photos keep their exact colour. */
+  --green-on-dark: #239B2B;
   --green-500: #45c64d;
   --green-400: #6fd476;
   --green-100: #e8f7e9;
   --green-50:  #f2fbf3;
-  --orange:        #239B2B;
-  --orange-hover:  #186b1e;
+  --orange:        #1b7921;
+  --orange-hover:  #145c19;
   --orange-light:  #e8f7e9;
   --dark:      #1a1a1a;
   --dark-800:  #2a2a2a;
   --dark-700:  #333;
   --gray-600:  #555;
-  --gray-400:  #999;
+  --gray-400:  #6b6b6b;
   --gray-200:  #e0e0e0;
   --gray-100:  #f5f5f5;
   --white:     #ffffff;

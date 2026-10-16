@@ -32,7 +32,7 @@
   top: -100px;
   left: 16px;
   z-index: 9999;
-  background: var(--green-700, #239B2B);
+  background: var(--green-700, #1b7921);
   color: #fff;
   padding: 12px 20px;
   border-radius: 6px;
@@ -204,7 +204,7 @@ h1, h2, h3 {
 
 .page-hero h1 em {
   font-style: normal;
-  color: var(--h1-em-color, var(--green-700));
+  color: var(--h1-em-color, var(--green-on-dark));
 }
 
 .page-hero p {
@@ -266,7 +266,7 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ─── SECTION WRAPPER PATTERNS ─── */
@@ -461,13 +461,13 @@ h1, h2, h3 {
   justify-content: center;
 }
 
-/* Inverted (for dark/green backgrounds) */
+/* Inverted (for dark/green backgrounds): the lighter green keeps AA contrast on dark */
 .section-label.inverted {
-  color: var(--green-700);
+  color: var(--green-500);
 }
 
 .section-label.inverted::before {
-  background: var(--green-700);
+  background: var(--green-500);
 }
 
 .section-label.orange {
@@ -693,8 +693,8 @@ h1, h2, h3 {
   color: var(--white);
 }
 
-.testimonials .section-label { color: var(--green-700); }
-.testimonials .section-label::before { background: var(--green-700); }
+.testimonials .section-label { color: var(--green-500); }
+.testimonials .section-label::before { background: var(--green-500); }
 .testimonials .reviews-summary-text { color: var(--white); }
 .testimonials .reviews-summary-text span { color: rgba(255,255,255,0.5); }
 .testimonials .review-card {
@@ -709,7 +709,7 @@ h1, h2, h3 {
 .testimonials .review-text { color: rgba(255,255,255,0.7); }
 .testimonials .review-text::before { color: var(--green-700); }
 .testimonials .review-name { color: var(--white); }
-.testimonials .review-source { color: rgba(255,255,255,0.4); }
+.testimonials .review-source { color: rgba(255,255,255,0.65); }
 .testimonials .review-meta { border-top-color: rgba(255,255,255,0.08); }
 .testimonials .review-avatar { background: var(--orange); }
 .testimonials .reviews-cta a { color: var(--green-700); }
