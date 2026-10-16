@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
+import { unified } from '@astrojs/markdown-remark';
 import mediaVariants from './integrations/media-variants.mjs';
 import { readFileSync, writeFileSync, readdirSync, copyFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -136,6 +137,13 @@ export default defineConfig({
   // the trailing-slash version, so internal links must always carry the
   // trailing slash to avoid shipping a redirect hop.
   trailingSlash: 'always',
+  // Astro 7 defaults to JSX-style whitespace stripping, which drops the space
+  // between text and an inline element on the next source line. Keep the
+  // HTML-aware compression the site was built with.
+  compressHTML: true,
+  // Astro 7's default Markdown processor (Sätteri) renders differently; keep
+  // the remark/rehype pipeline so blog posts and their heading IDs are stable.
+  markdown: { processor: unified() },
   integrations: [
     // Writes public/media/opt/*.webp before public/ is copied into dist.
     mediaVariants(),

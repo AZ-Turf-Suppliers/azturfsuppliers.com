@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Icon from '../../components/Icon.astro';
 import site from '../../data/site.json';
@@ -7,17 +7,17 @@ import site from '../../data/site.json';
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 interface Props { post: CollectionEntry<'blog'>; }
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
-const pageUrl = `${siteUrl}/blog/${post.slug}/`;
+const pageUrl = `${siteUrl}/blog/${post.id}/`;
 const monthYear = post.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
 const articleSchema = {
@@ -40,7 +40,7 @@ const articleSchema = {
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Blog', url: '/blog/' },
-  { name: post.data.title, url: `/blog/${post.slug}/` },
+  { name: post.data.title, url: `/blog/${post.id}/` },
 ];
 ---
 
