@@ -7,7 +7,7 @@ const all = await getCollection('blog', ({ data }) => !data.draft);
 const posts = all
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .map((post) => ({
-    slug: post.slug,
+    slug: post.id,
     title: post.data.title,
     excerpt: post.data.description,
     date: post.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
