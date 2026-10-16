@@ -14,24 +14,30 @@ function escapeJs(s) {
     '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0'));
 }
 
-function renderResponse({ status, content, kind }) {
+function renderResponse({ origin, status, content }) {
   // Sveltia/Decap-style postMessage protocol: parent listens for messages
   // starting with `authorization:github:`. The string is parsed as JSON.
   const message = `authorization:github:${status}:${JSON.stringify(content)}`;
   const safe = escapeJs(message);
 
+  // The token is only ever posted to this site's own origin. Posting to '*'
+  // would hand it to any page that opened /api/auth in a popup, and GitHub
+  // skips the consent screen for users who have approved the app before.
   return new Response(
     `<!doctype html>
 <html><body><script>
 (function () {
+  var origin = '${escapeJs(origin)}';
   function send() {
     if (!window.opener) {
       document.body.textContent = 'Authentication ${status}. You can close this window.';
       return;
     }
-    window.opener.postMessage('${safe}'.replace(/\\\\u([0-9a-f]{4})/gi, (_, h) => String.fromCharCode(parseInt(h, 16))), '*');
+    window.opener.postMessage('${safe}'.replace(/\\\\u([0-9a-f]{4})/gi, (_, h) => String.fromCharCode(parseInt(h, 16))), origin);
   }
-  window.addEventListener('message', send, false);
+  window.addEventListener('message', function (e) {
+    if (e.origin === origin) send();
+  }, false);
   send();
 })();
 </script></body></html>`,
@@ -63,10 +69,10 @@ export async function onRequestGet(context) {
   const errorParam = url.searchParams.get('error');
 
   if (errorParam) {
-    return renderResponse({ status: 'error', content: { message: errorParam } });
+    return renderResponse({ origin: url.origin, status: 'error', content: { message: errorParam } });
   }
   if (!code || !state) {
-    return renderResponse({ status: 'error', content: { message: 'Missing code or state from GitHub.' } });
+    return renderResponse({ origin: url.origin, status: 'error', content: { message: 'Missing code or state from GitHub.' } });
   }
 
   // Verify CSRF state matches the cookie we set in /api/auth
@@ -74,7 +80,7 @@ export async function onRequestGet(context) {
   const match = cookie.match(/(?:^|;\s*)sveltia_oauth_state=([^;]+)/);
   const cookieState = match ? match[1] : null;
   if (!cookieState || cookieState !== state) {
-    return renderResponse({ status: 'error', content: { message: 'OAuth state mismatch.' } });
+    return renderResponse({ origin: url.origin, status: 'error', content: { message: 'OAuth state mismatch.' } });
   }
 
   // Exchange the code for an access token
@@ -95,18 +101,20 @@ export async function onRequestGet(context) {
       }),
     });
   } catch (e) {
-    return renderResponse({ status: 'error', content: { message: 'GitHub token request failed.' } });
+    return renderResponse({ origin: url.origin, status: 'error', content: { message: 'GitHub token request failed.' } });
   }
 
   const tokenData = await tokenResp.json().catch(() => ({}));
   if (tokenData.error || !tokenData.access_token) {
     return renderResponse({
+      origin: url.origin,
       status: 'error',
       content: { message: tokenData.error_description || tokenData.error || 'No access_token returned.' },
     });
   }
 
   return renderResponse({
+    origin: url.origin,
     status: 'success',
     content: { token: tokenData.access_token, provider: 'github' },
   });

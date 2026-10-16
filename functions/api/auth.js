@@ -23,7 +23,9 @@ export async function onRequestGet(context) {
   }
 
   const url = new URL(request.url);
-  const scope = url.searchParams.get('scope') || env.GITHUB_OAUTH_SCOPE || 'repo,user';
+  // Scope comes from server config only; a ?scope= override would let any link
+  // request broader access than the CMS needs.
+  const scope = env.GITHUB_OAUTH_SCOPE || 'repo,user';
 
   // CSRF-resistant state: opaque random value bounced back through GitHub.
   // Stored as a short-lived cookie that /api/callback verifies.
