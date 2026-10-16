@@ -9,10 +9,10 @@ const introParas = page.intro.body.split('\n\n');
 ---
 
 <Layout
+  heroImage={page.heroImage}
   title={page.meta.title}
   description={page.meta.description}
 >
-<style is:global set:html={`.page-hero::before { background-image: url("${page.heroImage}") !important; }`} />
 <style is:global>
 /* hero image is injected via the inline <style is:global> tag above */
 /* ─── INTRO ─── */

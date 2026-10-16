@@ -2,6 +2,11 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
+import { mediaVariant, SMALL_WIDTH, LARGE_WIDTH } from '../utils/media';
+import sharp from 'sharp';
+// Self-hosted variable Montserrat (one file covers weights 100–900).
+import '@fontsource-variable/montserrat/wght.css';
+import montserratLatin from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
 import '../styles/header.css';
 import '../styles/footer.css';
 import '../styles/shared.css';
@@ -23,21 +28,42 @@ interface Props {
   // Trail used to build a BreadcrumbList. Leave undefined on the home page
   // and any page where breadcrumbs are not appropriate (404, thank-you).
   breadcrumbs?: BreadcrumbItem[];
+  // Background photo for the page's hero (.page-hero, or the homepage hero).
+  // Phones get the small generated copy, desktops the large one, and only
+  // the size the viewport will use is preloaded.
+  heroImage?: string;
 }
 
 const {
   title,
   description = 'Premium artificial turf and landscaping supplies based in Queen Creek and serving all of Arizona.',
-  ogImage = '/media/logo.png',
+  // 1200×630 share card; the logo alone was below Facebook's/X's minimums.
+  ogImage = '/media/og-default.jpg',
   ogType = 'website',
   noindex = false,
   schema,
   breadcrumbs,
+  heroImage,
 } = Astro.props;
+
+const HERO_BREAKPOINT = 800;
+const heroSm = heroImage ? mediaVariant(heroImage, SMALL_WIDTH) : null;
+const heroLg = heroImage ? mediaVariant(heroImage, LARGE_WIDTH) : null;
+// Quote the CMS-supplied path for CSS url(); escaping '<' keeps it from
+// closing the <style> element.
+const cssUrl = (u: string | null) => `url(${JSON.stringify(u).replace(/</g, '\\3c ')})`;
+const heroVars = heroImage
+  ? `:root{--hero-sm:${cssUrl(heroSm)};--hero-lg:${cssUrl(heroLg)}}`
+  : null;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://azturfsuppliers.com';
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageAbsolute = new URL(ogImage, siteUrl).toString();
+// Declared dimensions let Facebook/LinkedIn render the large preview on the
+// first share instead of after fetching the image.
+const ogMeta = ogImage.startsWith('/media/')
+  ? await sharp(`public${ogImage}`).metadata().catch(() => null)
+  : null;
 const isHome = Astro.url.pathname === '/';
 
 const localBusinessSchema = {
@@ -97,6 +123,8 @@ const extraSchemas: object[] = schema
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Must sit within the first 1024 bytes, ahead of the GTM and attribution scripts. -->
+    <meta charset="UTF-8">
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -252,13 +280,12 @@ const extraSchemas: object[] = schema
       document.addEventListener('astro:page-load', run);
     })();</script>
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="1351D07E955C5D02C038BDC19066EBCA" />
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'}>
-    <meta name="theme-color" content="#239B2B">
+    <meta name="theme-color" content="#1b7921">
     <link rel="canonical" href={canonical}>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -270,6 +297,8 @@ const extraSchemas: object[] = schema
     <meta property="og:description" content={description}>
     <meta property="og:url" content={canonical}>
     <meta property="og:image" content={ogImageAbsolute}>
+    {ogMeta?.width && <meta property="og:image:width" content={String(ogMeta.width)}>}
+    {ogMeta?.height && <meta property="og:image:height" content={String(ogMeta.height)}>}
     <meta property="og:image:alt" content={title}>
     <meta property="og:locale" content="en_US">
 
@@ -281,14 +310,16 @@ const extraSchemas: object[] = schema
     <meta name="twitter:image:alt" content={title}>
 
     <!-- DNS prefetch for third-party origins -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    {!isHome && (
-      <link rel="preload" as="image" href="/media/natural-series-turf-1.jpg" />
+    <link rel="preload" as="font" type="font/woff2" href={montserratLatin} crossorigin>
+
+    {heroImage && (
+      <>
+        <link rel="preload" as="image" href={heroSm} media={`(max-width: ${HERO_BREAKPOINT}px)`} fetchpriority="high" />
+        <link rel="preload" as="image" href={heroLg} media={`(min-width: ${HERO_BREAKPOINT + 1}px)`} fetchpriority="high" />
+        <style is:global set:html={heroVars} />
+      </>
     )}
 
     {isHome && (

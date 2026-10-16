@@ -29,6 +29,15 @@ export async function getStaticPaths() {
 
 interface Props { type: 'city' | 'turf'; data: any; }
 const { type, data } = Astro.props;
+
+// Google treats an Offer whose priceValidUntil has passed as stale. Use the
+// editor's date when it is still in the future; otherwise roll forward to
+// the end of next year, so any build is valid for at least a year.
+function priceValidUntil(cmsDate?: string): string {
+  const today = new Date().toISOString().slice(0, 10);
+  if (cmsDate && cmsDate > today) return cmsDate;
+  return `${new Date().getFullYear() + 1}-12-31`;
+}
 const { slug } = Astro.params;
 
 let title: string;
@@ -63,7 +72,7 @@ if (type === 'city') {
       url: `${siteUrl}/${slug}/`,
       priceCurrency: 'USD',
       price: data.productSchema.price,
-      priceValidUntil: data.productSchema.priceValidUntil,
+      priceValidUntil: priceValidUntil(data.productSchema.priceValidUntil),
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', name: 'AZ Turf Suppliers' },
@@ -78,6 +87,7 @@ if (type === 'city') {
 ---
 
 <Layout
+  heroImage={data.heroImage}
   title={title}
   description={description}
   ogImage={ogImage}

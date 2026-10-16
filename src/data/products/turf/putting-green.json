@@ -8,8 +8,7 @@
     "name": "Putting Green Turf",
     "image": "/media/putting-green-side.png",
     "description": "Putting green turf with a tight, true-roll surface for backyard putting greens, practice areas, and landscape accents.",
-    "price": "1.70",
-    "priceValidUntil": "2026-12-31"
+    "price": "1.70"
   },
   "heroImage": "/media/putting-hero.jpg",
   "hero": {

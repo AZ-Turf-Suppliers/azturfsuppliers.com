@@ -589,7 +589,8 @@ collections:
           - { name: description,     label: Short Description,       widget: text }
           - { name: price,           label: 'Price (number only)',   widget: string,
               hint: 'Just the number, no $. Must match what is displayed below.' }
-          - { name: priceValidUntil, label: 'Price Valid Until (YYYY-MM-DD)', widget: string }
+          - { name: priceValidUntil, label: 'Price Valid Until (YYYY-MM-DD)', widget: string, required: false,
+              hint: 'Optional. Leave blank to use the end of next year, refreshed on every deploy.' }
 
       - { name: heroImage, label: Hero Background Image, widget: image }
 

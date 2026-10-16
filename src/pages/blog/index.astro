@@ -7,7 +7,7 @@ const all = await getCollection('blog', ({ data }) => !data.draft);
 const posts = all
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .map((post) => ({
-    slug: post.slug,
+    slug: post.id,
     title: post.data.title,
     excerpt: post.data.description,
     date: post.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
@@ -17,9 +17,8 @@ const posts = all
   }));
 ---
 
-<Layout title="Blog | AZ Turf Suppliers — Queen Creek, AZ" description="Practical, no-fluff guides on artificial turf, pavers, and landscaping in Arizona's climate.">
+<Layout heroImage="/media/turf-hero-12.jpg" title="Blog | AZ Turf Suppliers — Queen Creek, AZ" description="Practical, no-fluff guides on artificial turf, pavers, and landscaping in Arizona's climate.">
 <style is:global>
-.page-hero::before { background-image: url("/media/turf-hero-12.jpg") !important; }
 
 .blog-list {
   padding: 88px 0;

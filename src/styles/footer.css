@@ -7,6 +7,8 @@
 footer#footer {
   background: var(--dark);
   padding: 64px 0 0;
+  /* Lighter gray than the site default so footer text keeps AA contrast on dark */
+  --gray-400: #a6a6a6;
 }
 
 .footer-grid {
@@ -85,7 +87,7 @@ footer#footer {
 }
 
 .footer-col a:hover {
-  color: var(--green-700);
+  color: var(--green-500);
   padding-left: 4px;
 }
 
@@ -158,7 +160,7 @@ footer#footer {
   transition: color 0.2s !important;
 }
 
-.footer-phone:hover { color: var(--green-700) !important; }
+.footer-phone:hover { color: var(--green-500) !important; }
 
 .footer-directions {
   display: inline-flex;
@@ -168,7 +170,7 @@ footer#footer {
   font-weight: 600 !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  color: var(--green-700) !important;
+  color: var(--green-500) !important;
   padding: 0 !important;
   transition: gap 0.2s, color 0.2s !important;
 }

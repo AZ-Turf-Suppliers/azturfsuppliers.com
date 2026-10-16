@@ -19,6 +19,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 ---
 
 <Layout
+  heroImage={page.hero.fallbackImage}
   title={page.meta.title}
   description={page.meta.description}
   ogImage={page.meta.ogImage}
@@ -40,8 +41,14 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  /* Poster shown until the video loads; Layout sets the variables from
+     hero.fallbackImage (phone and desktop sizes, breakpoint 800px). */
+  background-image: var(--hero-lg);
   background-size: cover;
   background-position: center;
+}
+@media (max-width: 800px) {
+  .hero-video-wrap { background-image: var(--hero-sm); }
 }
 .hero-video-wrap video {
   position: absolute;
@@ -102,7 +109,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 .hero h1 em {
   font-style: normal;
-  color: var(--green-700);
+  color: var(--green-on-dark);
 }
 
 .hero-desc {
@@ -276,7 +283,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   gap: 6px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--green-700);
+  color: var(--green-500); /* sits on the dark card */
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 4px;
@@ -536,7 +543,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 .confidence-icon svg { width: 30px; height: 30px; color: var(--green-700); }
 .confidence-item h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--white);
@@ -562,6 +569,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   background: var(--green-700);
   position: relative;
 }
+.why-turf-img img { width: 100%; height: 100%; object-fit: cover; }
 .why-turf-img-placeholder {
   width: 100%;
   height: 100%;
@@ -595,7 +603,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   background: none;
   border: none;
   text-align: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   transition: all 0.2s;
 }
 .benefit-header:hover { padding-left: 8px; }
@@ -611,7 +619,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 .benefit-icon svg { width: 30px; height: 30px; color: var(--green-700); }
 .benefit-header h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   flex: 1;
@@ -686,7 +694,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 .choose-turf-card .card-icon svg { width: 28px; height: 28px; color: var(--green-700); }
 .choose-turf-card h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 10px;
@@ -741,7 +749,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase;
   font-size: 2rem;
   color: var(--green-700);
 }
@@ -916,7 +924,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 }
 .contact-method .cm-icon svg { width: 28px; height: 28px; color: var(--green-700); }
 .contact-method h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Variable', 'Montserrat', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 2px;
@@ -1087,8 +1095,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
        it doesn't block initial paint or compete with critical resources -->
   <div
     class="hero-video-wrap"
-    data-youtube-id={page.hero.youtubeId}
-    style={`background-image: url('${page.hero.fallbackImage}')`}>
+    data-youtube-id={page.hero.youtubeId}>
   </div>
 
   <!-- Dark gradient overlay -->
@@ -1433,7 +1440,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
           <input type="hidden" name="utmgclid">
           <div class="form-row">
             <div class="form-group">
-              <label for="home-firstName">First Name</label>
+              <label for="home-firstName">First Name <span class="req" aria-hidden="true">*</span></label>
               <input id="home-firstName" type="text" name="firstName" placeholder="John" required>
             </div>
             <div class="form-group">
@@ -1443,7 +1450,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="home-email">Email</label>
+              <label for="home-email">Email <span class="req" aria-hidden="true">*</span></label>
               <input id="home-email" type="email" name="email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
@@ -1474,7 +1481,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
               <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-size="flexible"></div>
             </div>
           )}
-          <div id="home-form-status" style="display:none;padding:12px 16px;border-radius:8px;font-size:0.9rem;margin-bottom:12px;"></div>
+          <div id="home-form-status" role="alert" style="display:none;padding:12px 16px;border-radius:8px;font-size:0.9rem;margin-bottom:12px;"></div>
           <button type="submit" id="home-submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">
             <span class="home-submit-btn-label">Send Message</span>
             <Icon name="arrow-right" size={16} />
